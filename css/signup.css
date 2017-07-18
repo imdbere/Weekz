@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  min-width: 800px;
+  min-width: 1000px;
 }
 
 /* ----- Bar -----*/
@@ -10,7 +10,7 @@ div.bar {
   display: block;
   overflow: hidden;
   width: 100vw;
-  min-width: 800px;
+  min-width: 1000px;
   height: 60px;
   box-shadow: 0px 0px 10px #B4B4B4;
 }
@@ -44,7 +44,7 @@ div.background {
   position: relative;
   display: block;
   width: 100vw;
-  min-width: 800px;
+  min-width: 1000px;
   height: calc(65vh - 60px);
   min-height: 450px;
   background: url(../res/image.jpeg);
@@ -58,7 +58,7 @@ div.content {
   position: relative;
   display: block;
   width: 100vw;
-  min-width: 800px;
+  min-width: 1000px;
   height: 35vh;
   min-height: 350px;
   background: #7AC843;
@@ -78,7 +78,7 @@ div.box {
   box-shadow: 0px 0px 10px #929292;
 }
 
-form.signup {
+div.signup {
   position: relative;
   display: block;
   width: 100%;
@@ -86,7 +86,7 @@ form.signup {
   transform: translate(0, -50%);
 }
 
-form.signup div.left {
+div.signup div.left {
   position: relative;
   display: inline-block;
   width: 50%;
@@ -95,7 +95,7 @@ form.signup div.left {
   margin-bottom: 30px;
 }
 
-form.signup div.right {
+div.signup div.right {
   position: relative;
   display: inline-block;
   width: 50%;
@@ -104,14 +104,14 @@ form.signup div.right {
   margin-bottom: 30px;
 }
 
-form.signup img {
+div.signup img {
   position: relative;
   display: block;
   width: 100px;
   margin: auto;
 }
 
-form.signup input {
+div.signup input {
   position: relative;
   display: block;
   width: 70%;
@@ -127,11 +127,11 @@ form.signup input {
   background: #F1F1F1;
 }
 
-form.signup div.left input:last-of-type {
+div.signup div.left input:last-of-type {
   margin-top: 60px;
 }
 
-form.signup a.forgot {
+div.signup a.forgot {
   position: relative;
   display: block;
   text-align: center;
@@ -143,7 +143,7 @@ form.signup a.forgot {
   margin-top: 15px;
 }
 
-form.signup button {
+div.signup button {
   position: relative;
   display: block;
   width: 70%;
@@ -156,9 +156,10 @@ form.signup button {
   font-weight: 700;
   font-size: 20px;
   color: white;
+  outline: none;
 }
 
-form.signup p::before {
+div.signup p::before {
   content: "";
   position: relative;
   display: block;
@@ -170,7 +171,7 @@ form.signup p::before {
   clear: both;
 }
 
-form.signup p {
+div.signup p {
   position: relative;
   display: block;
   text-align: center;
@@ -178,7 +179,7 @@ form.signup p {
   z-index: -10;
 }
 
-form.signup p a {
+div.signup p a {
   font-weight: 700;
   color: #FF514C;
   text-decoration: none;
