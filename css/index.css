@@ -116,16 +116,17 @@ div.text h1 span {
 div.text a {
   position: relative;
   display: block;
-  width: 120px;
+  width: 150px;
   font-family: 'Montserrat';
   font-weight: 700;
   text-decoration: none;
   color: white;
-  padding: 15px 20px 15px 20px;
+  padding: 15px 0px 15px 0px;
   background: #FF514C;
   border-radius: 20px;
   margin-top: 30px;
   margin-left: calc(60px + 4vw);
+  text-align: center;
 }
 
 div.box img.landingImg {
