@@ -33,42 +33,31 @@
     const auth = firebase.auth();
     const ref = firebase.database().ref();
 
+    function resetBorders() {
+      txtLastname.style.border = "none";
+      txtFirstname.style.border = "none";
+      txtEmail.style.border = "none";
+      txtPassword1.style.border = "none";
+      txtPassword2.style.border = "none";
+    }
+
     if (first == "") {
+      resetBorders();
       txtFirstname.style.border = "1px solid #FF514C";
-      txtLastname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword1.style.border = "none";
-      txtPassword2.style.border = "none";
     } else if (last == "") {
+      resetBorders();
       txtLastname.style.border = "1px solid #FF514C";
-      txtFirstname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword1.style.border = "none";
-      txtPassword2.style.border = "none";
     } else if (email == "") {
+      resetBorders();
       txtEmail.style.border = "1px solid #FF514C";
-      txtFirstname.style.border = "none";
-      txtLastname.style.border = "none";
-      txtPassword1.style.border = "none";
-      txtPassword2.style.border = "none";
     } else if (pass1 == "") {
+      resetBorders();
       txtPassword1.style.border = "1px solid #FF514C";
-      txtFirstname.style.border = "none";
-      txtLastname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword2.style.border = "none";
     } else if (pass2 == "") {
+      resetBorders();
       txtPassword2.style.border = "1px solid #FF514C";
-      txtFirstname.style.border = "none";
-      txtLastname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword1.style.border = "none";
     } else {
-      txtFirstname.style.border = "none";
-      txtLastname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword1.style.border = "none";
-      txtPassword2.style.border = "none";
+      resetBorders();
 
       if (pass1 == pass2) {
         // Sign up
