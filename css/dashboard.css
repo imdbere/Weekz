@@ -1,6 +1,10 @@
 body {
   margin: 0;
-  min-width: 1000px;
+  min-width: 1550px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /* ----- Bar -----*/
@@ -10,7 +14,7 @@ div.bar {
   display: block;
   overflow: hidden;
   width: 100vw;
-  min-width: 1000px;
+  min-width: 1550px;
   height: 60px;
   box-shadow: 0px 0px 10px #B4B4B4;
 }
@@ -42,7 +46,9 @@ div.heading {
   position: relative;
   display: block;
   width: 100vw;
+  min-width: 1550px;
   height: 80px;
+  z-index: 100;
 }
 
 div.heading button {
@@ -57,19 +63,25 @@ div.heading button {
   font-size: 14px;
   color: white;
   margin-top: 25px;
+  outline: none;
 }
 
 div.heading button#previous {
   background: #3FA8F4;
   float: left;
   margin-left: 40px;
+  transition: 0.3s;
 }
 
 div.heading button#next {
   background: #FF514C;
   float: right;
   margin-right: 40px;
+  transition: 0.3s;
 }
+
+div.heading button#previous:hover {background: #0581CE}
+div.heading button#next:hover {background: #FF2727}
 
 div.heading h1 {
   position: absolute;
@@ -84,4 +96,125 @@ div.heading h1 {
 
 div.heading h1 span {
   font-weight: 700;
+}
+
+/* ----- Dash -----*/
+
+div.dash {
+  position: relative;
+  display: block;
+  width: 1500px;
+  height: 750px;
+  margin: auto;
+  background: white;
+  box-shadow: 0px 0px 8px #B4B4B4;
+  margin-top: 2vh;
+  margin-bottom: 50px;
+}
+
+div.day {
+  position: relative;
+  display: inline-block;
+  width: 33.3%;
+  height: 49.9%;
+  background: white;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+div#tue::before, div#wed::before, div#fri::before, div#sat::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 1px;
+  height: 300px;
+  background: #CBCBCB;
+  margin-top: 37.5px;
+}
+
+div.day h1 {
+  position: absolute;
+  display: block;
+  top: 0;
+  margin: 35px 0px 0px 30px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 32px;
+}
+
+div#mon h1 {color: #FF514C}
+div#tue h1 {color: #E5E500}
+div#wed h1 {color: #F6921E}
+div#thu h1 {color: #7AC843}
+div#fri h1 {color: #3FA8F4}
+div#sat h1 {color: #662D90}
+
+div.day h2 {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  margin: 40px 30px 0px 0px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+}
+
+div.day button {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 35px;
+  border: none;
+  border-radius: 30px;
+  margin: 0px 30px 30px 0px;
+  color: white;
+  transition: 0.5s;
+  outline: none;
+  z-index: 100;
+}
+
+div#mon button {background: #FF514C; box-shadow: 0px 0px 10px #FF514C;}
+div#tue button {background: #E5E500; box-shadow: 0px 0px 10px #E5E500;}
+div#wed button {background: #F6921E; box-shadow: 0px 0px 10px #F6921E;}
+div#thu button {background: #7AC843; box-shadow: 0px 0px 10px #7AC843;}
+div#fri button {background: #3FA8F4; box-shadow: 0px 0px 10px #3FA8F4;}
+div#sat button {background: #662D90; box-shadow: 0px 0px 10px #662D90;}
+
+div.day:hover button {opacity: 1}
+
+div.day ul {
+  position: absolute;
+  display: block;
+  width: 75%;
+  height: 60%;
+  top: 0;
+  margin: 90px 0px 0px 50px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.task p {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.task input {
+  position: relative;
+  display: inline-block;
+  vertical-align:text-top;
+  width: 25px;
+  height: 25px;
+  float: right;
+  color: #39B44A;
 }

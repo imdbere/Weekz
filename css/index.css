@@ -41,7 +41,10 @@ div.bar a {
   font-size: 15px;
   text-decoration: none;
   color: black;
+  transition: 0.3s;
 }
+
+div.bar a:first-of-type:hover {background: #FF2727}
 
 /* ----- Background -----*/
 
@@ -123,11 +126,14 @@ div.text a {
   color: white;
   padding: 15px 0px 15px 0px;
   background: #FF514C;
-  border-radius: 20px;
+  border-radius: 15px;
   margin-top: 30px;
   margin-left: calc(60px + 4vw);
   text-align: center;
+  transition: 0.3s;
 }
+
+div.text a:hover {background: #FF2727}
 
 div.box img.landingImg {
   position: relative;

@@ -36,7 +36,10 @@ div.bar a {
   color: white;
   background: #FF514C;
   border-radius: 15px;
+  transition: 0.3s;
 }
+
+div.bar a:hover {background: #FF2727}
 
 /* ----- Background -----*/
 
@@ -135,7 +138,10 @@ div.signin button {
   font-size: 20px;
   color: white;
   outline: none;
+  transition: 0.3s;
 }
+
+div.signin button:hover{background: #FF2727}
 
 div.signin p::before {
   content: "";
