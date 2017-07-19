@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/reset.min.css">
     <link rel="stylesheet" href="css/check.css">
+    <link rel="stylesheet" href="css/addTask.css">
 
     <!-- Including Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
@@ -28,122 +29,53 @@
       <div class="day" id="mon">
         <h1>M</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>I hate</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>The stupid fucking scrollbar</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Go away stupid</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Scrollbar di merda</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Dio cane</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Huansohn</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-        </ul>
+        <button type="button" id="monAdd">+</button>
+        <ul id="monList"></ul>
       </div><!--
   --><div class="day" id="tue">
         <h1>T</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>I hate</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>The stupid fucking scrollbar</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-        </ul>
+        <button type="button" id="tueAdd">+</button>
+        <ul id="tueList"></ul>
       </div><!--
   --><div class="day" id="wed">
         <h1>W</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>I hate</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>The stupid fucking scrollbar</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Go away stupid</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Scrollbar di merda</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Dio cane</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Huansohn</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-        </ul>
+        <button type="button" id="wedAdd">+</button>
+        <ul id="wedList"></ul>
       </div><!--
   --><div class="day" id="thu">
         <h1>T</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-        </ul>
+        <button type="button" id="thuAdd">+</button>
+        <ul id="thuList"></ul>
       </div><!--
   --><div class="day" id="fri">
         <h1>F</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>I hate</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>The stupid fucking scrollbar</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Go away stupid</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Scrollbar di merda</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Dio cane</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Huansohn</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-        </ul>
+        <button type="button" id="friAdd">+</button>
+        <ul id="friList"> </ul>
       </div><!--
   --><div class="day" id="sat">
         <h1>S</h1>
         <h2>19.07.17</h2>
-        <button type="button">+</button>
-        <ul>
-          <li class="task"><p>Finish Dashboard Front End Code</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Trying this shit lol</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>I hate</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>The stupid fucking scrollbar</p><input type="checkbox" class="option-input checkbox"></li>
-          <br>
-          <li class="task"><p>Jesus Christ</p><input type="checkbox" class="option-input checkbox"></li>
-        </ul>
+        <button type="button" id="satAdd">+</button>
+        <ul id="satList"></ul>
       </div>
     </div>
+
+    <div class="addTask" id="addTask">
+      <div class="wrapper">
+        <button type="button" id="closeBtn">X</button>
+        <div class="content">
+          <h1>Create New Task for <span id="whatDay">Monday</span></h1>
+          <input type="text" placeholder="New Task" id="taskName">
+          <button type="button" id="addBtn">Add Task</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script/addTask.js"></script>
   </body>
 </html>
