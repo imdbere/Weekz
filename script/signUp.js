@@ -69,7 +69,8 @@
             txtPassword1.style.border = "1px solid #7AC843"
             txtPassword2.style.border = "1px solid #7AC843"
 
-            ref.child("users").child(response.uid).child("info").set({firstname: first, lastname: last});
+            ref.child("users").child(response.uid).child("info").set({firstname: first, lastname: last, email: email});
+            window.location = 'dashboard.html';
           });
         promise.catch(e => console.log(e.message));
 

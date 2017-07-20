@@ -81,7 +81,8 @@ div.addTask button#closeBtn {
   display: block;
   width: 40px;
   height: 40px;
-  margin: 0;
+  border-radius: 20px;
+  margin: 20px;
   top: 0;
   font-size: 15px;
 }

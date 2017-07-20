@@ -47,7 +47,7 @@ div.heading {
   display: block;
   width: 100vw;
   min-width: 1550px;
-  height: 80px;
+  height: 60px;
   z-index: 100;
 }
 
@@ -62,7 +62,7 @@ div.heading button {
   font-weight: 700;
   font-size: 14px;
   color: white;
-  margin-top: 25px;
+  margin-top: 20px;
   outline: none;
 }
 
@@ -91,12 +91,10 @@ div.heading h1 {
   font-size: 25px;
   left: 50%;
   transform: translate(-50%,0);
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
-div.heading h1 span {
-  font-weight: 700;
-}
+div.heading h1 span {font-weight: 700}
 
 /* ----- Dash -----*/
 
@@ -104,11 +102,11 @@ div.dash {
   position: relative;
   display: block;
   width: 1500px;
-  height: 750px;
+  height: 720px;
   margin: auto;
   background: white;
   box-shadow: 0px 0px 8px #B4B4B4;
-  margin-top: 1vh;
+  margin-top: 15px;
   margin-bottom: 50px;
 }
 
@@ -160,7 +158,7 @@ div.day h2 {
   font-size: 16px;
 }
 
-div.day button {
+div.day button.addBtn {
   position: absolute;
   display: block;
   opacity: 0;
@@ -187,19 +185,20 @@ div#thu button {background: #7AC843; box-shadow: 0px 0px 10px #7AC843;}
 div#fri button {background: #3FA8F4; box-shadow: 0px 0px 10px #3FA8F4;}
 div#sat button {background: #662D90; box-shadow: 0px 0px 10px #662D90;}
 
-div.day:hover button {opacity: 1}
+div.day:hover button.addBtn {opacity: 1}
 
 div.day ul {
   position: absolute;
   display: block;
-  width: 75%;
+  width: 80%;
   height: 60%;
   top: 0;
   margin: 90px 0px 0px 50px;
   overflow: hidden;
   overflow-y: scroll;
-  padding-right: 10px;
 }
+
+/* ----- Task  -----*/
 
 .task p {
   position: relative;
@@ -207,6 +206,7 @@ div.day ul {
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .task input {
@@ -218,3 +218,144 @@ div.day ul {
   float: right;
   color: #39B44A;
 }
+
+.task button#delete {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  float: right;
+  width: 25px;
+  height: 25px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  transition: 0.2s;
+}
+
+.task:hover button#delete {
+  opacity: 1;
+}
+
+.task button#delete:hover svg .fill  {
+  fill: red;
+  transition: 0.3s;
+}
+
+.task svg {
+  position: relative;
+  display: block;
+}
+
+.task svg .fill {
+  fill: #C0CECB;
+}
+
+.noFill {
+  fill: none;
+}
+
+.toggle {
+  color: #9FAAB7;
+}
+
+/* ----- Menu -----*/
+
+div.menu {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: rgba(40, 40, 40, 0.8);
+  transition: 0.5s;
+  z-index: -1000;
+}
+
+div.menu div.content {
+  position: relative;
+  display: block;
+  float: right;
+  width: 0px;
+  height: 100vh;
+  background: white;
+  box-shadow: 0px 0px 8px #444;
+  transition: 0.3s;
+}
+
+div.menu button#closeMenuBtn {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  margin: 20px 0px 0px 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  background: #FF514C;
+  box-shadow: 0px 0px 10px #FF514C;
+  transition: 0.3s;
+}
+
+div.menu button#closeMenuBtn:hover {background: #FF2727}
+
+div.menu div.content h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 26px;
+  margin-top: 50px;
+}
+
+div.menu div.content h2 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 18px;
+}
+
+div.menu div.content a {
+  position: relative;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  margin: 15px 0px 0px 40px;
+}
+
+div.menu div.content a:first-of-type {margin-top: 60px}
+
+div.menu button#signOut {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 60%;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 40px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  background: #FF514C;
+  box-shadow: 0px 0px 10px #FF514C;
+  transition: 0.3s;
+}
+
+div.menu button#signOut:hover {background: #FF2727}

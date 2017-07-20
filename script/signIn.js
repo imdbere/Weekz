@@ -36,11 +36,12 @@
         .then(function(response) {
           txtEmail.style.border = "1px solid #7AC843"
           txtPassword.style.border = "1px solid #7AC843"
+          window.location = 'dashboard.html';
         });
       promise.catch(e => {
         txtEmail.style.border = "1px solid #FF514C";
         txtPassword.style.border = "1px solid #FF514C";
-        
+
         console.log(e.message)
       });
     }
