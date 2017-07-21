@@ -14,10 +14,12 @@
 
   // Open Menu
   open.addEventListener('click', function() {
-    back.style.zIndex = "1000";
-    back.style.opacity = "1"
+    back.style.zIndex = "2000";
     sleep(200).then(() => {
-      menu.style.width = "350px";
+      back.style.opacity = "1"
+      sleep(150).then(() => {
+        menu.style.width = "350px";
+      });
     });
   });
 
@@ -25,7 +27,7 @@
   close.addEventListener('click', function() {
     menu.style.width = "0px";
     back.style.opacity = "0";
-    sleep(500).then(() => {
+    sleep(350).then(() => {
       back.style.zIndex = "-1000";
     });
   });
