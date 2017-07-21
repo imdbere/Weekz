@@ -7,30 +7,14 @@
   const nameLabel = document.getElementById('userName');
   const mailLabel = document.getElementById('userEmail');
 
-  // Remove Task
-  function removeTask() {
-    var task = this.parentNode;
-    var list = task.parentNode;
-
-    list.removeChild(task);
-  };
-
-  // Mark Task as done
-  function taskDone() {
-    var task = this.parentNode;
-    var taskText = task.children[2];
-
-    taskText.classList.toggle('toggle');
-  };
-
   //-------------------------------------
   //-----Communication with Database-----
   //-------------------------------------
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      var userId = firebase.auth().currentUser.uid;
 
+      var userId = firebase.auth().currentUser.uid;
       // Declaring Database Reference
       const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child('week1');
 
@@ -38,8 +22,6 @@
       dataRef.once('value', function(week) {
         week.forEach(function(day) {
           day.forEach(function(taskid) {
-            taskid.forEach(function(task) {
-              console.log(taskid.val());
 
               li = document.createElement('li');
               li.className = "task";
@@ -51,26 +33,53 @@
               var deleteBtn = document.createElement('button');
               deleteBtn.id = "delete"
               deleteBtn.innerHTML = deleteBtnIcon;
-
               var p = document.createElement('p');
-              p.innerText = task.val();
+              p.innerText = taskid.val().taskValue;
+
+              if (taskid.val().checked == true) {
+                p.classList.add('toggle');
+                check.checked = true;
+              }
+
               li.appendChild(deleteBtn);
               li.appendChild(check);
               li.appendChild(p);
+              li.id = taskid.key;
 
               var addDay = day.key;
-              console.log(addDay);
 
               var rightList = document.getElementById(addDay);
-              console.log(rightList);
-
               rightList.appendChild(li);
 
               // Make Items deletable
               deleteBtn.addEventListener('click', removeTask);
               // Change appearance of checked task
               check.addEventListener('click', taskDone)
-            });
+
+              // Remove Task
+              function removeTask() {
+                var task = this.parentNode;
+                var id = task.id;
+                var list = task.parentNode;
+
+                list.removeChild(task);
+                dataRef.child(addDay).child(id).remove();
+              };
+
+              // Mark Task as done
+              function taskDone() {
+                var task = this.parentNode;
+                var id = task.id;
+                var taskText = task.children[2];
+
+                if (check.checked == true) {
+                  taskText.classList.toggle('toggle');
+                  dataRef.child(addDay).child(id).update({checked: true});
+                } else {
+                  taskText.classList.toggle('toggle');
+                  dataRef.child(addDay).child(id).update({checked: false});
+                };
+              };
           });
         });
       });
@@ -88,9 +97,4 @@
       console.log("not logged in");
     };
   });
-
-  //-------------------------------------
-  //---------Client Side Handling--------
-  //-------------------------------------
-
 }());
