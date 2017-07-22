@@ -22,7 +22,8 @@
   // Get Elements
   const menu = document.getElementById('addTask');
   const day = document.getElementById('whatDay');
-  const taskValue = document.getElementById('taskName');
+  const taskName = document.getElementById('taskName');
+  const taskDesc = document.getElementById('taskDesc');
   const addBtn = document.getElementById('addBtn');
   const closeBtn = document.getElementById('closeBtn');
 
@@ -146,10 +147,25 @@
       });
     };
 
+    // Show Detail View
+    function showDetail() {
+      var item = this.parentNode
+      console.log(item);
+      var detailView = item.children[3];
+      console.log(detailView);
+      if (detailView.style.opacity == "1") {
+        detailView.style.opacity = "0";
+        detailView.style.display = "none";
+      } else {
+        detailView.style.opacity = "1";
+        detailView.style.display = "block";
+      }
+    };
+
     addBtn.addEventListener('click', function() {
 
-      if (taskValue.value.trim() == "") {
-        taskValue.style.border = "1px solid #FF514C"
+      if (taskName.value.trim() == "") {
+        taskName.style.border = "1px solid #FF514C"
       } else {
 
         li = document.createElement('li');
@@ -164,21 +180,32 @@
         deleteBtn.innerHTML = deleteBtnIcon;
 
         var p = document.createElement('p');
-        p.innerText = taskValue.value;
+        p.innerText = taskName.value;
+
+        var detailDiv = document.createElement('div');
+        detailDiv.classList.add('detail');
+        var detailP = document.createElement('p');
+        detailP.innerText = taskDesc.value;
+        detailDiv.appendChild(detailP);
+
         li.appendChild(deleteBtn);
         li.appendChild(check);
         li.appendChild(p);
+        li.appendChild(detailDiv);
 
         var key = dataRef.child(list.id).push().key;
         console.log(key);
-        var newEntry = dataRef.child(list.id).child(key).update({taskValue: taskValue.value, checked: false});
+        var newEntry = dataRef.child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
         li.id = key;
 
         list.appendChild(li);
 
         // Make Items deletable
         deleteBtn.addEventListener('click', removeTask);
-        check.addEventListener('click', taskDone)
+        // Change appearance of checked task
+        check.addEventListener('click', taskDone);
+        // Show Detail View
+        p.addEventListener('click', showDetail);
         hideAddMenu();
       };
     });
@@ -193,9 +220,10 @@
 
     // Close 'New Task' Menu
     function hideAddMenu() {
-      taskValue.style.border = "none";
+      taskName.style.border = "none";
       menu.style.opacity = "0";
-      taskValue.value = "";
+      taskName.value = "";
+      taskDesc.value = "";
       sleep(300).then(() => {
         menu.style.zIndex = "-1000";
       });

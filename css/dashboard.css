@@ -200,6 +200,10 @@ div.day ul {
 
 /* ----- Task  -----*/
 
+/*.task {
+  border: 1px solid black;
+}*/
+
 .task p {
   position: relative;
   display: inline-block;
@@ -258,6 +262,24 @@ div.day ul {
 
 .toggle {
   color: #9FAAB7;
+}
+
+/* ----- Task Detail View -----*/
+
+.detail {
+  margin-top: -10px;
+  opacity: 0;
+  display: none;
+  transition: 0.3s;
+}
+
+.detail p {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 40px;
+  text-align: justify;
 }
 
 /* ----- Menu -----*/

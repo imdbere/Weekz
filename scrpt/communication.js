@@ -34,16 +34,23 @@
               deleteBtn.id = "delete"
               deleteBtn.innerHTML = deleteBtnIcon;
               var p = document.createElement('p');
-              p.innerText = taskid.val().taskValue;
+              p.innerText = taskid.val().taskName;
 
               if (taskid.val().checked == true) {
                 p.classList.add('toggle');
                 check.checked = true;
               }
 
+              var detailDiv = document.createElement('div');
+              detailDiv.classList.add('detail');
+              var detailP = document.createElement('p');
+              detailP.innerText = taskid.val().taskDesc;
+              detailDiv.appendChild(detailP);
+
               li.appendChild(deleteBtn);
               li.appendChild(check);
               li.appendChild(p);
+              li.appendChild(detailDiv);
               li.id = taskid.key;
 
               var addDay = day.key;
@@ -54,7 +61,9 @@
               // Make Items deletable
               deleteBtn.addEventListener('click', removeTask);
               // Change appearance of checked task
-              check.addEventListener('click', taskDone)
+              check.addEventListener('click', taskDone);
+              // Show Detail View
+              p.addEventListener('click', showDetail);
 
               // Remove Task
               function removeTask() {
@@ -79,6 +88,17 @@
                   taskText.classList.toggle('toggle');
                   dataRef.child(addDay).child(id).update({checked: false});
                 };
+              };
+
+              // Show Detail View
+              function showDetail(element) {
+                if (detailDiv.style.opacity == "1") {
+                  detailDiv.style.opacity = "0";
+                  detailDiv.style.display = "none";
+                } else {
+                  detailDiv.style.opacity = "1";
+                  detailDiv.style.display = "block";
+                }
               };
           });
         });
