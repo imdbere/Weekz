@@ -73,7 +73,7 @@ div.heading button#previous {
   transition: 0.3s;
 }
 
-div.heading button#next {
+div.heading button#newWeek {
   background: #FF514C;
   float: right;
   margin-right: 40px;
@@ -81,7 +81,7 @@ div.heading button#next {
 }
 
 div.heading button#previous:hover {background: #0581CE}
-div.heading button#next:hover {background: #FF2727}
+div.heading button#newWeek:hover {background: #FF2727}
 
 div.heading h1 {
   position: absolute;
@@ -279,7 +279,6 @@ div.day ul {
   font-size: 16px;
   padding-left: 20px;
   padding-right: 40px;
-  text-align: justify;
 }
 
 /* ----- Menu -----*/

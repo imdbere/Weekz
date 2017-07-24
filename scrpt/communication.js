@@ -16,7 +16,7 @@
 
       var userId = firebase.auth().currentUser.uid;
       // Declaring Database Reference
-      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child('week1');
+      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek);
 
       // Retrieving Tasks and appending them to Lists
       dataRef.once('value', function(week) {

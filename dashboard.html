@@ -22,44 +22,44 @@
     </div>
     <div class="heading">
       <button type="button" id="previous">PREVIOUS</button>
-      <button type="button" id="next">NEXT</button>
+      <button type="button" id="newWeek">NEXT</button>
       <h1>Your <span>Week</span></h1>
     </div>
     <div class="dash">
       <div class="day" id="mon">
         <h1>M</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date1">19.07.17</h2>
         <button type="button" class="addBtn" id="monAdd">+</button>
         <ul id="monList"></ul>
       </div><!--
   --><div class="day" id="tue">
         <h1>T</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date2">19.07.17</h2>
         <button type="button" class="addBtn" id="tueAdd">+</button>
         <ul id="tueList"></ul>
       </ul>
       </div><!--
   --><div class="day" id="wed">
         <h1>W</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date3">19.07.17</h2>
         <button type="button" class="addBtn" id="wedAdd">+</button>
         <ul id="wedList"></ul>
       </div><!--
   --><div class="day" id="thu">
         <h1>T</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date4">19.07.17</h2>
         <button type="button" class="addBtn" id="thuAdd">+</button>
         <ul id="thuList"></ul>
       </div><!--
   --><div class="day" id="fri">
         <h1>F</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date5">19.07.17</h2>
         <button type="button" class="addBtn" id="friAdd">+</button>
         <ul id="friList"> </ul>
       </div><!--
   --><div class="day" id="sat">
         <h1>S</h1>
-        <h2>19.07.17</h2>
+        <h2 id="date6">19.07.17</h2>
         <button type="button" class="addBtn" id="satAdd">+</button>
         <ul id="satList"></ul>
       </div>
@@ -89,9 +89,14 @@
     </div>
 
     <!-- Scripts -->
+    <script type="text/javascript">
+      var currentWeek = new Date();
+    </script>
     <script src="scrpt/checkAuth.js"></script>
     <script src="scrpt/communication.js"></script>
+    <script src="scrpt/dates.js"></script>
     <script src="scrpt/addTask.js"></script>
+    <script src="scrpt/addWeek.js"></script>
     <script src="scrpt/menu.js"></script>
   </body>
 </html>

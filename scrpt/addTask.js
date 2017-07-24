@@ -44,10 +44,10 @@
 
       var userId = firebase.auth().currentUser.uid;
       // Declaring Database Reference
-      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child('week1');
+      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek);
 
       var buttons = document.querySelectorAll(".addBtn");
-      console.log(buttons);
+      
       var i = 0, length = buttons.length;
       for (i; i < length; i++) {
         if (document.addEventListener) {
@@ -166,6 +166,10 @@
 
       if (taskName.value.trim() == "") {
         taskName.style.border = "1px solid #FF514C"
+        taskDesc.style.border = "none"
+      } else if (taskDesc.value.trim() == "") {
+        taskDesc.style.border = "1px solid #FF514C"
+        taskName.style.border = "none"
       } else {
 
         li = document.createElement('li');
