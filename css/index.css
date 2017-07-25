@@ -72,6 +72,8 @@ div.content {
   background: #FF514C;
 }
 
+/* ----- Landing -----*/
+
 div.box {
   position: absolute;
   display: block;
@@ -81,14 +83,14 @@ div.box {
   margin: auto;
   width: 90vw;
   min-width: calc(1250px*0.9);
-  height: 65vh;
   min-height: 550px;
   background: white;
   box-shadow: 0px 0px 10px #929292;
+  overflow-x: hidden;
 }
 
 div.text {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 48%;
   top: 50%;
@@ -136,8 +138,223 @@ div.text a {
 div.text a:hover {background: #FF2727}
 
 div.box img.landingImg {
+  position: absolute;
+  display: inline-block;
+  height: 550px;
+  left: 40vw;
+  vertical-align: top;
+}
+
+/* ----- Feature 1 -----*/
+
+div.feature {
+  position: relative;
+  display: block;
+  top: 475px;
+  height: 500px;
+  background: white;
+}
+
+div.text2 {
   position: relative;
   display: inline-block;
-  height: 62vh;
-  vertical-align: top;
+  width: 50%;
+  float: left;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+div.text2 h1 {
+  position: relative;
+  display: block;
+  width: 500px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 28px;
+  margin: auto;
+}
+
+div.feature h1 span:first-of-type {color: #FF514C}
+div.feature h1 span:last-of-type {color: #3FA8F4}
+
+div.text2 p {
+  position: relative;
+  display: block;
+  width: 500px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 20px;
+  margin: auto;
+}
+
+div.feature img {
+  position: relative;
+  display: inline-block;
+  height: 500px;
+  float: right;
+  right: 8vw;
+}
+
+/* ----- Feature 2 -----*/
+
+div.feature2 {
+  position: relative;
+  display: block;
+  top: 475px;
+  height: 600px;
+  background: #1A1A1A;
+  overflow-x: hidden;
+}
+
+div.feature2 h1 {color: white}
+div.feature2 p {color: white}
+
+div.feature2 h1 span:first-of-type {color: #FAAF3B}
+div.feature2 h1 span:last-of-type {color: #D8DF21}
+
+div.feature2 img {
+  position: absolute;
+  display: inline-block;
+  width: 820px;
+  float: right;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 50vw;
+}
+
+/* ----- Beta -----*/
+
+div.beta {
+  position: relative;
+  display: block;
+  top: 475px;
+  height: 600px;
+  background: #F1F1F1;
+}
+
+div.beta h1 span {color: #7AC843}
+
+div.betaLink {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+div.container {
+  position: relative;
+  display: block;
+  width: 320px;
+  height: 400px;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: auto;
+  background: white;
+  box-shadow: 0px 0px 8px #B4B4B4;
+  overflow: hidden;
+}
+
+div.container img {
+  position: relative;
+  display: block;
+  width: 100px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+div.container h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+div.container a {
+  position: relative;
+  display: block;
+  width: 150px;
+  margin: auto;
+  margin-top: 60px;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 20px;
+  background: #7AC843;
+  text-decoration: none;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 0px 15px 0px;
+  transition: 0.3s;
+}
+
+div.container a:hover {background: #75AA4D}
+
+/* ----- Footer -----*/
+
+div.footer {
+  position: relative;
+  display: block;
+  top: 475px;
+  height: 300px;
+  background: #4D4D4D;
+}
+
+div.left {
+  position: relative;
+  display: block;
+  width: 350px;
+  float: left;
+  text-align: center;
+  color: white;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+div.left img {
+  position: relative;
+  display: block;
+  width: 80px;
+  margin: auto;
+}
+
+div.left h1 {
+  position: relative;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+div.left p {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+div.right {
+  position: relative;
+  display: block;
+  width: 300px;
+  float: right;
+  top: 50%;
+  transform: translate(0, -60%);
+}
+
+div.right a {
+  position: relative;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
 }
