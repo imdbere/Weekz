@@ -12,7 +12,7 @@ var deleteBtnIcon = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns
 const nameLabel = document.getElementById('userName');
 const mailLabel = document.getElementById('userEmail');
 const addWeekBtn = document.getElementById('newWeek');
-const previous = document.getElementById('previous');
+const previousBtn = document.getElementById('previous');
 const allLists = document.getElementsByClassName('taskList');
 
 (function() {
@@ -158,7 +158,7 @@ const allLists = document.getElementsByClassName('taskList');
     clearList();
     load();
   });
-  previous.addEventListener('click', function() {
+  previousBtn.addEventListener('click', function() {
     dayDifference = dayDifference - 7;
     setDates(dayDifference)
     console.log(dayDifference);
