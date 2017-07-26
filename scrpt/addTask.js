@@ -8,9 +8,6 @@
     return new Promise((resolve) => setTimeout(resolve, time));
   };
 
-  // List to be added to
-  var list = "";
-
   // Define Colors
   var monColor = "#FF514C";
   var tueColor = "#E5E500";
@@ -43,11 +40,11 @@
     if (user) {
 
       var userId = firebase.auth().currentUser.uid;
-      // Declaring Database Reference
-      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek);
+
+      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks');
 
       var buttons = document.querySelectorAll(".addBtn");
-      
+
       var i = 0, length = buttons.length;
       for (i; i < length; i++) {
         if (document.addEventListener) {
@@ -197,9 +194,13 @@
         li.appendChild(p);
         li.appendChild(detailDiv);
 
-        var key = dataRef.child(list.id).push().key;
+        var selectedWeek = setDates(dayDifference);
+        console.log(selectedWeek);
+
+        var key = dataRef.child(selectedWeek).child(list.id).push().key;
         console.log(key);
-        var newEntry = dataRef.child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
+
+        var newEntry = dataRef.child(selectedWeek).child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
         li.id = key;
 
         list.appendChild(li);
