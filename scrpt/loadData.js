@@ -54,6 +54,7 @@ const allLists = document.getElementsByClassName('taskList');
         dataRef.once('value', function(week) {
           week.forEach(function(day) {
             day.forEach(function(taskid) {
+              console.log(day.key);
 
                 li = document.createElement('li');
                 li.className = "task";
