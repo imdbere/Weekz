@@ -35,9 +35,15 @@
     <div class="heading">
       <button type="button" id="previous">PREVIOUS</button>
       <button type="button" id="newWeek">NEXT</button>
-      <h1>Your <span>Week</span></h1>
+      <h1>Your <span>Week</span> <button type="button" id="bubble"></button></h1>
     </div>
     <div class="dash">
+      <div class="bubble">
+        <h1><span>To do</span> for this week</h1>
+        <input type="text" placeholder="Add New Task">
+        <button type="button" class="addBtn" id="bubbleAdd">+</button>
+        <ul class="taskList" id="bubbleList"></ul>
+      </div>
       <div class="day" id="mon">
         <h1>M</h1>
         <h2 id="date1">19.07.17</h2>
