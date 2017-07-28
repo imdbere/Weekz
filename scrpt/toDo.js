@@ -57,7 +57,7 @@
       var id = task.id;
       var taskText = task.children[2];
       var status = dataRef.child(list.id).child(id).once('value').then(function(checked) {
-        var value = checked.val().checked;
+        var value = checked.val();
         console.log(value);
 
         if (value == false) {
