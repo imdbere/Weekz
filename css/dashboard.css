@@ -488,6 +488,6 @@ div.bubbleBack {
   position: absolute;
   display: none;
   width: 100%;
-  height: calc(100% - 120px);
+  height: calc(100% - 60px);
   z-index: 2000;
 }

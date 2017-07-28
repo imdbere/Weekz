@@ -23,7 +23,7 @@ div.bar img {
   margin: 10px 0px 10px 30px;
 }
 
-div.bar a {
+div.bar a.link {
   position: relative;
   display: inline-block;
   float: right;
