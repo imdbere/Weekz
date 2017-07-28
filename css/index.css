@@ -406,21 +406,21 @@ div.right a {
   div.background {
     min-width: 100%;
     height: 35vh;
+    min-height: 700px;
   }
 
 /* ----- Content -----*/
 
   div.content {
     width: 100%;
-    height: 75vh;
-    background: #FF514C;
+    min-height: 1000px;
   }
 
 /* ----- Landing -----*/
 
   div.box {
-    min-width: 90%;
-    height: 82vh;
+    width: 90%;
+    height: 120%;
   }
 
   div.text {
@@ -454,7 +454,7 @@ div.right a {
   /* ----- Feature 1 -----*/
 
   div.feature {
-    top: 72vh;
+    top: 990px;
     height: auto;
   }
 
@@ -490,7 +490,7 @@ div.right a {
   /* ----- Feature 2 -----*/
 
   div.feature2 {
-    top: 72vh;
+    top: 1000px;
     height: auto;
   }
 
@@ -510,7 +510,7 @@ div.right a {
   /* ----- Beta -----*/
 
   div.beta {
-    top: 72vh;
+    top: 1000px;
     height: auto;
   }
 
@@ -524,7 +524,7 @@ div.right a {
   }
 
   div.container {
-    width: 70%;
+    width: 60%;
     height: 800px;
     top: 50%;
     transform: translate(0, -50%);
@@ -533,16 +533,16 @@ div.right a {
 
   div.container img {
     width: 250px;
-    margin-top: 50px;
+    margin-top: 55px;
   }
 
   div.container h1 {
-    font-size: 90px;
+    font-size: 80px;
     margin-top: 40px;
   }
 
   div.container p {
-    font-size: 60px;
+    font-size: 50px;
     margin-top: 10px;
   }
 
@@ -557,7 +557,7 @@ div.right a {
 /* ----- Footer -----*/
 
   div.footer {
-    top: 72vh;
+    top: 1000px;
     height: 500px;
   }
 
