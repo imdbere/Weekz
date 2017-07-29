@@ -71,3 +71,15 @@
 .option-input.radio::after {
   border-radius: 50%;
 }
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-device-width: 700px) {
+  .option-input:checked::before {
+    height: 60px;
+    width: 60px;
+    font-size: 50px;
+    line-height: 60px;
+    color: white;
+  }
+}

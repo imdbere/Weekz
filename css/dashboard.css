@@ -75,11 +75,31 @@ div.heading button#previous {
   transition: 0.3s;
 }
 
+button#previous div.triangle {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-right: 40px solid white;
+}
+
 div.heading button#newWeek {
   background: #FF514C;
   float: right;
   margin-right: 40px;
   transition: 0.3s;
+}
+
+button#newWeek div.triangle {
+ position: absolute;
+ display: none;
+ width: 0;
+ height: 0;
+ border-top: 30px solid transparent;
+ border-bottom: 30px solid transparent;
+ border-left: 40px solid white;
 }
 
 div.heading button#previous:hover {background: #0581CE}
@@ -108,6 +128,40 @@ div.heading h1 button#showBubble {
   vertical-align:text-top;
   top: -20px;
   margin-left: 10px;
+}
+
+div.mobileBubble {
+  position: relative;
+  display: none;
+  width: 90%;
+  height: 120px;
+  background: #C3C3C3;
+  box-shadow: 0px 0px 5px #B3B3B3;
+  top: 200px;
+  margin: auto;
+}
+
+div.mobileBubble p {
+  position: absolute;
+  display: inline-block;
+  float: left;
+  left: 40px;
+  top: 25px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 55px;
+  color: white;
+}
+
+div.mobileBubble p span {font-weight: 700}
+
+div.mobileBubble img {
+  position: absolute;
+  display: inline-block;
+  float: right;
+  width: 75px;
+  top: 20px;
+  right: 40px;
 }
 
 /* ----- Dash -----*/
@@ -214,10 +268,6 @@ div.day ul {
 
 /* ----- Task  -----*/
 
-/*.task {
-  border: 1px solid black;
-}*/
-
 .task p {
   position: relative;
   display: inline-block;
@@ -230,7 +280,7 @@ div.day ul {
 .task input {
   position: relative;
   display: inline-block;
-  vertical-align:text-top;
+  vertical-align: text-top;
   width: 25px;
   height: 25px;
   float: right;
@@ -490,4 +540,228 @@ div.bubbleBack {
   width: 100%;
   height: calc(100% - 60px);
   z-index: 2000;
+}
+
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-device-width: 700px) {
+
+  body {
+    margin: 0;
+    min-width: 1250px;
+    background: #F1F1F1;
+  }
+
+/* ----- Bar -----*/
+
+  div.bar {
+    min-width: 100%;
+    height: 180px;
+    background: white;
+    box-shadow: 0px 0px 10px #B4B4B4;
+  }
+
+  div.bar img {
+    width: 120px;
+    margin: 30px 0px 30px 60px;
+  }
+
+  div.bar button {
+    height: 70px;
+    width: 100px;
+    margin: 55px 70px 55px 0px;
+  }
+
+/* ----- Heading -----*/
+
+  div.heading {
+    min-width: 1250px;
+    height: 150px;
+    z-index: 100;
+  }
+
+  div.heading button {
+    width: 130px;
+    height: 130px;
+    border-radius: 65px;
+    margin-top: 30px;
+  }
+
+  div.heading button p {display: none}
+
+  button#previous {
+    left: 20px;
+  }
+
+  button#newWeek {
+    right: 20px;
+  }
+
+  button#previous div.triangle {
+    display: block;
+    top: 35px;
+    right: 50px;
+  }
+
+  button#newWeek div.triangle {
+    display: block;
+    top: 35px;
+    left: 50px;
+  }
+
+  div.heading button#newWeek {
+    background: #FF514C;
+    float: right;
+    margin-right: 40px;
+    transition: 0.3s;
+  }
+
+  div.heading h1 {
+    font-size: 70px;
+    margin-top: 40px;
+  }
+
+  div.heading h1 button#showBubble {display: none}
+
+  div.mobileBubble {display: block}
+
+  /* ----- Dash -----*/
+
+  div.dash {
+    width: 90%;
+    background: none;
+    box-shadow: none;
+    margin-top: 150px;
+  }
+
+  div.day {
+    width: 100%;
+    height: 1000px;
+    box-shadow: 0px 0px 20px #B4B4B4;
+    margin: auto;
+    margin-top: 80px;
+  }
+
+  div.day:last-of-type {margin-bottom: 100px;}
+
+  div#tue::before, div#wed::before, div#fri::before, div#sat::before {
+    display: none;
+  }
+
+  div.day h1 {
+    margin: 60px 0px 0px 80px;
+    font-size: 80px;
+  }
+
+  div.day h2 {
+    margin: 80px 100px 0px 0px;
+    font-size: 40px;
+  }
+
+  div.day button.addBtn {
+    opacity: 1;
+    width: 100%;
+    height: 130px;
+    font-size: 90px;
+    border-radius: 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  div.day ul {
+    width: 85%;
+    height: 65%;
+    margin: 200px 0px 0px 100px;
+  }
+
+/* ----- Task  -----*/
+
+  .task p {
+    font-size: 55px;
+    margin-bottom: 25px;
+  }
+
+  .task input {
+    width: 60px;
+    height: 60px;
+    float: right;
+  }
+
+  .task button#delete {
+    opacity: 1;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+  }
+
+/* ----- Task Detail View -----*/
+
+  .detail {
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+
+  .detail p {
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 40px;
+  }
+
+  /* ----- Menu -----*/
+
+  div.menu {
+    position: fixed;
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+  }
+
+  div.menu div.content {
+    position: relative;
+    display: block;
+    float: right;
+    width: 100%;
+    height: 100%;
+  }
+
+  div.menu button#closeMenuBtn {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin: 50px 0px 0px 50px;
+    font-size: 40px;
+  }
+
+  div.menu div.content h1 {
+    font-size: 100px;
+    margin-top: 50px;
+    text-align: left;
+    margin-top: 200px;
+    margin-left: 100px;
+  }
+
+  div.menu div.content h2 {
+    font-size: 65px;
+    text-align: left;
+    margin-left: 100px;
+  }
+
+  div.menu div.content a {
+    font-size: 60px;
+    text-decoration: none;
+    color: black;
+    margin: 50px 0px 0px 100px;
+  }
+
+  div.menu div.content a:first-of-type {margin-top: 150px}
+
+  div.menu button#signOut {
+    width: 80%;
+    height: 150px;
+    margin-bottom: 300px;
+    border-radius: 0px;
+    font-size: 60px;
+  }
 }
