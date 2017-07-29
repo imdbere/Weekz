@@ -19,14 +19,14 @@
     sleep(200).then(() => {
       back.style.opacity = "1"
       sleep(150).then(() => {
-        menu.style.width = menuWidth;
+        menu.classList.add("width");
       });
     });
   });
 
   // Close Menu
   close.addEventListener('click', function() {
-    menu.style.width = "0px";
+    menu.classList.remove("width");
     back.style.opacity = "0";
     sleep(350).then(() => {
       back.style.zIndex = "-1000";
