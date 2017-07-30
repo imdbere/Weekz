@@ -80,9 +80,9 @@ button#previous div.triangle {
   display: none;
   width: 0;
   height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-right: 40px solid white;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 17px solid white;
 }
 
 div.heading button#newWeek {
@@ -97,9 +97,9 @@ button#newWeek div.triangle {
  display: none;
  width: 0;
  height: 0;
- border-top: 30px solid transparent;
- border-bottom: 30px solid transparent;
- border-left: 40px solid white;
+ border-top: 12px solid transparent;
+ border-bottom: 12px solid transparent;
+ border-left: 17px solid white;
 }
 
 div.heading button#previous:hover {background: #0581CE}
@@ -134,10 +134,10 @@ div.mobileBubble {
   position: relative;
   display: none;
   width: 90%;
-  height: 120px;
+  height: 50px;
   background: #C3C3C3;
   box-shadow: 0px 0px 5px #B3B3B3;
-  top: 200px;
+  top: 90px;
   margin: auto;
 }
 
@@ -145,11 +145,12 @@ div.mobileBubble p {
   position: absolute;
   display: inline-block;
   float: left;
-  left: 40px;
-  top: 25px;
+  left: 20px;
+  top: 50%;
+  transform: translate(0,-50%);
   font-family: 'Roboto';
   font-weight: 300;
-  font-size: 55px;
+  font-size: 1.3em;
   color: white;
 }
 
@@ -159,9 +160,9 @@ div.mobileBubble img {
   position: absolute;
   display: inline-block;
   float: right;
-  width: 75px;
-  top: 20px;
-  right: 40px;
+  height: 30px;
+  top: 10px;
+  right: 15px;
 }
 
 /* ----- Dash -----*/
@@ -554,78 +555,75 @@ div.bubbleBack {
 @media screen and (max-device-width: 700px) {
 
   body {
-    margin: 0;
-    min-width: 100vw;
-    background: #F1F1F1;
+    min-width: 0px;
+    min-height: 0px;
+    width: 100%;
   }
 
 /* ----- Bar -----*/
 
   div.bar {
-    min-width: 100vw;
-    height: 180px;
-    background: white;
-    box-shadow: 0px 0px 10px #B4B4B4;
+    min-width: 0px;
+    min-height: 0px;
+    width: 100vw;
   }
 
   div.bar img {
-    width: 120px;
-    margin: 30px 0px 30px 60px;
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    margin: 10px 0px 10px 30px;
   }
 
   div.bar button {
-    height: 70px;
-    width: 100px;
-    margin: 55px 70px 55px 0px;
+    height: 20px;
+    width: 35px;
+    margin: 20px 25px 10px 30px;
   }
 
 /* ----- Heading -----*/
 
   div.heading {
-    min-width: 100vw;
-    height: 150px;
+    min-width: 0px;
+    width: 100vw;
+    height: 80px;
     z-index: 100;
   }
 
   div.heading button {
-    width: 130px;
-    height: 130px;
+    width: 50px;
+    height: 50px;
     border-radius: 65px;
     margin-top: 30px;
   }
 
   div.heading button p {display: none}
 
-  button#previous {
-    left: 20px;
+  div.heading button#previous {
+    margin: 20px 0px 0px 20px;
   }
 
-  button#newWeek {
-    right: 20px;
+  div.heading button#newWeek {
+    margin: 20px 20px 0px 0px;
   }
+
 
   button#previous div.triangle {
     display: block;
-    top: 35px;
-    right: 50px;
+    top: 12.5px;
+    right: 20px;
   }
 
   button#newWeek div.triangle {
     display: block;
-    top: 35px;
-    left: 50px;
-  }
-
-  div.heading button#newWeek {
-    background: #FF514C;
-    float: right;
-    margin-right: 40px;
-    transition: 0.3s;
+    top: 12.5px;
+    left: 20px;
   }
 
   div.heading h1 {
-    font-size: 70px;
-    margin-top: 40px;
+    font-size: 1.3em;
+    margin-top: 30px;
   }
 
   div.heading h1 button#showBubble {display: none}
@@ -638,77 +636,78 @@ div.bubbleBack {
     width: 90%;
     background: none;
     box-shadow: none;
-    margin-top: 150px;
+    margin-top: 70px;
+    margin-bottom: 0px;
   }
 
   div.day {
     width: 100%;
-    height: 1000px;
+    height: 320px;
     box-shadow: 0px 0px 20px #B4B4B4;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 20px;
   }
 
-  div.day:last-of-type {margin-bottom: 100px;}
+  div.day:last-of-type {margin-bottom: 50px;}
 
   div#tue::before, div#wed::before, div#fri::before, div#sat::before {
     display: none;
   }
 
   div.day h1 {
-    margin: 60px 0px 0px 80px;
-    font-size: 80px;
+    margin: 20px 0px 0px 30px;
+    font-size: 2em;
   }
 
   div.day h2 {
-    margin: 80px 100px 0px 0px;
-    font-size: 40px;
+    margin: 30px 40px 0px 0px;
+    font-size: 1em;
   }
 
   div.day button.addBtn {
     opacity: 1;
     width: 100%;
-    height: 130px;
-    font-size: 90px;
+    height: 50px;
+    font-size: 2.5em;
     border-radius: 0px;
     margin: 0px 0px 0px 0px;
   }
 
   div.day ul {
-    width: 85%;
-    height: 65%;
-    margin: 200px 0px 0px 100px;
+    width: 80%;
+    height: 55%;
+    margin: 80px 0px 0px 30px;
   }
 
 /* ----- Task  -----*/
 
   .task p {
-    font-size: 55px;
-    margin-bottom: 25px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
   }
 
   .task input {
-    width: 60px;
-    height: 60px;
+    width: 20px;
+    height: 20px;
     float: right;
   }
 
   .task button#delete {
     opacity: 1;
-    width: 60px;
-    height: 60px;
-    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    margin-left: 0px;
   }
 
 /* ----- Task Detail View -----*/
 
   .detail {
     margin-top: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
   }
 
   .detail p {
-    font-size: 40px;
+    font-size: 0.8em;
     padding-left: 20px;
     padding-right: 40px;
   }
@@ -719,11 +718,11 @@ div.bubbleBack {
     position: fixed;
     display: block;
     opacity: 0;
-    width: 100%;
+    min-width: 0px;
+    width: 100vw;
     height: 100%;
-    min-height: 2000px;
+    min-height: 0px;
     z-index: -1000;
-
   }
 
   .width {
@@ -739,41 +738,78 @@ div.bubbleBack {
   }
 
   div.menu button#closeMenuBtn {
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
-    margin: 50px 0px 0px 50px;
-    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 30px 0px 0px 30px;
+    font-size: 20px;
   }
 
   div.menu div.content h1 {
-    font-size: 100px;
-    margin-top: 50px;
-    text-align: left;
-    margin-top: 200px;
-    margin-left: 100px;
+    font-size: 1.8em;
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 0px;
   }
 
   div.menu div.content h2 {
-    font-size: 65px;
-    text-align: left;
-    margin-left: 100px;
+    font-size: 1.25em;
+    text-align: center;
+    margin-left: 0px;
   }
 
   div.menu div.content a {
-    font-size: 60px;
+    font-size: 1.3em;
     text-decoration: none;
     color: black;
-    margin: 50px 0px 0px 100px;
+    margin: 15px 0px 0px 50px;
   }
 
-  div.menu div.content a:first-of-type {margin-top: 150px}
+  div.menu div.content a:first-of-type {margin-top: 50px}
 
   div.menu button#signOut {
     width: 80%;
-    height: 150px;
-    margin-bottom: 300px;
+    height: 50px;
+    margin-bottom: 50px;
     border-radius: 0px;
-    font-size: 60px;
+    font-size: 1.2em;
+  }
+}
+
+/* ----------------- SMALL MOBILE -----------------*/
+
+@media screen and (max-device-width: 330px) {
+
+/* ----- Task  -----*/
+
+  .task p {
+    font-size: 0.75em;
+    margin-bottom: 15px;
+  }
+
+  .task input {
+    width: 20px;
+    height: 20px;
+    float: right;
+  }
+
+  .task button#delete {
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+    margin-left: 0px;
+  }
+
+/* ----- Task Detail View -----*/
+
+  .detail {
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+
+  .detail p {
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 40px;
   }
 }

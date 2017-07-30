@@ -54,7 +54,6 @@ const allLists = document.getElementsByClassName('taskList');
         dataRef.once('value', function(week) {
           week.forEach(function(day) {
             day.forEach(function(taskid) {
-              console.log(day.key);
 
                 li = document.createElement('li');
                 li.className = "task";
@@ -155,14 +154,12 @@ const allLists = document.getElementsByClassName('taskList');
   addWeekBtn.addEventListener('click', function() {
     dayDifference = dayDifference + 7;
     setDates(dayDifference);
-    console.log(dayDifference);
     clearList();
     load();
   });
   previousBtn.addEventListener('click', function() {
     dayDifference = dayDifference - 7;
-    setDates(dayDifference)
-    console.log(dayDifference);
+    setDates(dayDifference);
     clearList();
     load();
   });

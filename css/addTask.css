@@ -109,8 +109,7 @@ div.addTask button#closeBtn {
 @media screen and (max-device-width: 700px) {
 
   div.addTask {
-    position: absolute;
-    display: block;
+    position: fixed;
     width: 100vw;
     height: 100vh;
   }
@@ -118,7 +117,7 @@ div.addTask button#closeBtn {
   div.addTask div.wrapper {
     position: absolute;
     display: block;
-    width: 500px;
+    width: 100vw;
     height: 500px;
     top: 50%;
     left: 50%;
@@ -139,7 +138,7 @@ div.addTask button#closeBtn {
     display: block;
     font-family: 'Roboto';
     font-weight: 300;
-    font-size: 25px;
+    font-size: 1.2em;
     text-align: center;
   }
 
@@ -148,10 +147,10 @@ div.addTask button#closeBtn {
   div.addTask input {
     position: relative;
     display: block;
-    width: 70%;
-    height: 55px;
+    width: 80%;
+    height: 50px;
     margin: auto;
-    margin-top: 35px;
+    margin-top: 20px;
     border: none;
     font-family: 'Roboto';
     font-weight: 300;
@@ -164,7 +163,7 @@ div.addTask button#closeBtn {
   div.addTask textarea {
     position: relative;
     display: block;
-    width: 70%;
+    width: 80%;
     height: 150px;
     margin: auto;
     padding: 20px;
@@ -181,7 +180,7 @@ div.addTask button#closeBtn {
   div.addTask button {
     position: relative;
     display: block;
-    width: 70%;
+    width: 80%;
     height: 55px;
     margin: auto;
     margin-top: 40px;
@@ -203,7 +202,7 @@ div.addTask button#closeBtn {
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    margin: 20px;
+    margin: 15px;
     top: 0;
     font-size: 15px;
   }

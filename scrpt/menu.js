@@ -15,7 +15,7 @@
   // Open Menu
   open.addEventListener('click', function() {
     back.style.zIndex = "2000";
-    console.log('detected');
+    
     sleep(200).then(() => {
       back.style.opacity = "1"
       sleep(150).then(() => {

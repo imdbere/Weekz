@@ -9,10 +9,7 @@ function setDates(plus) {
 
     var lessDays = currentWeekDay == 0 ? 6 : currentWeekDay-1;
     var wkStart = new Date(new Date(dt).setDate(dt.getDate() + plus - lessDays));
-    console.log(wkStart);
     currentWeekString = wkStart.getDate() + "" + (wkStart.getMonth() + 1) + "" + wkStart.getFullYear();
-
-    console.log(currentWeekString);
 
     for (var i = 0; i < 6; i++) {
       var id = "date" + (i+1);

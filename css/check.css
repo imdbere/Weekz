@@ -76,10 +76,10 @@
 
 @media screen and (max-device-width: 700px) {
   .option-input:checked::before {
-    height: 60px;
-    width: 60px;
-    font-size: 50px;
-    line-height: 60px;
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+    line-height: 20px;
     color: white;
   }
 }

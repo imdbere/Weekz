@@ -13,8 +13,6 @@
   const toDoAddBtn = document.getElementById('bubbleAdd');
   const toDoList = document.getElementById('bubbleList');
 
-  console.log(toDoValue);
-
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
 
@@ -48,7 +46,6 @@
 
       list.removeChild(task);
       dataRef.child(list.id).child(id).remove();
-      console.log("deleted");
     };
 
     // Mark Task as done
@@ -58,7 +55,6 @@
       var taskText = task.children[2];
       var status = dataRef.child(list.id).child(id).once('value').then(function(checked) {
         var value = checked.val();
-        console.log(value);
 
         if (value == false) {
           taskText.classList.toggle('toggle');
@@ -104,8 +100,6 @@
         li.id = key;
 
         var selectedWeek = setDates(dayDifference);
-        console.log(dayDifference);
-        console.log(selectedWeek);
 
         var newEntry = dataRef.child(selectedWeek).child('bubbleList').child(key).update({taskName: toDoValue.value});
 
@@ -119,7 +113,6 @@
     }
 
     toDoAddBtn.addEventListener('click', function() {
-      console.log('working');
       createToDoItem();
       toDoValue.value = "";
     });

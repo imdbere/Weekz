@@ -58,7 +58,6 @@
               day.style.color = monColor;
               addBtn.style.background = monColor;
               closeBtn.style.background = monColor;
-              console.log("Monday");
               list = monList;
               showAddMenu();
             break;
@@ -67,7 +66,6 @@
               day.style.color = tueColor;
               addBtn.style.background = tueColor;
               closeBtn.style.background = tueColor;
-              console.log("Tuesday");
               list = tueList;
               showAddMenu();
             break;
@@ -76,7 +74,6 @@
               day.style.color = wedColor;
               addBtn.style.background = wedColor;
               closeBtn.style.background = wedColor;
-              console.log("Wednesday");
               list = wedList;
               showAddMenu();
             break;
@@ -85,7 +82,6 @@
               day.style.color = thuColor;
               addBtn.style.background = thuColor;
               closeBtn.style.background = thuColor;
-              console.log("Thursday");
               list = thuList;
               showAddMenu();
             break;
@@ -95,7 +91,6 @@
               addBtn.style.background = friColor;
               closeBtn.style.background = friColor;
               list = friList;
-              console.log("Friday");
               showAddMenu();
             break;
             case "satAdd":
@@ -104,7 +99,6 @@
               addBtn.style.background = satColor;
               closeBtn.style.background = satColor;
               list = satList;
-              console.log("Saturday");
               showAddMenu();
             break;
             default:
@@ -120,7 +114,6 @@
 
       list.removeChild(task);
       dataRef.child(list.id).child(id).remove();
-      console.log("deleted");
     };
 
     // Mark Task as done
@@ -135,11 +128,9 @@
         if (value == false) {
           taskText.classList.toggle('toggle');
           dataRef.child(list.id).child(id).update({checked: true});
-          console.log("done");
         } else {
           taskText.classList.toggle('toggle');
           dataRef.child(list.id).child(id).update({checked: false});
-          console.log("undone");
         };
       });
     };
@@ -195,10 +186,8 @@
         li.appendChild(detailDiv);
 
         var selectedWeek = setDates(dayDifference);
-        console.log(selectedWeek);
 
         var key = dataRef.child(selectedWeek).child(list.id).push().key;
-        console.log(key);
 
         var newEntry = dataRef.child(selectedWeek).child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
         li.id = key;

@@ -77,7 +77,6 @@
       } else {
         txtPassword1.style.border = "1px solid #FF514C"
         txtPassword2.style.border = "1px solid #FF514C"
-        console.log("Passwords dont match");
       };
     };
   });
