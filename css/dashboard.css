@@ -391,7 +391,6 @@ div.menu button#closeMenuBtn {
   font-size: 16px;
   color: white;
   background: #FF514C;
-  /*box-shadow: 0px 0px 10px #FF514C;*/
   transition: 0.3s;
 }
 
@@ -429,7 +428,7 @@ div.menu div.content a {
 
 div.menu div.content a:first-of-type {margin-top: 60px}
 
-div.menu button#signOut {
+div.menu button.menuBtn {
   position: absolute;
   display: block;
   bottom: 0;
@@ -438,7 +437,6 @@ div.menu button#signOut {
   width: 60%;
   height: 40px;
   margin: auto;
-  margin-bottom: 40px;
   border: none;
   border-radius: 30px;
   font-family: 'Montserrat';
@@ -446,7 +444,16 @@ div.menu button#signOut {
   font-size: 16px;
   color: white;
   background: #FF514C;
+  outline: none;
   transition: 0.3s;
+}
+
+div.menu button#signOut {
+  margin-bottom: 40px;
+}
+
+div.menu button#verify {
+  margin-bottom: 100px;
 }
 
 div.menu button#signOut:hover {background: #FF2727}
@@ -767,10 +774,9 @@ div.bubbleBack {
 
   div.menu div.content a:first-of-type {margin-top: 50px}
 
-  div.menu button#signOut {
+  div.menu button.menuBtn {
     width: 80%;
     height: 50px;
-    margin-bottom: 50px;
     border-radius: 0px;
     font-size: 1.2em;
   }
@@ -804,12 +810,21 @@ div.bubbleBack {
 
   .detail {
     margin-top: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
   }
 
   .detail p {
-    font-size: 40px;
+    font-size: 0.7em;
     padding-left: 20px;
     padding-right: 40px;
+  }
+
+/* ----- Menu -----*/
+
+  div.menu div.content h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 0px;
   }
 }

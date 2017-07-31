@@ -14,6 +14,7 @@ const mailLabel = document.getElementById('userEmail');
 const addWeekBtn = document.getElementById('newWeek');
 const previousBtn = document.getElementById('previous');
 const allLists = document.getElementsByClassName('taskList');
+const verifyBtn = document.getElementById('verify');
 
 (function() {
 
@@ -33,7 +34,15 @@ const allLists = document.getElementsByClassName('taskList');
     if(!user) {
       window.location = 'signin.html'; //If User is not logged in, redirect to signin page
     } else {
-      load();
+      if (user.emailVerified) {
+        verifyBtn.style.display = "none";
+        console.log('verified');
+        load();
+      } else {
+        verifyBtn.style.display = "block";
+        console.log("not verified");
+        load();
+      }
     }
   });
 
@@ -163,4 +172,13 @@ const allLists = document.getElementsByClassName('taskList');
     clearList();
     load();
   });
+
+  verifyBtn.addEventListener('click', function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log(user.email);
+      user.sendEmailVerification();
+      verifyBtn.innerText = "EMAIL SENT";
+    });
+  })
+
 }());

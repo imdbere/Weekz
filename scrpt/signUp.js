@@ -70,7 +70,13 @@
             txtPassword2.style.border = "1px solid #7AC843"
 
             ref.child("users").child(response.uid).child("info").set({firstname: first, lastname: last, email: email});
-            window.location = 'dashboard.html';
+            auth.onAuthStateChanged(function(user) {
+              user.sendEmailVerification().then(function() {
+                window.location = 'dashboard.html';
+              }).catch(function(error) {
+                console.log(error);
+              });
+            })
           });
         promise.catch(e => console.log(e.message));
 
