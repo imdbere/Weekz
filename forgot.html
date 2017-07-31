@@ -5,12 +5,12 @@
     <meta name="description" content="Sign in with your Weekz™ account, access your dashboard and organize your week in style.">
     <meta name="keywords" content="Productivity,Organize,Week,Calendar,Hustle,Work,SignIn">
     <meta name="viewport" content="width=device-width">
-    <title>Weekz - Sign in with your account</title>
+    <title>Weekz - Restore your Password</title>
 
     <link rel="icon" type="image/png" href="res/logoSmall.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="css/forgot.css">
     <link rel="stylesheet" href="css/reset.min.css">
 
     <script>
@@ -31,25 +31,21 @@
       <a href="index.html">
         <img src="res/logoSmall.png" alt="Stay productive with Weekz">
       </a>
-      <a class="link" href="signup.html">SIGN UP</a>
+      <a href="signup.html" class="link">SIGN UP</a>
+      <a href="signin.html" class="link">SIGN IN</a>
     </div>
-
-    <div class="background"></div>
-
-    <div class="content">
+    <div class="container">
       <div class="box">
-        <div class="signin">
+        <div class="forgotBox">
           <img src="res/logoBig.png" alt="Sign in with your Weekz Account">
           <input type="email" id="email" placeholder="Email" required>
-          <input type="password" id="password" placeholder="Password" required>
-          <a class="forgot" href="forgot.html">Forgot Password?</a>
-          <button type="submit" id="signin">SIGN IN</button>
+          <button type="submit" id="forgotBtn">RESTORE</button>
           <p>Not part of the team yet? <a href="signup.html">Join Now</a></p>
         </div>
       </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="scrpt/signIn.js"></script>
+  <!-- Scripts -->
+  <script src="scrpt/forgot.js"></script>
   </body>
 </html>

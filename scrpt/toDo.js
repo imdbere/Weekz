@@ -12,6 +12,7 @@
   const toDoValue = document.getElementById('toDoName');
   const toDoAddBtn = document.getElementById('bubbleAdd');
   const toDoList = document.getElementById('bubbleList');
+  const showBubbleMobile = document.getElementById('showBubbleMobile')
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -24,6 +25,16 @@
         sleep(100).then(() => {
           bubble.style.opacity = "1";
         });
+      });
+
+      showBubbleMobile.addEventListener('click', function() {
+        if (bubble.style.height == "0px") {
+          bubble.style.height = "350px";
+          console.log('opened');
+        } else {
+          bubble.style.height = "0px";
+          console.log('closed');
+        }
       });
 
       hideBubble.addEventListener('click', function() {
