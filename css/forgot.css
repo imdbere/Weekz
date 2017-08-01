@@ -56,7 +56,7 @@ div.container {
   position: relative;
   display: block;
   width: 100vw;
-  min-width: 800px;
+  min-width: 1250px;
   height: calc(100% - 60px);
   min-height: 350px;
   background: url(../res/forgotBack.jpeg);
@@ -163,4 +163,96 @@ div.forgotBox p a {
   font-weight: 700;
   color: #FF514C;
   text-decoration: none;
+}
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-device-width: 700px) {
+
+  body {
+    margin: 0;
+    min-width: 0px;
+    width: 100%;
+  }
+
+  /* ----- Bar -----*/
+
+  div.bar {
+    min-width: 0px;
+    min-height: 0px;
+    width: 100vw;
+  }
+
+  div.bar img {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    margin: 10px 0px 10px 30px;
+  }
+
+  div.bar a {
+    background: none;
+  }
+
+  div.bar a:nth-of-type(2):hover {background: #FF2727}
+
+  div.bar a.link {
+    margin: 20px 40px 20px 10px;
+    font-size: 15px;
+  }
+
+  div.bar a:nth-of-type(2) {
+    margin: 15px 20px 15px 0px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    color: white;
+  }
+
+  /* ----- Content -----*/
+
+  div.container {
+    width: 100vw;
+    min-width: 0px;
+    height: 100vh;
+    min-height: 500px;
+  }
+
+  div.box {
+    width: 90%;
+    min-height: 400px;
+    bottom: 0px;
+    top: 0px;
+    transform: translate(0,0);
+  }
+
+  div.forgotBox {
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  div.forgotBox img {
+    width: 80px;
+  }
+
+  div.forgotBox input {
+    width: 80%;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  div.forgotBox a.forgot {
+    font-size: 14px;
+  }
+
+  div.forgotBox button {
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  div.forgotBox p {
+    font-size: 0.8em;
+  }
 }

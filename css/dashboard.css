@@ -515,6 +515,7 @@ div.bubble input#toDoName {
   font-size: 18px;
   outline: none;
   text-indent: 30px;
+  padding-right: 60px;
   background: white;
   z-index: 2000;
 }
