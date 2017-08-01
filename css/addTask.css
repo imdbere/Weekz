@@ -76,19 +76,28 @@ div.addTask textarea {
 
 div.addTask button {
   position: relative;
-  display: block;
-  width: 70%;
   height: 55px;
   margin: auto;
   margin-top: 40px;
   border: none;
-  background: #FF514C;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 20px;
   color: white;
   outline: none;
   transition: 0.3s;
+}
+
+div.addTask button#addBtn {
+  display: block;
+  width: 70%;
+  background: #FF514C;
+}
+
+div.addTask button#editBtn {
+  display: none;
+  width: 70%;
+  background: #C4DADE;
 }
 
 div.addTask button:hover{background: #FF2727}

@@ -6,11 +6,6 @@
   var editBtnIcon = '<img src="res/edit.png">'
   var moveBtnIcon = '<img src="res/move.png">'
 
-  // Sleep function
-  function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  };
-
   // Define Colors
   var monColor = "#FF514C";
   var tueColor = "#E5E500";
@@ -25,6 +20,7 @@
   const taskName = document.getElementById('taskName');
   const taskDesc = document.getElementById('taskDesc');
   const addBtn = document.getElementById('addBtn');
+  const editBtn = document.getElementById('editBtn');
   const closeBtn = document.getElementById('closeBtn');
 
   // Get Lists
@@ -45,7 +41,7 @@
       var userId = firebase.auth().currentUser.uid;
       var selectedWeek = setDates(dayDifference);
 
-      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks');
+      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
 
       var buttons = document.querySelectorAll(".addBtn");
 
@@ -117,7 +113,39 @@
       var list = task.parentNode;
 
       list.removeChild(task);
-      dataRef.child(selectedWeek).child(list.id).child(id).remove();
+      dataRef.child(list.id).child(id).remove();
+    };
+
+    // Edit Task
+    function editTask() {
+      closeBtn.style.background = "#C4DADE";
+      addTaskBtn.style.display = "none";
+      editTaskBtn.style.display = "block";
+
+      menu.children[0].children[1].children[0].innerText = "Edit your Task";
+      var item = this.parentNode.parentNode;
+      var listId = item.parentNode.id;
+      console.log(listId);
+      console.log(item);
+      var id = item.id;
+      var name = item.children[2].innerText;
+      var desc = item.children[4].children[0].innerText;
+
+      taskName.value = name;
+      taskDesc.value = desc;
+      showAddMenu();
+
+      editTaskBtn.addEventListener('click', function() {
+        console.log(item.children[2].innerText);
+        var newName = taskName.value;
+        var newDesc = taskDesc.value;
+        console.log(newName);
+        item.children[2].innerText = newName;
+        item.children[4].children[0].innerText = newDesc;
+
+        var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
+        hideAddMenu();
+      });
     };
 
     // Show or hide context menu
@@ -137,19 +165,22 @@
 
     // Mark Task as done
     function taskDone() {
+      console.log("done");
       var task = this.parentNode;
       var id = task.id;
       var taskText = task.children[2];
       var status = dataRef.child(list.id).child(id).once('value').then(function(checked) {
-        var value = checked.val();
+        var value = checked.val().checked;
         console.log(value);
 
         if (value == false) {
           taskText.classList.toggle('toggle');
           dataRef.child(list.id).child(id).update({checked: true});
+          value = true;
         } else {
           taskText.classList.toggle('toggle');
           dataRef.child(list.id).child(id).update({checked: false});
+          value = false;
         };
       });
     };
@@ -158,7 +189,7 @@
     function showDetail() {
       var item = this.parentNode
       console.log(item);
-      var detailView = item.children[3];
+      var detailView = item.children[4];
       console.log(detailView);
       if (detailView.style.opacity == "1") {
         detailView.style.opacity = "0";
@@ -225,9 +256,9 @@
         li.appendChild(contextDiv);
         li.appendChild(detailDiv);
 
-        var key = dataRef.child(selectedWeek).child(list.id).push().key;
+        var key = dataRef.child(list.id).push().key;
 
-        var newEntry = dataRef.child(selectedWeek).child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
+        var newEntry = dataRef.child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
         li.id = key;
 
         list.appendChild(li);
@@ -239,7 +270,8 @@
 
         // Open Context Menu and configure its buttons
         contextBtn.addEventListener('click', toggleContext);
-          deleteBtn.addEventListener('click', removeTask)
+          deleteBtn.addEventListener('click', removeTask);
+          editBtn.addEventListener('click', editTask)
 
         hideAddMenu();
       };
@@ -248,6 +280,8 @@
     // Open 'New Task' Menu
     function showAddMenu() {
       menu.style.zIndex = "2000";
+      taskName.value = "";
+      taskDesc.value = "";
       sleep(200).then(() => {
         menu.style.opacity = "1";
       });
@@ -257,9 +291,9 @@
     function hideAddMenu() {
       taskName.style.border = "none";
       menu.style.opacity = "0";
-      taskName.value = "";
-      taskDesc.value = "";
       sleep(300).then(() => {
+        addBtn.style.display = "block";
+        editBtn.style.display = "none";
         menu.style.zIndex = "-1000";
       });
     };

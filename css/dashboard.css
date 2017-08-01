@@ -460,7 +460,7 @@ button#deleteNew svg .fill {
 /* ----- Menu -----*/
 
 div.menu {
-  position: absolute;
+  position: fixed;
   display: block;
   opacity: 0;
   width: 100vw;

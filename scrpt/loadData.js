@@ -20,6 +20,15 @@ const allLists = document.getElementsByClassName('taskList');
 const verifyBtn = document.getElementById('verify');
 const contextMenu = document.getElementById('contextMenu');
 
+// Edit Menu Elements
+const menu = document.getElementById('addTask');
+const day = document.getElementById('whatDay');
+const taskName = document.getElementById('taskName');
+const taskDesc = document.getElementById('taskDesc');
+const addTaskBtn = document.getElementById('addBtn');
+const editTaskBtn = document.getElementById('editBtn');
+const closeBtn = document.getElementById('closeBtn');
+
 (function() {
 
   // Initialize Firebase
@@ -132,7 +141,9 @@ const contextMenu = document.getElementById('contextMenu');
 
                 // Open Context Menu and configure its buttons
                 contextBtn.addEventListener('click', toggleContext);
-                  deleteBtn.addEventListener('click', removeTask)
+                  deleteBtn.addEventListener('click', removeTask);
+                  moveBtn.addEventListener('click', moveTask);
+                  editBtn.addEventListener('click', editTask);
 
                 // Remove Task
                 function removeTask() {
@@ -142,6 +153,45 @@ const contextMenu = document.getElementById('contextMenu');
 
                   list.removeChild(task);
                   dataRef.child(addDay).child(id).remove();
+                };
+
+                // Move Task
+                function moveTask() {
+                  console.log("Move");
+
+
+                };
+
+                // Edit Task
+                function editTask() {
+                  closeBtn.style.background = "#C4DADE";
+                  addTaskBtn.style.display = "none";
+                  editTaskBtn.style.display = "block";
+
+                  menu.children[0].children[1].children[0].innerText = "Edit your Task";
+                  var item = this.parentNode.parentNode;
+                  var listId = item.parentNode.id;
+                  console.log(listId);
+                  console.log(item);
+                  var id = item.id;
+                  var name = item.children[2].innerText;
+                  var desc = item.children[4].children[0].innerText;
+
+                  taskName.value = name;
+                  taskDesc.value = desc;
+                  showEditMenu();
+
+                  editTaskBtn.addEventListener('click', function() {
+                    console.log(item.children[2].innerText);
+                    var newName = taskName.value;
+                    var newDesc = taskDesc.value;
+                    console.log(newName);
+                    item.children[2].innerText = newName;
+                    item.children[4].children[0].innerText = newDesc;
+
+                    var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
+                    hideEditMenu();
+                  });
                 };
 
                 // Show or hide context menu
@@ -183,6 +233,25 @@ const contextMenu = document.getElementById('contextMenu');
                     detailDiv.style.opacity = "1";
                     detailDiv.style.display = "block";
                   }
+                };
+
+                // Open 'EditTask' Menu
+                function showEditMenu() {
+                  menu.style.zIndex = "2000";
+                  sleep(200).then(() => {
+                    menu.style.opacity = "1";
+                  });
+                };
+
+                // Close 'Edit Task' Menu
+                function hideEditMenu() {
+                  taskName.style.border = "none";
+                  menu.style.opacity = "0";
+                  sleep(300).then(() => {
+                    menu.style.zIndex = "-1000";
+                    addTaskBtn.style.display = "block";
+                    editTaskBtn.style.display = "none";
+                  });
                 };
             });
         });

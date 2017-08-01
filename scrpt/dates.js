@@ -1,6 +1,11 @@
 // Global Date
 var currentWeek = new Date();
 
+// Sleep function
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
+
 function setDates(plus) {
 
     // Loading Dates for Dashboard labels
