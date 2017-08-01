@@ -10,6 +10,7 @@ var deleteBtnIcon = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns
 
 var editBtnIcon = '<img src="res/edit.png">'
 var moveBtnIcon = '<img src="res/move.png">'
+
 // Get Elements
 const nameLabel = document.getElementById('userName');
 const mailLabel = document.getElementById('userEmail');
@@ -77,6 +78,7 @@ const contextMenu = document.getElementById('contextMenu');
                 var contextBtn = document.createElement('button');
                 contextBtn.id = "context";
                 contextBtn.style.background = "context.png"
+
                 var p = document.createElement('p');
                 p.innerText = taskid.val().taskName;
 
@@ -111,7 +113,6 @@ const contextMenu = document.getElementById('contextMenu');
                 contextDiv.appendChild(editBtn);
                 contextDiv.appendChild(moveBtn);
 
-
                 li.appendChild(contextBtn);
                 li.appendChild(check);
                 li.appendChild(p);
@@ -143,6 +144,7 @@ const contextMenu = document.getElementById('contextMenu');
                   dataRef.child(addDay).child(id).remove();
                 };
 
+                // Show or hide context menu
                 function toggleContext() {
                   var task = this.parentNode;
                   var id = task.id;
