@@ -263,7 +263,6 @@ div.day ul {
   height: 60%;
   top: 0;
   margin: 90px 0px 0px 50px;
-  overflow: hidden;
   overflow-y: scroll;
 }
 
@@ -288,10 +287,122 @@ div.day ul {
   color: #39B44A;
 }
 
-.task button#delete {
+/*Testing Something*/
+
+.task button#context {
   position: relative;
   display: inline-block;
   opacity: 0;
+  float: right;
+  width: 25px;
+  height: 25px;
+  background: url(../res/context.png);
+  background-size: cover;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  transition: 0.2s;
+}
+
+div.contextMenu {
+  position: relative;
+  display: none;
+  background: #EDEDED;
+  width: 100%;
+  height: 30px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+div.contextMenu:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 10px;
+  margin: auto;
+  top: -8px;
+  border: 8px solid;
+  border-color: transparent #EDEDED #EDEDED transparent;
+}
+
+div.contextMenu img {
+  position: relative;
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: auto;
+}
+
+.task button#deleteNew {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  float: right;
+  width: 33%;
+  height: 25px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-top: 2.5px;
+  transition: 0.2s;
+}
+
+.task button#move {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  float: right;
+  width: 33%;
+  height: 25px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-top: 2.5px;
+  transition: 0.2s;
+}
+
+.task button#edit {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  float: right;
+  width: 33%;
+  height: 25px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-top: 2.5px;
+  transition: 0.2s;
+}
+
+button#edit img {
+  width: 20px;
+  height: 20px;
+}
+
+button#deleteNew svg {
+  position: relative;
+  display: block;
+  height: 23px;
+  margin: auto;
+}
+
+button#deleteNew svg .fill {
+  fill: black;
+}
+
+/*End of Testing*/
+
+.task button#delete {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
   float: right;
   width: 25px;
   height: 25px;
@@ -303,8 +414,8 @@ div.day ul {
   transition: 0.2s;
 }
 
-.task:hover button#delete {
-  opacity: 1;
+.task:hover button#context {
+  opacity: 1 !important;
 }
 
 .task button#delete:hover svg .fill  {
