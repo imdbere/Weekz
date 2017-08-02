@@ -201,14 +201,6 @@
       }
     };
 
-    // Open 'Move Task' Menu
-    function showMoveMenu() {
-      moveMenu.style.zIndex = "2000";
-      sleep(200).then(() => {
-        moveMenu.style.opacity = "1";
-      });
-    };
-
     addBtn.addEventListener('click', function() {
 
       if (taskName.value.trim() == "") {
@@ -243,17 +235,33 @@
         contextDiv.classList.add('contextMenu');
         contextDiv.style.display = "none";
 
-        var deleteBtn = document.createElement('button');
-        deleteBtn.id = "deleteNew"
-        deleteBtn.innerHTML = deleteBtnIcon;
+          var deleteBtn = document.createElement('button');
+          deleteBtn.id = "deleteNew"
+          deleteBtn.innerHTML = deleteBtnIcon;
 
-        var editBtn = document.createElement('button');
-        editBtn.id = "edit";
-        editBtn.innerHTML = editBtnIcon;
+          var editBtn = document.createElement('button');
+          editBtn.id = "edit";
+          editBtn.innerHTML = editBtnIcon;
 
-        var moveBtn = document.createElement('button')
-        moveBtn.id = "move";
-        moveBtn.innerHTML = moveBtnIcon;
+          var moveBtn = document.createElement('button')
+          moveBtn.id = "move";
+          moveBtn.innerHTML = moveBtnIcon;
+
+        var moveMenu = document.createElement('div');
+        moveMenu.classList.add('moveTask');
+        moveMenu.style.display = "none";
+
+          var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
+          var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
+          var moveLetter = ["M", "T", "W", "T", "F", "S"]
+          for (var i = 0; i < moveId.length; i++) {
+            var moveDayBtn = document.createElement('button');
+            moveDayBtn.classList.add('moveDay');
+            moveDayBtn.id = moveId[i];
+            moveDayBtn.name = moveName[i];
+            moveDayBtn.innerText = moveLetter[i];
+            moveMenu.appendChild(moveDayBtn);
+          };
 
         contextDiv.appendChild(deleteBtn);
         contextDiv.appendChild(editBtn);
@@ -263,6 +271,7 @@
         li.appendChild(check);
         li.appendChild(p);
         li.appendChild(contextDiv);
+        li.appendChild(moveMenu);
         li.appendChild(detailDiv);
 
         var key = dataRef.child(list.id).push().key;
@@ -281,7 +290,7 @@
         contextBtn.addEventListener('click', toggleContext);
           deleteBtn.addEventListener('click', removeTask);
           editBtn.addEventListener('click', editTask);
-          moveBtn.addEventListener('click', showMoveMenu);
+          moveBtn.addEventListener('click', moveTask);
 
         hideAddMenu();
       };

@@ -120,16 +120,19 @@ const closeBtn = document.getElementById('closeBtn');
 
                 var moveMenu = document.createElement('div');
                 moveMenu.classList.add('moveTask');
+                moveMenu.style.display = "none";
 
                   var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
+                  var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
                   var moveLetter = ["M", "T", "W", "T", "F", "S"]
                   for (var i = 0; i < moveId.length; i++) {
                     var moveDayBtn = document.createElement('button');
                     moveDayBtn.classList.add('moveDay');
                     moveDayBtn.id = moveId[i];
+                    moveDayBtn.name = moveName[i];
                     moveDayBtn.innerText = moveLetter[i];
                     moveMenu.appendChild(moveDayBtn);
-                  }
+                  };
 
                 contextDiv.appendChild(deleteBtn);
                 contextDiv.appendChild(editBtn);
@@ -202,19 +205,6 @@ const closeBtn = document.getElementById('closeBtn');
                   });
                 };
 
-                // Move Task
-                function moveTask() {
-                  var item = this.parentNode.parentNode;
-                  var id = item.id;
-                  var dayPicker = item.children[4];
-
-                  if (dayPicker.style.display == "none") {
-                    dayPicker.style.display = "block";
-                  } else {
-                    dayPicker.style.display = "none";
-                  };
-                };
-
                 // Show or hide context menu
                 function toggleContext() {
                   var task = this.parentNode;
@@ -246,7 +236,7 @@ const closeBtn = document.getElementById('closeBtn');
                 };
 
                 // Show Detail View
-                function showDetail(element) {
+                function showDetail() {
                   if (detailDiv.style.opacity == "1") {
                     detailDiv.style.opacity = "0";
                     detailDiv.style.display = "none";
