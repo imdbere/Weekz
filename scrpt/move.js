@@ -107,8 +107,6 @@ function moveTask() {
   var oldListId = item.parentNode.id;
   console.log(oldListId);
   var dayPicker = item.children[4];
-  var oldTask = item.children[2].innerText;
-  var oldDesc = item.children[5].children[0].innerText;
 
   if (dayPicker.style.display == "none") {
     dayPicker.style.display = "block";
@@ -121,6 +119,9 @@ function moveTask() {
     if (document.addEventListener) {
       daySelectButtons[i].addEventListener('click', function() {
         var moveTo = this.name;
+
+        var oldTask = item.children[2].innerText;
+        var oldDesc = item.children[5].children[0].innerText;
 
         oldList.removeChild(item);
 
@@ -192,9 +193,7 @@ function moveTask() {
         li.id = key;
 
         dataRef.child(oldListId).child(item.id).remove();
-        dataRef.child(moveTo).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
-
-        // {taskName: taskName.value, taskDesc: taskDesc.value, checked: false}
+        dataRef.child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: false});
 
         newList = document.getElementById(moveTo);
         console.log(newList);

@@ -215,7 +215,8 @@ const closeBtn = document.getElementById('closeBtn');
                     taskContext.style.display = "block";
                     this.style.opacity = 1;
                   } else {
-                    taskContext.style.display = "none"
+                    taskContext.style.display = "none";
+                    moveMenu.style.display = "none";
                     this.style.opacity = 0;
                   }
                 };

@@ -126,8 +126,6 @@
       menu.children[0].children[1].children[0].innerText = "Edit your Task";
       var item = this.parentNode.parentNode;
       var listId = item.parentNode.id;
-      console.log(listId);
-      console.log(item);
       var id = item.id;
       var name = item.children[2].innerText;
       var desc = item.children[4].children[0].innerText;
@@ -137,10 +135,9 @@
       showAddMenu();
 
       editTaskBtn.addEventListener('click', function() {
-        console.log(item.children[2].innerText);
         var newName = taskName.value;
         var newDesc = taskDesc.value;
-        console.log(newName);
+
         item.children[2].innerText = newName;
         item.children[4].children[0].innerText = newDesc;
 
@@ -154,12 +151,14 @@
       var task = this.parentNode;
       var id = task.id;
       var taskContext = task.children[3];
+      var thisMoveMenu = task.children[4];
 
       if (taskContext.style.display == "none") {
         taskContext.style.display = "block";
         this.style.opacity = 1;
       } else {
-        taskContext.style.display = "none"
+        taskContext.style.display = "none";
+        thisMoveMenu.style.display = "none";
         this.style.opacity = 0;
       }
     };
@@ -190,7 +189,7 @@
     function showDetail() {
       var item = this.parentNode
       console.log(item);
-      var detailView = item.children[4];
+      var detailView = item.children[5];
       console.log(detailView);
       if (detailView.style.opacity == "1") {
         detailView.style.opacity = "0";
