@@ -16,6 +16,7 @@
 
   // Get Elements
   const menu = document.getElementById('addTask');
+  const moveMenu = document.getElementById('moveTask');
   const day = document.getElementById('whatDay');
   const taskName = document.getElementById('taskName');
   const taskDesc = document.getElementById('taskDesc');
@@ -200,6 +201,14 @@
       }
     };
 
+    // Open 'Move Task' Menu
+    function showMoveMenu() {
+      moveMenu.style.zIndex = "2000";
+      sleep(200).then(() => {
+        moveMenu.style.opacity = "1";
+      });
+    };
+
     addBtn.addEventListener('click', function() {
 
       if (taskName.value.trim() == "") {
@@ -271,7 +280,8 @@
         // Open Context Menu and configure its buttons
         contextBtn.addEventListener('click', toggleContext);
           deleteBtn.addEventListener('click', removeTask);
-          editBtn.addEventListener('click', editTask)
+          editBtn.addEventListener('click', editTask);
+          moveBtn.addEventListener('click', showMoveMenu);
 
         hideAddMenu();
       };

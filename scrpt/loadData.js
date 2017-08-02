@@ -106,17 +106,30 @@ const closeBtn = document.getElementById('closeBtn');
                 contextDiv.classList.add('contextMenu');
                 contextDiv.style.display = "none";
 
-                var deleteBtn = document.createElement('button');
-                deleteBtn.id = "deleteNew"
-                deleteBtn.innerHTML = deleteBtnIcon;
+                  var deleteBtn = document.createElement('button');
+                  deleteBtn.id = "deleteNew"
+                  deleteBtn.innerHTML = deleteBtnIcon;
 
-                var editBtn = document.createElement('button');
-                editBtn.id = "edit";
-                editBtn.innerHTML = editBtnIcon;
+                  var editBtn = document.createElement('button');
+                  editBtn.id = "edit";
+                  editBtn.innerHTML = editBtnIcon;
 
-                var moveBtn = document.createElement('button')
-                moveBtn.id = "move";
-                moveBtn.innerHTML = moveBtnIcon;
+                  var moveBtn = document.createElement('button')
+                  moveBtn.id = "move";
+                  moveBtn.innerHTML = moveBtnIcon;
+
+                var moveMenu = document.createElement('div');
+                moveMenu.classList.add('moveTask');
+
+                  var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
+                  var moveLetter = ["M", "T", "W", "T", "F", "S"]
+                  for (var i = 0; i < moveId.length; i++) {
+                    var moveDayBtn = document.createElement('button');
+                    moveDayBtn.classList.add('moveDay');
+                    moveDayBtn.id = moveId[i];
+                    moveDayBtn.innerText = moveLetter[i];
+                    moveMenu.appendChild(moveDayBtn);
+                  }
 
                 contextDiv.appendChild(deleteBtn);
                 contextDiv.appendChild(editBtn);
@@ -126,6 +139,7 @@ const closeBtn = document.getElementById('closeBtn');
                 li.appendChild(check);
                 li.appendChild(p);
                 li.appendChild(contextDiv);
+                li.appendChild(moveMenu);
                 li.appendChild(detailDiv);
                 li.id = taskid.key;
 
@@ -142,8 +156,8 @@ const closeBtn = document.getElementById('closeBtn');
                 // Open Context Menu and configure its buttons
                 contextBtn.addEventListener('click', toggleContext);
                   deleteBtn.addEventListener('click', removeTask);
-                  moveBtn.addEventListener('click', moveTask);
                   editBtn.addEventListener('click', editTask);
+                  moveBtn.addEventListener('click', moveTask)
 
                 // Remove Task
                 function removeTask() {
@@ -153,13 +167,6 @@ const closeBtn = document.getElementById('closeBtn');
 
                   list.removeChild(task);
                   dataRef.child(addDay).child(id).remove();
-                };
-
-                // Move Task
-                function moveTask() {
-                  console.log("Move");
-
-
                 };
 
                 // Edit Task
@@ -175,7 +182,8 @@ const closeBtn = document.getElementById('closeBtn');
                   console.log(item);
                   var id = item.id;
                   var name = item.children[2].innerText;
-                  var desc = item.children[4].children[0].innerText;
+                  var desc = item.children[5].children[0].innerText;
+                  console.log(desc);
 
                   taskName.value = name;
                   taskDesc.value = desc;
@@ -187,11 +195,24 @@ const closeBtn = document.getElementById('closeBtn');
                     var newDesc = taskDesc.value;
                     console.log(newName);
                     item.children[2].innerText = newName;
-                    item.children[4].children[0].innerText = newDesc;
+                    item.children[5].children[0].innerText = newDesc;
 
                     var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
                     hideEditMenu();
                   });
+                };
+
+                // Move Task
+                function moveTask() {
+                  var item = this.parentNode.parentNode;
+                  var id = item.id;
+                  var dayPicker = item.children[4];
+
+                  if (dayPicker.style.display == "none") {
+                    dayPicker.style.display = "block";
+                  } else {
+                    dayPicker.style.display = "none";
+                  };
                 };
 
                 // Show or hide context menu
@@ -235,7 +256,7 @@ const closeBtn = document.getElementById('closeBtn');
                   }
                 };
 
-                // Open 'EditTask' Menu
+                // Open 'New Task' Menu
                 function showEditMenu() {
                   menu.style.zIndex = "2000";
                   sleep(200).then(() => {

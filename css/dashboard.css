@@ -397,30 +397,44 @@ button#deleteNew svg .fill {
   fill: black;
 }
 
-/*End of Testing*/
+div.moveTask {
+  position: relative;
+  display: none;
+  background: red;
+  width: calc(100% - 20px);
+  height: 35px;
+  margin: auto;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0px 0px 5px #B4B4B4;
+}
 
-.task button#delete {
+div.moveTask button.moveDay {
   position: relative;
   display: inline-block;
-  opacity: 1;
-  float: right;
-  width: 25px;
-  height: 25px;
-  background: none;
-  box-shadow: none;
+  width: 16.5%;
+  height: 100%;
   border: none;
   outline: none;
-  margin-left: 5px;
-  transition: 0.2s;
+  background: none !important;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
 }
+
+button#moveMon:hover {color: #FF514C}
+button#moveTue:hover {color: #E5E500}
+button#moveWed:hover {color: #F6921E}
+button#moveThu:hover {color: #7AC843}
+button#moveFri:hover {color: #3FA8F4}
+button#moveSat:hover {color: #662D90}
+
+/*End of Testing*/
 
 .task:hover button#context {
   opacity: 1 !important;
-}
-
-.task button#delete:hover svg .fill  {
-  fill: red;
-  transition: 0.3s;
 }
 
 .task svg {
