@@ -1,3 +1,15 @@
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD-23wnCzHAmW_AaS_yODHhcTbh9RhnbLY",
+  authDomain: "weekz-fba03.firebaseapp.com",
+  databaseURL: "https://weekz-fba03.firebaseio.com",
+  projectId: "weekz-fba03",
+  storageBucket: "gs://weekz-fba03.appspot.com/",
+  messagingSenderId: "708230896117"
+};
+firebase.initializeApp(config);
+
 // Global Date
 var currentWeek = new Date();
 

@@ -15,22 +15,24 @@
   var satColor = "#662D90";
 
   // Get Elements
-  const menu = document.getElementById('addTask');
-  const moveMenu = document.getElementById('moveTask');
-  const day = document.getElementById('whatDay');
-  const taskName = document.getElementById('taskName');
-  const taskDesc = document.getElementById('taskDesc');
-  const addBtn = document.getElementById('addBtn');
-  const editBtn = document.getElementById('editBtn');
-  const closeBtn = document.getElementById('closeBtn');
+  var addMenu = document.getElementById('addTask');
+  var moveMenu = document.getElementById('moveTask');
+  var day = document.getElementById('whatDay');
+  var taskName = document.getElementById('taskName');
+  var taskDesc = document.getElementById('taskDesc');
+  var addBtn = document.getElementById('addBtn');
+  var editBtn = document.getElementById('editBtn');
+  var closeBtn = document.getElementById('closeBtn');
+  var addTitle = document.getElementById('addTitle');
+  var editTitle = document.getElementById('editTitle');
 
   // Get Lists
-  const monList = document.getElementById('monList');
-  const tueList = document.getElementById('tueList');
-  const wedList = document.getElementById('wedList');
-  const thuList = document.getElementById('thuList');
-  const friList = document.getElementById('friList');
-  const satList = document.getElementById('satList');
+  var monList = document.getElementById('monList');
+  var tueList = document.getElementById('tueList');
+  var wedList = document.getElementById('wedList');
+  var thuList = document.getElementById('thuList');
+  var friList = document.getElementById('friList');
+  var satList = document.getElementById('satList');
 
   //-------------------------------------
   //-----Communication with Database-----
@@ -42,7 +44,7 @@
       var userId = firebase.auth().currentUser.uid;
       var selectedWeek = setDates(dayDifference);
 
-      const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
+      var dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
 
       var buttons = document.querySelectorAll(".addBtn");
 
@@ -122,13 +124,16 @@
       closeBtn.style.background = "#C4DADE";
       addTaskBtn.style.display = "none";
       editTaskBtn.style.display = "block";
+      addTitle.style.display = "none";
+      editTitle.style.display = "block";
 
-      menu.children[0].children[1].children[0].innerText = "Edit your Task";
       var item = this.parentNode.parentNode;
       var listId = item.parentNode.id;
       var id = item.id;
       var name = item.children[2].innerText;
-      var desc = item.children[4].children[0].innerText;
+      console.log(name);
+      var desc = item.children[5].children[0].innerText;
+      console.log(desc);
 
       taskName.value = name;
       taskDesc.value = desc;
@@ -297,22 +302,25 @@
 
     // Open 'New Task' Menu
     function showAddMenu() {
-      menu.style.zIndex = "2000";
-      taskName.value = "";
-      taskDesc.value = "";
+      addMenu.style.zIndex = "2000";
       sleep(200).then(() => {
-        menu.style.opacity = "1";
+        addMenu.style.opacity = "1";
       });
     };
 
     // Close 'New Task' Menu
     function hideAddMenu() {
       taskName.style.border = "none";
-      menu.style.opacity = "0";
+      addMenu.style.opacity = "0";
+      taskName.value = "";
+      taskDesc.value = "";
       sleep(300).then(() => {
         addBtn.style.display = "block";
         editBtn.style.display = "none";
-        menu.style.zIndex = "-1000";
+        addTitle.style.display = "block";
+        editTitle.style.display = "none";
+        addMenu.style.zIndex = "-1000";
+        console.log(editTitle);
       });
     };
 

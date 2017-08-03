@@ -1,5 +1,5 @@
 
-// Sett Date labels to current dates
+// Set Date labels to current dates
 setDates(0);
 
 // Difference
@@ -12,35 +12,26 @@ var editBtnIcon = '<img src="res/edit.png">'
 var moveBtnIcon = '<img src="res/move.png">'
 
 // Get Elements
-const nameLabel = document.getElementById('userName');
-const mailLabel = document.getElementById('userEmail');
-const addWeekBtn = document.getElementById('newWeek');
-const previousBtn = document.getElementById('previous');
-const allLists = document.getElementsByClassName('taskList');
-const verifyBtn = document.getElementById('verify');
-const contextMenu = document.getElementById('contextMenu');
+var nameLabel = document.getElementById('userName');
+var mailLabel = document.getElementById('userEmail');
+var addWeekBtn = document.getElementById('newWeek');
+var previousBtn = document.getElementById('previous');
+var allLists = document.getElementsByClassName('taskList');
+var verifyBtn = document.getElementById('verify');
+// var context = document.getElementById('contextMenu');
 
 // Edit Menu Elements
-const menu = document.getElementById('addTask');
-const day = document.getElementById('whatDay');
-const taskName = document.getElementById('taskName');
-const taskDesc = document.getElementById('taskDesc');
-const addTaskBtn = document.getElementById('addBtn');
-const editTaskBtn = document.getElementById('editBtn');
-const closeBtn = document.getElementById('closeBtn');
+var addMenu = document.getElementById('addTask');
+var day = document.getElementById('whatDay');
+var taskName = document.getElementById('taskName');
+var taskDesc = document.getElementById('taskDesc');
+var addTaskBtn = document.getElementById('addBtn');
+var editTaskBtn = document.getElementById('editBtn');
+var closeBtn = document.getElementById('closeBtn');
+var addTitle = document.getElementById('addTitle');
+var editTitle = document.getElementById('editTitle');
 
 (function() {
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyD-23wnCzHAmW_AaS_yODHhcTbh9RhnbLY",
-    authDomain: "weekz-fba03.firebaseapp.com",
-    databaseURL: "https://weekz-fba03.firebaseio.com",
-    projectId: "weekz-fba03",
-    storageBucket: "gs://weekz-fba03.appspot.com/",
-    messagingSenderId: "708230896117"
-  };
-  firebase.initializeApp(config);
 
   //Handle Account Status
   firebase.auth().onAuthStateChanged(user => {
@@ -70,7 +61,7 @@ const closeBtn = document.getElementById('closeBtn');
 
         var userId = firebase.auth().currentUser.uid;
         // Declaring Database Reference
-        const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeekString);
+        var dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeekString);
 
         // Retrieving Tasks and appending them to Lists
         dataRef.once('value', function(week) {
@@ -177,14 +168,14 @@ const closeBtn = document.getElementById('closeBtn');
                   closeBtn.style.background = "#C4DADE";
                   addTaskBtn.style.display = "none";
                   editTaskBtn.style.display = "block";
+                  addTitle.style.display = "none";
+                  editTitle.style.display = "block";
 
-                  menu.children[0].children[1].children[0].innerText = "Edit your Task";
                   var item = this.parentNode.parentNode;
                   var listId = item.parentNode.id;
-                  console.log(listId);
-                  console.log(item);
                   var id = item.id;
                   var name = item.children[2].innerText;
+                  console.log(name);
                   var desc = item.children[5].children[0].innerText;
                   console.log(desc);
 
@@ -249,20 +240,23 @@ const closeBtn = document.getElementById('closeBtn');
 
                 // Open 'New Task' Menu
                 function showEditMenu() {
-                  menu.style.zIndex = "2000";
+                  addMenu.style.zIndex = "2000";
                   sleep(200).then(() => {
-                    menu.style.opacity = "1";
+                    addMenu.style.opacity = "1";
                   });
                 };
 
                 // Close 'Edit Task' Menu
                 function hideEditMenu() {
                   taskName.style.border = "none";
-                  menu.style.opacity = "0";
+                  addMenu.style.opacity = "0";
                   sleep(300).then(() => {
-                    menu.style.zIndex = "-1000";
+                    addMenu.style.zIndex = "-1000";
                     addTaskBtn.style.display = "block";
                     editTaskBtn.style.display = "none";
+                    addTitle.style.display = "block";
+                    editTitle.style.display = "none";
+                    console.log(editTitle);
                   });
                 };
             });
