@@ -17,38 +17,6 @@ function moveTask() {
     dataRef.child(list.id).child(id).remove();
   };
 
-  // Edit Task
-  function editTask() {
-    closeBtn.style.background = "#C4DADE";
-    addTaskBtn.style.display = "none";
-    editTaskBtn.style.display = "block";
-
-    menu.children[0].children[1].children[0].innerText = "Edit your Task";
-    var item = this.parentNode.parentNode;
-    var listId = item.parentNode.id;
-    console.log(listId);
-    console.log(item);
-    var id = item.id;
-    var name = item.children[2].innerText;
-    var desc = item.children[4].children[0].innerText;
-
-    taskName.value = name;
-    taskDesc.value = desc;
-    showAddMenu();
-
-    editTaskBtn.addEventListener('click', function() {
-      console.log(item.children[2].innerText);
-      var newName = taskName.value;
-      var newDesc = taskDesc.value;
-      console.log(newName);
-      item.children[2].innerText = newName;
-      item.children[4].children[0].innerText = newDesc;
-
-      var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
-      hideAddMenu();
-    });
-  };
-
   // Show or hide context menu
   function toggleContext() {
     var task = this.parentNode;
@@ -68,19 +36,22 @@ function moveTask() {
   function taskDone() {
     console.log("done");
     var task = this.parentNode;
+    var thisList = task.parentNode;
+    console.log(thisList.id);
     var id = task.id;
     var taskText = task.children[2];
-    var status = dataRef.child(list.id).child(id).once('value').then(function(checked) {
+    var status = dataRef.child(thisList.id).child(id).once('value').then(function(checked) {
+      console.log(checked.val());
       var value = checked.val().checked;
-      console.log(value);
+      //console.log(value);
 
       if (value == false) {
         taskText.classList.toggle('toggle');
-        dataRef.child(list.id).child(id).update({checked: true});
+        dataRef.child(thisList.id).child(id).update({checked: true});
         value = true;
       } else {
         taskText.classList.toggle('toggle');
-        dataRef.child(list.id).child(id).update({checked: false});
+        dataRef.child(thisList.id).child(id).update({checked: false});
         value = false;
       };
     });
@@ -88,10 +59,8 @@ function moveTask() {
 
   // Show Detail View
   function showDetail() {
-    var item = this.parentNode
-    console.log(item);
-    var detailView = item.children[4];
-    console.log(detailView);
+    var item = this.parentNode;
+    var detailView = item.children[5];
     if (detailView.style.opacity == "1") {
       detailView.style.opacity = "0";
       detailView.style.display = "none";
@@ -103,9 +72,7 @@ function moveTask() {
 
   var item = this.parentNode.parentNode
   var oldList = item.parentNode;
-  console.log(oldList);
   var oldListId = item.parentNode.id;
-  console.log(oldListId);
   var dayPicker = item.children[4];
 
   if (dayPicker.style.display == "none") {
@@ -122,6 +89,9 @@ function moveTask() {
 
         var oldTask = item.children[2].innerText;
         var oldDesc = item.children[5].children[0].innerText;
+        var wasChecked = item.children[1].checked;
+
+        console.log(wasChecked);
 
         oldList.removeChild(item);
 
@@ -131,6 +101,7 @@ function moveTask() {
         var check = document.createElement('input');
         check.type = "checkbox";
         check.classList.add("option-input", "checkbox");
+        check.checked = wasChecked;
 
         var contextBtn = document.createElement('button');
         contextBtn.id = "context";
@@ -138,6 +109,10 @@ function moveTask() {
 
         var p = document.createElement('p');
         p.innerText = oldTask;
+
+        if (wasChecked == true) {
+          p.classList.add('toggle');
+        }
 
         var detailDiv = document.createElement('div');
         detailDiv.classList.add('detail');
@@ -187,16 +162,14 @@ function moveTask() {
         li.appendChild(contextDiv);
         li.appendChild(moveMenu);
         li.appendChild(detailDiv);
-        console.log(li);
 
         var key = dataRef.child(moveTo).push().key;
         li.id = key;
 
         dataRef.child(oldListId).child(item.id).remove();
-        dataRef.child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: false});
+        dataRef.child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: wasChecked});
 
         newList = document.getElementById(moveTo);
-        console.log(newList);
         newList.appendChild(li);
 
         // Change appearance of checked task

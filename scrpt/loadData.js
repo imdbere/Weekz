@@ -163,39 +163,6 @@ var editTitle = document.getElementById('editTitle');
                   dataRef.child(addDay).child(id).remove();
                 };
 
-                // Edit Task
-                function editTask() {
-                  closeBtn.style.background = "#C4DADE";
-                  addTaskBtn.style.display = "none";
-                  editTaskBtn.style.display = "block";
-                  addTitle.style.display = "none";
-                  editTitle.style.display = "block";
-
-                  var item = this.parentNode.parentNode;
-                  var listId = item.parentNode.id;
-                  var id = item.id;
-                  var name = item.children[2].innerText;
-                  console.log(name);
-                  var desc = item.children[5].children[0].innerText;
-                  console.log(desc);
-
-                  taskName.value = name;
-                  taskDesc.value = desc;
-                  showEditMenu();
-
-                  editTaskBtn.addEventListener('click', function() {
-                    console.log(item.children[2].innerText);
-                    var newName = taskName.value;
-                    var newDesc = taskDesc.value;
-                    console.log(newName);
-                    item.children[2].innerText = newName;
-                    item.children[5].children[0].innerText = newDesc;
-
-                    var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
-                    hideEditMenu();
-                  });
-                };
-
                 // Show or hide context menu
                 function toggleContext() {
                   var task = this.parentNode;
@@ -236,28 +203,6 @@ var editTitle = document.getElementById('editTitle');
                     detailDiv.style.opacity = "1";
                     detailDiv.style.display = "block";
                   }
-                };
-
-                // Open 'New Task' Menu
-                function showEditMenu() {
-                  addMenu.style.zIndex = "2000";
-                  sleep(200).then(() => {
-                    addMenu.style.opacity = "1";
-                  });
-                };
-
-                // Close 'Edit Task' Menu
-                function hideEditMenu() {
-                  taskName.style.border = "none";
-                  addMenu.style.opacity = "0";
-                  sleep(300).then(() => {
-                    addMenu.style.zIndex = "-1000";
-                    addTaskBtn.style.display = "block";
-                    editTaskBtn.style.display = "none";
-                    addTitle.style.display = "block";
-                    editTitle.style.display = "none";
-                    console.log(editTitle);
-                  });
                 };
             });
         });

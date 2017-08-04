@@ -1,3 +1,27 @@
+
+// Open 'New Task' Menu
+function showAddMenu() {
+  addMenu.style.zIndex = "2000";
+  sleep(200).then(() => {
+    addMenu.style.opacity = "1";
+  });
+};
+
+// Close 'New Task' Menu
+function hideAddMenu() {
+  taskName.style.border = "none";
+  addMenu.style.opacity = "0";
+  sleep(300).then(() => {
+    addBtn.style.display = "block";
+    editBtn.style.display = "none";
+    addTitle.style.display = "block";
+    editTitle.style.display = "none";
+    addMenu.style.zIndex = "-1000";
+    taskName.value = "";
+    taskDesc.value = "";
+  });
+};
+
 (function() {
 
   // SVG for Delete Button
@@ -119,38 +143,6 @@
       dataRef.child(list.id).child(id).remove();
     };
 
-    // Edit Task
-    function editTask() {
-      closeBtn.style.background = "#C4DADE";
-      addTaskBtn.style.display = "none";
-      editTaskBtn.style.display = "block";
-      addTitle.style.display = "none";
-      editTitle.style.display = "block";
-
-      var item = this.parentNode.parentNode;
-      var listId = item.parentNode.id;
-      var id = item.id;
-      var name = item.children[2].innerText;
-      console.log(name);
-      var desc = item.children[5].children[0].innerText;
-      console.log(desc);
-
-      taskName.value = name;
-      taskDesc.value = desc;
-      showAddMenu();
-
-      editTaskBtn.addEventListener('click', function() {
-        var newName = taskName.value;
-        var newDesc = taskDesc.value;
-
-        item.children[2].innerText = newName;
-        item.children[4].children[0].innerText = newDesc;
-
-        var update = dataRef.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
-        hideAddMenu();
-      });
-    };
-
     // Show or hide context menu
     function toggleContext() {
       var task = this.parentNode;
@@ -192,10 +184,8 @@
 
     // Show Detail View
     function showDetail() {
-      var item = this.parentNode
-      console.log(item);
+      var item = this.parentNode;
       var detailView = item.children[5];
-      console.log(detailView);
       if (detailView.style.opacity == "1") {
         detailView.style.opacity = "0";
         detailView.style.display = "none";
@@ -299,30 +289,6 @@
         hideAddMenu();
       };
     });
-
-    // Open 'New Task' Menu
-    function showAddMenu() {
-      addMenu.style.zIndex = "2000";
-      sleep(200).then(() => {
-        addMenu.style.opacity = "1";
-      });
-    };
-
-    // Close 'New Task' Menu
-    function hideAddMenu() {
-      taskName.style.border = "none";
-      addMenu.style.opacity = "0";
-      taskName.value = "";
-      taskDesc.value = "";
-      sleep(300).then(() => {
-        addBtn.style.display = "block";
-        editBtn.style.display = "none";
-        addTitle.style.display = "block";
-        editTitle.style.display = "none";
-        addMenu.style.zIndex = "-1000";
-        console.log(editTitle);
-      });
-    };
 
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
