@@ -1,0 +1,326 @@
+
+body {
+  margin: 0;
+  min-width: 1250px;
+}
+
+/* ----- Bar -----*/
+
+div.bar {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100vw;
+  min-width: 1250px;
+  height: 60px;
+  background: #4D4D4D;
+  box-shadow: 0px 0px 30px #0A0A0A;
+}
+
+div.bar img {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 40px;
+  margin: 10px 0px 10px 30px;
+}
+
+div.bar a {
+  background: none;
+}
+
+div.bar a:nth-of-type(2):hover {background: #FF2727}
+
+div.bar a.link {
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin: 20px 40px 20px 10px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+div.bar a:nth-of-type(2) {
+  margin: 15px 60px 15px 0px;
+  background: #FF514C;
+  padding: 5px 20px 5px 20px;
+  border-radius: 15px;
+}
+
+
+/* ----- Content -----*/
+
+div.content {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: url(../res/wallpaperBack.jpeg);
+  background-size: cover;
+}
+
+div.box {
+  position: relative;
+  display: block;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  background: none;
+  top: 50%;
+  transform: translate(0,-50%);
+  box-shadow: 0px 0px 10px #0A0A0A;
+}
+
+/* ----- Left -----*/
+
+div.left {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: none;
+  background-size: cover;
+}
+
+div.left h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 30px;
+  color: white;
+  margin-top: 100px;
+}
+
+div.left h1 span {font-weight: 700}
+
+/* ----- Right -----*/
+
+div.right {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  float: right;
+  background: #4D4D4D;
+}
+
+div.right img {
+  position: relative;
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+div.right h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 25px;
+  color: white;
+  margin-top: 30px;
+}
+
+div.right h1 span {font-weight: 700}
+
+div.right p {
+  position: relative;
+  display: block;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+  margin-top: 30px;
+}
+
+div.right a {
+  position: relative;
+  display: block;
+  width: 70%;
+  padding: 15px 20px 15px 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  border: none;
+  background: #FF514C;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+div.right a:hover {background: #FF2727}
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-device-width: 700px) {
+
+  body {
+    margin: 0;
+    min-width: 0px;
+    width: 100%;
+  }
+
+  /* ----- Bar -----*/
+
+  div.bar {
+    min-width: 0px;
+    min-height: 0px;
+    width: 100vw;
+  }
+
+  div.bar img {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    margin: 10px 0px 10px 30px;
+  }
+
+  div.bar a {
+    background: none;
+  }
+
+  div.bar a:nth-of-type(2):hover {background: #FF2727}
+
+  div.bar a.link {
+    margin: 20px 40px 20px 10px;
+    font-size: 15px;
+  }
+
+  div.bar a:nth-of-type(2) {
+    margin: 15px 20px 15px 0px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    color: white;
+  }
+
+  /* ----- Content -----*/
+
+  div.content {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: url(../res/wallpaperBack.jpeg);
+    background-size: cover;
+    overflow: auto;
+  }
+
+  div.box {
+    position: relative;
+    display: block;
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    background: none;
+    top: 30px;
+    transform: translate(0,0);
+    box-shadow: 0px 0px 10px #0A0A0A;
+  }
+
+  /* ----- Left -----*/
+
+  div.left {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    float: left;
+    background: none;
+    background-size: cover;
+  }
+
+  div.left h1 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 30px;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  div.left h1 span {font-weight: 700}
+
+  /* ----- Right -----*/
+
+  div.right {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    float: right;
+    background: #4D4D4D;
+  }
+
+  div.right img {
+    position: relative;
+    display: block;
+    width: 200px;
+    margin: auto;
+    margin-top: 60px;
+  }
+
+  div.right h1 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 22px;
+    color: white;
+    margin-top: 30px;
+  }
+
+  div.right h1 span {font-weight: 700}
+
+  div.right p {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 20px;
+    color: white;
+    margin-top: 30px;
+  }
+
+  div.right a {
+    position: relative;
+    display: block;
+    width: 70%;
+    padding: 15px 20px 15px 20px;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    border: none;
+    background: #FF514C;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    margin-bottom: 50px;
+  }
+}
