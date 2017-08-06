@@ -56,6 +56,7 @@
       var list = task.parentNode;
 
       list.removeChild(task);
+      console.log(list.id);
       dataRef.child(list.id).child(id).remove();
     };
 
@@ -80,8 +81,10 @@
     };
 
     var userId = firebase.auth().currentUser.uid;
+    var selectedWeek = setDates(dayDifference);
+    
     // Declaring Database Reference
-    const dataRef = firebase.database().ref().child('users').child(userId).child('weeks');
+    const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
 
     function createToDoItem() {
       if (toDoValue.value.trim() == "") {
@@ -97,7 +100,7 @@
         check.classList.add("option-input", "checkbox");
 
         var deleteBtn = document.createElement('button');
-        deleteBtn.id = "delete"
+        deleteBtn.classList.add("toDoDelete");
         deleteBtn.innerHTML = deleteBtnIcon;
 
         var p = document.createElement('p');
@@ -110,9 +113,7 @@
         var key = dataRef.child('toDo').push().key;
         li.id = key;
 
-        var selectedWeek = setDates(dayDifference);
-
-        var newEntry = dataRef.child(selectedWeek).child('bubbleList').child(key).update({taskName: toDoValue.value});
+        var newEntry = dataRef.child('bubbleList').child(key).update({taskName: toDoValue.value});
 
         toDoList.appendChild(li);
 

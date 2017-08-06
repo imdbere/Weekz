@@ -75,6 +75,10 @@ var editTitle = document.getElementById('editTitle');
                 check.type = "checkbox";
                 check.classList.add("option-input", "checkbox");
 
+                var toDoDeleteBtn = document.createElement('button');
+                toDoDeleteBtn.classList.add('toDoDelete');
+                toDoDeleteBtn.innerHTML = deleteBtnIcon;
+
                 var contextBtn = document.createElement('button');
                 contextBtn.id = "context";
                 contextBtn.style.background = "context.png"
@@ -129,12 +133,20 @@ var editTitle = document.getElementById('editTitle');
                 contextDiv.appendChild(editBtn);
                 contextDiv.appendChild(moveBtn);
 
-                li.appendChild(contextBtn);
-                li.appendChild(check);
-                li.appendChild(p);
-                li.appendChild(contextDiv);
-                li.appendChild(moveMenu);
-                li.appendChild(detailDiv);
+                if (day.key == "bubbleList") {
+                  console.log(day.key);
+                  li.appendChild(toDoDeleteBtn);
+                  li.appendChild(check);
+                  li.appendChild(p);
+                } else {
+                  li.appendChild(contextBtn);
+                  li.appendChild(check);
+                  li.appendChild(p);
+                  li.appendChild(contextDiv);
+                  li.appendChild(moveMenu);
+                  li.appendChild(detailDiv);
+                }
+
                 li.id = taskid.key;
 
                 var addDay = day.key;
@@ -147,6 +159,9 @@ var editTitle = document.getElementById('editTitle');
                 // Show Detail View
                 p.addEventListener('click', showDetail);
 
+                // Delete button for To-Do List
+                toDoDeleteBtn.addEventListener('click', removeToDo);
+
                 // Open Context Menu and configure its buttons
                 contextBtn.addEventListener('click', toggleContext);
                   deleteBtn.addEventListener('click', removeTask);
@@ -156,6 +171,16 @@ var editTitle = document.getElementById('editTitle');
                 // Remove Task
                 function removeTask() {
                   var task = this.parentNode.parentNode;
+                  var id = task.id;
+                  var list = task.parentNode;
+
+                  list.removeChild(task);
+                  dataRef.child(addDay).child(id).remove();
+                };
+
+                // Remove Task
+                function removeToDo() {
+                  var task = this.parentNode;
                   var id = task.id;
                   var list = task.parentNode;
 
