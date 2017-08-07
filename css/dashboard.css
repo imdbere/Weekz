@@ -8,6 +8,127 @@ body {
 ::-moz-scrollbar {display: none}
 ::-ms-scrollbar {display: none}
 
+/* ----- Feedback Form -----*/
+
+div.feedback {
+  position: absolute;
+  display: block;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  background: white;
+  border: 1px solid #662D90;
+  z-index: 2000;
+  transition: 0.2s;
+}
+
+div.feedback form.wrap {
+  height: 0px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+div.feedback h3 {
+  position: relative;
+  display: block;
+  width: 80%;
+  margin: auto;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  color: #662D90;
+  text-align: center;
+  clear: right;
+}
+
+div.feedback p {
+  position: relative;
+  display: block;
+  width: 80%;
+  margin: auto;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  color: #662D90;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+div.feedback input {
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 35px;
+  margin: auto;
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  text-indent: 15px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 14px;
+  background: #F1F1F1;
+}
+
+div.feedback textarea {
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  padding: 15px;
+  resize: none;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 14px;
+  background: #F1F1F1;
+}
+
+div.feedback button {
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  outline: none;
+  border: none;
+  background: #662D90;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+}
+
+button#minimizeFb {
+  position: relative;
+  display: block;
+  float: right;
+  right: 15px;
+  top: 15px;
+  margin-bottom: 25px;
+  margin-top: 0px;
+  width: 20px;
+  height: 3px;
+}
+
+button#openFb {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  background: #662D90;
+  color: white;
+  font-size: 12px;
+}
+
 /* ----- Bar -----*/
 
 div.bar {

@@ -29,6 +29,18 @@
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   </head>
   <body>
+    <div class="feedback" id="feedback">
+      <form class="wrap" id="wrap" action="scrpt/sendFeedback.php" method="post">
+        <button type="button" id="minimizeFb"></button>
+        <h3>Found a bug or have some ideas for new features?</h3>
+        <p>Let us know!</p>
+        <input type="text" name="name" placeholder="Name" id="fbName">
+        <textarea name="message" placeholder="Message" id="fbMessage"></textarea>
+        <button type="button" name="submit" id="fbSubmit">SEND</button>
+      </form>
+      <button type="button" id="openFb">Bug?</button>
+    </div>
+
     <div class="bar">
       <a href="index.html">
         <img src="res/logoSmall.png" alt="Welcome to the Weekz Dashboard">
@@ -42,7 +54,7 @@
       <h1>Your <span>Week</span> <button type="button" id="showBubble"></button></h1>
       <div class="mobileBubble" id="showBubbleMobile">
         <p><span>To Do</span> List</p>
-        <img src="res/toDoIconWhite.png" alt="">
+        <img src="res/toDoIconWhite.png" alt="toDo for the Week">
       </div>
     </div>
     <div class="dash">
@@ -141,5 +153,6 @@
     <script src="scrpt/addTask.js"></script>
     <script src="scrpt/toDo.js"></script>
     <script src="scrpt/menu.js"></script>
+    <script src="scrpt/feedback.js"></script>
   </body>
 </html>

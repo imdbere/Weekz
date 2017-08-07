@@ -1,0 +1,184 @@
+
+::-webkit-scrollbar {display: none}
+::-moz-scrollbar {display: none}
+::-ms-scrollbar {display: none}
+
+/* ----- Login -----*/
+
+body.login {
+  background: url(../res/bugBack.jpeg);
+  background-size: cover;
+}
+
+div.box {
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  background: #4D4D4D;
+  box-shadow: 0px 0px 10px black;
+  top: 40%;
+  transform: translate(0,-50%);
+  overflow: hidden;
+}
+
+div.box img {
+  position: relative;
+  display: block;
+  width: 80px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+div.box h1 {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 25px;
+  color: white;
+}
+
+div.box input {
+  position: relative;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  color: black;
+  width: 60%;
+  height: 45px;
+  text-indent: 20px;
+  outline: none;
+}
+
+div.box button {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 45px;
+  margin: auto;
+  margin-top: 30px;
+  border: none;
+  outline: none;
+  background: #FF514C;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+/* ----- Dash -----*/
+
+body.dash {
+  background: #404040;
+}
+
+div.container {
+  position: relative;
+  display: block;
+  width: 1000px;
+  height: 80vh;
+  margin: auto;
+  min-height: 500px;
+  background: #4D4D4D;
+  top: 50%;
+  transform: translate(0,-50%);
+  box-shadow: 0px 0px 15px rgba(40,40,40,0.5);
+  overflow: auto;
+}
+
+div.report {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  background: none;
+  overflow: auto;
+}
+
+div.report::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #E5E500;
+  margin: auto;
+}
+
+div.report h3 {
+  position: relative;
+  display: block;
+  margin-top: 40px;
+  margin-left: 60px;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+
+div.report h3:after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: #E5E500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.report p {
+  position: relative;
+  display: block;
+  margin: 10px 80px 30px 60px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+
+/* ----- Bar -----*/
+
+div.bar {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100vw;
+  min-width: 800px;
+  height: 60px;
+  background: #4D4D4D;
+  box-shadow: 0px 0px 15px rgba(40,40,40,0.5);
+}
+
+div.bar img {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 40px;
+  margin: 10px 0px 10px 30px;
+}
+
+div.bar a.link {
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin: 15px 60px 15px 0px;
+  padding: 5px 20px 5px 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  background: #FF514C;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+div.bar a:hover {background: #FF2727}
