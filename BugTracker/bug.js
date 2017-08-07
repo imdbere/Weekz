@@ -17,11 +17,6 @@
 
   var bugRef = firebase.database().ref().child('feedback')
 
-  firebase.auth().onAuthStateChanged(user => {
-    if (!user) {
-      window.location = "login.html";
-    } else {
-
       bugRef.once('value', function(feedback) {
         feedback.forEach(function(reports) {
 
@@ -40,9 +35,7 @@
           report.appendChild(name);
           report.appendChild(message);
 
-          container.appendChild(report);
+          container.insertBefore(report, container.firstChild);
         });
       });
-    }
-  });
 }())

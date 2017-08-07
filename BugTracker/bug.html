@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Weekz Bugtracker Login</title>
+    <title>Weekz Bugtracker Dashboard</title>
 
     <link rel="icon" type="image/png" href="../res/logoSmall.png">
 
@@ -13,15 +13,16 @@
     <!-- Including Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   </head>
-  <body class="login">
-    <div class="box">
-      <img src="../res/logoSmall.png" alt="">
-      <h1>Weekz Bugtracker</h1>
-      <input type="password" placeholder="Admin Password" id="adminPass">
-      <button type="button" id="loginBug">LOGIN</button>
+  <body class="dash">
+    <div class="bar">
+      <a href="index.html">
+        <img src="../res/logoSmall.png" alt="Stay productive with Weekz">
+      </a>
+      <a href="../dashboard.html" class="link">DASHBOARD</a>
     </div>
+    <div class="container" id="container"></div>
 
   <!-- Scripts -->
-  <script src="login.js"></script>
+  <script src="bug.js"></script>
   </body>
 </html>

@@ -3,96 +3,26 @@
 ::-moz-scrollbar {display: none}
 ::-ms-scrollbar {display: none}
 
-/* ----- Login -----*/
-
-body.login {
+body {
   background: url(../res/bugBack.jpeg);
   background-size: cover;
 }
 
-div.box {
-  position: relative;
-  display: block;
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  background: #4D4D4D;
-  box-shadow: 0px 0px 10px black;
-  top: 40%;
-  transform: translate(0,-50%);
-  overflow: hidden;
-}
-
-div.box img {
-  position: relative;
-  display: block;
-  width: 80px;
-  margin: auto;
-  margin-top: 40px;
-}
-
-div.box h1 {
-  position: relative;
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 25px;
-  color: white;
-}
-
-div.box input {
-  position: relative;
-  display: block;
-  margin: auto;
-  margin-top: 40px;
-  font-family: 'Roboto';
-  font-weight: 300;
-  font-size: 16px;
-  color: black;
-  width: 60%;
-  height: 45px;
-  text-indent: 20px;
-  outline: none;
-}
-
-div.box button {
-  position: relative;
-  display: block;
-  width: 60%;
-  height: 45px;
-  margin: auto;
-  margin-top: 30px;
-  border: none;
-  outline: none;
-  background: #FF514C;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 18px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-
 /* ----- Dash -----*/
-
-body.dash {
-  background: #404040;
-}
 
 div.container {
   position: relative;
   display: block;
-  width: 1000px;
-  height: 80vh;
+  width: 800px;
+  height: 70vh;
   margin: auto;
   min-height: 500px;
   background: #4D4D4D;
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0,-48%);
   box-shadow: 0px 0px 15px rgba(40,40,40,0.5);
   overflow: auto;
+  padding-bottom: 40px;
 }
 
 div.report {
@@ -147,7 +77,7 @@ div.report p {
 /* ----- Bar -----*/
 
 div.bar {
-  position: relative;
+  position: absolute;
   display: block;
   overflow: hidden;
   width: 100vw;
