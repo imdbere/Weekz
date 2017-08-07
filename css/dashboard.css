@@ -171,12 +171,13 @@ div.dash {
   position: relative;
   display: block;
   width: 1500px;
-  height: 720px;
+  height: 80vh;
+  min-height: 500px;
   margin: auto;
   background: white;
   box-shadow: 0px 0px 8px #B4B4B4;
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 div.day {
@@ -194,7 +195,7 @@ div#tue::before, div#wed::before, div#fri::before, div#sat::before {
   position: relative;
   display: inline-block;
   width: 1px;
-  height: 300px;
+  height: 80%;
   background: #CBCBCB;
   margin-top: 37.5px;
 }

@@ -326,7 +326,7 @@ div.wallpaper div.wrapper {
   height: auto;
   margin: auto;
   padding: 50px 0px 50px 0px;
-  background: #4D4D4D;
+  background: white;
   top: 50%;
   transform: translate(0,-50%);
 }
@@ -338,7 +338,6 @@ div.wrapper h1 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 25px;
-  color: white;
 }
 
 div.wrapper h1 span {font-weight: 700}
@@ -485,8 +484,11 @@ div.right a {
   }
 
   div.text {
+    position: relative; 
+    display: block;
     width: 80%;
-    margin-left: 40px;
+    margin-left: 0px;
+    margin: auto;
   }
 
   div.text img {

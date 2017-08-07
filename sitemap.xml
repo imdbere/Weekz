@@ -7,22 +7,32 @@
 
 <url>
   <loc>https://www.weekz.cloud/</loc>
-  <changefreq>hourly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.weekz.cloud/signup.html</loc>
-  <changefreq>hourly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.weekz.cloud/signin.html</loc>
-  <changefreq>hourly</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/wall.html</loc>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.weekz.cloud/index.html</loc>
-  <changefreq>hourly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/forgot.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
 </url>
 </urlset>
