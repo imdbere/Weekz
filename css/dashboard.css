@@ -11,7 +11,7 @@ body {
 /* ----- Feedback Form -----*/
 
 div.feedback {
-  position: absolute;
+  position: fixed;
   display: block;
   bottom: 30px;
   right: 30px;
@@ -136,8 +136,8 @@ div.bar {
   display: block;
   overflow: hidden;
   width: 100vw;
-  min-width:  1250px;
-  height: 60px;
+  min-width: 1250px;
+  height: calc(40px + 1vh);
   background: white;
   box-shadow: 0px 0px 10px #B4B4B4;
 }
@@ -146,21 +146,25 @@ div.bar img {
   position: relative;
   display: inline-block;
   float: left;
-  width: 40px;
-  margin: 10px 0px 10px 30px;
+  width: 35px;
+  margin-left: 30px;
+  top: 50%;
+  transform: translate(0,-50%);
 }
 
 div.bar button {
   position: relative;
   display: inline-block;
   float: right;
-  height: 20px;
-  width: 35px;
+  height: 15px;
+  width: 30px;
   background: url(../res/menuIcon.png);
   background-size: cover;
   border: none;
-  margin: 20px 40px 20px 0px;
+  top: 50%;
+  transform: translate(0,-50%);
   outline: none;
+  margin-right: 20px;
 }
 
 /* ----- Heading -----*/
@@ -170,7 +174,7 @@ div.heading {
   display: block;
   width: 100vw;
   min-width: 1250px;
-  height: 60px;
+  height: calc(50px + 2vh);
   z-index: 100;
 }
 
@@ -185,7 +189,8 @@ div.heading button {
   font-weight: 700;
   font-size: 14px;
   color: white;
-  margin-top: 20px;
+  top: 50%;
+  transform: translate(0,-50%);
   outline: none;
 }
 
@@ -233,8 +238,8 @@ div.heading h1 {
   font-weight: 300;
   font-size: 25px;
   left: 50%;
-  transform: translate(-50%,0);
-  margin-top: 20px;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 div.heading h1 span {font-weight: 700}
@@ -250,6 +255,8 @@ div.heading h1 button#showBubble {
   top: -20px;
   margin-left: 10px;
   border-radius: 15px;
+  top: 0;
+  transform: translate(0,0);
 }
 
 button#showBubble img {
@@ -274,7 +281,7 @@ div.mobileBubble {
   height: 50px;
   background: #C3C3C3;
   box-shadow: 0px 0px 5px #B3B3B3;
-  top: 90px;
+  top: 70px;
   margin: auto;
 }
 
@@ -308,14 +315,13 @@ div.dash {
   position: relative;
   display: block;
   width: 95vw;
-  min-width: 1300px;
+  min-width: 1200px;
   max-width: 1500px;
   height: 80vh;
-  min-height: 500px;
+  min-height: 450px;
   margin: auto;
   background: white;
   box-shadow: 0px 0px 8px #B4B4B4;
-  margin-top: 15px;
   margin-bottom: 35px;
 }
 
@@ -359,9 +365,9 @@ div#sat h1 {color: #662D90}
 div.day h2 {
   position: absolute;
   display: block;
-  top: 0;
-  right: 0;
-  margin: 40px 30px 0px 0px;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%,0);
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 16px;
@@ -371,20 +377,19 @@ div.day button.addBtn {
   position: absolute;
   display: block;
   opacity: 0;
-  bottom: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
+  top: 30px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 35px;
+  font-size: 30px;
   border: none;
-  border-radius: 30px;
-  margin: 0px 20px 10px 0px;
+  border-radius: 25px;
   color: white;
   transition: 0.5s;
   outline: none;
-  z-index: 2000;
+  z-index: 100;
 }
 
 div#mon button {background: #FF514C; /*box-shadow: 0px 0px 10px #FF514C;*/}
@@ -411,9 +416,10 @@ div.day ul {
 .task p {
   position: relative;
   display: inline-block;
+  width: 80%;
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: calc(15px + 0.3vw);
+  font-size: calc(12.5px + 0.4vw);
   margin-bottom: 20px;
 }
 
@@ -847,6 +853,13 @@ div.bubbleBack {
     width: 100%;
   }
 
+/* ----- Feedback Form -----*/
+
+  div.feedback {
+    bottom: 10px;
+    right: 10px;
+  }
+
 /* ----- Bar -----*/
 
   div.bar {
@@ -859,14 +872,12 @@ div.bubbleBack {
     position: relative;
     display: inline-block;
     float: left;
-    width: 40px;
-    margin: 10px 0px 10px 30px;
+    width: 30px;
   }
 
   div.bar button {
     height: 20px;
     width: 35px;
-    margin: 20px 25px 10px 30px;
   }
 
 /* ----- Heading -----*/
@@ -874,7 +885,7 @@ div.bubbleBack {
   div.heading {
     min-width: 0px;
     width: 100vw;
-    height: 80px;
+    height: 70px;
     z-index: 100;
   }
 
@@ -882,17 +893,16 @@ div.bubbleBack {
     width: 50px;
     height: 50px;
     border-radius: 65px;
-    margin-top: 30px;
   }
 
   div.heading button p {display: none}
 
   div.heading button#previous {
-    margin: 20px 0px 0px 20px;
+    margin-left: 20px;
   }
 
   div.heading button#newWeek {
-    margin: 20px 20px 0px 0px;
+    margin-right: 20px;
   }
 
 
@@ -910,7 +920,6 @@ div.bubbleBack {
 
   div.heading h1 {
     font-size: 1.3em;
-    margin-top: 30px;
   }
 
   div.heading h1 button#showBubble {display: none}
@@ -920,10 +929,11 @@ div.bubbleBack {
   /* ----- Dash -----*/
 
   div.dash {
+    min-width: 0px;
     width: 90%;
     background: none;
     box-shadow: none;
-    margin-top: 70px;
+    margin-top: 50px;
     margin-bottom: 0px;
   }
 
@@ -947,12 +957,17 @@ div.bubbleBack {
   }
 
   div.day h2 {
-    margin: 30px 40px 0px 0px;
+    top: 30px;
+    right: 0;
+    left: auto;
     font-size: 1em;
   }
 
   div.day button.addBtn {
     opacity: 1;
+    top: auto;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 50px;
     font-size: 2.5em;
@@ -961,7 +976,7 @@ div.bubbleBack {
   }
 
   div.day ul {
-    width: 80%;
+    width: 85%;
     height: 55%;
     margin: 80px 0px 0px 30px;
   }
@@ -971,6 +986,7 @@ div.bubbleBack {
   .task p {
     font-size: 0.9em;
     margin-bottom: 15px;
+    width: 70%;
   }
 
   .task input {
@@ -1176,7 +1192,7 @@ div.bubbleBack {
     background-color: #EDEDED;
     border-radius: 0px;
     z-index: 2000;
-    top: -10px;
+    top: 0px;
     left: 0;
     right: 0;
     margin: auto;
