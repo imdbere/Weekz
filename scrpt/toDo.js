@@ -29,7 +29,7 @@
 
       showBubbleMobile.addEventListener('click', function() {
         if (bubble.style.height == "0px") {
-          bubble.style.height = "350px";
+          bubble.style.height = "335px";
           console.log('opened');
         } else {
           bubble.style.height = "0px";
@@ -82,7 +82,7 @@
 
     var userId = firebase.auth().currentUser.uid;
     var selectedWeek = setDates(dayDifference);
-    
+
     // Declaring Database Reference
     const dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
 

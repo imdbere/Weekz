@@ -277,11 +277,11 @@ button#showBubble p {
 div.mobileBubble {
   position: relative;
   display: none;
-  width: 90%;
+  width: 95%;
   height: 50px;
   background: #C3C3C3;
   box-shadow: 0px 0px 5px #B3B3B3;
-  top: 70px;
+  top: 75px;
   margin: auto;
 }
 
@@ -930,7 +930,7 @@ div.bubbleBack {
 
   div.dash {
     min-width: 0px;
-    width: 90%;
+    width: 95%;
     background: none;
     box-shadow: none;
     margin-top: 50px;
@@ -940,7 +940,7 @@ div.bubbleBack {
   div.day {
     width: 100%;
     height: 320px;
-    box-shadow: 0px 0px 20px #B4B4B4;
+    box-shadow: 0px 0px 5px #D1D2D4;
     margin: auto;
     margin-top: 20px;
   }
@@ -1007,7 +1007,7 @@ div.bubbleBack {
   .task button#context {
     position: relative;
     display: inline-block;
-    opacity: 0;
+    opacity: 1;
     float: right;
     width: 25px;
     height: 25px;
@@ -1025,9 +1025,9 @@ div.bubbleBack {
     display: none;
     background: #EDEDED;
     width: 100%;
-    height: 30px;
+    height: 25px;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 8px;
   }
 
@@ -1053,25 +1053,28 @@ div.bubbleBack {
 
   .task button#deleteNew {
     width: 33%;
+    margin-top: 0px;
   }
 
   .task button#move {
     width: 33%;
+    margin-top: 0px;
   }
 
   .task button#edit {
     width: 33%;
+    margin-top: 0px;
   }
 
   button#edit img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   button#deleteNew svg {
     position: relative;
     display: block;
-    height: 23px;
+    height: 20px;
     margin: auto;
   }
 
@@ -1084,7 +1087,7 @@ div.bubbleBack {
     display: none;
     background: red;
     width: calc(100% - 20px);
-    height: 35px;
+    height: 25px;
     margin: auto;
     margin-top: -15px;
     margin-bottom: 20px;
@@ -1102,7 +1105,7 @@ div.bubbleBack {
     background: none !important;
     font-family: 'Montserrat';
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
   }
 
@@ -1110,13 +1113,14 @@ div.bubbleBack {
 
   .detail {
     margin-top: 0px;
+    margin-right: -60px;
     margin-bottom: 0px;
   }
 
   .detail p {
     font-size: 0.8em;
-    padding-left: 20px;
-    padding-right: 40px;
+    padding-left: 10px;
+    padding-right: 0px;
   }
 
   /* ----- Menu -----*/
@@ -1192,7 +1196,7 @@ div.bubbleBack {
     background-color: #EDEDED;
     border-radius: 0px;
     z-index: 2000;
-    top: 0px;
+    top: 5px;
     left: 0;
     right: 0;
     margin: auto;
@@ -1227,6 +1231,11 @@ div.bubbleBack {
     font-weight: 300;
     font-size: 1em;
     outline: none;
+  }
+
+  div.bubble button.toDoDelete {
+    width: 20px;
+    height: 20px;
   }
 
   div.bubble button#bubbleAdd {
