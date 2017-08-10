@@ -68,7 +68,7 @@ function hideAddMenu() {
       var userId = firebase.auth().currentUser.uid;
       var selectedWeek = setDates(dayDifference);
 
-      var dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(selectedWeek);
+      var dataRef = firebase.database().ref().child('users').child(userId).child('weeks');
 
       var buttons = document.querySelectorAll(".addBtn");
 
@@ -77,6 +77,7 @@ function hideAddMenu() {
         if (document.addEventListener) {
         buttons[i].addEventListener("click", function() {
           clicked = this.id;
+          selectedWeek = setDates(dayDifference);
 
           // Identify clicked Button
           switch (clicked) {
@@ -140,7 +141,7 @@ function hideAddMenu() {
       var list = task.parentNode;
 
       list.removeChild(task);
-      dataRef.child(list.id).child(id).remove();
+      dataRef.child(selectedWeek).child(list.id).child(id).remove();
     };
 
     // Show or hide context menu
@@ -166,17 +167,17 @@ function hideAddMenu() {
       var task = this.parentNode;
       var id = task.id;
       var taskText = task.children[2];
-      var status = dataRef.child(list.id).child(id).once('value').then(function(checked) {
+      var status = dataRef.child(selectedWeek).child(list.id).child(id).once('value').then(function(checked) {
         var value = checked.val().checked;
         console.log(value);
 
         if (value == false) {
           taskText.classList.toggle('toggle');
-          dataRef.child(list.id).child(id).update({checked: true});
+          dataRef.child(selectedWeek).child(list.id).child(id).update({checked: true});
           value = true;
         } else {
           taskText.classList.toggle('toggle');
-          dataRef.child(list.id).child(id).update({checked: false});
+          dataRef.child(selectedWeek).child(list.id).child(id).update({checked: false});
           value = false;
         };
       });
@@ -268,9 +269,9 @@ function hideAddMenu() {
         li.appendChild(moveMenu);
         li.appendChild(detailDiv);
 
-        var key = dataRef.child(list.id).push().key;
+        var key = dataRef.child(selectedWeek).child(list.id).push().key;
 
-        var newEntry = dataRef.child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
+        var newEntry = dataRef.child(selectedWeek).child(list.id).child(key).update({taskName: taskName.value, taskDesc: taskDesc.value, checked: false});
         li.id = key;
 
         list.appendChild(li);

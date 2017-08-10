@@ -263,7 +263,6 @@ var editTitle = document.getElementById('editTitle');
 
   verifyBtn.addEventListener('click', function() {
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log(user.email);
       user.sendEmailVerification();
       verifyBtn.innerText = "EMAIL SENT";
     });

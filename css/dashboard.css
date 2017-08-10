@@ -876,8 +876,8 @@ div.bubbleBack {
   }
 
   div.bar button {
-    height: 20px;
-    width: 35px;
+    height: 15px;
+    width: 30px;
   }
 
 /* ----- Heading -----*/
@@ -1089,7 +1089,7 @@ div.bubbleBack {
     width: calc(100% - 20px);
     height: 25px;
     margin: auto;
-    margin-top: -15px;
+    margin-top: -5px;
     margin-bottom: 20px;
     background: white;
     box-shadow: 0px 0px 5px #B4B4B4;
