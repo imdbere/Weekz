@@ -4,9 +4,15 @@ body {
   background: #F1F1F1;
 }
 
-::-webkit-scrollbar {display: none}
-::-moz-scrollbar {display: none}
-::-ms-scrollbar {display: none}
+div.hideScroll {
+  position: absolute;
+  display: block;
+  width: 78%;
+  height: 60%;
+  top: 0;
+  margin: 90px 0px 0px 50px;
+  overflow: hidden;
+}
 
 /* ----- Feedback Form -----*/
 
@@ -406,12 +412,10 @@ div#sat button {background: #662D90; /*box-shadow: 0px 0px 10px #662D90;*/}
 div.day:hover button.addBtn {opacity: 1}
 
 div.day ul {
-  position: absolute;
+  position: relative;
   display: block;
-  width: 80%;
-  height: 60%;
-  top: 0;
-  margin: 90px 0px 0px 50px;
+  width: calc(100% + 15px);
+  height: 100%;
   overflow-y: scroll;
 }
 
@@ -436,6 +440,7 @@ div.day ul {
   height: 25px;
   float: right;
   color: #39B44A;
+  margin-right: 5px;
 }
 
 /* ----- Context  -----*/
@@ -456,7 +461,7 @@ div.day ul {
   box-shadow: none;
   border: none;
   outline: none;
-  margin-left: 5px;
+  margin-left: 0px;
   transition: 0.2s;
 }
 
@@ -464,7 +469,7 @@ div.contextMenu {
   position: relative;
   display: none;
   background: #EDEDED;
-  width: 100%;
+  width: calc(100% - 0px);
   height: 30px;
   margin-top: -10px;
   margin-bottom: 20px;
