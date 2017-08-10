@@ -22,12 +22,16 @@
       ga('create', 'UA-100473795-2', 'auto');
       ga('send', 'pageview');
     </script>
+
+    <!-- Including Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   </head>
   <body>
     <div class="bar">
       <img src="res/logoSmall.png" alt="Weekz Icon">
-      <a href="signup.html">SIGN UP</a>
-      <a href="signin.html">SIGN IN</a>
+      <a href="signup.html" id="barSignIn">SIGN UP</a>
+      <a href="signin.html" id="barSignUp">SIGN IN</a>
+      <a href="dashboard.html" id="barDash">DASHBOARD</a>
     </div>
 
     <div class="background"></div>
@@ -111,6 +115,6 @@
     </div>
 
     <!-- Scripts -->
-
+    <script src="scrpt/checkLogin.js"></script>
   </body>
 </html>

@@ -32,6 +32,7 @@ div.bar a:first-of-type {
 }
 
 div.bar a {
+  display: none;
   position: relative;
   display: inline-block;
   float: right;
@@ -45,6 +46,15 @@ div.bar a {
 }
 
 div.bar a:first-of-type:hover {background: #FF2727}
+
+div.bar a#barDash {
+  display: none;
+  margin: 15px 60px 15px 0px;
+  background: #FF514C;
+  padding: 5px 20px 5px 20px;
+  border-radius: 15px;
+  color: white;
+}
 
 /* ----- Background -----*/
 
@@ -484,7 +494,7 @@ div.right a {
   }
 
   div.text {
-    position: relative; 
+    position: relative;
     display: block;
     width: 80%;
     margin-left: 0px;
