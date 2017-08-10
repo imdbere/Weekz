@@ -103,6 +103,7 @@ div.feedback button {
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 14px;
+  cursor: pointer;
 }
 
 button#minimizeFb {
@@ -165,6 +166,7 @@ div.bar button {
   transform: translate(0,-50%);
   outline: none;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 /* ----- Heading -----*/
@@ -192,6 +194,7 @@ div.heading button {
   top: 50%;
   transform: translate(0,-50%);
   outline: none;
+  cursor: pointer;
 }
 
 div.heading button#previous {
@@ -390,6 +393,7 @@ div.day button.addBtn {
   transition: 0.5s;
   outline: none;
   z-index: 100;
+  cursor: pointer;
 }
 
 div#mon button {background: #FF514C; /*box-shadow: 0px 0px 10px #FF514C;*/}
@@ -421,6 +425,7 @@ div.day ul {
   font-weight: 500;
   font-size: calc(12.5px + 0.4vw);
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .task input {
@@ -434,6 +439,10 @@ div.day ul {
 }
 
 /* ----- Context  -----*/
+
+.task button {
+  cursor: pointer;
+}
 
 .task button#context {
   position: relative;
@@ -662,6 +671,10 @@ div.menu div.content {
   transition: 0.3s;
 }
 
+div.menu button {
+  cursor: pointer;
+}
+
 div.menu button#closeMenuBtn {
   position: relative;
   display: block;
@@ -824,6 +837,7 @@ div.bubble button#bubbleAdd {
   z-index: 100;
   background: #FF514C;
   z-index: 2000;
+  cursor: pointer;
 }
 
 div.bubble ul#bubbleList {
@@ -832,6 +846,10 @@ div.bubble ul#bubbleList {
   height: 120px;
   margin: 20px 25px 10px 50px;
   overflow: scroll;
+}
+
+div.bubble ul#bubbleList li p {
+  cursor: auto;
 }
 
 div.bubbleBack {

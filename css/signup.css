@@ -161,6 +161,7 @@ div.signup button {
   color: white;
   outline: none;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 div.signup button:hover{background: #FF2727}

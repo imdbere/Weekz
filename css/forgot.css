@@ -136,6 +136,7 @@ div.forgotBox button {
   color: white;
   outline: none;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 div.forgotBox button:hover{background: #FF2727}

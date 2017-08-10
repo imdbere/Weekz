@@ -139,6 +139,7 @@ div.signin button {
   color: white;
   outline: none;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 div.signin button:hover{background: #FF2727}

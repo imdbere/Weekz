@@ -95,6 +95,7 @@ div.addTask button {
   color: white;
   outline: none;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 div.addTask button#addBtn {
