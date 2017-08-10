@@ -6,7 +6,7 @@
 #nprogress .bar {
   background: #29d;
 
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   top: calc(40px + 1vh);
   left: 0;
