@@ -63,6 +63,9 @@ var editTitle = document.getElementById('editTitle');
         // Declaring Database Reference
         var dataRef = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeekString);
 
+        NProgress.start();
+        NProgress.configure({ minimum: 0.1 });
+
         // Retrieving Tasks and appending them to Lists
         dataRef.once('value', function(week) {
           week.forEach(function(day) {
@@ -231,6 +234,8 @@ var editTitle = document.getElementById('editTitle');
                 };
             });
         });
+      }).then(function() {
+        NProgress.done();
       });
 
       // Getting User Info
