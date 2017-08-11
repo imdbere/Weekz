@@ -440,7 +440,7 @@ div.right a {
 
 /* ----------------- MOBILE -----------------*/
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 700px) {
 
   body {
     min-width: 0px;
@@ -464,6 +464,15 @@ div.right a {
   div.bar a:first-of-type {
     margin-right: 30px;
     margin: 17.5px 30px 0px 0px;
+  }
+
+  div.bar a#barDash {
+    display: none;
+    margin: 17.5px 30px 0px 0px;
+    background: #FF514C;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    color: white;
   }
 
 /* ----- Background -----*/

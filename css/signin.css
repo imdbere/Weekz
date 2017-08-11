@@ -171,7 +171,7 @@ div.signin p a {
 
 /* ----------------- MOBILE -----------------*/
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 700px) {
 
   body {
     min-width: 0px;

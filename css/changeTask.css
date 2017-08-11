@@ -125,7 +125,7 @@ div.addTask button#closeBtn {
 
 /* ----------------- MOBILE -----------------*/
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 780px) {
 
   div.addTask {
     position: fixed;

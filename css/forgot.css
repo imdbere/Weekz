@@ -168,7 +168,7 @@ div.forgotBox p a {
 
 /* ----------------- MOBILE -----------------*/
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 780px) {
 
   body {
     margin: 0;
