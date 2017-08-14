@@ -24,8 +24,6 @@ function setDates(plus, yes) {
     var dt = currentWeek; //Current Date of week
     var currentWeekDay = dt.getDay();
 
-    console.log(currentWeek);
-
     var lessDays = currentWeekDay == 0 ? 6 : currentWeekDay-1;
     var wkStart = new Date(new Date(dt).setDate(dt.getDate() + plus - lessDays));
     currentWeekString = wkStart.getDate() + "" + (wkStart.getMonth() + 1) + "" + wkStart.getFullYear();

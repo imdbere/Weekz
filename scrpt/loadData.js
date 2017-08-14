@@ -120,10 +120,13 @@ var editTitle = document.getElementById('editTitle');
                 moveMenu.classList.add('moveTask');
                 moveMenu.style.display = "none";
 
+                var buttonContainer = document.createElement('div');
+                buttonContainer.classList.add('buttonContainer');
+
                   var lastWeekBtn = document.createElement('button');
                   lastWeekBtn.classList.add('switch');
                   lastWeekBtn.id = "moveLast";
-                  lastWeekBtn.style.display = "none";
+                  lastWeekBtn.style.display = "inline-block";
                   var lastWeekIcon = document.createElement('div');
                   lastWeekIcon.classList.add('triangle');
                   lastWeekBtn.appendChild(lastWeekIcon);
@@ -138,8 +141,10 @@ var editTitle = document.getElementById('editTitle');
                     moveDayBtn.id = moveId[i];
                     moveDayBtn.name = moveName[i];
                     moveDayBtn.innerText = moveLetter[i];
-                    moveMenu.appendChild(moveDayBtn);
+                    buttonContainer.appendChild(moveDayBtn);
                   };
+
+                  moveMenu.appendChild(buttonContainer);
 
                   var nextWeekBtn = document.createElement('button');
                   nextWeekBtn.classList.add('switch');

@@ -1,6 +1,6 @@
 
 // Move Task
-function moveTask() {
+function moveTask(append) {
 
   var userId = firebase.auth().currentUser.uid;
   var selectedWeek = setDates(dayDifference, true);
@@ -95,157 +95,151 @@ function moveTask() {
 
         oldList.removeChild(item);
 
-        li = document.createElement('li');
-        li.className = "task";
+        if (append == true) {
+          li = document.createElement('li');
+          li.className = "task";
 
-        var check = document.createElement('input');
-        check.type = "checkbox";
-        check.classList.add("option-input", "checkbox");
-        check.checked = wasChecked;
+          var check = document.createElement('input');
+          check.type = "checkbox";
+          check.classList.add("option-input", "checkbox");
+          check.checked = wasChecked;
 
-        var contextBtn = document.createElement('button');
-        contextBtn.id = "context";
-        contextBtn.style.background = "context.png";
+          var contextBtn = document.createElement('button');
+          contextBtn.id = "context";
+          contextBtn.style.background = "context.png";
 
-        var p = document.createElement('p');
-        p.innerText = oldTask;
+          var p = document.createElement('p');
+          p.innerText = oldTask;
 
-        if (wasChecked == true) {
-          p.classList.add('toggle');
-        }
+          if (wasChecked == true) {
+            p.classList.add('toggle');
+          }
 
-        var detailDiv = document.createElement('div');
-        detailDiv.classList.add('detail');
-        var detailP = document.createElement('p');
-        detailP.innerText = oldDesc;
-        detailDiv.appendChild(detailP);
+          var detailDiv = document.createElement('div');
+          detailDiv.classList.add('detail');
+          var detailP = document.createElement('p');
+          detailP.innerText = oldDesc;
+          detailDiv.appendChild(detailP);
 
-        var contextDiv = document.createElement('div');
-        contextDiv.classList.add('contextMenu');
-        contextDiv.style.display = "none";
+          var contextDiv = document.createElement('div');
+          contextDiv.classList.add('contextMenu');
+          contextDiv.style.display = "none";
 
-          var deleteBtn = document.createElement('button');
-          deleteBtn.id = "deleteNew"
-          deleteBtn.innerHTML = deleteBtnIcon;
+            var deleteBtn = document.createElement('button');
+            deleteBtn.id = "deleteNew"
+            deleteBtn.innerHTML = deleteBtnIcon;
 
-          var editBtn = document.createElement('button');
-          editBtn.id = "edit";
-          editBtn.innerHTML = editBtnIcon;
+            var editBtn = document.createElement('button');
+            editBtn.id = "edit";
+            editBtn.innerHTML = editBtnIcon;
 
-          var moveBtn = document.createElement('button')
-          moveBtn.id = "move";
-          moveBtn.innerHTML = moveBtnIcon;
+            var moveBtn = document.createElement('button')
+            moveBtn.id = "move";
+            moveBtn.innerHTML = moveBtnIcon;
 
-        var moveMenu = document.createElement('div');
-        moveMenu.classList.add('moveTask');
-        moveMenu.style.display = "none";
+          var moveMenu = document.createElement('div');
+          moveMenu.classList.add('moveTask');
+          moveMenu.style.display = "none";
 
-          var lastWeekBtn = document.createElement('button');
-          lastWeekBtn.classList.add('switch');
-          lastWeekBtn.id = "moveLast";
-          lastWeekBtn.style.display = "none";
-          var lastWeekIcon = document.createElement('div');
-          lastWeekIcon.classList.add('triangle');
-          lastWeekBtn.appendChild(lastWeekIcon);
-          moveMenu.appendChild(lastWeekBtn);
+            var lastWeekBtn = document.createElement('button');
+            lastWeekBtn.classList.add('switch');
+            lastWeekBtn.id = "moveLast";
+            lastWeekBtn.style.display = "inline-block";
+            var lastWeekIcon = document.createElement('div');
+            lastWeekIcon.classList.add('triangle');
+            lastWeekBtn.appendChild(lastWeekIcon);
+            moveMenu.appendChild(lastWeekBtn);
 
-          var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
-          var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
-          var moveLetter = ["M", "T", "W", "T", "F", "S"]
-          for (var i = 0; i < moveId.length; i++) {
-            var moveDayBtn = document.createElement('button');
-            moveDayBtn.classList.add('moveDay');
-            moveDayBtn.id = moveId[i];
-            moveDayBtn.name = moveName[i];
-            moveDayBtn.innerText = moveLetter[i];
-            moveMenu.appendChild(moveDayBtn);
-          };
+            var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
+            var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
+            var moveLetter = ["M", "T", "W", "T", "F", "S"]
+            for (var i = 0; i < moveId.length; i++) {
+              var moveDayBtn = document.createElement('button');
+              moveDayBtn.classList.add('moveDay');
+              moveDayBtn.id = moveId[i];
+              moveDayBtn.name = moveName[i];
+              moveDayBtn.innerText = moveLetter[i];
+              moveMenu.appendChild(moveDayBtn);
+            };
 
-          var nextWeekBtn = document.createElement('button');
-          nextWeekBtn.classList.add('switch');
-          nextWeekBtn.id = "moveNext";
-          nextWeekBtn.style.display = "block";
-          var nextWeekIcon = document.createElement('div');
-          nextWeekIcon.classList.add('triangle');
-          nextWeekBtn.appendChild(nextWeekIcon);
-          moveMenu.appendChild(nextWeekBtn);
+            var nextWeekBtn = document.createElement('button');
+            nextWeekBtn.classList.add('switch');
+            nextWeekBtn.id = "moveNext";
+            nextWeekBtn.style.display = "block";
+            var nextWeekIcon = document.createElement('div');
+            nextWeekIcon.classList.add('triangle');
+            nextWeekBtn.appendChild(nextWeekIcon);
+            moveMenu.appendChild(nextWeekBtn);
 
-        contextDiv.appendChild(deleteBtn);
-        contextDiv.appendChild(editBtn);
-        contextDiv.appendChild(moveBtn);
+          contextDiv.appendChild(deleteBtn);
+          contextDiv.appendChild(editBtn);
+          contextDiv.appendChild(moveBtn);
 
-        li.appendChild(contextBtn);
-        li.appendChild(check);
-        li.appendChild(p);
-        li.appendChild(contextDiv);
-        li.appendChild(moveMenu);
-        li.appendChild(detailDiv);
-
-        var key = dataRef.child(moveTo).push().key;
-        li.id = key;
-
-        dataRef.child(selectedWeek).child(oldListId).child(item.id).remove();
-        dataRef.child(selectedWeek).child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: wasChecked});
-
-        newList = document.getElementById(moveTo);
-        newList.appendChild(li);
-
-        // Change appearance of checked task
-        check.addEventListener('click', taskDone);
-        // Show Detail View
-        p.addEventListener('click', showDetail);
-
-        // Open Context Menu and configure its buttons
-        contextBtn.addEventListener('click', toggleContext);
-          deleteBtn.addEventListener('click', removeTask);
-          editBtn.addEventListener('click', editTask);
-          moveBtn.addEventListener('click', moveTask);
-      });
-    };
-  };
-};
-
-function changeNext() {
-    this.style.display = "none";
-    this.parentNode.children[0].style.display = "inline-block";
-
-    var nextSelectedWeek = setDates(dayDifference+7, false);
-
-    var item = this.parentNode.parentNode;
-    console.log(item);
-    var oldList = item.parentNode;
-    console.log(oldList);
-    var oldListId = item.parentNode.id;
-    console.log(oldListId);
-    var dayPicker = item.children[4];
-
-    var daySelectButtons = document.querySelectorAll(".moveDay");
-    for (var i = 0; i < daySelectButtons.length; i++) {
-      if (document.addEventListener) {
-        daySelectButtons[i].addEventListener('click', function() {
-          var moveTo = this.name;
-
-          var oldTask = item.children[2].innerText;
-          var oldDesc = item.children[5].children[0].innerText;
-          var wasChecked = item.children[1].checked;
-
-          oldList.removeChild(item);
+          li.appendChild(contextBtn);
+          li.appendChild(check);
+          li.appendChild(p);
+          li.appendChild(contextDiv);
+          li.appendChild(moveMenu);
+          li.appendChild(detailDiv);
 
           var key = dataRef.child(moveTo).push().key;
           li.id = key;
 
           dataRef.child(selectedWeek).child(oldListId).child(item.id).remove();
-          dataRef.child(nextSelectedWeek).child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: wasChecked});
-        });
-      };
-    };
+          dataRef.child(selectedWeek).child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: wasChecked});
 
-}
+          newList = document.getElementById(moveTo);
+          newList.appendChild(li);
+
+          // Change appearance of checked task
+          check.addEventListener('click', taskDone);
+          // Show Detail View
+          p.addEventListener('click', showDetail);
+
+          // Open Context Menu and configure its buttons
+          contextBtn.addEventListener('click', toggleContext);
+            deleteBtn.addEventListener('click', removeTask);
+            editBtn.addEventListener('click', editTask);
+            moveBtn.addEventListener('click', moveTask);
+
+        } else {
+          var key = dataRef.child(moveTo).push().key;
+          li.id = key;
+
+          dataRef.child(selectedWeek).child(oldListId).child(item.id).remove();
+          dataRef.child(selectedWeek).child(moveTo).child(key).update({taskName: oldTask, taskDesc: oldDesc, checked: wasChecked});
+        }
+
+      });
+    };
+  };
+};
+
+var count = 0;
+
+function changeNext() {
+  count = count + 7;
+  setDates(count, false);
+
+    if (count == 0) {
+      moveTask(true);
+    } else {
+      moveTask(false);
+    }
+
+    console.log(count);
+};
 
 function changeLast() {
-    this.style.display = "none";
-    this.parentNode.children[7].style.display = "block";
+  count = count - 7;
+  var thisDay = setDates(count, false);
+  console.log(thisDay);
 
-    setDates(dayDifference, false);
-    moveTask();
+    if (count == 0) {
+      moveTask(true)
+    } else {
+      moveTask(false);
+    }
+
+    console.log(count);
 }
