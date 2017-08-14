@@ -246,6 +246,15 @@ function hideAddMenu() {
         moveMenu.classList.add('moveTask');
         moveMenu.style.display = "none";
 
+          var lastWeekBtn = document.createElement('button');
+          lastWeekBtn.classList.add('switch');
+          lastWeekBtn.id = "moveLast";
+          lastWeekBtn.style.display = "none";
+          var lastWeekIcon = document.createElement('div');
+          lastWeekIcon.classList.add('triangle');
+          lastWeekBtn.appendChild(lastWeekIcon);
+          moveMenu.appendChild(lastWeekBtn);
+
           var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
           var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
           var moveLetter = ["M", "T", "W", "T", "F", "S"]
@@ -257,6 +266,15 @@ function hideAddMenu() {
             moveDayBtn.innerText = moveLetter[i];
             moveMenu.appendChild(moveDayBtn);
           };
+
+          var nextWeekBtn = document.createElement('button');
+          nextWeekBtn.classList.add('switch');
+          nextWeekBtn.id = "moveNext";
+          nextWeekBtn.style.display = "block";
+          var nextWeekIcon = document.createElement('div');
+          nextWeekIcon.classList.add('triangle');
+          nextWeekBtn.appendChild(nextWeekIcon);
+          moveMenu.appendChild(nextWeekBtn);
 
         contextDiv.appendChild(deleteBtn);
         contextDiv.appendChild(editBtn);

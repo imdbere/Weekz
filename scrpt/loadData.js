@@ -1,6 +1,6 @@
 
 // Set Date labels to current dates
-setDates(0);
+setDates(0, true);
 
 // Difference
 var dayDifference = 0;
@@ -120,6 +120,15 @@ var editTitle = document.getElementById('editTitle');
                 moveMenu.classList.add('moveTask');
                 moveMenu.style.display = "none";
 
+                  var lastWeekBtn = document.createElement('button');
+                  lastWeekBtn.classList.add('switch');
+                  lastWeekBtn.id = "moveLast";
+                  lastWeekBtn.style.display = "none";
+                  var lastWeekIcon = document.createElement('div');
+                  lastWeekIcon.classList.add('triangle');
+                  lastWeekBtn.appendChild(lastWeekIcon);
+                  moveMenu.appendChild(lastWeekBtn);
+
                   var moveId = ["moveMon", "moveTue", "moveWed", "moveThu", "moveFri", "moveSat"];
                   var moveName = ["monList", "tueList", "wedList", "thuList", "friList", "satList"];
                   var moveLetter = ["M", "T", "W", "T", "F", "S"]
@@ -131,6 +140,15 @@ var editTitle = document.getElementById('editTitle');
                     moveDayBtn.innerText = moveLetter[i];
                     moveMenu.appendChild(moveDayBtn);
                   };
+
+                  var nextWeekBtn = document.createElement('button');
+                  nextWeekBtn.classList.add('switch');
+                  nextWeekBtn.id = "moveNext";
+                  nextWeekBtn.style.display = "block";
+                  var nextWeekIcon = document.createElement('div');
+                  nextWeekIcon.classList.add('triangle');
+                  nextWeekBtn.appendChild(nextWeekIcon);
+                  moveMenu.appendChild(nextWeekBtn);
 
                 contextDiv.appendChild(deleteBtn);
                 contextDiv.appendChild(editBtn);
@@ -169,7 +187,10 @@ var editTitle = document.getElementById('editTitle');
                 contextBtn.addEventListener('click', toggleContext);
                   deleteBtn.addEventListener('click', removeTask);
                   editBtn.addEventListener('click', editTask);
-                  moveBtn.addEventListener('click', moveTask)
+                  moveBtn.addEventListener('click', moveTask);
+
+                  nextWeekBtn.addEventListener('click', changeNext);
+                  lastWeekBtn.addEventListener('click', changeLast);
 
                 // Remove Task
                 function removeTask() {
@@ -255,13 +276,13 @@ var editTitle = document.getElementById('editTitle');
 
   addWeekBtn.addEventListener('click', function() {
     dayDifference = dayDifference + 7;
-    setDates(dayDifference);
+    setDates(dayDifference, true);
     clearList();
     load();
   });
   previousBtn.addEventListener('click', function() {
     dayDifference = dayDifference - 7;
-    setDates(dayDifference);
+    setDates(dayDifference, true);
     clearList();
     load();
   });
