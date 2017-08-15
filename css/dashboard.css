@@ -597,6 +597,14 @@ div.moveTask {
   box-shadow: 0px 0px 5px #B4B4B4;
 }
 
+div.moveTask div.buttonContainer {
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 72px);
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
 div.moveTask button.moveDay {
   position: relative;
   display: inline-block;
@@ -607,8 +615,58 @@ div.moveTask button.moveDay {
   background: none !important;
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
+}
+
+div.moveTask button.switch {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: grey !important;
+  vertical-align: top;
+  top: 50%;
+  transform: translate(0, -50%);
+  border: none;
+  outline: none;
+  border-radius: 13px;
+}
+
+button#moveNext div.triangle {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%,-50%);
+}
+
+button#moveLast div.triangle {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid white;
+  top: 50%;
+  right: 50%;
+  transform: translate(35%,-50%);
+}
+
+button#moveNext {
+  margin-right: 10px;
+  float: right;
+}
+
+button#moveLast {
+  margin-left: 10px;
+  float: left;
 }
 
 button#moveMon:hover {color: #FF514C}
