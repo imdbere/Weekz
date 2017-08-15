@@ -1,6 +1,6 @@
 
 // Move Task
-function moveTask(append) {
+function moveTask(append, taskItem) {
 
   var userId = firebase.auth().currentUser.uid;
   var selectedWeek = setDates(dayDifference, true);
@@ -70,16 +70,18 @@ function moveTask(append) {
     }
   };
 
-  var item = this.parentNode.parentNode;
-  var oldList = item.parentNode;
-  var oldListId = item.parentNode.id;
-  var dayPicker = item.children[4];
+  console.log(taskItem);
+  var oldList = taskItem.parentNode;
+  var oldListId = taskItem.parentNode.id;
+  var dayPicker = taskItem.children[4];
 
   if (dayPicker.style.display == "none") {
     dayPicker.style.display = "block";
   } else {
     dayPicker.style.display = "none";
   };
+
+
 
   var daySelectButtons = document.querySelectorAll(".moveDay");
   for (var i = 0; i < daySelectButtons.length; i++) {
@@ -219,12 +221,14 @@ var count = 0;
 
 function changeNext() {
   count = count + 7;
-  setDates(count, false);
+  console.log(setDates(count, false));
+
+  var item = this.parentNode.parentNode;
 
     if (count == 0) {
-      moveTask(true);
+      moveTask(true, item);
     } else {
-      moveTask(false);
+      moveTask(false, item);
     }
 
     console.log(count);
@@ -235,10 +239,12 @@ function changeLast() {
   var thisDay = setDates(count, false);
   console.log(thisDay);
 
+  var item = this.parentNode.parentNode;
+
     if (count == 0) {
-      moveTask(true)
+      moveTask(true, item)
     } else {
-      moveTask(false);
+      moveTask(false, item);
     }
 
     console.log(count);

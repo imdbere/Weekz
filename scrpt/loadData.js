@@ -192,7 +192,7 @@ var editTitle = document.getElementById('editTitle');
                 contextBtn.addEventListener('click', toggleContext);
                   deleteBtn.addEventListener('click', removeTask);
                   editBtn.addEventListener('click', editTask);
-                  moveBtn.addEventListener('click', moveTask);
+                  moveBtn.addEventListener('click', moveTask(true, li));
 
                   nextWeekBtn.addEventListener('click', changeNext);
                   lastWeekBtn.addEventListener('click', changeLast);
