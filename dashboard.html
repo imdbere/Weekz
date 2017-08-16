@@ -65,7 +65,7 @@
       <div class="bubble" id="bubble">
         <h1>Other things <span>To do</span> for this week</h1>
         <input type="text" placeholder="Add New Task" id="toDoName">
-        <button type="button" class="addBtn" id="bubbleAdd">+</button>
+        <button type="button" id="bubbleAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="bubbleList"></ul>
         </div>
@@ -76,6 +76,7 @@
         <button type="button" class="addBtn" id="monAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="monList">
+            <!--
           <li class="task" id="-KrVOqIMlCIjSVo_f8Ss">
             <button id="context" style="opacity: 1;"></button>
             <input type="checkbox" class="option-input checkbox">
@@ -107,6 +108,7 @@
               <p>Create a Dribbble Shot for Weekz showing off color cheme and UI. Be creative.</p>
             </div>
           </li>
+        -->
           </ul>
         </div>
       </div><!--
@@ -179,14 +181,16 @@
     </div>
 
     <!-- Scripts -->
-    <script src="scrpt/dates.js"></script>
-    <script src="scrpt/move.js"></script>
-    <script src="scrpt/edit.js"></script>
+    <script src="scrpt/dashboard/dates.js"></script>
+    <script src="scrpt/dashboard/generateTask.js"></script>
+    <script src="scrpt/dashboard/modifyTask.js"></script>
+    <script src="scrpt/dashboard/addTask.js"></script>
+    <script src="scrpt/dashboard/move.js"></script>
+    <script src="scrpt/dashboard/toDo.js"></script>
     <script src="scrpt/nprogress.js"></script>
-    <script src="scrpt/loadData.js"></script>
-    <script src="scrpt/addTask.js"></script>
-    <script src="scrpt/toDo.js"></script>
     <script src="scrpt/menu.js"></script>
-    <script src="scrpt/feedback.js"></script>
+    <!--<script src="scrpt/feedback.js"></script>-->
+    <script src="scrpt/dashboard/loadData.js"></script>
+    <script src="scrpt/dashboard/main.js"></script>
   </body>
 </html>
