@@ -17,7 +17,7 @@ function moveToPreviousWeekButtonClicked()
   var moveTaskDiv = this.parentNode;
   var p = moveTaskDiv.getElementsByClassName("whichWeek")[0].firstChild;
   moveTaskDiv.weekOffset--;
-  var desiredWeek = new Week(moveTaskDiv.weekOffset);
+  var desiredWeek = new Week(moveTaskDiv.weekOffset  + weekOffset);
   p.innerText = desiredWeek.getDayAsString(0) + " - " + desiredWeek.getDayAsString(5);
 }
 
@@ -26,8 +26,8 @@ function moveToNextWeekButtonClicked()
   var moveTaskDiv = this.parentNode;
   var p = moveTaskDiv.getElementsByClassName("whichWeek")[0].firstChild;
   moveTaskDiv.weekOffset++;
-  var desiredWeek = new Week(moveTaskDiv.weekOffset);
-  p.innerText = desiredWeek.getDayAsString(0) + " + " + desiredWeek.getDayAsString(5);
+  var desiredWeek = new Week(moveTaskDiv.weekOffset + weekOffset);
+  p.innerText = desiredWeek.getDayAsString(0) + " - " + desiredWeek.getDayAsString(5);
 }
 
 function moveToDayButtonClicked()
@@ -48,7 +48,7 @@ function moveToDayButtonClicked()
   }
   else
   {
-    var desiredWeek = new Week(moveTaskDiv.weekOffset);
+    var desiredWeek = new Week(moveTaskDiv.weekOffset + weekOffset);
     dataRefDesiredWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(desiredWeek.getWeekID());
   }
 

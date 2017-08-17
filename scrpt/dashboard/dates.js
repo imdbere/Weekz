@@ -14,7 +14,8 @@ function Week (weekOffset)
   };
   this.getDayAsString = function(dayOffset){
     var wkStart = this.getWeekBeginDate();
-    var day = ("0" + (wkStart.getDate() + dayOffset)).slice(-2);
+    wkStart.setDate(wkStart.getDate() + dayOffset);
+    var day = ("0" + (wkStart.getDate())).slice(-2);
     var month = ("0" + (wkStart.getMonth() + 1)).slice(-2);
     var s = day + "." + month + "." + wkStart.getFullYear();
     
