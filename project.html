@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Organize your week, add new or remove old tasks and plan ahead with your Weekz™ dashboard">
+    <meta name="keywords" content="Productivity,Organize,Week,Calendar,Hustle,Work,Dashboard,Tasks">
+    <meta name="viewport" content="width=device-width">
+    <title>Weekz - Your Project</title>
+
+    <link rel="icon" type="image/png" href="res/logoSmall.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/nprogress.css">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100473795-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Including Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  </head>
+  <body>
+
+    <div class="bar">
+      <a href="index">
+        <img src="res/logoSmall.png" alt="Welcome to the Weekz Dashboard">
+      </a>
+      <button type="button" id="openMenuBtn"></button>
+    </div>
+
+    <div class="heading">
+      <a id="dashboard"><p>DASHBOARD</p><div class="triangle"></div></a>
+      <h1>Your <span>Projects</span>
+    </div>
+
+    <div class="dash">
+      <div class="project">
+        <div class="container">
+          <h1>Weekz</h1>
+          <div class="separator"></div>
+          <div class="modify">
+            <button type="button"><img src="res/edit.png" alt="Edit your Project"></button>
+            <button type="button"><img src="res/remove.png" alt="Delete your Project"></button>
+          </div>
+          <p>
+            A minimalistic grid to organize and
+            structure your hustle throughout
+            your week.
+          </p>
+          <div class="progress">
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="container">
+          <h1>JumpStart</h1>
+          <div class="separator"></div>
+          <div class="modify">
+            <button type="button"><img src="res/edit.png" alt="Edit your Project"></button>
+            <button type="button"><img src="res/remove.png" alt="Delete your Project"></button>
+          </div>
+          <p>
+            Set goals and hustle with friends.
+            The first goal-sharing app for iOS.
+            Soon on the AppStore.
+          </p>
+          <div class="progress">
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="addProject">
+        <p>+</p>
+        <h3>Add New Project</h3>
+      </button>
+    </div>
+
+    <div class="addProject" id="projectBackground">
+      <div class="container" id="projectMenu">
+        <button type="button" id="closeProjectBtn">X</button>
+        <div class="content">
+          <div class="inputs">
+            <h1>New Project</h1>
+            <p>Give your project a title</p>
+            <input type="text" placeholder="Title" id="projectTitle">
+            <p>Summarize your project in 100 characters</p>
+            <input type="text" placeholder="Summary" id="projectTitle">
+            <p>Add some more detail for the records</p>
+            <textarea placeholder="Description" id="projectDescription"></textarea>
+            <button type="button" id="createProject">CREATE</button>
+          </div>
+          <div class="colorSelector">
+            <form class="colors">
+              <input type="radio" name="color" id="color1"><label for="color1"></label>
+              <input type="radio" name="color" id="color2"><label for="color2"></label>
+              <input type="radio" name="color" id="color3"><label for="color3"></label>
+              <input type="radio" name="color" id="color4"><label for="color4"></label>
+              <input type="radio" name="color" id="color5"><label for="color5"></label>
+              <input type="radio" name="color" id="color6"><label for="color6"></label>
+              <input type="radio" name="color" id="color7"><label for="color7"></label>
+              <input type="radio" name="color" id="color8"><label for="color8"></label>
+              <input type="radio" name="color" id="color9"><label for="color9"></label>
+              <input type="radio" name="color" id="color10"><label for="color10"></label>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu" id="background">
+      <div class="content" id="menu">
+        <button type="button" id="closeMenuBtn">X</button>
+        <h1 id="userName">Name Here</h1>
+        <h2 id="userEmail">email.ofuser@gmail.com</h2>
+        <a href="#">PROFILE</a>
+        <a href="#">SETTINGS</a>
+        <button type="button" class="menuBtn" id="verify">VERIFY EMAIL</button>
+        <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scrpt/menu.js"></script>
+  </body>
+</html>

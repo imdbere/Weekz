@@ -39,7 +39,7 @@ function editConfirmButtonClicked(item)
     var update = dataRefSelectedWeek.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
     hideAddMenu();
 }
-  
+
 // Close 'New Task' Menu
 function hideEditMenu() {
     taskName.style.border = "none";
@@ -95,9 +95,8 @@ function removeTask() {
         list = task;
         task = this.parentNode;
     }
-    
+
 
     list.removeChild(task);
     dataRefSelectedWeek.child(listId).child(id).remove();
 }
-

@@ -1,0 +1,286 @@
+body {
+  margin: 0;
+  min-width: 1250px;
+  background: #F1F1F1;
+  overflow-y: hidden;
+}
+
+span {font-weight: 700}
+
+/* ----- Bar -----*/
+
+div.bar {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100vw;
+  min-width: 1250px;
+  height: calc(40px + 1vh);
+  background: white;
+  box-shadow: 0px 0px 10px #B4B4B4;
+}
+
+div.bar img {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 35px;
+  margin-left: 30px;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+
+div.bar button {
+  position: relative;
+  display: inline-block;
+  float: right;
+  height: 15px;
+  width: 30px;
+  background: url(../res/menuIcon.png);
+  background-size: cover;
+  border: none;
+  top: 50%;
+  transform: translate(0,-50%);
+  outline: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* ----- Heading -----*/
+
+div.heading {
+  position: relative;
+  display: block;
+  width: 100vw;
+  min-width: 1250px;
+  height: calc(50px + 2vh);
+  z-index: 100;
+}
+
+div.heading a {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  padding: 6px;
+  border: none;
+  border-radius: 15px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  top: 50%;
+  transform: translate(0,-50%);
+  cursor: pointer;
+}
+
+div.heading a#dashboard {
+  background: #FF514C;
+  float: right;
+  margin-right: 40px;
+  transition: 0.3s;
+}
+
+div.heading a#back {
+  background: #3FA8F4;
+  float: left;
+  margin-left: 40px;
+  transition: 0.3s;
+}
+
+div.heading h1 {
+  position: absolute;
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 25px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+div.heading h1 span {font-weight: 700}
+
+/* ----- Dash -----*/
+
+div.dash {
+  position: relative;
+  display: block;
+  width: 95vw;
+  min-width: 1200px;
+  max-width: 1500px;
+  height: 80vh;
+  min-height: 450px;
+  margin: auto;
+  background: white;
+  box-shadow: 0px 0px 8px #B4B4B4;
+  margin-bottom: 35px;
+}
+
+/* ----- Detail Section -----*/
+
+div.detail {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+div.detail div.container {
+  position: relative;
+  display: block;
+  width: 80%;
+  margin: auto;
+  top: 15%;
+}
+
+div.container h3 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 14px;
+  color: #4A4A4A;
+}
+
+div.dot {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  vertical-align: top;
+  background: #FF514C;
+}
+
+div.detail div.container h1 {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0px 0px 15px 10px;
+}
+
+div.detail div.container h2 {
+  position: relative;
+  display: block;
+  width: 65%;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0px 0px 15px 0px;
+}
+
+div.detail div.container p {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0px 0px 40px 0px;
+}
+
+div.detail div.container h4 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 20px;
+  margin: 8px 0px 0px 0px;
+}
+
+div.progress {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 8px;
+  border-radius: 4px;
+  background: #F1F1F1;
+  margin: 20px 0px 8px 0px;
+}
+
+div.progress div {
+  width: 70%;
+  height: 100%;
+  border-radius: 4px;
+  background: #FF514C;
+}
+
+div.detail div.container h5 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  margin-left: 80px
+}
+
+/* ----- Task Section -----*/
+
+div.tasks {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+div.tasks div.container {
+  position: relative;
+  display: block;
+  width: 80%;
+  margin: auto;
+  top: 15%;
+}
+
+ul.projectTasks {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+}
+
+ul.projectTasks li {
+  margin-bottom: 15px;
+}
+
+ul.projectTasks li div.dot {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  margin: 7px 15px 0px 10px;
+  vertical-align: top;
+}
+
+ul.projectTasks li p {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 22px;
+  vertical-align: top;
+}
+
+ul.projectTasks li input {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 25px;
+  height: 25px;
+  vertical-align: top;
+}
+
+ul.projectTasks li h4 {
+  position: relative;
+  display: inline-block;
+  float: right;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  vertical-align: top;
+  margin: 3px 0px 0px 20px;
+}
