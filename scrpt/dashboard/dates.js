@@ -1,11 +1,14 @@
 function Week (weekOffset)
 {
   this.date = new Date();
-  this.date.setDate(this.date.getDate() + (weekOffset*7));
+  //this.date.setDate(this.date.getDate() + (weekOffset*7));
+  this.date= new Date( this.date.getTime() + weekOffset * 7 * 86400000 );
   this.getWeekBeginDate = function(){
     var currentWeekDay = this.date.getDay();
     var lessDays = currentWeekDay == 0 ? 6 : currentWeekDay-1;
-    return new Date(new Date().setDate(this.date.getDate()- lessDays));
+    var d = new Date(this.date);
+    d.setDate(this.date.getDate()- lessDays);
+    return d;
   };
   this.getWeekID = function(){
     var wkStart = this.getWeekBeginDate();
