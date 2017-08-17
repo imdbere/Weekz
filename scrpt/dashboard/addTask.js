@@ -39,7 +39,7 @@ function showAddMenu(list, color, text) {
     closeBtn.style.background = color;
     addMenu.style.zIndex = "2000";
     //Confirm Task creation
-    addBtn.addEventListener('click', () => addConfirmButtonClicked(list));
+    addBtn.onclick =  () => addConfirmButtonClicked(list);
     sleep(200).then(() => {
       addMenu.style.opacity = "1";
     });

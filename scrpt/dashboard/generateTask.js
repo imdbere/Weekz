@@ -124,8 +124,10 @@ function generateTask(taskName, taskDesc, checked) {
     whichWeekDiv.classList.add('whichWeek');
     var whichWeekP = document.createElement('p');
     whichWeekP.innerText = currentlySelectedWeek.getDayAsString(0) + " - " + currentlySelectedWeek.getDayAsString(5);
+   
     whichWeekDiv.appendChild(whichWeekP);
     moveMenu.appendChild(whichWeekDiv);
+    moveMenu.weekOffset = 0;
 
     contextDiv.appendChild(deleteBtn);
     contextDiv.appendChild(editBtn);
@@ -148,6 +150,9 @@ function generateTask(taskName, taskDesc, checked) {
     deleteBtn.addEventListener('click', removeTask);
     editBtn.addEventListener('click', editButtonClicked);
     moveBtn.addEventListener('click', moveTaskButtonClicked);
+
+    lastWeekBtn.addEventListener('click', moveToPreviousWeekButtonClicked);
+    nextWeekBtn.addEventListener('click', moveToNextWeekButtonClicked);
 
     return li;
 

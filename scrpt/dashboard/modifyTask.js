@@ -3,25 +3,23 @@ function editButtonClicked() {
 
     var item = this.parentNode.parentNode;
     showEditMenu(item);
-
-    editTaskBtn.addEventListener('click', editConfirmButtonClicked);
 };
 // Open 'New Task' Menu
-function showEditMenu(item) {
+function showEditMenu(item1) {
     addBtn.style.display = "none";
     editBtn.style.display = "block";
     addTitle.style.display = "none";
     editTitle.style.display = "block";
     closeBtn.style.background = "#C4DADE";
 
-    var nameInput = item.children[2];
-    var descInput = item.children[5].children[0];
+    var nameInput = item1.children[2];
+    var descInput = item1.children[5].children[0];
     taskName.value = nameInput.innerText;
     taskDesc.value = descInput.innerText;
 
     addMenu.style.zIndex = "2000";
     //Confirm Task creation
-    addBtn.addEventListener('click', () => editConfirmButtonClicked(item));
+    editBtn.onclick =  () => editConfirmButtonClicked(item1);
     sleep(200).then(() => {
       addMenu.style.opacity = "1";
     });
@@ -39,7 +37,6 @@ function editConfirmButtonClicked(item)
     descInput.innerText = newDesc;
 
     var update = dataRefSelectedWeek.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
-    this.removeEventListener('click', arguments.callee, false);
     hideAddMenu();
 }
   
