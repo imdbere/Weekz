@@ -3,6 +3,7 @@ var weekOffset = 0;
 
 var userId;
 var dataRefSelectedWeek;
+var dataRefTasks;
 var currentlySelectedWeek;
 
 // SVG for Delete Button
@@ -61,7 +62,7 @@ document.onreadystatechange = () => {
       startup();
     }
   };
-  
+
 function startup()
 {
   // Initialize Firebase
@@ -83,7 +84,7 @@ function startup()
       if (user.emailVerified) {
         verifyBtn.style.display = "none";
         console.log('verified');
-        
+
       } else {
         verifyBtn.style.display = "block";
         console.log("not verified");
@@ -93,6 +94,8 @@ function startup()
       addGlobalEventListeners();
       loadUserInfo ();
       initFeedback();
+
+      dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
 
       changeWeek(0);
     }
@@ -105,7 +108,7 @@ function changeWeek (offset)
     currentlySelectedWeek = currentWeek; //Experimental
     dataRefSelectedWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek.getWeekID());
     loadAndAddTasks(currentWeek);
-}  
+}
 
 function addGlobalEventListeners() {
 
@@ -135,7 +138,7 @@ function addGlobalEventListeners() {
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
 
-    //TODO List
+    //TO-DO List
     showBubble.addEventListener('click', function() {
         bubble.style.display = "block";
         hideBubble.style.display = "block";
@@ -143,7 +146,7 @@ function addGlobalEventListeners() {
           bubble.style.opacity = "1";
         });
       });
-    
+
       showBubbleMobile.addEventListener('click', function() {
         if (bubble.style.height == "0px") {
           bubble.style.height = "335px";
@@ -153,7 +156,7 @@ function addGlobalEventListeners() {
           console.log('closed');
         }
       });
-    
+
       hideBubble.addEventListener('click', function() {
         bubble.style.opacity = "0";
         toDoValue.value = "";
@@ -162,7 +165,7 @@ function addGlobalEventListeners() {
           hideBubble.style.display = "none";
         });
       });
-    
+
       toDoAddBtn.addEventListener('click', function() {
         createToDoItem();
         toDoValue.value = "";
@@ -174,8 +177,8 @@ function clearLists() {
     for (var i = 0; i < allLists.length; i++) {
       allLists[i].innerHTML = "";
   }}
-  
-  
+
+
 // Show Detail View
 function showDetail() {
     var detailDiv = this.parentNode.getElementsByClassName("detail")[0];
