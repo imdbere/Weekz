@@ -12,6 +12,9 @@
   };
   firebase.initializeApp(config);
 
+  const auth = firebase.auth();
+  const ref = firebase.database().ref();
+
   // Get Elements
   const txtFirstname = document.getElementById('first');
   const txtLastname = document.getElementById('last');
@@ -19,6 +22,23 @@
   const txtPassword1 = document.getElementById('password1');
   const txtPassword2 = document.getElementById('password2');
   const btnSignup = document.getElementById('signup');
+
+  /*txtEmail.addEventListener('input', function()
+  {
+    auth.fetchProvidersForEmail(email.value).then(function(val)
+    {
+      if (val.length > 0)
+      {
+        txtEmail.style.border = "1px solid #7AC843"
+      }
+      else
+      {
+        txtEmail.style.border = "1px solid #FF514C";
+      }
+    }).catch(function(e) {
+      console.log(e); // "oh, no!"
+    });
+  });*/
 
   // Login Event
   btnSignup.addEventListener('click', e => {
@@ -29,17 +49,6 @@
     const email = txtEmail.value;
     const pass1 = txtPassword1.value;
     const pass2 = txtPassword2.value;
-
-    const auth = firebase.auth();
-    const ref = firebase.database().ref();
-
-    function resetBorders() {
-      txtLastname.style.border = "none";
-      txtFirstname.style.border = "none";
-      txtEmail.style.border = "none";
-      txtPassword1.style.border = "none";
-      txtPassword2.style.border = "none";
-    }
 
     if (first == "") {
       resetBorders();
@@ -87,3 +96,11 @@
     };
   });
 }());
+
+function resetBorders() {
+  txtLastname.style.border = "none";
+  txtFirstname.style.border = "none";
+  txtEmail.style.border = "none";
+  txtPassword1.style.border = "none";
+  txtPassword2.style.border = "none";
+}

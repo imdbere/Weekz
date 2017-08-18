@@ -9,6 +9,23 @@ addLoggedInHandler(function () {
 });
 
 addNotLoggedInHandler(function () {
+
+  txtEmail.addEventListener('input', function()
+  {
+    firebase.auth().fetchProvidersForEmail(email.value).then(function(val)
+    {
+      if (val.length > 0)
+      {
+        txtEmail.style.border = "1px solid #7AC843"
+      }
+      else
+      {
+        txtEmail.style.border = "1px solid #FF514C";
+      }
+    }).catch(function(e) {
+      txtEmail.style.border = "1px solid #FF514C";
+    });
+  });
   // Login Event
   loginForm.addEventListener("submit", function (event)
   {

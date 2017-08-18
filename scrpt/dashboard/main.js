@@ -56,7 +56,7 @@ var satList = document.getElementById('satList');
 addLoggedInHandler(function(user){
 
   addGlobalEventListeners();
-  loadUserInfo ();
+  dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
   initFeedback();
 
   changeWeek(0);

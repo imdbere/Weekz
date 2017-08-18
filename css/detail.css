@@ -67,6 +67,7 @@ div.heading a {
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 14px;
+  text-decoration: none;
   text-align: center;
   color: white;
   top: 50%;
