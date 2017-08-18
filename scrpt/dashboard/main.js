@@ -92,6 +92,7 @@ function startup()
       userId = firebase.auth().currentUser.uid;
       addGlobalEventListeners();
       loadUserInfo ();
+      initFeedback();
 
       changeWeek(0);
     }
