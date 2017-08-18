@@ -39,8 +39,8 @@
     </div>
 
     <div class="heading">
-      <a id="dashboard"><p>DASHBOARD</p><div class="triangle"></div></a>
-      <a id="back"><p>BACK</p><div class="triangle"></div></a>
+      <a id="dashboard" href="dashboard.html"><p>DASHBOARD</p><div class="triangle"></div></a>
+      <a id="back" href="project.html"><p>BACK</p><div class="triangle"></div></a>
       <h1>Your <span>Projects</span>
     </div>
 
@@ -49,17 +49,17 @@
         <div class="container">
           <h3>Project</h3>
           <div class="dot"></div>
-          <h1>Weekz<h1>
+          <h1 id="projectName">Weekz<h1>
 
           <h3>Summary</h3>
-          <h2>
+          <h2 id="projectSummary">
             A minimalistic grid to organize and
             structure your hustle throughout
             your week.
           </h2>
 
           <h3>Description</h3>
-          <p>
+          <p id="projectDesc">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -69,19 +69,19 @@
           </p>
 
           <h3>Progress</h3>
-          <h4><span>12</span> Tasks completed</h4>
-          <h4><span>5</span> Tasks outstanding</h4>
+          <h4><span id="tasksCompleted">12</span> Tasks completed</h4>
+          <h4><span id="tasksOutstanding">5</span> Tasks outstanding</h4>
 
           <div class="progress">
             <div></div>
           </div>
-          <h5><span>70</span>%</h5>
+          <h5><span id="progressPercent">70</span>%</h5>
         </div>
       </div>
       <div class="tasks">
         <div class="container">
           <h3>Outstanding Tasks</h3>
-          <ul class="projectTasks">
+          <ul class="projectTasks" id="taskList">
             <li><div class="dot"></div><p>Finish Design Draft</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
             <li><div class="dot"></div><p>Buy Lamborghini Centenario</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
             <li><div class="dot"></div><p>And a Bugatti Chiron</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
@@ -106,6 +106,8 @@
     </div>
 
     <!-- Scripts -->
+    <script src="scrpt/firebaseInit.js"></script>
     <script src="scrpt/menu.js"></script>
+    <script src="scrpt/detail/detail.js"></script>
   </body>
 </html>

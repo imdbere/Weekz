@@ -26,19 +26,18 @@ function addLoggedInHandler(handler) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             userId = firebase.auth().currentUser.uid;
-            loggedInHandler.forEach(function(element)
-            {
+            loggedInHandler.forEach(function (element) {
                 element(user);
             });
         } else {
             if (notLoggedInHandler.length > 0) {
-                window.location = 'signin.html';
-            }
-            else {
-                notLoggedInHandler.forEach(function(element)
-                {
+                notLoggedInHandler.forEach(function (element) {
                     element(user);
                 });
+
+            }
+            else {
+                window.location = 'signin.html';
             }
         }
     })
