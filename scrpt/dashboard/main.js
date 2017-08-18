@@ -1,7 +1,5 @@
-// Difference
-var weekOffset = 0;
 
-var userId;
+var weekOffset = 0;
 var dataRefSelectedWeek;
 var dataRefTasks;
 var currentlySelectedWeek;
@@ -13,12 +11,9 @@ var editBtnIcon = '<img src="res/edit.png">'
 var moveBtnIcon = '<img src="res/move.png">'
 
 // Get Elements
-var nameLabel = document.getElementById('userName');
-var mailLabel = document.getElementById('userEmail');
 var addWeekBtn = document.getElementById('newWeek');
 var previousBtn = document.getElementById('previous');
 var allLists = document.getElementsByClassName('taskList');
-var verifyBtn = document.getElementById('verify');
 // var context = document.getElementById('contextMenu');
 
 // Edit Menu Elements
@@ -57,50 +52,16 @@ var thuList = document.getElementById('thuList');
 var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
-document.onreadystatechange = () => {
-    if (document.readyState === 'complete') {
-      startup();
-    }
-  };
 
-function startup()
-{
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyD-23wnCzHAmW_AaS_yODHhcTbh9RhnbLY",
-    authDomain: "weekz-fba03.firebaseapp.com",
-    databaseURL: "https://weekz-fba03.firebaseio.com",
-    projectId: "weekz-fba03",
-    storageBucket: "gs://weekz-fba03.appspot.com/",
-    messagingSenderId: "708230896117"
-  };
-  firebase.initializeApp(config);
+addLoggedInHandler(function(user){
 
-  //Handle Account Status
-  firebase.auth().onAuthStateChanged(user => {
-    if(!user) {
-      window.location = 'signin.html'; //If User is not logged in, redirect to signin page
-    } else {
-      if (user.emailVerified) {
-        verifyBtn.style.display = "none";
-        console.log('verified');
+  addGlobalEventListeners();
+  loadUserInfo ();
+  initFeedback();
 
-      } else {
-        verifyBtn.style.display = "block";
-        console.log("not verified");
-      }
+  changeWeek(0);
+});
 
-      userId = firebase.auth().currentUser.uid;
-      addGlobalEventListeners();
-      loadUserInfo ();
-      initFeedback();
-
-      dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
-
-      changeWeek(0);
-    }
-  });
-}
 function changeWeek (offset)
 {
     weekOffset = offset;
@@ -120,14 +81,6 @@ function addGlobalEventListeners() {
     previousBtn.addEventListener('click', function () {
         clearLists();
         changeWeek(weekOffset - 1);
-    });
-
-    //Verify E-Mail button
-    verifyBtn.addEventListener('click', function () {
-        firebase.auth().onAuthStateChanged(function (user) {
-            user.sendEmailVerification();
-            verifyBtn.innerText = "EMAIL SENT";
-        });
     });
 
     //Open new Task dialog

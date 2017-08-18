@@ -1,17 +1,4 @@
 
-function loadUserInfo ()
-{
-  // Getting User Info
-  firebase.database().ref().child('users').child(userId).child('info').once('value').then(function(snapshot) {
-    var first = snapshot.val().firstname;
-    var last = snapshot.val().lastname;
-    var mail = snapshot.val().email;
-
-    nameLabel.innerText = first + " " + last;
-    mailLabel.innerText = mail;
-
-  });
-}
 
 function loadAndAddTasks(week) {
   for (var i = 0; i < 6; i++) {

@@ -1,39 +1,90 @@
-(function() {
+// Get Elements
+const back = document.getElementById('background');
+const menu = document.getElementById('menu');
+const open = document.getElementById('openMenuBtn');
+const close = document.getElementById('closeMenuBtn');
+const signOut = document.getElementById('signOut');
 
-  // Sleep function to be called later
-  function sleep (time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
+var nameLabel = document.getElementById('userName');
+var mailLabel = document.getElementById('userEmail');
+var verifyBtn = document.getElementById('verify');
+
+addLoggedInHandler(function (user) {
+  if (user.emailVerified) {
+    verifyBtn.style.display = "none";
+    console.log('verified');
+
+  } else {
+    verifyBtn.style.display = "block";
+    console.log("not verified");
   }
 
-  // Get Elements
-  const back = document.getElementById('background');
-  const menu = document.getElementById('menu');
-  const open = document.getElementById('openMenuBtn');
-  const close = document.getElementById('closeMenuBtn');
-  const signOut = document.getElementById('signOut');
+  linkMenuEventListener();
+  loadUserInfo();
 
+});
+
+
+function loadUserInfo() {
+  // Getting User Info
+  firebase.database().ref().child('users').child(userId).child('info').once('value').then(function (snapshot) {
+    var first = snapshot.val().firstname;
+    var last = snapshot.val().lastname;
+    var mail = snapshot.val().email;
+
+    nameLabel.innerText = first + " " + last;
+    mailLabel.innerText = mail;
+
+    nameLabel.style.opacity = "0";
+    mailLabel.style.opacity = "0";
+
+  });
+}
+function linkMenuEventListener() {
+  //Verify E-Mail button
+  verifyBtn.addEventListener('click', function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+      user.sendEmailVerification();
+      verifyBtn.innerText = "EMAIL SENT";
+    });
+  });
   // Open Menu
-  open.addEventListener('click', function() {
+  open.addEventListener('click', function () {
     back.style.zIndex = "2000";
+    back.style.opacity = "1"
 
-    sleep(200).then(() => {
-      back.style.opacity = "1"
-      sleep(150).then(() => {
-        menu.classList.add("width");
-      });
+    nameLabel.style.transition = "0.8s";
+    mailLabel.style.transition = "1s";
+
+    menu.classList.add("width");
+    sleep(150).then(() => {
+      nameLabel.style.opacity = "1";
+      mailLabel.style.opacity = "1";
     });
   });
 
   // Close Menu
-  close.addEventListener('click', function() {
+  close.addEventListener('click', function () {
+    nameLabel.style.transition = "0.2s";
+    mailLabel.style.transition = "0.2s";
+
+    nameLabel.style.opacity = "0";
+    mailLabel.style.opacity = "0";
+    
     menu.classList.remove("width");
     back.style.opacity = "0";
+
     sleep(350).then(() => {
       back.style.zIndex = "-1000";
     });
   });
   // Sign User Out
-  signOut.addEventListener('click', function() {
+  signOut.addEventListener('click', function () {
     firebase.auth().signOut();
   });
-}());
+}
+
+// Sleep function to be called later
+function sleep(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}

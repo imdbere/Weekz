@@ -150,11 +150,14 @@ div.project div.container p {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 20px;
+  transition: 0.3s;
 }
 
 div.modify {
   position: absolute;
   display: none;
+  opacity: 0;
+  transition: 0.3s;
   margin-top: 15px;
   z-index: 2000;
 }
@@ -176,6 +179,7 @@ div.modify button img {
 }
 
 div.project div.container:hover div.modify {
+  opacity: 1;
   display: block;
 }
 
@@ -213,6 +217,12 @@ button.addProject {
   border: none;
   outline: none;
   color: #A0A0A0;
+  cursor: pointer;
+}
+
+button.addProject:hover
+{
+  color: #212121;
 }
 
 button.addProject p {
@@ -232,7 +242,7 @@ button.addProject h3 {
 
 div.addProject {
   position: fixed;
-  display: block;
+  display: none;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -332,6 +342,7 @@ button#createProject {
   margin-bottom: 50px;
   color: #FFF;
   background: #FF514C;
+  cursor: pointer;
 }
 
 button#closeProjectBtn {
@@ -348,6 +359,7 @@ button#closeProjectBtn {
   margin: 20px;
   color: #FFF;
   background: #FF514C;
+  cursor: pointer;
 }
 
 /* ----- Color selector -----*/
@@ -399,3 +411,33 @@ label[for="color7"] {background: #39BAFC}
 label[for="color8"] {background: #428FDE}
 label[for="color9"] {background: #9013FE}
 label[for="color10"] {background: #692B8D}
+
+div.project.color1 div.progress div {background: #FF5052}
+div.project.color1 div.container div.separator {background: #FF5052}
+
+div.project.color2 div.progress div {background: #FA9134}
+div.project.color2 div.container div.separator {background: #FA9134}
+
+div.project.color3 div.progress div {background: #E6E738}
+div.project.color3 div.container div.separator {background: #E6E738}
+
+div.project.color4 div.progress div {background: #71CA4F}
+div.project.color4 div.container div.separator {background: #71CA4F}
+
+div.project.color5 div.progress div {background: #287B12}
+div.project.color5 div.container div.separator {background: #287B12}
+
+div.project.color6 div.progress div {background: #00C6EE}
+div.project.color6 div.container div.separator {background: #00C6EE}
+
+div.project.color7 div.progress div {background: #39BAFC}
+div.project.color7 div.container div.separator {background: #39BAFC}
+
+div.project.color8 div.progress div {background: #428FDE}
+div.project.color8 div.container div.separator {background: #428FDE}
+
+div.project.color9 div.progress div {background: #9013FE}
+div.project.color9 div.container div.separator {background: #9013FE}
+
+div.project.color10 div.progress div {background: #692B8D}
+div.project.color10 div.container div.separator {background: #692B8D}
