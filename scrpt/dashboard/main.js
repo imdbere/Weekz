@@ -1,7 +1,5 @@
-// Difference
-var weekOffset = 0;
 
-var userId;
+var weekOffset = 0;
 var dataRefSelectedWeek;
 var currentlySelectedWeek;
 
@@ -56,48 +54,24 @@ var thuList = document.getElementById('thuList');
 var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
-document.onreadystatechange = () => {
-    if (document.readyState === 'complete') {
-      startup();
-    }
-  };
+addLoggedInHandler(function(user){
+
+  if (user.emailVerified) {
+    verifyBtn.style.display = "none";
+    console.log('verified');
+    
+  } else {
+    verifyBtn.style.display = "block";
+    console.log("not verified");
+  }
   
-function startup()
-{
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyD-23wnCzHAmW_AaS_yODHhcTbh9RhnbLY",
-    authDomain: "weekz-fba03.firebaseapp.com",
-    databaseURL: "https://weekz-fba03.firebaseio.com",
-    projectId: "weekz-fba03",
-    storageBucket: "gs://weekz-fba03.appspot.com/",
-    messagingSenderId: "708230896117"
-  };
-  firebase.initializeApp(config);
+  addGlobalEventListeners();
+  loadUserInfo ();
+  initFeedback();
 
-  //Handle Account Status
-  firebase.auth().onAuthStateChanged(user => {
-    if(!user) {
-      window.location = 'signin.html'; //If User is not logged in, redirect to signin page
-    } else {
-      if (user.emailVerified) {
-        verifyBtn.style.display = "none";
-        console.log('verified');
-        
-      } else {
-        verifyBtn.style.display = "block";
-        console.log("not verified");
-      }
+  changeWeek(0);
+});
 
-      userId = firebase.auth().currentUser.uid;
-      addGlobalEventListeners();
-      loadUserInfo ();
-      initFeedback();
-
-      changeWeek(0);
-    }
-  });
-}
 function changeWeek (offset)
 {
     weekOffset = offset;
