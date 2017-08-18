@@ -1,3 +1,6 @@
+//Basic Firebase Logic, handles basic login and user checking
+//Use addLoggedInHandler(function(user) {}); to launch your other code
+
 var userId;
 var notLoggedInHandler = [];
 var loggedInHandler = [];
@@ -9,10 +12,9 @@ function addLoggedInHandler(handler) {
     loggedInHandler.push(handler);
 }
 
-(function () {
+function firebasInit() {
 
     // Initialize Firebase
-
     var config = {
         apiKey: "AIzaSyD-23wnCzHAmW_AaS_yODHhcTbh9RhnbLY",
         authDomain: "weekz-fba03.firebaseapp.com",
@@ -24,6 +26,10 @@ function addLoggedInHandler(handler) {
     firebase.initializeApp(config);
 
     firebase.auth().onAuthStateChanged(function (user) {
+
+        //Checks if user is valid and launches appropriate eventhandlers
+        //If no handler for wrong user is registered, the browser is redirected to signin.html
+
         if (user) {
             userId = firebase.auth().currentUser.uid;
             loggedInHandler.forEach(function (element) {
@@ -41,4 +47,12 @@ function addLoggedInHandler(handler) {
             }
         }
     })
-}());
+}
+
+//Launches firebaseInit() only if the whole document is loaded 
+//https://www.sitepoint.com/jquery-document-ready-plain-javascript/
+if (document.readyState === "complete" ||(document.readyState !== "loading" && !document.documentElement.doScroll)) {
+    firebasInit();
+} else {
+  document.addEventListener("DOMContentLoaded", firebasInit);
+}
