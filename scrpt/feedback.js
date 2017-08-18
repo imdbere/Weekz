@@ -1,4 +1,4 @@
-(function() {
+function initFeedback() {
 
   const bugRef = firebase.database().ref().child('feedback');
 
@@ -42,4 +42,4 @@
     }
   });
 
-}())
+}
