@@ -13,27 +13,28 @@ function loadAndAddTasks(week) {
   dataRefSelectedWeek.once('value', function (week) {
     week.forEach(function (day) {
       day.forEach(function (taskid) {
-        var task = taskid.val();
-        if (day.key == "bubbleList") {
-          var li = generateBubbleTask(task.taskName, task.checked);
-        }
-        else
-        {
-          var li = generateTask(task.taskName, task.taskDesc, task.checked);
-        }
-        
-        li.id = taskid.key;
-        var addDay = day.key;
-        var rightList = document.getElementById(addDay);
-        rightList.appendChild(li);
+        var task = taskid.key;
+        var data;
+
+        dataRefTasks.child(task).once('value', function(snap) {
+          data = snap.val();
+        }).then( function() {
+          if (day.key == "bubbleList") {
+            var li = generateBubbleTask(data.taskName, data.checked);
+          }
+          else
+          {
+            var li = generateTask(data.taskName, data.taskDesc, data.checked);
+          }
+
+          li.id = task;
+          var addDay = day.key;
+          var rightList = document.getElementById(addDay);
+          rightList.appendChild(li);
+        });
       });
     });
   }).then(function () {
     NProgress.done();
   });
 }
-
-
-
-
-

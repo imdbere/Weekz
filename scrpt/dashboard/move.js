@@ -33,13 +33,15 @@ function moveToNextWeekButtonClicked()
 function moveToDayButtonClicked()
 {
   var moveTaskDiv = this.parentNode.parentNode;
-  
+
   var item = this.parentNode.parentNode.parentNode;
   var oldList = item.parentNode;
   var dataRefDesiredWeek;
   var newListId = this.name;
   var newList = document.getElementById(newListId);
   oldList.removeChild(item);
+
+  console.log(item.id);
 
   if (moveTaskDiv.weekOffset == 0)
   {
@@ -52,14 +54,10 @@ function moveToDayButtonClicked()
     dataRefDesiredWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(desiredWeek.getWeekID());
   }
 
-  dataRefSelectedWeek.child(oldList.id).child(item.id).once('value').then (function(message)
-  {
+  dataRefTasks.child(item.id).once('value', function(message) {
     var oldData = message.val();
+    
     dataRefSelectedWeek.child(oldList.id).child(item.id).remove();
-
-    var newKey = dataRefDesiredWeek.child(newListId).push().key;
-    item.id = newKey;
-    dataRefDesiredWeek.child(newListId).child(newKey).update(oldData);
+    dataRefDesiredWeek.child(newListId).child(item.id).update(oldData);
   });
 }
-

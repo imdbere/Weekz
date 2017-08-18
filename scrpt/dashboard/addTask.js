@@ -27,12 +27,12 @@ function addButtonClicked()
 
 // Open 'New Task' Menu
 function showAddMenu(list, color, text) {
-  
+
     addBtn.style.display = "block";
     editBtn.style.display = "none";
     addTitle.style.display = "block";
     editTitle.style.display = "none";
-  
+
     day.innerText = text;
     day.style.color = color;
     addBtn.style.background = color;
@@ -55,10 +55,12 @@ function addConfirmButtonClicked(list) {
   } else {
 
     var li = generateTask(taskName.value, taskDesc.value, false);
-    var key = dataRefSelectedWeek.child(list.id).push().key;
+    var taskKey = dataRefTasks.push().key;
 
-    var newEntry = dataRefSelectedWeek.child(list.id).child(key).update({ taskName: taskName.value, taskDesc: taskDesc.value, checked: false });
-    li.id = key;
+    var newTask = dataRefTasks.child(taskKey).update({ taskName: taskName.value, taskDesc: taskDesc.value, checked: false })
+
+    var newEntry = dataRefSelectedWeek.child(list.id).child(taskKey).set("");
+    li.id = taskKey;
 
     list.appendChild(li);
     hideAddMenu();
@@ -83,18 +85,13 @@ function createToDoItem() {
     toDoValue.style.border = "none";
 
     var li = generateBubbleTask(toDoValue.value, false);
-    var key = dataRefSelectedWeek.child('toDo').push().key;
-    li.id = key;
+    var taskKey = dataRefTasks.push().key;
+    li.id = taskKey;
 
-    var newEntry = dataRefSelectedWeek.child('bubbleList').child(key).update({taskName: toDoValue.value});
+    var newTask = dataRefTasks.child(taskKey).update({taskName: toDoValue.value});
+
+    var newEntry = dataRefSelectedWeek.child('bubbleList').child(taskKey).set("");
 
     toDoList.appendChild(li);
   }
 }
-
-
-
-
-
-
-
