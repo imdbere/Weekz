@@ -19,7 +19,7 @@ function showEditMenu(item1) {
 
     addMenu.style.zIndex = "2000";
     //Confirm Task creation
-    editBtn.onclick =  () => editConfirmButtonClicked(item1);
+    editBtn.onclick = () => editConfirmButtonClicked(item1);
     sleep(200).then(() => {
       addMenu.style.opacity = "1";
     });
@@ -28,7 +28,9 @@ function showEditMenu(item1) {
 function editConfirmButtonClicked(item)
 {
     var listId = item.parentNode.id;
+    console.log(listId);
     var id = item.id;
+    console.log(id);
     var nameInput = item.children[2];
     var descInput = item.children[5].children[0];
     var newName = taskName.value;
@@ -36,7 +38,9 @@ function editConfirmButtonClicked(item)
     nameInput.innerText = newName;
     descInput.innerText = newDesc;
 
-    var update = dataRefSelectedWeek.child(listId).child(id).update({taskName: newName, taskDesc: newDesc});
+    console.log(id);
+
+    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc });
     hideAddMenu();
 }
 
@@ -56,13 +60,14 @@ function toggleContext() {
     var task = this.parentNode;
     var id = task.id;
     var taskContext = task.children[3];
+    var moveTask = task.children[4];
 
     if (taskContext.style.display == "none") {
         taskContext.style.display = "block";
         this.style.opacity = 1;
     } else {
         taskContext.style.display = "none";
-        moveMenu.style.display = "none";
+        moveTask.style.display = "none";
         this.style.opacity = 0;
     }
 }
@@ -78,13 +83,15 @@ function toggleTaskDone() {
     taskText.classList.toggle('toggle');
     dataRefSelectedWeek.child(thisList.id).child(id).update({checked: !value});
 
-    });
-  }
+  });
+}
 
 //Deletes Task
 function removeTask() {
     var task = this.parentNode.parentNode;
+    console.log(task);
     var id = task.id;
+    console.log(id);
     var list = task.parentNode;
     var listId = list.id;
 
@@ -98,5 +105,6 @@ function removeTask() {
 
 
     list.removeChild(task);
+    dataRefTasks.child(id).remove();
     dataRefSelectedWeek.child(listId).child(id).remove();
 }
