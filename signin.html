@@ -39,17 +39,20 @@
     <div class="content">
       <div class="box">
         <div class="signin">
-          <img src="res/logoBig.png" alt="Sign in with your Weekz Account">
-          <input type="email" id="email" placeholder="Email" required>
-          <input type="password" id="password" placeholder="Password" required>
-          <a class="forgot" href="forgot ">Forgot Password?</a>
-          <button type="submit" id="signin">SIGN IN</button>
-          <p>Not part of the team yet? <a href="signup">Join Now</a></p>
+          <form id="loginForm" action="">
+            <img src="res/logoBig.png" alt="Sign in with your Weekz Account">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <a class="forgot" href="forgot ">Forgot Password?</a>
+            <button type="submit" id="signin">SIGN IN</button>
+            <p>Not part of the team yet? <a href="signup">Join Now</a></p>
+          </form>
         </div>
       </div>
     </div>
 
     <!-- Scripts -->
+    <script src="scrpt/firebaseInit.js"></script>
     <script src="scrpt/signIn.js"></script>
   </body>
 </html>
