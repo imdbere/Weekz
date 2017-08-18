@@ -24,10 +24,11 @@ div.menu div.content {
   box-shadow: 0px 0px 8px #444;
   transition: 0.3s;
   overflow: hidden;
+  width: 50px;
 }
 
 .width {
-  width: 350px;
+  width: 350px !important;
   transition: 0.3s;
 }
 
@@ -62,6 +63,7 @@ div.menu div.content h1 {
   font-weight: 700;
   font-size: 26px;
   margin-top: 50px;
+  transition: 0.8s;
 }
 
 div.menu div.content h2 {
@@ -71,6 +73,7 @@ div.menu div.content h2 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 18px;
+  transition: 1s;
 }
 
 div.menu div.content a {

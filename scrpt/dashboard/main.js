@@ -10,12 +10,9 @@ var editBtnIcon = '<img src="res/edit.png">'
 var moveBtnIcon = '<img src="res/move.png">'
 
 // Get Elements
-var nameLabel = document.getElementById('userName');
-var mailLabel = document.getElementById('userEmail');
 var addWeekBtn = document.getElementById('newWeek');
 var previousBtn = document.getElementById('previous');
 var allLists = document.getElementsByClassName('taskList');
-var verifyBtn = document.getElementById('verify');
 // var context = document.getElementById('contextMenu');
 
 // Edit Menu Elements
@@ -56,15 +53,6 @@ var satList = document.getElementById('satList');
 
 addLoggedInHandler(function(user){
 
-  if (user.emailVerified) {
-    verifyBtn.style.display = "none";
-    console.log('verified');
-    
-  } else {
-    verifyBtn.style.display = "block";
-    console.log("not verified");
-  }
-  
   addGlobalEventListeners();
   loadUserInfo ();
   initFeedback();
@@ -91,14 +79,6 @@ function addGlobalEventListeners() {
     previousBtn.addEventListener('click', function () {
         clearLists();
         changeWeek(weekOffset - 1);
-    });
-
-    //Verify E-Mail button
-    verifyBtn.addEventListener('click', function () {
-        firebase.auth().onAuthStateChanged(function (user) {
-            user.sendEmailVerification();
-            verifyBtn.innerText = "EMAIL SENT";
-        });
     });
 
     //Open new Task dialog

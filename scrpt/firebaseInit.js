@@ -1,12 +1,12 @@
 var userId;
-var notLoggedInHandler = null;
-var loggedInHandler = null;
+var notLoggedInHandler = [];
+var loggedInHandler = [];
 
 function addNotLoggedInHandler(handler) {
-    notLoggedInHandler = handler;
+    notLoggedInHandler.push(handler);
 }
 function addLoggedInHandler(handler) {
-    loggedInHandler = handler;
+    loggedInHandler.push(handler);
 }
 
 (function () {
@@ -26,16 +26,19 @@ function addLoggedInHandler(handler) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             userId = firebase.auth().currentUser.uid;
-            if (loggedInHandler != null) {
-                loggedInHandler(user);
-            }
-
+            loggedInHandler.forEach(function(element)
+            {
+                element(user);
+            });
         } else {
-            if (notLoggedInHandler == null) {
+            if (notLoggedInHandler.length > 0) {
                 window.location = 'signin.html';
             }
             else {
-                notLoggedInHandler();
+                notLoggedInHandler.forEach(function(element)
+                {
+                    element(user);
+                });
             }
         }
     })
