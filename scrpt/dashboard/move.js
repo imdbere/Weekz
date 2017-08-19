@@ -3,7 +3,7 @@ function moveTaskButtonClicked()
   var item = this.parentNode.parentNode
   var oldList = item.parentNode;
   var oldListId = item.parentNode.id;
-  var dayPicker = item.children[4];
+  var dayPicker = item.children[5];
 
   if (dayPicker.style.display == "none") {
     dayPicker.style.display = "block";
@@ -56,7 +56,7 @@ function moveToDayButtonClicked()
 
   dataRefTasks.child(item.id).once('value', function(message) {
     var oldData = message.val();
-    
+
     dataRefSelectedWeek.child(oldList.id).child(item.id).remove();
     dataRefDesiredWeek.child(newListId).child(item.id).update(oldData);
   });

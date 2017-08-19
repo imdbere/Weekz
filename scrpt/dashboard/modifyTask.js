@@ -12,8 +12,8 @@ function showEditMenu(item1) {
     editTitle.style.display = "block";
     closeBtn.style.background = "#C4DADE";
 
-    var nameInput = item1.children[2];
-    var descInput = item1.children[5].children[0];
+    var nameInput = item1.children[3];
+    var descInput = item1.children[6].children[0];
     taskName.value = nameInput.innerText;
     taskDesc.value = descInput.innerText;
 
@@ -31,8 +31,8 @@ function editConfirmButtonClicked(item)
     console.log(listId);
     var id = item.id;
     console.log(id);
-    var nameInput = item.children[2];
-    var descInput = item.children[5].children[0];
+    var nameInput = item.children[3];
+    var descInput = item.children[6].children[0];
     var newName = taskName.value;
     var newDesc = taskDesc.value;
     nameInput.innerText = newName;
@@ -59,8 +59,8 @@ function hideEditMenu() {
 function toggleContext() {
     var task = this.parentNode;
     var id = task.id;
-    var taskContext = task.children[3];
-    var moveTask = task.children[4];
+    var taskContext = task.children[4];
+    var moveTask = task.children[5];
 
     if (taskContext.style.display == "none") {
         taskContext.style.display = "block";
@@ -77,11 +77,12 @@ function toggleTaskDone() {
     var task = this.parentNode;
     var thisList = task.parentNode;
     var id = task.id;
-    var taskText = task.children[2];
-    var status = dataRefSelectedWeek.child(thisList.id).child(id).once('value').then(function(checked) {
+    var taskText = task.children[3];
+    console.log(dataRefTasks);
+    var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;
     taskText.classList.toggle('toggle');
-    dataRefSelectedWeek.child(thisList.id).child(id).update({checked: !value});
+    var update = dataRefTasks.child(id).update({checked: !value});
 
   });
 }

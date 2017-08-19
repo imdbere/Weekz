@@ -1,4 +1,6 @@
+
 function generateBubbleTask(taskName, checked) {
+
     li = document.createElement('li');
     li.className = "task";
 
@@ -51,6 +53,9 @@ function generateTask(taskName, taskDesc, checked) {
 
     var p = document.createElement('p');
     p.innerText = taskName;
+
+    var dot = document.createElement('div');
+    dot.classList.add('dot');
 
     if (checked) {
         p.classList.add('toggle');
@@ -133,6 +138,7 @@ function generateTask(taskName, taskDesc, checked) {
     contextDiv.appendChild(editBtn);
     contextDiv.appendChild(moveBtn);
 
+    li.appendChild(dot);
     li.appendChild(contextBtn);
     li.appendChild(check);
     li.appendChild(p);
