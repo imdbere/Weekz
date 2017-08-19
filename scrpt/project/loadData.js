@@ -17,6 +17,8 @@ function loadAndAddProjects() {
         var color = data.val().projectColor;
         var percentage = data.val().percentage;
 
+        console.log(color);
+
         generateProject(title, summary, color, percentage, projectId);
         dashDiv.insertBefore(projectDiv, addBtn);
       });

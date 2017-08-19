@@ -134,6 +134,7 @@ div.project div.container h1 {
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 30px;
+  cursor: pointer;
 }
 
 div.project div.container div.separator {
@@ -413,32 +414,13 @@ label[for="color8"] {background: #428FDE}
 label[for="color9"] {background: #9013FE}
 label[for="color10"] {background: #692B8D}
 
-div.project.color1 div.progress div {background: #FF5052}
-div.project.color1 div.container div.separator {background: #FF5052}
-
-div.project.color2 div.progress div {background: #FA9134}
-div.project.color2 div.container div.separator {background: #FA9134}
-
-div.project.color3 div.progress div {background: #E6E738}
-div.project.color3 div.container div.separator {background: #E6E738}
-
-div.project.color4 div.progress div {background: #71CA4F}
-div.project.color4 div.container div.separator {background: #71CA4F}
-
-div.project.color5 div.progress div {background: #287B12}
-div.project.color5 div.container div.separator {background: #287B12}
-
-div.project.color6 div.progress div {background: #00C6EE}
-div.project.color6 div.container div.separator {background: #00C6EE}
-
-div.project.color7 div.progress div {background: #39BAFC}
-div.project.color7 div.container div.separator {background: #39BAFC}
-
-div.project.color8 div.progress div {background: #428FDE}
-div.project.color8 div.container div.separator {background: #428FDE}
-
-div.project.color9 div.progress div {background: #9013FE}
-div.project.color9 div.container div.separator {background: #9013FE}
-
-div.project.color10 div.progress div {background: #692B8D}
-div.project.color10 div.container div.separator {background: #692B8D}
+.color1 {background: #FF5052 !important}
+.color2 {background: #FA9134 !important}
+.color3{background: #E6E738 !important}
+.color4{background: #71CA4F !important}
+.color5 {background: #287B12 !important}
+.color6 {background: #00C6EE !important}
+.color7 {background: #39BAFC !important}
+.color8 {background: #428FDE !important}
+.color9 {background: #9013FE !important}
+.color10 {background: #692B8D !important}

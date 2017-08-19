@@ -76,3 +76,8 @@ function projectEditButtonClicked()
 {
   console.log("lel");
 }
+
+function showProjectDetails() {
+  var selectedProject = this.parentNode.parentNode.id;
+  window.location.href = 'detail.html' + '#' + selectedProject;
+}
