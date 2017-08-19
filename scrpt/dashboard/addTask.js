@@ -1,6 +1,9 @@
+
 function addButtonClicked()
 {
   clicked = this.id;
+
+  fetchAndAppendProjects();
   // Identify clicked Button
   var color;
   switch (clicked) {
@@ -94,4 +97,44 @@ function createToDoItem() {
 
     toDoList.appendChild(li);
   }
+}
+
+function fetchAndAppendProjects() {
+  var dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+
+  dataRefProject.once('value', function(snap) {
+    snap.forEach(function(project) {
+      project.forEach(function(data) {
+
+        var form = projectSelector.children[0];
+
+        var radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'project';
+        console.log(project.key);
+        radio.id = project.key;
+
+        var label = document.createElement('label');
+        label.for = project.key;
+
+          var colorDot = document.createElement('div');
+          colorDot.classList.add('color', data.val().projectColor);
+
+          var projectTitle = document.createElement('h3');
+          projectTitle.innerText = data.val().projectTitle;
+
+          var infoBtn = document.createElement('button');
+          infoBtn.type = 'button';
+          infoBtn.name = 'button';
+          infoBtn.innerHTML = '<img src="res/info.png" alt="See your project details">';
+
+        label.appendChild(colorDot);
+        label.appendChild(projectTitle);
+        label.appendChild(infoBtn);
+
+        form.appendChild(radio);
+        form.appendChild(label);
+      })
+    })
+  });
 }

@@ -18,6 +18,7 @@ var allLists = document.getElementsByClassName('taskList');
 
 // Edit Menu Elements
 var addMenu = document.getElementById('addTask');
+var projectSelector = document.getElementById('projectSelector');
 var moveMenu = document.getElementById('moveTask');
 var day = document.getElementById('whatDay');
 var taskName = document.getElementById('taskName');

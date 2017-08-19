@@ -124,7 +124,7 @@ function generateTask(taskName, taskDesc, checked) {
     whichWeekDiv.classList.add('whichWeek');
     var whichWeekP = document.createElement('p');
     whichWeekP.innerText = currentlySelectedWeek.getDayAsString(0) + " - " + currentlySelectedWeek.getDayAsString(5);
-   
+
     whichWeekDiv.appendChild(whichWeekP);
     moveMenu.appendChild(whichWeekDiv);
     moveMenu.weekOffset = 0;
