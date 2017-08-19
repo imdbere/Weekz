@@ -166,6 +166,39 @@
           <h1 id="editTitle">Edit your Task</h1>
           <input type="text" placeholder="New Task" id="taskName">
           <textarea placeholder="Description" id="taskDesc"></textarea>
+          <h2>Add to Project</h2>
+          <div class="projectSelector">
+            <form action="" method="post">
+              <input type="radio" name="project" id="project0">
+              <label for=project0>
+                <h3>None</h3>
+              </label>
+              <input type="radio" name="project" id="project1">
+              <label for=project1>
+                <div class="color" style="background: #FF514C"></div>
+                <h3>Weekz</h3>
+                <button type="button" name="button" id="showProject"><img src="res/info.png" alt="See your project details"></button>
+              </label>
+              <input type="radio" name="project" id="project2">
+              <label for=project2>
+                <div class="color" style="background: #F6921E"></div>
+                <h3>Uni</h3>
+                <button type="button" name="button" id="showProject"><img src="res/info.png" alt="See your project details"></button>
+              </label>
+              <input type="radio" name="project" id="project3">
+              <label for=project3>
+                <div class="color" style="background: #3FA8F4"></div>
+                <h3>JumpStart</h3>
+                <button type="button" name="button" id="showProject"><img src="res/info.png" alt="See your project details"></button>
+              </label>
+              <input type="radio" name="project" id="project4">
+              <label for=project4>
+                <div class="color" style="background: #662D90"></div>
+                <h3>Other</h3>
+                <button type="button" name="button" id="showProject"><img src="res/info.png" alt="See your project details"></button>
+              </label>
+            </form>
+          </div>
           <button type="button" id="addBtn">Add Task</button>
           <button type="button" id="editBtn">Save Task</button>
         </div>
@@ -177,8 +210,7 @@
         <button type="button" id="closeMenuBtn">X</button>
         <h1 id="userName">Name Here</h1>
         <h2 id="userEmail">email.ofuser@gmail.com</h2>
-        <a href="#">PROFILE</a>
-        <a href="#">SETTINGS</a>
+        <a href="projects.html">PROJECTS</a>
         <button type="button" class="menuBtn" id="verify">VERIFY EMAIL</button>
         <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
       </div>

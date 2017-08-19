@@ -1,5 +1,4 @@
 
-
 function loadAndAddTasks(week) {
   for (var i = 0; i < 6; i++) {
     var id = "date" + (i + 1);

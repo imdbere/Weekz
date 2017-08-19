@@ -37,7 +37,7 @@ function addLoggedInHandler(handler) {
 
             }
             else {
-                window.location = 'signin.html';
+                window.location = 'signin';
             }
         }
     })

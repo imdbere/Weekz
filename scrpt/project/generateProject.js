@@ -1,9 +1,11 @@
-function generateProject (name, description, colorCode, progressPercentage)
+
+function generateProject (name, summary, colorCode, progressPercentage, id)
 {
     projectDiv = document.createElement('div');
     projectDiv.classList.add('project');
     projectDiv.classList.add(colorCode);
-    
+    projectDiv.id = id;
+
     containerDiv = document.createElement('div');
     containerDiv.classList.add('container');
 
@@ -33,7 +35,7 @@ function generateProject (name, description, colorCode, progressPercentage)
     containerDiv.appendChild(modifyDiv);
 
     p = document.createElement('p');
-    p.innerText = description;
+    p.innerText = summary;
     containerDiv.appendChild(p);
 
     progressDiv = document.createElement('div');
@@ -47,5 +49,4 @@ function generateProject (name, description, colorCode, progressPercentage)
     projectDiv.appendChild(containerDiv);
 
     return projectDiv;
-
 }

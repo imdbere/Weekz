@@ -78,7 +78,7 @@ div.menu div.content h2 {
 
 div.menu div.content a {
   position: relative;
-  display: none;
+  display: block;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 18px;

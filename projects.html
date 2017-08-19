@@ -38,11 +38,11 @@
     </div>
 
     <div class="heading">
-      <a id="dashboard"><p>DASHBOARD</p><div class="triangle"></div></a>
+      <a id="dashboard" href="dashboard.html"><p>DASHBOARD</p><div class="triangle"></div></a>
       <h1>Your <span>Projects</span>
     </div>
 
-    <div class="dash">
+    <div class="dash" id="dash">
       <div class="project color1">
         <div class="container">
           <h1>Weekz</h1>
@@ -124,8 +124,7 @@
         <button type="button" id="closeMenuBtn">X</button>
         <h1 id="userName">Name Here</h1>
         <h2 id="userEmail">email.ofuser@gmail.com</h2>
-        <a href="#">PROFILE</a>
-        <a href="#">SETTINGS</a>
+        <a href="dashboard">DASHBOARD</a>
         <button type="button" class="menuBtn" id="verify">VERIFY EMAIL</button>
         <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
       </div>
@@ -134,7 +133,9 @@
     <!-- Scripts -->
     <script src="scrpt/firebaseInit.js"></script>
     <script src="scrpt/menu.js"></script>
+    <script src="scrpt/nprogress.js"></script>
     <script src="scrpt/project/project.js"></script>
+    <script src="scrpt/project/loadData.js"></script>
     <script src="scrpt/project/generateProject.js"></script>
   </body>
 </html>

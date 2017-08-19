@@ -66,6 +66,7 @@ div.heading a {
   font-weight: 700;
   font-size: 14px;
   text-align: center;
+  text-decoration: none;
   color: white;
   top: 50%;
   transform: translate(0,-50%);
