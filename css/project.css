@@ -123,6 +123,7 @@ div.project div.container {
   position: relative;
   display: block;
   width: 70%;
+  min-height: 175px;
   margin: auto;
   top: 50%;
   transform: translate(0, -50%);
@@ -190,11 +191,11 @@ div.project div.container:hover  p {
 }
 
 div.progress {
-  position: relative;
+  position: absolute;
   display: block;
   width: 250px;
   height: 8px;
-  margin-top: 30px;
+  bottom: 0px;
   border-radius: 4px;
   background: #F1F1F1;
 }

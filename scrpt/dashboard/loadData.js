@@ -29,10 +29,12 @@ function loadAndAddTasks(week) {
           }
           else
           {
-            console.log(data.project);
             dataRefProject.child(data.project).child('info').once('value', function(projectInfo) {
-              var color = projectInfo.val().projectColor;
-              var title = projectInfo.val().projectTitle;
+
+              if (data.project != 'noProject') {
+                var color = projectInfo.val().projectColor;
+                var title = projectInfo.val().projectTitle;
+              }
 
               var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
 

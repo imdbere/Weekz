@@ -454,7 +454,7 @@ div.day ul {
   width: 12px;
   height: 12px;
   border-radius: 6px;
-  background: blue;
+  background: none;
   margin-right: 4%;
   vertical-align: top;
   top: 5px;
@@ -478,12 +478,13 @@ div.taskProject {
   position: absolute;
   display: none;
   width: auto;
-  height: 50px;
+  height: 40px;
   top: 0;
   border-radius: 25px;
   background: #F1F1F1;
   margin-top: 25px;
   z-index: 2000;
+  overflow: hidden;
 }
 
 div.taskProject h3 {
