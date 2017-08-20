@@ -89,6 +89,16 @@ div.heading a#back {
   transition: 0.3s;
 }
 
+a#back div.triangle {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid white;
+}
+
 div.heading h1 {
   position: absolute;
   display: inline-block;
@@ -289,3 +299,216 @@ ul.projectTasks li h4 {
 .toggle {
   color: #9FAAB7;
 }
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-width: 780px) {
+
+    body {
+      min-width: 0px;
+      min-height: 0px;
+      width: 100%;
+      overflow-y: auto;
+    }
+
+    /* ----- Bar -----*/
+
+    div.bar {
+      min-width: 0px;
+      min-height: 0px;
+      width: 100vw;
+    }
+
+    div.bar img {
+      position: relative;
+      display: inline-block;
+      float: left;
+      width: 30px;
+    }
+
+    div.bar button {
+      height: 15px;
+      width: 30px;
+    }
+
+  /* ----- Heading -----*/
+
+    div.heading {
+      min-width: 0px;
+      width: 100vw;
+      height: 60px;
+      z-index: 100;
+    }
+
+    div.heading a#dashboard {
+      display: none;
+    }
+
+    div.heading h1 {
+      font-size: 1.3em;
+    }
+
+    div.heading a {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+
+    div.heading a p {display: none}
+
+    div.heading a#back {
+      margin-left: 20px;
+    }
+
+
+    a#back div.triangle {
+      display: block;
+      top: 12px;
+      right: 16px;
+    }
+
+    /* ----- Dash -----*/
+
+    div.dash {
+      min-width: 0px;
+      width: 95%;
+      height: auto;
+      margin-bottom: 30px;
+      overflow: auto;
+    }
+
+    /* ----- Detail Section -----*/
+
+    div.detail {
+      position: relative;
+      display: block;
+      float: left;
+      width: 100%;
+      height: auto;
+    }
+
+    div.detail div.container {
+      position: relative;
+      display: block;
+      width: 80%;
+      margin: auto;
+      top: 0;
+      margin-top: 40px;
+    }
+
+    div.container h3 {
+      position: relative;
+      display: block;
+      font-family: 'Roboto';
+      font-weight: 300;
+      font-size: 14px;
+      color: #4A4A4A;
+    }
+
+    div.dot {
+      position: relative;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+      vertical-align: top;
+      background: #444;
+    }
+
+    div.detail div.container h1 {
+      position: relative;
+      display: inline-block;
+      font-family: 'Roboto';
+      font-weight: 500;
+      font-size: 30px;
+      margin: 0px 0px 15px 10px;
+    }
+
+    div.detail div.container h2 {
+      position: relative;
+      display: block;
+      width: 65%;
+      font-family: 'Roboto';
+      font-weight: 300;
+      font-size: 20px;
+      margin: 0px 0px 15px 0px;
+    }
+
+    div.detail div.container p {
+      position: relative;
+      display: block;
+      font-family: 'Roboto';
+      font-weight: 500;
+      font-size: 16px;
+      margin: 0px 0px 40px 0px;
+    }
+
+    div.detail div.container h4 {
+      position: relative;
+      display: block;
+      font-family: 'Roboto';
+      font-weight: 300;
+      font-size: 20px;
+      margin: 8px 0px 0px 0px;
+    }
+
+    div.progress {
+      position: relative;
+      display: block;
+      width: 200px;
+      height: 8px;
+      border-radius: 4px;
+      background: #F1F1F1;
+      margin: 20px 0px 8px 0px;
+    }
+
+    div.progress div {
+      width: 70%;
+      height: 100%;
+      border-radius: 4px;
+      background: #444;
+    }
+
+    div.detail div.container h5 {
+      position: relative;
+      display: block;
+      font-family: 'Roboto';
+      font-weight: 300;
+      font-size: 16px;
+      margin-left: 80px
+    }
+
+    /* ----- Task Section -----*/
+
+    div.tasks {
+      position: relative;
+      display: block;
+      float: right;
+      width: 100%;
+      height: auto;
+      margin-top: 40px;
+      margin-bottom: 25px;
+    }
+
+    ul.projectTasks {
+      margin-top: 15px;
+    }
+
+    ul.projectTasks li {
+      margin-bottom: 15px;
+    }
+
+    ul.projectTasks li div.dot {
+      margin: 5px 15px 0px 10px;
+    }
+
+    ul.projectTasks li p {
+      font-size: 0.9em;
+      margin-top: 2px;
+    }
+
+    ul.projectTasks li input {
+      width: 20px;
+      height: 20px;
+    }

@@ -35,7 +35,7 @@ div.feedback {
   width: 50px;
   background: white;
   border: 1px solid #662D90;
-  z-index: 2000;
+  z-index: 3000;
   transition: 0.2s;
 }
 
@@ -299,7 +299,7 @@ div.mobileBubble {
   display: none;
   width: 95%;
   height: 50px;
-  background: #C3C3C3;
+  background: white;
   box-shadow: 0px 0px 5px #B3B3B3;
   top: 75px;
   margin: auto;
@@ -315,7 +315,7 @@ div.mobileBubble p {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 1.3em;
-  color: white;
+  color: black;
 }
 
 div.mobileBubble p span {font-weight: 700}
@@ -1057,7 +1057,7 @@ div.bubbleBack {
 
   div.day ul {
     width: 92%;
-    margin-left: 5%;
+    margin-left: 2%;
 
   }
 
@@ -1066,7 +1066,7 @@ div.bubbleBack {
   .task p {
     font-size: 0.9em;
     margin-bottom: 15px;
-    width: 70%;
+    width: 68%;
   }
 
   .task input {
@@ -1080,6 +1080,59 @@ div.bubbleBack {
     width: 20px;
     height: 20px;
     margin-left: 0px;
+  }
+
+  .task div.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  div.taskProject {
+    position: absolute;
+    display: none;
+    width: auto;
+    height: 30px;
+    top: 0;
+    border-radius: 15px;
+    background: #F1F1F1;
+    margin-top: 25px;
+    z-index: 2000;
+    overflow: hidden;
+  }
+
+  div.taskProject h3 {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: #F1F1F1;
+    vertical-align: top;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0px 5px 0px 20px;
+  }
+
+  div.taskProject button {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: none !important;
+    border: none;
+    vertical-align: top;
+    margin: 0px 0px 0px 5px;
+  }
+
+  div.taskProject button img {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: auto;
   }
 
   /* ----- Context  -----*/

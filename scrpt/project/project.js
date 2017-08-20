@@ -1,5 +1,6 @@
 
 var addBtn = document.getElementById('addProject');
+var addBtnMobile = document.getElementById('addProjectMobile');
 var newProjectDialog = document.getElementById('projectBackground');
 var closeAddProjectBtn = document.getElementById('closeProjectBtn');
 var createProjectBtn = document.getElementById('createProject');
@@ -22,6 +23,10 @@ addLoggedInHandler(function(user)
     {
         openNewProjectDialog();
     });
+
+    addBtnMobile.addEventListener('click', function() {
+        openNewProjectDialog();
+    })
 
     closeAddProjectBtn.addEventListener('click', function()
     {
