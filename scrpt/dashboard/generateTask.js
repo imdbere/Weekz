@@ -35,7 +35,8 @@ function generateBubbleTask(taskName, checked) {
 
     return li;
 }
-function generateTask(taskName, taskDesc, checked) {
+
+function generateTask(taskName, taskDesc, checked, project, color, title) {
     li = document.createElement('li');
     li.className = "task";
 
@@ -56,6 +57,26 @@ function generateTask(taskName, taskDesc, checked) {
 
     var dot = document.createElement('div');
     dot.classList.add('dot');
+    dot.id = project;
+    dot.addEventListener('click', toggleProject);
+
+    var taskProject = document.createElement('div');
+    taskProject.classList.add('taskProject');
+    taskProject.style.display = "none";
+
+      var h3 = document.createElement('h3');
+      h3.innerText = title;
+
+      var infoBtn = document.createElement('button');
+      infoBtn.innerHTML = '<img src="res/info.png" alt="See Project Details">';
+      infoBtn.addEventListener('click', taskRedirect)
+
+    taskProject.appendChild(h3);
+    taskProject.appendChild(infoBtn);
+
+    if (color != "") {
+      dot.classList.add(color);
+    }
 
     if (checked) {
         p.classList.add('toggle');
@@ -145,6 +166,7 @@ function generateTask(taskName, taskDesc, checked) {
     li.appendChild(contextDiv);
     li.appendChild(moveMenu);
     li.appendChild(detailDiv);
+    li.appendChild(taskProject);
 
     // Change appearance of checked task
     check.addEventListener('click', toggleTaskDone);

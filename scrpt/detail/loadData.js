@@ -5,15 +5,30 @@ function loadDetailData(id) {
   NProgress.configure({ minimum: 0.1 });
 
   dataRefProject.child(id).once('value', function(snap) {
-    snap.forEach(function (data) {
-      var title = data.val().projectTitle;
-      var summary = data.val().projectSummary;
-      var description = data.val().projectDesc;
-      var color = data.val().projectColor;
-      var percentage = data.val().percentage;
+      var title = snap.val().info.projectTitle;
+      var summary = snap.val().info.projectSummary;
+      var description = snap.val().info.projectDesc;
+      var color = snap.val().info.projectColor;
+      var percentage = snap.val().info.percentage;
 
-      generateProjectDetails(title, summary, description, color, percentage);
-    });
+      var completed = 0;
+      var outstanding = 0;
+
+      dataRefProject.child(id).child('tasks').once('value', function(data) {
+        data.forEach( function(taskId) {
+
+          dataRefTasks.child(taskId.key).once('value', function (taskData) {
+            var checkState = taskData.val().checked;
+            var name = taskData.val().taskName;
+            var desc = taskData.val().taskDesc;
+
+            generateProjectTask(name, desc, checkState, color, taskId.key)
+          })
+        })
+      }).then(function() {
+        var li = generateProjectDetails(title, summary, description, color, percentage);
+      })
+
   }).then(function() {
     NProgress.done();
   });

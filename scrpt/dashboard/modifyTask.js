@@ -83,16 +83,15 @@ function toggleTaskDone() {
     var value = checked.val().checked;
     taskText.classList.toggle('toggle');
     var update = dataRefTasks.child(id).update({checked: !value});
-
   });
 }
 
 //Deletes Task
 function removeTask() {
     var task = this.parentNode.parentNode;
-    console.log(task);
     var id = task.id;
-    console.log(id);
+    var projectId = task.children[0].id
+    console.log(projectId);
     var list = task.parentNode;
     var listId = list.id;
 
@@ -104,8 +103,35 @@ function removeTask() {
         task = this.parentNode;
     }
 
-
-    list.removeChild(task);
     dataRefTasks.child(id).remove();
     dataRefSelectedWeek.child(listId).child(id).remove();
+    dataRefProject.child(projectId).child('tasks').child(id).remove();
+    list.removeChild(task);
+}
+
+function toggleProject() {
+  var task = this.parentNode;
+  console.log(task);
+  var projectMenu = task.children[7];
+
+  if (projectMenu.style.display == 'none') {
+    projectMenu.style.display = 'block';
+  } else {
+    projectMenu.style.display = 'none';
+  }
+}
+
+function taskRedirect() {
+  var task = this.parentNode.parentNode;
+  var projectId = task.children[0].id
+
+  window.location.href = 'detail.html' + '#' + projectId;
+  console.log(projectId);
+}
+
+function addRedirect() {
+  var project = this.parentNode.htmlFor;
+
+  window.location.href = 'detail.html' + '#' + project;
+  console.log(project);
 }

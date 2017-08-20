@@ -17,19 +17,32 @@ function loadAndAddTasks(week) {
 
         dataRefTasks.child(task).once('value', function(snap) {
           data = snap.val();
+
         }).then( function() {
           if (day.key == "bubbleList") {
             var li = generateBubbleTask(data.taskName, data.checked);
+
+            li.id = task;
+            var addDay = day.key;
+            var rightList = document.getElementById(addDay);
+            rightList.appendChild(li);
           }
           else
           {
-            var li = generateTask(data.taskName, data.taskDesc, data.checked);
-          }
+            console.log(data.project);
+            dataRefProject.child(data.project).child('info').once('value', function(projectInfo) {
+              var color = projectInfo.val().projectColor;
+              var title = projectInfo.val().projectTitle;
 
-          li.id = task;
-          var addDay = day.key;
-          var rightList = document.getElementById(addDay);
-          rightList.appendChild(li);
+              var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
+
+              li.id = task;
+              var addDay = day.key;
+              var rightList = document.getElementById(addDay);
+              rightList.appendChild(li);
+
+            })
+          }
         });
       });
     });

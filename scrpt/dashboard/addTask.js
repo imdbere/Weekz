@@ -2,8 +2,6 @@
 function addButtonClicked()
 {
   clicked = this.id;
-
-  fetchAndAppendProjects();
   // Identify clicked Button
   var color;
   switch (clicked) {
@@ -57,12 +55,24 @@ function addConfirmButtonClicked(list) {
     taskName.style.border = "none"
   } else {
 
-    var li = generateTask(taskName.value, taskDesc.value, false);
     var taskKey = dataRefTasks.push().key;
 
-    var newTask = dataRefTasks.child(taskKey).update({ taskName: taskName.value, taskDesc: taskDesc.value, checked: false })
+    var projectId = document.querySelector('input[name="project"]:checked').id
+    var project = document.querySelector('label[for=' + projectId + ']');
+    var projectColor = project.children[0].classList[1];
+    var projectTitle = project.children[1].innerText;
+    console.log(projectColor);
+    console.log(projectTitle);
 
-    var newEntry = dataRefSelectedWeek.child(list.id).child(taskKey).set("");
+    var li = generateTask(taskName.value, taskDesc.value, false, projectId, projectColor, projectTitle);
+
+    var newTask = dataRefTasks.child(taskKey).update({ taskName: taskName.value, taskDesc: taskDesc.value, checked: false, project: projectId })
+    var weekEntry = dataRefSelectedWeek.child(list.id).child(taskKey).set("");
+
+    if (projectId != "none") {
+      var projectEntry = dataRefProject.child(projectId).child('tasks').child(taskKey).set("");
+    }
+
     li.id = taskKey;
 
     list.appendChild(li);
@@ -100,41 +110,38 @@ function createToDoItem() {
 }
 
 function fetchAndAppendProjects() {
-  var dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
 
   dataRefProject.once('value', function(snap) {
     snap.forEach(function(project) {
-      project.forEach(function(data) {
 
-        var form = projectSelector.children[0];
+          var form = projectSelector.children[0];
 
-        var radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'project';
-        console.log(project.key);
-        radio.id = project.key;
+          var radio = document.createElement('input');
+          radio.type = 'radio';
+          radio.name = 'project';
+          radio.id = project.key;
 
-        var label = document.createElement('label');
-        label.for = project.key;
+          var label = document.createElement('label');
+          label.htmlFor = project.key;
 
           var colorDot = document.createElement('div');
-          colorDot.classList.add('color', data.val().projectColor);
+          colorDot.classList.add('color', project.val().info.projectColor);
 
           var projectTitle = document.createElement('h3');
-          projectTitle.innerText = data.val().projectTitle;
+          projectTitle.innerText = project.val().info.projectTitle;
 
           var infoBtn = document.createElement('button');
           infoBtn.type = 'button';
           infoBtn.name = 'button';
           infoBtn.innerHTML = '<img src="res/info.png" alt="See your project details">';
+          infoBtn.addEventListener('click', addRedirect);
 
-        label.appendChild(colorDot);
-        label.appendChild(projectTitle);
-        label.appendChild(infoBtn);
+          label.appendChild(colorDot);
+          label.appendChild(projectTitle);
+          label.appendChild(infoBtn);
 
-        form.appendChild(radio);
-        form.appendChild(label);
-      })
+          form.appendChild(radio);
+          form.appendChild(label);
     })
   });
 }

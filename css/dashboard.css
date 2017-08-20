@@ -432,6 +432,11 @@ div.day ul {
 
 /* ----- Task  -----*/
 
+.task {
+  position: relative;
+  display: block;
+}
+
 .task p {
   position: relative;
   display: inline-block;
@@ -452,7 +457,8 @@ div.day ul {
   background: blue;
   margin-right: 4%;
   vertical-align: top;
-  top: 4px;
+  top: 5px;
+  cursor: pointer;
 }
 
 .task input {
@@ -464,6 +470,54 @@ div.day ul {
   float: right;
   color: #39B44A;
   margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.taskProject {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: 50px;
+  top: 0;
+  border-radius: 25px;
+  background: #F1F1F1;
+  margin-top: 25px;
+  z-index: 2000;
+}
+
+div.taskProject h3 {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: #F1F1F1;
+  vertical-align: top;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0px 5px 0px 20px;
+}
+
+div.taskProject button {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: none !important;
+  border: none;
+  vertical-align: top;
+  margin: 0px 0px 0px 5px;
+}
+
+div.taskProject button img {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
 }
 
 /* ----- Context  -----*/

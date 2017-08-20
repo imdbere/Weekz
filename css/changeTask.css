@@ -148,12 +148,12 @@ div.addTask div.projectSelector {
   white-space: nowrap;
 }
 
-label[for=project0] {
+label[for=noProject] {
   width: 120px;
   text-align: center;
 }
 
-div.projectSelector form input {
+div.projectSelector form input[type="radio"] {
   position: relative;
   display: none;
 }

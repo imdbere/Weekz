@@ -2,6 +2,7 @@
 var weekOffset = 0;
 var dataRefSelectedWeek;
 var dataRefTasks;
+var dataRefProject;
 var currentlySelectedWeek;
 
 // SVG for Delete Button
@@ -58,6 +59,8 @@ addLoggedInHandler(function(user){
 
   addGlobalEventListeners();
   dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
+  dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+  fetchAndAppendProjects();
   initFeedback();
 
   changeWeek(0);
