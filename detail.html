@@ -11,6 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/check.css">
     <link rel="stylesheet" href="css/reset.min.css">
@@ -40,8 +41,8 @@
 
     <div class="heading">
       <a id="dashboard" href="dashboard.html"><p>DASHBOARD</p><div class="triangle"></div></a>
-      <a id="back" href="project.html"><p>BACK</p><div class="triangle"></div></a>
-      <h1>Your <span>Projects</span>
+      <a id="back" href="projects.html"><p>PROJECTS</p><div class="triangle"></div></a>
+      <h1>Project <span>Details</span>
     </div>
 
     <div class="dash">
@@ -49,31 +50,24 @@
         <div class="container">
           <h3>Project</h3>
           <div class="dot"></div>
-          <h1 id="projectName">Weekz<h1>
+          <h1 id="projectName">Loading<h1>
 
           <h3>Summary</h3>
           <h2 id="projectSummary">
-            A minimalistic grid to organize and
-            structure your hustle throughout
-            your week.
+            ...
           </h2>
 
           <h3>Description</h3>
           <p id="projectDesc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            ...
           </p>
 
           <h3>Progress</h3>
-          <h4><span id="tasksCompleted">12</span> Tasks completed</h4>
-          <h4><span id="tasksOutstanding">5</span> Tasks outstanding</h4>
+          <h4><span id="tasksCompleted">...</span> Tasks completed</h4>
+          <h4><span id="tasksOutstanding">...</span> Tasks outstanding</h4>
 
           <div class="progress">
-            <div></div>
+            <div id="projectStatus"></div>
           </div>
           <h5><span id="progressPercent">70</span>%</h5>
         </div>
@@ -82,12 +76,12 @@
         <div class="container">
           <h3>Outstanding Tasks</h3>
           <ul class="projectTasks" id="taskList">
-            <li><div class="dot"></div><p>Finish Design Draft</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
-            <li><div class="dot"></div><p>Buy Lamborghini Centenario</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
+            <!-- <li><div class="dot"></div><p>Finish Design Draft</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li> -->
+            <!-- <li><div class="dot"></div><p>Buy Lamborghini Centenario</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
             <li><div class="dot"></div><p>And a Bugatti Chiron</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
             <li><div class="dot"></div><p>Get Gigi Hadid as Girlfriend</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
             <li><div class="dot"></div><p>Make one billion dollars</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
-            <li><div class="dot"></div><p>Chill in Hawaii</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li>
+            <li><div class="dot"></div><p>Chill in Hawaii</p><h4>17.8.2017</h4><input type="checkbox" class="option-input checkbox"></li> -->
           </ul>
         </div>
       </div>
@@ -96,10 +90,10 @@
     <div class="menu" id="background">
       <div class="content" id="menu">
         <button type="button" id="closeMenuBtn">X</button>
-        <h1 id="userName">Name Here</h1>
-        <h2 id="userEmail">email.ofuser@gmail.com</h2>
-        <a href="#">PROFILE</a>
-        <a href="#">SETTINGS</a>
+        <h1 id="userName">Loading</h1>
+        <h2 id="userEmail">...</h2>
+        <a href="projects.html">PROJECTS</a>
+        <a href="dashboard.html">DASHBOARD</a>
         <button type="button" class="menuBtn" id="verify">VERIFY EMAIL</button>
         <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
       </div>
@@ -108,6 +102,8 @@
     <!-- Scripts -->
     <script src="scrpt/firebaseInit.js"></script>
     <script src="scrpt/menu.js"></script>
+    <script src="scrpt/nprogress.js"></script>
+    <script src="scrpt/detail/loadData.js"></script>
     <script src="scrpt/detail/detail.js"></script>
   </body>
 </html>

@@ -35,7 +35,7 @@ div.feedback {
   width: 50px;
   background: white;
   border: 1px solid #662D90;
-  z-index: 2000;
+  z-index: 3000;
   transition: 0.2s;
 }
 
@@ -226,9 +226,9 @@ button#previous div.triangle {
   display: none;
   width: 0;
   height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 17px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid white;
 }
 
 div.heading button#newWeek {
@@ -239,13 +239,13 @@ div.heading button#newWeek {
 }
 
 button#newWeek div.triangle {
- position: absolute;
- display: none;
- width: 0;
- height: 0;
- border-top: 12px solid transparent;
- border-bottom: 12px solid transparent;
- border-left: 17px solid white;
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid white;
 }
 
 div.heading button#previous:hover {background: #0581CE}
@@ -299,9 +299,9 @@ div.mobileBubble {
   display: none;
   width: 95%;
   height: 50px;
-  background: #C3C3C3;
-  box-shadow: 0px 0px 5px #B3B3B3;
-  top: 75px;
+  background: white;
+  box-shadow: 0px 0px 5px #D1D2D4;
+  top: 65px;
   margin: auto;
 }
 
@@ -315,7 +315,7 @@ div.mobileBubble p {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 1.3em;
-  color: white;
+  color: black;
 }
 
 div.mobileBubble p span {font-weight: 700}
@@ -432,14 +432,32 @@ div.day ul {
 
 /* ----- Task  -----*/
 
+.task {
+  position: relative;
+  display: block;
+}
+
 .task p {
   position: relative;
   display: inline-block;
-  width: 80%;
+  width: 72%;
   font-family: 'Roboto';
   font-weight: 500;
   font-size: calc(12.5px + 0.4vw);
   margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.task div.dot {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: none;
+  margin-right: 4%;
+  vertical-align: top;
+  top: 5px;
   cursor: pointer;
 }
 
@@ -452,6 +470,55 @@ div.day ul {
   float: right;
   color: #39B44A;
   margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.taskProject {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: 40px;
+  top: 0;
+  border-radius: 25px;
+  background: #F1F1F1;
+  margin-top: 25px;
+  z-index: 2000;
+  overflow: hidden;
+}
+
+div.taskProject h3 {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: #F1F1F1;
+  vertical-align: top;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0px 5px 0px 20px;
+}
+
+div.taskProject button {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: none !important;
+  border: none;
+  vertical-align: top;
+  margin: 0px 0px 0px 5px;
+}
+
+div.taskProject button img {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
 }
 
 /* ----- Context  -----*/
@@ -898,13 +965,13 @@ div.bubbleBack {
   div.heading {
     min-width: 0px;
     width: 100vw;
-    height: 70px;
+    height: 60px;
     z-index: 100;
   }
 
   div.heading button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 65px;
   }
 
@@ -921,14 +988,14 @@ div.bubbleBack {
 
   button#previous div.triangle {
     display: block;
-    top: 12.5px;
-    right: 20px;
+    top: 12px;
+    right: 16px;
   }
 
   button#newWeek div.triangle {
     display: block;
-    top: 12.5px;
-    left: 20px;
+    top: 12px;
+    left: 16px;
   }
 
   div.heading h1 {
@@ -990,7 +1057,7 @@ div.bubbleBack {
 
   div.day ul {
     width: 92%;
-    margin-left: 5%;
+    margin-left: 2%;
 
   }
 
@@ -999,7 +1066,7 @@ div.bubbleBack {
   .task p {
     font-size: 0.9em;
     margin-bottom: 15px;
-    width: 70%;
+    width: 68%;
   }
 
   .task input {
@@ -1013,6 +1080,59 @@ div.bubbleBack {
     width: 20px;
     height: 20px;
     margin-left: 0px;
+  }
+
+  .task div.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  div.taskProject {
+    position: absolute;
+    display: none;
+    width: auto;
+    height: 30px;
+    top: 0;
+    border-radius: 15px;
+    background: #F1F1F1;
+    margin-top: 25px;
+    z-index: 2000;
+    overflow: hidden;
+  }
+
+  div.taskProject h3 {
+    position: relative;
+    display: inline-block;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: #F1F1F1;
+    vertical-align: top;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0px 5px 0px 20px;
+  }
+
+  div.taskProject button {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: none !important;
+    border: none;
+    vertical-align: top;
+    margin: 0px 0px 0px 5px;
+  }
+
+  div.taskProject button img {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: auto;
   }
 
   /* ----- Context  -----*/

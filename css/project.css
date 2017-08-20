@@ -66,6 +66,7 @@ div.heading a {
   font-weight: 700;
   font-size: 14px;
   text-align: center;
+  text-decoration: none;
   color: white;
   top: 50%;
   transform: translate(0,-50%);
@@ -106,6 +107,7 @@ div.dash {
   background: white;
   box-shadow: 0px 0px 8px #B4B4B4;
   margin-bottom: 35px;
+  overflow-y: scroll;
 }
 
 div.project {
@@ -122,6 +124,7 @@ div.project div.container {
   position: relative;
   display: block;
   width: 70%;
+  min-height: 175px;
   margin: auto;
   top: 50%;
   transform: translate(0, -50%);
@@ -133,6 +136,7 @@ div.project div.container h1 {
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 30px;
+  cursor: pointer;
 }
 
 div.project div.container div.separator {
@@ -188,11 +192,11 @@ div.project div.container:hover  p {
 }
 
 div.progress {
-  position: relative;
+  position: absolute;
   display: block;
   width: 250px;
   height: 8px;
-  margin-top: 30px;
+  bottom: 0px;
   border-radius: 4px;
   background: #F1F1F1;
 }
@@ -235,6 +239,10 @@ button.addProject h3 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 22px;
+}
+
+button.mobileAdd {
+  display: none;
 }
 
 
@@ -412,32 +420,263 @@ label[for="color8"] {background: #428FDE}
 label[for="color9"] {background: #9013FE}
 label[for="color10"] {background: #692B8D}
 
-div.project.color1 div.progress div {background: #FF5052}
-div.project.color1 div.container div.separator {background: #FF5052}
+/* ----------------- MOBILE -----------------*/
 
-div.project.color2 div.progress div {background: #FA9134}
-div.project.color2 div.container div.separator {background: #FA9134}
+@media screen and (max-width: 780px) {
 
-div.project.color3 div.progress div {background: #E6E738}
-div.project.color3 div.container div.separator {background: #E6E738}
+  body {
+    min-width: 0px;
+    min-height: 0px;
+    width: 100%;
+    overflow-y: auto;
+  }
 
-div.project.color4 div.progress div {background: #71CA4F}
-div.project.color4 div.container div.separator {background: #71CA4F}
+  /* ----- Bar -----*/
 
-div.project.color5 div.progress div {background: #287B12}
-div.project.color5 div.container div.separator {background: #287B12}
+    div.bar {
+      min-width: 0px;
+      min-height: 0px;
+      width: 100vw;
+    }
 
-div.project.color6 div.progress div {background: #00C6EE}
-div.project.color6 div.container div.separator {background: #00C6EE}
+    div.bar img {
+      position: relative;
+      display: inline-block;
+      float: left;
+      width: 30px;
+    }
 
-div.project.color7 div.progress div {background: #39BAFC}
-div.project.color7 div.container div.separator {background: #39BAFC}
+    div.bar button {
+      height: 15px;
+      width: 30px;
+    }
 
-div.project.color8 div.progress div {background: #428FDE}
-div.project.color8 div.container div.separator {background: #428FDE}
+  /* ----- Heading -----*/
 
-div.project.color9 div.progress div {background: #9013FE}
-div.project.color9 div.container div.separator {background: #9013FE}
+    div.heading {
+      min-width: 0px;
+      width: 100vw;
+      height: 50px;
+      z-index: 100;
+    }
 
-div.project.color10 div.progress div {background: #692B8D}
-div.project.color10 div.container div.separator {background: #692B8D}
+    div.heading a#dashboard {
+      display: none;
+    }
+
+    div.heading h1 {
+      font-size: 1.3em;
+    }
+
+    /* ----- Dash -----*/
+
+    div.dash {
+      min-width: 0px;
+      width: 95%;
+      background: none;
+      box-shadow: none;
+      margin-bottom: 0px;
+      margin-top: -20px;
+      overflow-y: visible;
+    }
+
+    div.project {
+      width: 100%;
+      height: auto;
+      box-shadow: 0px 0px 5px #D1D2D4;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    div.project:last-of-type {
+      margin-bottom: 30px;
+    }
+
+    div.project div.container {
+      position: relative;
+      display: block;
+      width: 80%;
+      min-height: 65%;
+      margin: auto;
+      top: 0;
+      transform: translate(0, 0);
+    }
+
+    div.project div.container h1 {
+      font-size: 28px;
+      margin-top: 30px;
+    }
+
+    div.project div.container div.separator {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 2px;
+      margin: 12px 0px 12px 0px;
+      background: grey;
+    }
+
+    div.project div.container p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    div.project div.container:hover p {
+      opacity: 1 !important;
+    }
+
+    div.modify {
+      position: relative;
+      display: block;
+      opacity: 1;
+      transition: 0.3s;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      z-index: 2000;
+    }
+
+    div.modify button {
+      margin-right: 10px;
+    }
+
+    div.modify button img {
+      position: relative;
+      display: block;
+      width: 30px;
+    }
+
+    div.project div.container:hover div.modify {
+      opacity: 1;
+      display: block;
+    }
+
+    div.project div.container:hover  p {
+      opacity: 0;
+    }
+
+    div.progress {
+      position: relative;
+      width: 100%;
+      margin-bottom: 35px;
+    }
+
+    div.progress div {
+      width: 50%;
+      height: 100%;
+    }
+
+    button.addProject {
+      display: none;
+    }
+
+    /* ----- Add Project Btn for Mobile -----*/
+
+    button.mobileAdd {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
+      margin-bottom: -5px;
+      background: white;
+      border: none;
+      box-shadow: 0px 0px 5px #D1D2D4;
+      outline: none;
+    }
+
+    button.mobileAdd p {
+      position: relative;
+      display: inline-block;
+      font-family: 'Roboto';
+      font-size: 30px;
+      font-weight: 500;
+      margin-right: 20px;
+    }
+
+    button.mobileAdd h3 {
+      position: relative;
+      display: inline-block;
+      font-family: 'Roboto';
+      font-size: 16px;
+      font-weight: 300;
+      vertical-align: top;
+      margin-top: 8px;
+    }
+
+    /* ----- New Project Menu -----*/
+
+    div.addProject {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    div.addProject div.container {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    div.addProject div.container div.content {
+      width: 80%;
+      height: 100%;
+    }
+
+    /* ----- Input section -----*/
+
+    div.inputs {
+      width: 100%;
+      float: left;
+      margin-left: 0;
+    }
+
+    div.inputs h1 {
+      font-size: 30px;
+      margin: 80px 0px 15px 0px;
+    }
+
+    div.inputs p {
+      font-weight: 300;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    div.inputs input {
+      margin-bottom: 15px;
+    }
+
+    button#createProject {
+      margin-bottom: 30px;
+    }
+
+    /* ----- Color selector -----*/
+
+    div.colorSelector {
+      position: relative;
+      display: block;
+      width: auto;
+      height: auto;
+      margin-top: 65px;
+      margin: auto;
+      float: left;
+    }
+
+    form.colors {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      float: left;
+      margin-right: 0px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    form.colors input[type="radio"] + label {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 0px calc(8% - 15px) 8px calc(8% - 15px);
+      border-radius: 15px;
+    }
+}

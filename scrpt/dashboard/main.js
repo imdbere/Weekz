@@ -2,6 +2,7 @@
 var weekOffset = 0;
 var dataRefSelectedWeek;
 var dataRefTasks;
+var dataRefProject;
 var currentlySelectedWeek;
 
 // SVG for Delete Button
@@ -18,6 +19,7 @@ var allLists = document.getElementsByClassName('taskList');
 
 // Edit Menu Elements
 var addMenu = document.getElementById('addTask');
+var projectSelector = document.getElementById('projectSelector');
 var moveMenu = document.getElementById('moveTask');
 var day = document.getElementById('whatDay');
 var taskName = document.getElementById('taskName');
@@ -57,6 +59,8 @@ addLoggedInHandler(function(user){
 
   addGlobalEventListeners();
   dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
+  dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+  fetchAndAppendProjects();
   initFeedback();
 
   changeWeek(0);

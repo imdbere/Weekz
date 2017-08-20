@@ -1,4 +1,6 @@
+
 function generateBubbleTask(taskName, checked) {
+
     li = document.createElement('li');
     li.className = "task";
 
@@ -33,7 +35,8 @@ function generateBubbleTask(taskName, checked) {
 
     return li;
 }
-function generateTask(taskName, taskDesc, checked) {
+
+function generateTask(taskName, taskDesc, checked, project, color, title) {
     li = document.createElement('li');
     li.className = "task";
 
@@ -51,6 +54,32 @@ function generateTask(taskName, taskDesc, checked) {
 
     var p = document.createElement('p');
     p.innerText = taskName;
+
+    var dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.id = project;
+
+    if (project != 'noProject') {
+      var taskProject = document.createElement('div');
+      taskProject.classList.add('taskProject');
+      taskProject.style.display = "none";
+
+        var h3 = document.createElement('h3');
+        h3.innerText = title;
+
+        var infoBtn = document.createElement('button');
+        infoBtn.innerHTML = '<img src="res/info.png" alt="See Project Details">';
+        infoBtn.addEventListener('click', taskRedirect)
+
+        taskProject.appendChild(h3);
+        taskProject.appendChild(infoBtn);
+
+        dot.addEventListener('click', toggleProject);
+    }
+
+    if (color != "") {
+      dot.classList.add(color);
+    }
 
     if (checked) {
         p.classList.add('toggle');
@@ -124,7 +153,7 @@ function generateTask(taskName, taskDesc, checked) {
     whichWeekDiv.classList.add('whichWeek');
     var whichWeekP = document.createElement('p');
     whichWeekP.innerText = currentlySelectedWeek.getDayAsString(0) + " - " + currentlySelectedWeek.getDayAsString(5);
-   
+
     whichWeekDiv.appendChild(whichWeekP);
     moveMenu.appendChild(whichWeekDiv);
     moveMenu.weekOffset = 0;
@@ -133,12 +162,16 @@ function generateTask(taskName, taskDesc, checked) {
     contextDiv.appendChild(editBtn);
     contextDiv.appendChild(moveBtn);
 
+    li.appendChild(dot);
     li.appendChild(contextBtn);
     li.appendChild(check);
     li.appendChild(p);
     li.appendChild(contextDiv);
     li.appendChild(moveMenu);
     li.appendChild(detailDiv);
+    if (project != 'noProject') {
+      li.appendChild(taskProject);
+    }
 
     // Change appearance of checked task
     check.addEventListener('click', toggleTaskDone);

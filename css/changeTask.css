@@ -17,7 +17,7 @@ div.addTask div.wrapper {
   position: absolute;
   display: block;
   width: 500px;
-  height: 500px;
+  height: 650px;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -87,7 +87,7 @@ div.addTask button {
   position: relative;
   height: 55px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   border: none;
   font-family: 'Montserrat';
   font-weight: 700;
@@ -123,6 +123,104 @@ div.addTask button#closeBtn {
   font-size: 15px;
 }
 
+div.addTask h2 {
+  position: relative;
+  display: block;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 18px;
+  text-indent: 5px;
+}
+
+div.addTask div.projectSelector {
+  position: relative;
+  display: block;
+  width: 70%;
+  height: 90px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 3px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+label[for=noProject] {
+  width: 120px;
+  text-align: center;
+}
+
+div.projectSelector form input[type="radio"] {
+  position: relative;
+  display: none;
+}
+
+div.projectSelector form input[type="radio"] + label {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 30px;
+  background: #F1F1F1;
+  vertical-align: top;
+}
+
+div.projectSelector form input[type="radio"]:checked + label {
+  background: #DDDDDD;
+}
+
+div.projectSelector form label div.color {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: blue;
+  vertical-align: top;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: 0px 10px 0px 20px;
+}
+
+div.projectSelector form label h3 {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  vertical-align: top;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+div.projectSelector form label button {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  background: none;
+  vertical-align: top;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin: 0px 20px 0px 10px;
+}
+
+div.projectSelector form label button:hover {
+  opacity: 0.7;
+  background: none;
+}
+
+div.projectSelector form label button img {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
 /* ----------------- MOBILE -----------------*/
 
 @media screen and (max-width: 780px) {
@@ -137,10 +235,10 @@ div.addTask button#closeBtn {
     position: absolute;
     display: block;
     width: 100vw;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
     background: white;
     box-shadow: 0px 0px 20px #444;
   }
@@ -183,7 +281,7 @@ div.addTask button#closeBtn {
     position: relative;
     display: block;
     width: 80%;
-    height: 150px;
+    height: 20vh;
     margin: auto;
     padding: 20px;
     margin-top: 15px;
@@ -200,9 +298,9 @@ div.addTask button#closeBtn {
     position: relative;
     display: block;
     width: 80%;
-    height: 55px;
+    height: 50px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
     border: none;
     background: #FF514C;
     font-family: 'Montserrat';
@@ -224,5 +322,38 @@ div.addTask button#closeBtn {
     margin: 15px;
     top: 0;
     font-size: 15px;
+  }
+
+  div.addTask div.projectSelector {
+    position: relative;
+    display: block;
+    width: 70%;
+    height: 60px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 3px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  label[for=noProject] {
+    width: 120px;
+    text-align: center;
+  }
+
+  div.projectSelector form input[type="radio"] {
+    position: relative;
+    display: none;
+  }
+
+  div.projectSelector form input[type="radio"] + label {
+    height: 45px;
+  }
+
+  div.projectSelector form label div.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
   }
 }

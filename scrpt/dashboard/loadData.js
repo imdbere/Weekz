@@ -1,5 +1,4 @@
 
-
 function loadAndAddTasks(week) {
   for (var i = 0; i < 6; i++) {
     var id = "date" + (i + 1);
@@ -18,19 +17,34 @@ function loadAndAddTasks(week) {
 
         dataRefTasks.child(task).once('value', function(snap) {
           data = snap.val();
+
         }).then( function() {
           if (day.key == "bubbleList") {
             var li = generateBubbleTask(data.taskName, data.checked);
+
+            li.id = task;
+            var addDay = day.key;
+            var rightList = document.getElementById(addDay);
+            rightList.appendChild(li);
           }
           else
           {
-            var li = generateTask(data.taskName, data.taskDesc, data.checked);
-          }
+            dataRefProject.child(data.project).child('info').once('value', function(projectInfo) {
 
-          li.id = task;
-          var addDay = day.key;
-          var rightList = document.getElementById(addDay);
-          rightList.appendChild(li);
+              if (data.project != 'noProject') {
+                var color = projectInfo.val().projectColor;
+                var title = projectInfo.val().projectTitle;
+              }
+
+              var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
+
+              li.id = task;
+              var addDay = day.key;
+              var rightList = document.getElementById(addDay);
+              rightList.appendChild(li);
+
+            })
+          }
         });
       });
     });
