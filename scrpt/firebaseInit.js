@@ -49,10 +49,13 @@ function firebasInit() {
     })
 }
 
+
 //Launches firebaseInit() only if the whole document is loaded
+
 //https://www.sitepoint.com/jquery-document-ready-plain-javascript/
 if (document.readyState === "complete" ||(document.readyState !== "loading" && !document.documentElement.doScroll)) {
     firebasInit();
 } else {
   document.addEventListener("DOMContentLoaded", firebasInit);
 }
+
