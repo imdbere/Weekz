@@ -226,9 +226,9 @@ button#previous div.triangle {
   display: none;
   width: 0;
   height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 17px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid white;
 }
 
 div.heading button#newWeek {
@@ -239,13 +239,13 @@ div.heading button#newWeek {
 }
 
 button#newWeek div.triangle {
- position: absolute;
- display: none;
- width: 0;
- height: 0;
- border-top: 12px solid transparent;
- border-bottom: 12px solid transparent;
- border-left: 17px solid white;
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid white;
 }
 
 div.heading button#previous:hover {background: #0581CE}
@@ -300,8 +300,8 @@ div.mobileBubble {
   width: 95%;
   height: 50px;
   background: white;
-  box-shadow: 0px 0px 5px #B3B3B3;
-  top: 75px;
+  box-shadow: 0px 0px 5px #D1D2D4;
+  top: 65px;
   margin: auto;
 }
 
@@ -965,13 +965,13 @@ div.bubbleBack {
   div.heading {
     min-width: 0px;
     width: 100vw;
-    height: 70px;
+    height: 60px;
     z-index: 100;
   }
 
   div.heading button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 65px;
   }
 
@@ -988,14 +988,14 @@ div.bubbleBack {
 
   button#previous div.triangle {
     display: block;
-    top: 12.5px;
-    right: 20px;
+    top: 12px;
+    right: 16px;
   }
 
   button#newWeek div.triangle {
     display: block;
-    top: 12.5px;
-    left: 20px;
+    top: 12px;
+    left: 16px;
   }
 
   div.heading h1 {
