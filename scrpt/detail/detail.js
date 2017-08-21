@@ -36,7 +36,7 @@ function generateProjectDetails(title, summary, description, color, taskCount, t
     percentage = Math.floor(tasksDone * 100 / taskCount);
   else
     percentage = 0;
-  
+
   status.style.width = percentage + "%";
   progressPercent.innerText = percentage;
 
@@ -84,6 +84,7 @@ function toggleTaskDone() {
     var taskText = task.children[1];
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;
+    console.log(value);
     taskText.classList.toggle('toggle');
     var update = dataRefTasks.child(id).update({checked: !value});
   });

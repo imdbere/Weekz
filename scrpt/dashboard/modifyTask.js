@@ -27,21 +27,21 @@ function showEditMenu(item1, project) {
 
     addMenu.style.zIndex = "2000";
     //Confirm Task creation
-    editBtn.onclick = () => editConfirmButtonClicked(item1);
+    editBtn.onclick = () => editConfirmButtonClicked(item1, project);
     sleep(200).then(() => {
       addMenu.style.opacity = "1";
     });
 };
 
-function editConfirmButtonClicked(item)
+function editConfirmButtonClicked(item, oldProject)
 {
     var listId = item.parentNode.id;
     var id = item.id;
 
-    console.log(item);
-
     var projectSelected = document.querySelector('input[name="project"]:checked');
     var projectColor = document.querySelector('label[for=' + projectSelected.id + ']').children[0].classList[1];
+
+    console.log(projectSelected.id);
 
     var nameInput = item.children[3];
     var descInput = item.children[6].children[0];
@@ -51,10 +51,15 @@ function editConfirmButtonClicked(item)
 
     nameInput.innerText = newName;
     descInput.innerText = newDesc;
-    dot.classList[1].remove;
+    console.log(dot.classList);
+    var oldColor = dot.classList[1];
+    dot.classList.remove(oldColor);
     dot.classList.add(projectColor);
+    console.log(dot.classList);
 
-    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc, project: projectSelected.id });
+    var updateTask = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc, project: projectSelected.id });
+    var updateOldProject = dataRefProject.child(oldProject).child('tasks').child(id).remove();
+    var updateNewProject = dataRefProject.child(projectSelected.id).child('tasks').child(id).set('');
     hideAddMenu();
 }
 
