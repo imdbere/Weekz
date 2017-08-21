@@ -13,12 +13,10 @@ function loadAndAddTasks(week) {
     week.forEach(function (day) {
       day.forEach(function (taskid) {
         var task = taskid.key;
-        var data;
 
-        dataRefTasks.child(task).once('value', function(snap) {
+        dataRefTasks.child(task).once('value').then( function(snap) {
+
           data = snap.val();
-
-        }).then( function() {
           if (day.key == "bubbleList") {
             var li = generateBubbleTask(data.taskName, data.checked);
 

@@ -9,25 +9,39 @@ function loadDetailData(id) {
       var summary = snap.val().info.projectSummary;
       var description = snap.val().info.projectDesc;
       var color = snap.val().info.projectColor;
-      var percentage = snap.val().info.percentage;
 
-      var completed = 0;
-      var outstanding = 0;
+      var tasks = snap.val().tasks;
+      if (tasks != null)
+      {
+        var taskCount = 0;
+        var tasksCompleted = 0;
+        var promiseList = [];
 
-      dataRefProject.child(id).child('tasks').once('value', function(data) {
-        data.forEach( function(taskId) {
+        for (taskID in tasks)
+        {
+          promiseList.push(dataRefTasks.child(taskID).once('value').then(function(task) {
 
-          dataRefTasks.child(taskId.key).once('value', function (taskData) {
-            var checkState = taskData.val().checked;
-            var name = taskData.val().taskName;
-            var desc = taskData.val().taskDesc;
+            var checkState = task.val().checked;
+            var name = task.val().taskName;
+            var desc = task.val().taskDesc;
+            
+            taskCount++;
+            if (checkState)
+              tasksCompleted++;
 
-            generateProjectTask(name, desc, checkState, color, taskId.key)
-          })
-        })
-      }).then(function() {
-        var li = generateProjectDetails(title, summary, description, color, percentage);
-      })
+            generateProjectTask(name, desc, checkState, color, taskID);
+          }));
+        }
+        Promise.all(promiseList).then(function (result)
+        {
+          generateProjectDetails(title, summary, description, color, taskCount, tasksCompleted);
+        });
+        
+      }
+      else
+      {
+        generateProjectDetails(title, summary, description, color, 0, 0);
+      }
 
   }).then(function() {
     NProgress.done();
