@@ -142,8 +142,8 @@ function toggleProject() {
 function taskRedirect() {
   var projectId = this.parentNode.parentNode.projectId;
 
+
   window.location.href = 'detail.html' + '#' + projectId;
-  console.log(projectId);
 }
 
 function addRedirect() {

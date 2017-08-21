@@ -480,15 +480,16 @@ div.day ul {
 
 div.taskProject {
   position: absolute;
-  display: none;
+  display: block;
   width: auto;
   height: 40px;
   top: 0;
   border-radius: 25px;
   background: #F1F1F1;
   margin-top: 25px;
+  margin-left: 8px;
   z-index: 2000;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 div.taskProject h3 {
@@ -513,6 +514,7 @@ div.taskProject button {
   transform: translate(0, -50%);
   background: none !important;
   border: none;
+  outline: none;
   vertical-align: top;
   margin: 0px 0px 0px 5px;
 }
@@ -523,6 +525,15 @@ div.taskProject button img {
   width: 20px;
   height: 20px;
   margin: auto;
+}
+
+div.taskProject::before {
+  position: absolute;
+  display: block;
+  background: #F1F1F1;
+  content: '';
+  width: 20px;
+  height: 20px;
 }
 
 /* ----- Context  -----*/

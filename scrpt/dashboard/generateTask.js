@@ -58,7 +58,7 @@ function generateTask(taskName, taskDesc, checked, project, color, title) {
 
     var dot = document.createElement('div');
     dot.classList.add('dot');
-    //dot.id = project;
+    dot.name = project;
 
     if (project != 'noProject') {
       var taskProject = document.createElement('div');
