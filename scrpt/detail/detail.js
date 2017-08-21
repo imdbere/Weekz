@@ -22,11 +22,23 @@ addLoggedInHandler(function(){
 
 });
 
-function generateProjectDetails(title, summary, description, color, percentage) {
+function generateProjectDetails(title, summary, description, color, taskCount, tasksDone) {
   projectName.innerText = title;
   projectSummary.innerText = summary;
   projectDesc.innerText = description;
+
+  tasksCompleted.innerText = tasksDone;
+  tasksOutstanding.innerText = taskCount - tasksDone;
+
   status.classList.add(color);
+  var percentage;
+  if (taskCount > 0)
+    percentage = Math.floor(tasksDone * 100 / taskCount);
+  else
+    percentage = 0;
+  
+  status.style.width = percentage + "%";
+  progressPercent.innerText = percentage;
 
   for (var i = 0; i < taskDots.length; i++) {
     taskDots[i].classList.add(color);

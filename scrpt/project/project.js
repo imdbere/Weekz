@@ -10,28 +10,21 @@ var projectSummary = document.getElementById('projectSummary');
 var projectDescription = document.getElementById('projectDescription');
 
 var dataRefProject;
+var dataRefTasks;
+
 
 addLoggedInHandler(function(user)
 {
 
   var userId = user.uid;
   dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+  dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
 
   loadAndAddProjects();
 
-    addBtn.addEventListener('click', function()
-    {
-        openNewProjectDialog();
-    });
-
-    addBtnMobile.addEventListener('click', function() {
-        openNewProjectDialog();
-    })
-
-    closeAddProjectBtn.addEventListener('click', function()
-    {
-        closeNewProjectDialog();
-    });
+    addBtn.addEventListener('click', openNewProjectDialog);
+    addBtnMobile.addEventListener('click', openNewProjectDialog);
+    closeAddProjectBtn.addEventListener('click', closeNewProjectDialog);
 
     createProjectBtn.addEventListener('click', function()
     {
