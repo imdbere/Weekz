@@ -460,6 +460,10 @@ div.day ul {
   top: 5px;
   cursor: pointer;
 }
+.task div.dot.undefined
+{
+  cursor: default;
+}
 
 .task input {
   position: relative;

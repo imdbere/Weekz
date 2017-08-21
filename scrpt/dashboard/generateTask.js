@@ -39,6 +39,7 @@ function generateBubbleTask(taskName, checked) {
 function generateTask(taskName, taskDesc, checked, project, color, title) {
     li = document.createElement('li');
     li.className = "task";
+    li.projectId = project;
 
     var check = document.createElement('input');
     check.type = "checkbox";

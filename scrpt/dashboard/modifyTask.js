@@ -5,21 +5,25 @@ function editButtonClicked() {
     showEditMenu(item);
 };
 // Open 'New Task' Menu
-function showEditMenu(item1) {
+function showEditMenu(item) {
     addBtn.style.display = "none";
     editBtn.style.display = "block";
     addTitle.style.display = "none";
     editTitle.style.display = "block";
     closeBtn.style.background = "#C4DADE";
 
-    var nameInput = item1.children[3];
-    var descInput = item1.children[6].children[0];
+    var projectId = item.projectId;
+    var projectRadio = document.getElementById(projectId);
+    projectRadio.checked = true;
+
+    var nameInput = item.children[3];
+    var descInput = item.children[6].children[0];
     taskName.value = nameInput.innerText;
     taskDesc.value = descInput.innerText;
 
     addMenu.style.zIndex = "2000";
     //Confirm Task creation
-    editBtn.onclick = () => editConfirmButtonClicked(item1);
+    editBtn.onclick = () => editConfirmButtonClicked(item);
     sleep(200).then(() => {
       addMenu.style.opacity = "1";
     });
@@ -28,6 +32,7 @@ function showEditMenu(item1) {
 function editConfirmButtonClicked(item)
 {
     var listId = item.parentNode.id;
+
     console.log(listId);
     var id = item.id;
     console.log(id);
@@ -39,8 +44,21 @@ function editConfirmButtonClicked(item)
     descInput.innerText = newDesc;
 
     console.log(id);
+    
+    
+    if (projectId != "noProject") {
+        var dot = item.getElementsByClassName("dot")[0];
+        var projectId = document.querySelector('input[name="project"]:checked').id;
 
-    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc });
+        dot.className = "";
+        dot.classList.add("dot");
+        
+        var project = document.querySelector('label[for=' + projectId + ']');
+        var projectColor = project.children[0].classList[1];
+        dot.classList.add(projectColor);
+        var projectEntry = dataRefProject.child(projectId).child('tasks').child(id).set("");
+    }
+    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc, project: projectId });
     hideAddMenu();
 }
 
@@ -90,7 +108,7 @@ function toggleTaskDone() {
 function removeTask() {
     var task = this.parentNode.parentNode;
     var id = task.id;
-    var projectId = task.children[0].id
+    var projectId = task.projectId;
     console.log(projectId);
     var list = task.parentNode;
     var listId = list.id;
@@ -122,10 +140,8 @@ function toggleProject() {
 }
 
 function taskRedirect() {
-  var task = this.parentNode.parentNode;
-  var projectId = task.children[0].name;
-  console.log(task);
-  console.log(projectId);
+  var projectId = this.parentNode.parentNode.projectId;
+
 
   window.location.href = 'detail.html' + '#' + projectId;
 }
