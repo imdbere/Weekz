@@ -1,24 +1,16 @@
-
 // Edit Task
 function editButtonClicked() {
 
     var item = this.parentNode.parentNode;
-    var project = item.children[0].name;
-
-    showEditMenu(item, project);
+    showEditMenu(item);
 };
-
 // Open 'New Task' Menu
-function showEditMenu(item1, project) {
+function showEditMenu(item1) {
     addBtn.style.display = "none";
     editBtn.style.display = "block";
     addTitle.style.display = "none";
     editTitle.style.display = "block";
     closeBtn.style.background = "#C4DADE";
-
-    console.log(project);
-
-    document.getElementById(project).checked = true;
 
     var nameInput = item1.children[3];
     var descInput = item1.children[6].children[0];
@@ -36,25 +28,19 @@ function showEditMenu(item1, project) {
 function editConfirmButtonClicked(item)
 {
     var listId = item.parentNode.id;
+    console.log(listId);
     var id = item.id;
-
-    console.log(item);
-
-    var projectSelected = document.querySelector('input[name="project"]:checked');
-    var projectColor = document.querySelector('label[for=' + projectSelected.id + ']').children[0].classList[1];
-
+    console.log(id);
     var nameInput = item.children[3];
     var descInput = item.children[6].children[0];
     var newName = taskName.value;
     var newDesc = taskDesc.value;
-    var dot = item.children[0];
-
     nameInput.innerText = newName;
     descInput.innerText = newDesc;
-    dot.classList[1].remove;
-    dot.classList.add(projectColor);
 
-    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc, project: projectSelected.id });
+    console.log(id);
+
+    var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc });
     hideAddMenu();
 }
 

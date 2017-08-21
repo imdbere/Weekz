@@ -58,11 +58,14 @@ function addConfirmButtonClicked(list) {
     var taskKey = dataRefTasks.push().key;
 
     var projectId = document.querySelector('input[name="project"]:checked').id;
+    console.log(projectId);
 
     if (projectId != 'noProject') {
       var project = document.querySelector('label[for=' + projectId + ']');
       var projectColor = project.children[0].classList[1];
       var projectTitle = project.children[1].innerText;
+      console.log(projectColor);
+      console.log(projectTitle);
     }
 
     var li = generateTask(taskName.value, taskDesc.value, false, projectId, projectColor, projectTitle);
