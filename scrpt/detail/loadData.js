@@ -21,14 +21,10 @@ function loadDetailData(id) {
         {
           promiseList.push(dataRefTasks.child(taskID).once('value').then(function(task) {
 
-            console.log(task.val());
-
             var checkState = task.val().checked;
             var name = task.val().taskName;
             var desc = task.val().taskDesc;
-
-            console.log(checkState);
-
+            
             taskCount++;
             if (checkState)
               tasksCompleted++;
@@ -40,7 +36,7 @@ function loadDetailData(id) {
         {
           generateProjectDetails(title, summary, description, color, taskCount, tasksCompleted);
         });
-
+        
       }
       else
       {
