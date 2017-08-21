@@ -90,7 +90,7 @@ function toggleTaskDone() {
 function removeTask() {
     var task = this.parentNode.parentNode;
     var id = task.id;
-    var projectId = task.children[0].id
+    var projectId = task.projectId;
     console.log(projectId);
     var list = task.parentNode;
     var listId = list.id;
@@ -122,8 +122,7 @@ function toggleProject() {
 }
 
 function taskRedirect() {
-  var task = this.parentNode.parentNode;
-  var projectId = task.children[0].id
+  var projectId = this.parentNode.parentNode.projectId;
 
   window.location.href = 'detail.html' + '#' + projectId;
   console.log(projectId);

@@ -11,37 +11,36 @@ function loadAndAddTasks(week) {
   // Retrieving Tasks and appending them to Lists
   dataRefSelectedWeek.once('value', function (week) {
     week.forEach(function (day) {
+
+      var addDay = day.key;
+      var rightList = document.getElementById(addDay);
+    
       day.forEach(function (taskid) {
         var task = taskid.key;
 
         dataRefTasks.child(task).once('value').then( function(snap) {
-
-          data = snap.val();
+          var data = snap.val();
           if (day.key == "bubbleList") {
             var li = generateBubbleTask(data.taskName, data.checked);
-
             li.id = task;
-            var addDay = day.key;
-            var rightList = document.getElementById(addDay);
             rightList.appendChild(li);
+          }
+          else if (data.project == 'noProject')
+          {
+             var li = generateTask(data.taskName, data.taskDesc, data.checked, 'noProject');
+             li.id = task;
+             rightList.appendChild(li);
           }
           else
           {
             dataRefProject.child(data.project).child('info').once('value', function(projectInfo) {
 
-              if (data.project != 'noProject') {
-                var color = projectInfo.val().projectColor;
-                var title = projectInfo.val().projectTitle;
-              }
-
+              var color = projectInfo.val().projectColor;
+              var title = projectInfo.val().projectTitle;
               var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
-
               li.id = task;
-              var addDay = day.key;
-              var rightList = document.getElementById(addDay);
               rightList.appendChild(li);
-
-            })
+            });
           }
         });
       });
