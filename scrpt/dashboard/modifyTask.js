@@ -123,10 +123,11 @@ function toggleProject() {
 
 function taskRedirect() {
   var task = this.parentNode.parentNode;
-  var projectId = task.children[0].id
+  var projectId = task.children[0].name;
+  console.log(task);
+  console.log(projectId);
 
   window.location.href = 'detail.html' + '#' + projectId;
-  console.log(projectId);
 }
 
 function addRedirect() {
