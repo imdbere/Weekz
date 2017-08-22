@@ -255,8 +255,9 @@ div.projectSelector form label button img {
     display: block;
     font-family: 'Roboto';
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 20px;
     text-align: center;
+    margin-bottom: 40px;
   }
 
   div.addTask h1 span {font-weight: 700}
@@ -294,7 +295,7 @@ div.projectSelector form label button img {
     resize: none;
   }
 
-  div.addTask button {
+  div.addTask button#addBtn {
     position: relative;
     display: block;
     width: 80%;
@@ -327,7 +328,7 @@ div.projectSelector form label button img {
   div.addTask div.projectSelector {
     position: relative;
     display: block;
-    width: 70%;
+    width: 80%;
     height: 60px;
     margin: auto;
     margin-top: 10px;

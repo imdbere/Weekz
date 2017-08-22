@@ -28,7 +28,8 @@ div.menu div.content {
 }
 
 .width {
-  width: 350px !important;
+  max-width: 350px !important;
+  width: 100vw !important;
   transition: 0.3s;
 }
 

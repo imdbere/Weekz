@@ -70,12 +70,12 @@ function linkMenuEventListener() {
 
     nameLabel.style.opacity = "0";
     mailLabel.style.opacity = "0";
-    
-    menu.classList.remove("width");
+
     back.style.opacity = "0";
 
     sleep(350).then(() => {
       back.style.zIndex = "-1000";
+      menu.classList.remove("width");
     });
   });
   // Sign User Out
