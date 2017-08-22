@@ -1,9 +1,9 @@
 // Get Elements
-const back = document.getElementById('background');
-const menu = document.getElementById('menu');
-const open = document.getElementById('openMenuBtn');
-const close = document.getElementById('closeMenuBtn');
-const signOut = document.getElementById('signOut');
+var back = document.getElementById('background');
+var menu = document.getElementById('menu');
+var open = document.getElementById('openMenuBtn');
+var close = document.getElementById('closeMenuBtn');
+var signOut = document.getElementById('signOut');
 
 var nameLabel = document.getElementById('userName');
 var mailLabel = document.getElementById('userEmail');

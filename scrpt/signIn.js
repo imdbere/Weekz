@@ -1,8 +1,8 @@
 // Get Elements
-const txtEmail = document.getElementById('email');
-const txtPassword = document.getElementById('password');
-const btnSignin = document.getElementById('signin');
-const loginForm = document.getElementById('loginForm');
+var txtEmail = document.getElementById('email');
+var txtPassword = document.getElementById('password');
+var btnSignin = document.getElementById('signin');
+var loginForm = document.getElementById('loginForm');
 
 addLoggedInHandler(function () {
   location.href = "dashboard.html";
@@ -38,9 +38,9 @@ addNotLoggedInHandler(function () {
 function login()
 {
   // Get Email & Password
-  const email = txtEmail.value;
-  const pass = txtPassword.value;
-  const auth = firebase.auth();
+  var email = txtEmail.value;
+  var pass = txtPassword.value;
+  var auth = firebase.auth();
 
   if (email == "") {
     txtEmail.style.border = "1px solid #FF514C";
@@ -50,7 +50,7 @@ function login()
     txtEmail.style.border = "none";
   } else {
     // Sign In
-    const promise = auth.signInWithEmailAndPassword(email, pass)
+    var promise = auth.signInWithEmailAndPassword(email, pass)
       .then(function (response) {
         txtEmail.style.border = "1px solid #7AC843"
         txtPassword.style.border = "1px solid #7AC843"

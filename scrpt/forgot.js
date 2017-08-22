@@ -12,8 +12,8 @@
   firebase.initializeApp(config);
 
   // Get Elements
-  const forgotBtn = document.getElementById('forgotBtn');
-  const email = document.getElementById('email');
+  var forgotBtn = document.getElementById('forgotBtn');
+  var email = document.getElementById('email');
 
   // Send Password Reset Email
   forgotBtn.addEventListener('click', function() {

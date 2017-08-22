@@ -435,6 +435,7 @@ div.day ul {
 .task {
   position: relative;
   display: block;
+  width: calc(100% - 16px);
 }
 
 .task p {
@@ -564,7 +565,7 @@ div.contextMenu {
   background: #EDEDED;
   width: calc(100% - 0px);
   height: 30px;
-  margin-top: -10px;
+  margin-top: -5px;
   margin-bottom: 20px;
   border-radius: 8px;
 }
@@ -700,7 +701,7 @@ div.moveTask div.whichWeek p {
 div.moveTask div.buttonContainer {
   position: relative;
   display: inline-block;
-  width: calc(100% - 72px);
+  width: calc(100% - 62px);
   height: 35px;
 }
 
@@ -758,12 +759,12 @@ button#moveLast div.triangle {
 }
 
 button#moveNext {
-  margin-right: 10px;
+  margin-right: 5px;
   float: right;
 }
 
 button#moveLast {
-  margin-left: 10px;
+  margin-left: 5px;
   float: left;
 }
 
