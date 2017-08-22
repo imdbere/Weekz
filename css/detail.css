@@ -214,10 +214,11 @@ div.progress {
 }
 
 div.progress div {
-  width: 70%;
+  width: 0%;
   height: 100%;
   border-radius: 4px;
   background: #444;
+  transition: 0.8s;
 }
 
 div.detail div.container h5 {

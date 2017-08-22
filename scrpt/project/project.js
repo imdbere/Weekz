@@ -40,25 +40,27 @@ addLoggedInHandler(function(user)
 
 function openNewProjectDialog()
 {
-    newProjectDialog.style.display = "block";
+  document.getElementById('newTitle').style.display = 'block';
+  document.getElementById('editTitle').style.display = 'none';
+  newProjectDialog.style.display = "block";
 }
 
 function closeNewProjectDialog()
 {
-    newProjectDialog.style.display = "none";
+  newProjectDialog.style.display = "none";
 }
 
 function createProject(name, summary, desc, colorID)
 {
-    var projectKey = dataRefProject.push().key;
+  var projectKey = dataRefProject.push().key;
 
-    var dashDiv = document.getElementsByClassName("dash")[0];
-    var projectDiv = generateProject(name, summary, colorID, 0, projectKey);
-    dashDiv.insertBefore(projectDiv, addBtn);
+  var dashDiv = document.getElementsByClassName("dash")[0];
+  var projectDiv = generateProject(name, summary, colorID, 0, projectKey);
+  dashDiv.insertBefore(projectDiv, addBtn);
 
-    projectDiv.id = projectKey;
+  projectDiv.id = projectKey;
 
-    dataRefProject.child(projectKey).child('info').update({ projectTitle: name, projectSummary: summary, projectDesc: desc, projectColor: colorID, percentage: "0"});
+  dataRefProject.child(projectKey).child('info').update({ projectTitle: name, projectSummary: summary, projectDesc: desc, projectColor: colorID, percentage: "0"});
 }
 
 function projectRemoveButtonClicked()
@@ -68,11 +70,6 @@ function projectRemoveButtonClicked()
 
     projectDiv.parentNode.removeChild(projectDiv);
     dataRefProject.child(deleteId).remove();
-}
-
-function projectEditButtonClicked()
-{
-  console.log("lel");
 }
 
 function showProjectDetails() {

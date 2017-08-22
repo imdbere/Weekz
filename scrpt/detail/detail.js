@@ -36,7 +36,7 @@ function generateProjectDetails(title, summary, description, color, taskCount, t
     percentage = Math.floor(tasksDone * 100 / taskCount);
   else
     percentage = 0;
-  
+
   status.style.width = percentage + "%";
   progressPercent.innerText = percentage;
 
@@ -79,8 +79,10 @@ function generateProjectTask(name, desc, check, color, id) {
 //Toggle checkbox
 function toggleTaskDone() {
     var task = this.parentNode;
+    console.log(task);
     var thisList = task.parentNode;
     var id = task.id;
+    console.log(id);
     var taskText = task.children[1];
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;

@@ -99,7 +99,8 @@
         <button type="button" id="closeProjectBtn">X</button>
         <div class="content">
           <div class="inputs">
-            <h1>New Project</h1>
+            <h1 id="newTitle">New Project</h1>
+            <h1 id="editTitle">Edit your Task</h1>
             <p>Give your project a title</p>
             <input type="text" placeholder="Title" id="projectTitle">
             <p>Summarize your project in 100 characters</p>
@@ -107,6 +108,7 @@
             <p>Add some more detail for the records</p>
             <textarea placeholder="Description" id="projectDescription"></textarea>
             <button type="button" id="createProject">CREATE</button>
+            <button type="button" id="editProject">SAVE</button>
           </div>
           <div class="colorSelector">
             <form class="colors">
@@ -144,5 +146,6 @@
     <script src="scrpt/project/project.js"></script>
     <script src="scrpt/project/loadData.js"></script>
     <script src="scrpt/project/generateProject.js"></script>
+    <script src="scrpt/project/modifyProject.js"></script>
   </body>
 </html>
