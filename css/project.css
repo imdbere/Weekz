@@ -337,7 +337,7 @@ div.inputs textarea {
   margin-bottom: 25px;
 }
 
-button#createProject {
+button#createProject, button#editProject {
   position: relative;
   display: block;
   width: 100%;

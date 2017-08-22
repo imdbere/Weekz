@@ -4,6 +4,7 @@ var addBtnMobile = document.getElementById('addProjectMobile');
 var newProjectDialog = document.getElementById('projectBackground');
 var closeAddProjectBtn = document.getElementById('closeProjectBtn');
 var createProjectBtn = document.getElementById('createProject');
+var saveProjectBtn = document.getElementById('editProject');
 
 var projectTitle = document.getElementById('projectTitle');
 var projectSummary = document.getElementById('projectSummary');
@@ -42,11 +43,19 @@ function openNewProjectDialog()
 {
   document.getElementById('newTitle').style.display = 'block';
   document.getElementById('editTitle').style.display = 'none';
+
+  createProjectBtn.style.display = 'block';
+  saveProjectBtn.style.display = 'none';
+
   newProjectDialog.style.display = "block";
 }
 
 function closeNewProjectDialog()
 {
+  projectTitle.value = "";
+  projectSummary.value = "";
+  projectDescription.value = "";
+
   newProjectDialog.style.display = "none";
 }
 
