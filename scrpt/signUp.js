@@ -81,7 +81,7 @@
             ref.child("users").child(response.uid).child("info").set({firstname: first, lastname: last, email: email});
             auth.onAuthStateChanged(function(user) {
               user.sendEmailVerification().then(function() {
-                window.location = 'dashboard.html';
+                window.location = 'dashboard';
               }).catch(function(error) {
                 console.log(error);
               });

@@ -83,5 +83,5 @@ function projectRemoveButtonClicked()
 
 function showProjectDetails() {
   var selectedProject = this.parentNode.parentNode.id;
-  window.location.href = 'detail.html' + '#' + selectedProject;
+  window.location.href = 'detail' + '#' + selectedProject;
 }

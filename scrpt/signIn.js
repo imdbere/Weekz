@@ -54,7 +54,7 @@ function login()
       .then(function (response) {
         txtEmail.style.border = "1px solid #7AC843"
         txtPassword.style.border = "1px solid #7AC843"
-        window.location = 'dashboard.html';
+        window.location = 'dashboard';
       });
     promise.catch(e => {
       txtEmail.style.border = "1px solid #FF514C";
