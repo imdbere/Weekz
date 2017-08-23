@@ -3,12 +3,14 @@ function moveTaskButtonClicked()
   var item = this.parentNode.parentNode
   var oldList = item.parentNode;
   var oldListId = item.parentNode.id;
-  var dayPicker = item.children[5];
+  var moveTaskDiv = item.getElementsByClassName('moveTask')[0];
+  //var whichWeekDiv = moveTaskDiv.getElementsByClassName('whichWeek')[0]; 
 
-  if (dayPicker.style.display == "none") {
-    dayPicker.style.display = "block";
+  if (moveTaskDiv.style.display == "none") {
+    moveTaskDiv.style.display = "block";
+    
   } else {
-    dayPicker.style.display = "none";
+    moveTaskDiv.style.display = "none";
   }
 }
 
@@ -28,6 +30,16 @@ function moveToNextWeekButtonClicked()
   moveTaskDiv.weekOffset++;
   var desiredWeek = new Week(moveTaskDiv.weekOffset + weekOffset);
   p.innerText = desiredWeek.getDayAsString(0) + " - " + desiredWeek.getDayAsString(5);
+}
+
+function moveToDayButtonClicked()
+{
+  var item = this.parentNode.parentNode.parentNode;
+  var newListId = this.name;
+  var newList = document.getElementById(newListId);
+  var moveTaskDiv = this.parentNode.parentNode;
+
+  moveTask (item, newList, moveTaskDiv.weekOffset);
 }
 
 function moveTask (item, newList, moveWeekOffset)
@@ -65,16 +77,6 @@ function moveTaskInDB(itemId, oldListId, newListId, oldWeek, newWeek)
   });
 }
 
-function moveToDayButtonClicked()
-{
-  var item = this.parentNode.parentNode.parentNode;
-  var newListId = this.name;
-  var newList = document.getElementById(newListId);
-  var moveTaskDiv = this.parentNode.parentNode;
-
-  moveTask (item, newList, moveTaskDiv.weekOffset);
-}
-
 function enterDrag(ev) {
   ev.preventDefault();
   var totalDiv = this.parentNode.parentNode;
@@ -89,11 +91,17 @@ function leftDrag(ev) {
 
 function dragStarted(ev) {
   var item = ev.target;
+  item.style.opacity = "0.5";
   var oldList = item.parentNode;
   var transferObj = {itemId : item.id, oldListId : oldList.id, oldWeekOffset: weekOffset};
 
   ev.dataTransfer.setData("text", JSON.stringify(transferObj));
+}
 
+function dragStopped(ev)
+{
+  var item = ev.target;
+  item.style.opacity = "1";
 }
 
 function elementDropped(ev) {

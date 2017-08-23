@@ -67,10 +67,8 @@ addLoggedInHandler(function (user) {
     var t =window.location.pathname;
     if (window.location.hash != "")
     {
-        initialWeekOffset = window.location.hash.substr(1);
-        history.replaceState(null, null, location.href.split('#')[0]);
-    }
-        
+        initialWeekOffset = parseInt(window.location.hash.substr(1));
+    } 
     
     changeWeek(initialWeekOffset);
 });

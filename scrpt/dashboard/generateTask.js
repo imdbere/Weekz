@@ -42,6 +42,7 @@ function generateTask(taskName, taskDesc, checked, project, color, title) {
     li.projectId = project;
     li.draggable = true;
     li.ondragstart= dragStarted;
+    li.ondragend = dragStopped;
 
     var check = document.createElement('input');
     check.type = "checkbox";
@@ -57,7 +58,8 @@ function generateTask(taskName, taskDesc, checked, project, color, title) {
 
     var p = document.createElement('p');
     p.innerText = taskName;
-
+    p.classList.add('taskText');
+    
     var dot = document.createElement('div');
     dot.classList.add('dot');
     dot.name = project;
