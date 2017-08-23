@@ -55,19 +55,31 @@ var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
 
-addLoggedInHandler(function(user){
+addLoggedInHandler(function (user) {
 
-  addGlobalEventListeners();
-  dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
-  dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
-  fetchAndAppendProjects();
-  initFeedback();
+    addGlobalEventListeners();
+    dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
+    dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+    fetchAndAppendProjects();
+    initFeedback();
 
-  changeWeek(0);
+    var initialWeekOffset = 0;
+    var t =window.location.pathname;
+    if (window.location.hash != "")
+    {
+        initialWeekOffset = window.location.hash.substr(1);
+        history.replaceState(null, null, location.href.split('#')[0]);
+    }
+        
+    
+    changeWeek(initialWeekOffset);
 });
 
 function changeWeek (offset)
 {
+    history.pushState(null, null, '#' + offset);
+    
+    //location.replace("#" + offset); 
     weekOffset = offset;
     var currentWeek = new Week(offset);
     currentlySelectedWeek = currentWeek; //Experimental
