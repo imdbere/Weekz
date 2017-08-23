@@ -49,3 +49,25 @@ function loadAndAddTasks(week) {
     NProgress.done();
   });
 }
+
+function loadAndAppendSingleTask(taskID, rightList) {
+  dataRefTasks.child(taskID).once('value').then(function (snap) {
+    var data = snap.val();
+    
+    if (data.project == 'noProject') {
+      var li = generateTask(data.taskName, data.taskDesc, data.checked, 'noProject');
+      li.id = taskID;
+      rightList.appendChild(li);
+    }
+    else {
+      dataRefProject.child(data.project).child('info').once('value', function (projectInfo) {
+
+        var color = projectInfo.val().projectColor;
+        var title = projectInfo.val().projectTitle;
+        var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
+        li.id = taskID;
+        rightList.appendChild(li);
+      });
+    }
+  });
+}

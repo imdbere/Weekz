@@ -55,19 +55,29 @@ var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
 
-addLoggedInHandler(function(user){
+addLoggedInHandler(function (user) {
 
-  addGlobalEventListeners();
-  dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
-  dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
-  fetchAndAppendProjects();
-  initFeedback();
+    addGlobalEventListeners();
+    dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
+    dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
+    fetchAndAppendProjects();
+    initFeedback();
 
-  changeWeek(0);
+    var initialWeekOffset = 0;
+    var t =window.location.pathname;
+    if (window.location.hash != "")
+    {
+        initialWeekOffset = parseInt(window.location.hash.substr(1));
+    } 
+    
+    changeWeek(initialWeekOffset);
 });
 
 function changeWeek (offset)
 {
+    history.pushState(null, null, '#' + offset);
+    
+    //location.replace("#" + offset); 
     weekOffset = offset;
     var currentWeek = new Week(offset);
     currentlySelectedWeek = currentWeek; //Experimental
@@ -76,6 +86,32 @@ function changeWeek (offset)
 }
 
 function addGlobalEventListeners() {
+
+    //JUST FOR TESTING PURPOSES
+    addWeekBtn.ondragover = function (ev)
+    {
+        ev.preventDefault();
+    };
+    addWeekBtn.ondragenter = function (ev)
+    {
+        clearLists();
+        changeWeek(weekOffset + 1);
+        console.log("enter");
+    };
+    addWeekBtn.ondragleave = function (ev)
+    {
+        console.log("leave");
+    };
+
+    previousBtn.ondragover = function (ev)
+    {
+        ev.preventDefault();
+    };
+    previousBtn.ondragenter = function (ev)
+    {
+        clearLists();
+        changeWeek(weekOffset - 1);
+    };
 
     //Previous-Next Week buttons
     addWeekBtn.addEventListener('click', function () {
@@ -92,6 +128,14 @@ function addGlobalEventListeners() {
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", addButtonClicked);
     }
+
+    var taskLists = document.querySelectorAll('.taskList');
+    taskLists.forEach(function (item)
+    {
+        item.ondragover = enterDrag;
+        item.ondragleave = leftDrag;
+        item.ondrop = elementDropped;
+    });
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
 

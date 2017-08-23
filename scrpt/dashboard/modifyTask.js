@@ -16,8 +16,8 @@ function showEditMenu(item) {
     var projectRadio = document.getElementById(projectId);
     projectRadio.checked = true;
 
-    var nameInput = item.children[3];
-    var descInput = item.children[6].children[0];
+    var nameInput = item.getElementsByClassName('taskText')[0];
+    var descInput = item.getElementsByClassName('detail')[0].firstChild;
     taskName.value = nameInput.innerText;
     taskDesc.value = descInput.innerText;
 
@@ -36,8 +36,8 @@ function editConfirmButtonClicked(item)
     console.log(listId);
     var id = item.id;
     console.log(id);
-    var nameInput = item.children[3];
-    var descInput = item.children[6].children[0];
+    var nameInput = item.getElementsByClassName('taskText')[0];
+    var descInput = item.getElementsByClassName('detail')[0].firstChild;
     var newName = taskName.value;
     var newDesc = taskDesc.value;
     nameInput.innerText = newName;
@@ -88,8 +88,8 @@ function hideEditMenu() {
 function toggleContext() {
     var task = this.parentNode;
     var id = task.id;
-    var taskContext = task.children[4];
-    var moveTask = task.children[5];
+    var taskContext = task.getElementsByClassName('contextMenu')[0];
+    var moveTask = task.getElementsByClassName('moveTask')[0];
 
     if (taskContext.style.display == "none") {
         taskContext.style.display = "block";
@@ -106,7 +106,7 @@ function toggleTaskDone() {
     var task = this.parentNode;
     var thisList = task.parentNode;
     var id = task.id;
-    var taskText = task.children[3];
+    var taskText = task.getElementsByClassName('taskText')[0];
     console.log(dataRefTasks);
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;
@@ -141,7 +141,7 @@ function removeTask() {
 function toggleProject() {
   var task = this.parentNode;
   console.log(task);
-  var projectMenu = task.children[7];
+  var projectMenu = task.getElementsByClassName('taskProject')[0];
 
   if (projectMenu.style.display == 'none') {
     projectMenu.style.display = 'block';
@@ -151,13 +151,12 @@ function toggleProject() {
 }
 
 function taskRedirect() {
-  var projectId = this.parentNode.parentNode.children[0].name;
-
+  var projectId = this.parentNode.parentNode.getElementsByClassName('dot')[0].name;
   window.location.href = 'detail' + '#' + projectId;
 }
 
 function addRedirect() {
   var project = this.parentNode.htmlFor;
-
   window.location.href = 'detail' + '#' + project;
 }
+
