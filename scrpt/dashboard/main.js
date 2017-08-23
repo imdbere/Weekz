@@ -88,6 +88,16 @@ function addGlobalEventListeners() {
         changeWeek(weekOffset + 1);
     };
 
+    previousBtn.ondragover = function (ev)
+    {
+        ev.preventDefault();
+    };
+    previousBtn.ondragenter = function (ev)
+    {
+        clearLists();
+        changeWeek(weekOffset - 1);
+    };
+
     //Previous-Next Week buttons
     addWeekBtn.addEventListener('click', function () {
         clearLists();

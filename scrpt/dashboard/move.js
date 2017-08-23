@@ -32,31 +32,36 @@ function moveToNextWeekButtonClicked()
 
 function moveTask (item, newList, moveWeekOffset)
 {
-  var dataRefDesiredWeek;
-  var newListId = newList.id;
-
-  if (item != null)
-  {
-    var oldList = item.parentNode;
-    oldList.removeChild(item);
-  }
-
+  var oldList = item.parentNode;
+  oldList.removeChild(item);
+  
+  var newWeek;
   if (moveWeekOffset == 0)
   {
+    newWeek = currentlySelectedWeek;
     newList.appendChild(item);
-    dataRefDesiredWeek = dataRefSelectedWeek;
   }
   else
   {
-    var desiredWeek = new Week(moveWeekOffset + weekOffset);
-    dataRefDesiredWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(desiredWeek.getWeekID());
+    newWeek = new Week(moveWeekOffset + weekOffset);
   }
+    
+  
+  moveTaskInDB(item.id, oldList.id, newList.id, currentlySelectedWeek, newWeek);
+}
 
-  dataRefTasks.child(item.id).once('value', function(message) {
+function moveTaskInDB(itemId, oldListId, newListId, oldWeek, newWeek)
+{
+  var owi = oldWeek.getWeekID();
+  var nwi = newWeek.getWeekID();
+  var dataRefOldWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(oldWeek.getWeekID());
+  var dataRefNewWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(newWeek.getWeekID());
+  
+  dataRefTasks.child(itemId).once('value', function(message) {
     var oldData = message.val();
 
-    dataRefSelectedWeek.child(oldList.id).child(item.id).remove();
-    dataRefDesiredWeek.child(newListId).child(item.id).update(oldData);
+    dataRefOldWeek.child(oldListId).child(itemId).remove();
+    dataRefNewWeek.child(newListId).child(itemId).update(oldData);
   });
 }
 
@@ -83,7 +88,11 @@ function leftDrag(ev) {
 }
 
 function dragStarted(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+  var item = ev.target;
+  var oldList = item.parentNode;
+  var transferObj = {itemId : item.id, oldListId : oldList.id, oldWeekOffset: weekOffset};
+
+  ev.dataTransfer.setData("text", JSON.stringify(transferObj));
 
 }
 
@@ -93,8 +102,23 @@ function elementDropped(ev) {
   totalDiv.classList.remove('dragover');
 
   var data = ev.dataTransfer.getData("text");
-  var item = document.getElementById(data);
+  var transferObj = JSON.parse(data);
+
+  var item = document.getElementById(transferObj.itemId);
   var newList = this;
   
-  moveTask (item, newList, 0);
+  if (item == null)
+  {
+    loadAndAppendSingleTask(transferObj.itemId, newList);
+
+    var newWeek = currentlySelectedWeek;
+    var oldWeek = new Week(transferObj.oldWeekOffset);
+    moveTaskInDB(transferObj.itemId, transferObj.oldListId, newList.id, oldWeek, newWeek);
+  }
+  else
+  {
+    if (transferObj.oldListId != newList.id)
+    moveTask (item, newList, 0);
+  }
+  
 }
