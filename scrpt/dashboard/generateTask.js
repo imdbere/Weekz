@@ -68,6 +68,7 @@ function generateTask(taskName, taskDesc, checked, project, color, title) {
       taskProject.style.display = "none";
 
         var h3 = document.createElement('h3');
+        h3.classList.add('taskProjectTitle');
         h3.innerText = title;
 
         var infoBtn = document.createElement('button');

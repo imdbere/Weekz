@@ -4,6 +4,7 @@ var addBtnMobile = document.getElementById('addProjectMobile');
 var newProjectDialog = document.getElementById('projectBackground');
 var closeAddProjectBtn = document.getElementById('closeProjectBtn');
 var createProjectBtn = document.getElementById('createProject');
+var saveProjectBtn = document.getElementById('editProject');
 
 var projectTitle = document.getElementById('projectTitle');
 var projectSummary = document.getElementById('projectSummary');
@@ -40,25 +41,35 @@ addLoggedInHandler(function(user)
 
 function openNewProjectDialog()
 {
-    newProjectDialog.style.display = "block";
+  document.getElementById('newTitle').style.display = 'block';
+  document.getElementById('editTitle').style.display = 'none';
+
+  createProjectBtn.style.display = 'block';
+  saveProjectBtn.style.display = 'none';
+
+  newProjectDialog.style.display = "block";
 }
 
 function closeNewProjectDialog()
 {
-    newProjectDialog.style.display = "none";
+  projectTitle.value = "";
+  projectSummary.value = "";
+  projectDescription.value = "";
+
+  newProjectDialog.style.display = "none";
 }
 
 function createProject(name, summary, desc, colorID)
 {
-    var projectKey = dataRefProject.push().key;
+  var projectKey = dataRefProject.push().key;
 
-    var dashDiv = document.getElementsByClassName("dash")[0];
-    var projectDiv = generateProject(name, summary, colorID, 0, projectKey);
-    dashDiv.insertBefore(projectDiv, addBtn);
+  var dashDiv = document.getElementsByClassName("dash")[0];
+  var projectDiv = generateProject(name, summary, colorID, 0, projectKey);
+  dashDiv.insertBefore(projectDiv, addBtn);
 
-    projectDiv.id = projectKey;
+  projectDiv.id = projectKey;
 
-    dataRefProject.child(projectKey).child('info').update({ projectTitle: name, projectSummary: summary, projectDesc: desc, projectColor: colorID, percentage: "0"});
+  dataRefProject.child(projectKey).child('info').update({ projectTitle: name, projectSummary: summary, projectDesc: desc, projectColor: colorID, percentage: "0"});
 }
 
 function projectRemoveButtonClicked()
@@ -70,12 +81,7 @@ function projectRemoveButtonClicked()
     dataRefProject.child(deleteId).remove();
 }
 
-function projectEditButtonClicked()
-{
-  console.log("lel");
-}
-
 function showProjectDetails() {
   var selectedProject = this.parentNode.parentNode.id;
-  window.location.href = 'detail.html' + '#' + selectedProject;
+  window.location.href = 'detail' + '#' + selectedProject;
 }

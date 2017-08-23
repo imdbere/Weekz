@@ -43,7 +43,7 @@ function firebasInit() {
 
             }
             else {
-                window.location = 'signin.html';
+                window.location = 'signin';
             }
         }
     })
@@ -58,4 +58,3 @@ if (document.readyState === "complete" ||(document.readyState !== "loading" && !
 } else {
   document.addEventListener("DOMContentLoaded", firebasInit);
 }
-

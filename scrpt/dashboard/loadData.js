@@ -14,7 +14,7 @@ function loadAndAddTasks(week) {
 
       var addDay = day.key;
       var rightList = document.getElementById(addDay);
-    
+
       day.forEach(function (taskid) {
         var task = taskid.key;
 

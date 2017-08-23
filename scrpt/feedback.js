@@ -1,6 +1,6 @@
 function initFeedback() {
 
-  const bugRef = firebase.database().ref().child('feedback');
+  var bugRef = firebase.database().ref().child('feedback');
 
   // Get Elements
   var feedbackBody = document.getElementById('feedback');

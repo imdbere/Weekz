@@ -43,22 +43,33 @@ function editConfirmButtonClicked(item)
     nameInput.innerText = newName;
     descInput.innerText = newDesc;
 
-    console.log(id);
-    
-    
+
     if (projectId != "noProject") {
         var dot = item.getElementsByClassName("dot")[0];
         var projectId = document.querySelector('input[name="project"]:checked').id;
 
         dot.className = "";
         dot.classList.add("dot");
-        
+
+        var oldProjectId = dot.name;
+        console.log(oldProjectId);
+
         var project = document.querySelector('label[for=' + projectId + ']');
         var projectColor = project.children[0].classList[1];
         dot.classList.add(projectColor);
         var projectEntry = dataRefProject.child(projectId).child('tasks').child(id).set("");
     }
+
     var update = dataRefTasks.child(id).update({ taskName: newName, taskDesc: newDesc, project: projectId });
+    var updateNewProject = dataRefProject.child(projectId).child('tasks').child(id).set('');
+    var updateOldProject = dataRefProject.child(oldProjectId).child('tasks').child(id).remove();
+
+    dot.name = projectId;
+
+    dataRefProject.child(dot.name).child('info').once('value', function(newData) {
+      item.getElementsByClassName('taskProjectTitle')[0].innerText = newData.val().projectTitle;
+    });
+
     hideAddMenu();
 }
 
@@ -140,16 +151,14 @@ function toggleProject() {
 }
 
 function taskRedirect() {
-  var projectId = this.parentNode.parentNode.projectId;
+  var projectId = this.parentNode.parentNode.children[0].name;
 
-
-  window.location.href = 'detail.html' + '#' + projectId;
+  window.location.href = 'detail' + '#' + projectId;
 }
 
 function addRedirect() {
   var project = this.parentNode.htmlFor;
 
-  window.location.href = 'detail.html' + '#' + project;
-  console.log(project);
+  window.location.href = 'detail' + '#' + project;
 }
 

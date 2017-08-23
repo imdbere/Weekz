@@ -11,6 +11,7 @@ function loadDetailData(id) {
       var color = snap.val().info.projectColor;
 
       var tasks = snap.val().tasks;
+      console.log(tasks);
       if (tasks != null)
       {
         var taskCount = 0;
@@ -24,19 +25,21 @@ function loadDetailData(id) {
             var checkState = task.val().checked;
             var name = task.val().taskName;
             var desc = task.val().taskDesc;
-            
+
+            console.log(task.key);
+
             taskCount++;
             if (checkState)
               tasksCompleted++;
 
-            generateProjectTask(name, desc, checkState, color, taskID);
+            generateProjectTask(name, desc, checkState, color, task.key);
           }));
         }
         Promise.all(promiseList).then(function (result)
         {
           generateProjectDetails(title, summary, description, color, taskCount, tasksCompleted);
         });
-        
+
       }
       else
       {

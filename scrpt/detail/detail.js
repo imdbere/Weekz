@@ -1,12 +1,14 @@
-const projectName = document.getElementById('projectName');
-const projectSummary = document.getElementById('projectSummary');
-const projectDesc = document.getElementById('projectDesc');
-const tasksCompleted = document.getElementById('tasksCompleted');
-const tasksOutstanding = document.getElementById('tasksOutstanding');
-const progressPercent = document.getElementById('progressPercent');
-const status = document.getElementById('projectStatus');
-const taskList = document.getElementById('taskList');
-const taskDots = document.getElementsByClassName('dot');
+var projectName = document.getElementById('projectName');
+var projectSummary = document.getElementById('projectSummary');
+var projectDesc = document.getElementById('projectDesc');
+var tasksCompleted = document.getElementById('tasksCompleted');
+var tasksOutstanding = document.getElementById('tasksOutstanding');
+var progressPercent = document.getElementById('progressPercent');
+var progressBar = document.getElementById('projectProgress');
+
+console.log(progressBar);
+var taskList = document.getElementById('taskList');
+var taskDots = document.getElementsByClassName('dot');
 
 var projectID;
 var dataRefProject;
@@ -30,14 +32,16 @@ function generateProjectDetails(title, summary, description, color, taskCount, t
   tasksCompleted.innerText = tasksDone;
   tasksOutstanding.innerText = taskCount - tasksDone;
 
-  status.classList.add(color);
+  console.log(progressBar);
+
+  progressBar.classList.add(color);
   var percentage;
   if (taskCount > 0)
     percentage = Math.floor(tasksDone * 100 / taskCount);
   else
     percentage = 0;
-  
-  status.style.width = percentage + "%";
+
+  progressBar.style.width = percentage + "%";
   progressPercent.innerText = percentage;
 
   for (var i = 0; i < taskDots.length; i++) {
@@ -79,8 +83,10 @@ function generateProjectTask(name, desc, check, color, id) {
 //Toggle checkbox
 function toggleTaskDone() {
     var task = this.parentNode;
+    console.log(task);
     var thisList = task.parentNode;
     var id = task.id;
+    console.log(id);
     var taskText = task.children[1];
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;

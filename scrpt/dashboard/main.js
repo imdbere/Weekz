@@ -30,13 +30,13 @@ var closeBtn = document.getElementById('closeBtn');
 var addTitle = document.getElementById('addTitle');
 var editTitle = document.getElementById('editTitle');
 
-const showBubble = document.getElementById('showBubble');
-const hideBubble = document.getElementById('hideBubble');
-const bubble = document.getElementById('bubble');
-const toDoValue = document.getElementById('toDoName');
-const toDoAddBtn = document.getElementById('bubbleAdd');
-const toDoList = document.getElementById('bubbleList');
-const showBubbleMobile = document.getElementById('showBubbleMobile');
+var showBubble = document.getElementById('showBubble');
+var hideBubble = document.getElementById('hideBubble');
+var bubble = document.getElementById('bubble');
+var toDoValue = document.getElementById('toDoName');
+var toDoAddBtn = document.getElementById('bubbleAdd');
+var toDoList = document.getElementById('bubbleList');
+var showBubbleMobile = document.getElementById('showBubbleMobile');
 
 // Define Colors
 var monColor = "#FF514C";

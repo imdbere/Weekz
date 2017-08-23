@@ -1,9 +1,9 @@
 // Get Elements
-const back = document.getElementById('background');
-const menu = document.getElementById('menu');
-const open = document.getElementById('openMenuBtn');
-const close = document.getElementById('closeMenuBtn');
-const signOut = document.getElementById('signOut');
+var back = document.getElementById('background');
+var menu = document.getElementById('menu');
+var open = document.getElementById('openMenuBtn');
+var close = document.getElementById('closeMenuBtn');
+var signOut = document.getElementById('signOut');
 
 var nameLabel = document.getElementById('userName');
 var mailLabel = document.getElementById('userEmail');
@@ -70,12 +70,12 @@ function linkMenuEventListener() {
 
     nameLabel.style.opacity = "0";
     mailLabel.style.opacity = "0";
-    
-    menu.classList.remove("width");
+
     back.style.opacity = "0";
 
     sleep(350).then(() => {
       back.style.zIndex = "-1000";
+      menu.classList.remove("width");
     });
   });
   // Sign User Out

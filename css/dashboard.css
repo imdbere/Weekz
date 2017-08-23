@@ -324,9 +324,9 @@ div.mobileBubble img {
   position: absolute;
   display: inline-block;
   float: right;
-  height: 30px;
-  top: 10px;
-  right: 15px;
+  height: 25px;
+  top: 12.5px;
+  right: 20px;
 }
 
 /* ----- Dash -----*/
@@ -443,6 +443,7 @@ div.day ul {
 .task {
   position: relative;
   display: block;
+  width: calc(100% - 16px);
 }
 
 .task p {
@@ -572,7 +573,7 @@ div.contextMenu {
   background: #EDEDED;
   width: calc(100% - 0px);
   height: 30px;
-  margin-top: -10px;
+  margin-top: -5px;
   margin-bottom: 20px;
   border-radius: 8px;
 }
@@ -708,7 +709,7 @@ div.moveTask div.whichWeek p {
 div.moveTask div.buttonContainer {
   position: relative;
   display: inline-block;
-  width: calc(100% - 72px);
+  width: calc(100% - 62px);
   height: 35px;
 }
 
@@ -731,7 +732,7 @@ div.moveTask button.switch {
   display: inline-block;
   width: 26px;
   height: 26px;
-  background: grey !important;
+  background: #CECECE !important;
   vertical-align: top;
   margin-top: 5px;
   border: none;
@@ -766,12 +767,12 @@ button#moveLast div.triangle {
 }
 
 button#moveNext {
-  margin-right: 10px;
+  margin-right: 5px;
   float: right;
 }
 
 button#moveLast {
-  margin-left: 10px;
+  margin-left: 5px;
   float: left;
 }
 
@@ -814,10 +815,11 @@ button#moveSat:hover {color: #662D90}
 
 .detail p {
   font-family: 'Roboto';
+  width: 90%;
   font-weight: 300;
   font-size: 16px;
-  padding-left: 20px;
-  padding-right: 40px;
+  padding-left: 30px;
+  padding-right: 10px;
 }
 
 /* ----- Bubble -----*/
@@ -1120,8 +1122,8 @@ div.bubbleBack {
     border-radius: 15px;
     background: #F1F1F1;
     margin-top: 25px;
+    margin-left: 5px;
     z-index: 2000;
-    overflow: hidden;
   }
 
   div.taskProject h3 {
@@ -1165,8 +1167,8 @@ div.bubbleBack {
     display: inline-block;
     opacity: 1;
     float: right;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: url(../res/context.png);
     background-size: cover;
     box-shadow: none;
@@ -1182,7 +1184,7 @@ div.bubbleBack {
     background: #EDEDED;
     width: 100%;
     height: 25px;
-    margin-top: 0px;
+    margin-top: -5px;
     margin-bottom: 10px;
     border-radius: 8px;
   }
@@ -1243,12 +1245,16 @@ div.bubbleBack {
     display: none;
     background: red;
     width: calc(100% - 20px);
-    height: 25px;
+    height: 48px;
     margin: auto;
     margin-top: -5px;
     margin-bottom: 20px;
     background: white;
     box-shadow: 0px 0px 5px #B4B4B4;
+  }
+
+  div.moveTask div.buttonContainer {
+    width: calc(100% - 56px);
   }
 
   div.moveTask button.moveDay {
@@ -1263,6 +1269,55 @@ div.bubbleBack {
     font-weight: 700;
     font-size: 16px;
     text-align: center;
+  }
+
+  div.moveTask button.switch {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 35px;
+    vertical-align: top;
+    background: none !important;
+    margin-top: 0px;
+    border: none;
+    outline: none;
+    border-radius: 0px;
+  }
+
+  button#moveNext div.triangle {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%,-50%);
+  }
+
+  button#moveLast div.triangle {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid black;
+    top: 50%;
+    right: 50%;
+    transform: translate(35%,-50%);
+  }
+
+  button#moveNext {
+    margin-right: 0px;
+    border-left: 1px dashed black;
+  }
+
+  button#moveLast {
+    margin-left: 0px;
+    border-right: 1px dashed black;
   }
 
 /* ----- Task Detail View -----*/

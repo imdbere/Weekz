@@ -135,7 +135,7 @@ div.project div.container h1 {
   display: block;
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 30px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -312,6 +312,7 @@ div.inputs input {
   width: 100%;
   height: 50px;
   text-indent: 20px;
+  padding-right: 10px;
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 18px;
@@ -337,7 +338,7 @@ div.inputs textarea {
   margin-bottom: 25px;
 }
 
-button#createProject {
+button#createProject, button#editProject {
   position: relative;
   display: block;
   width: 100%;

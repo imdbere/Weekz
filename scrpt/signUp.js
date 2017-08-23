@@ -12,16 +12,16 @@
   };
   firebase.initializeApp(config);
 
-  const auth = firebase.auth();
-  const ref = firebase.database().ref();
+  var auth = firebase.auth();
+  var ref = firebase.database().ref();
 
   // Get Elements
-  const txtFirstname = document.getElementById('first');
-  const txtLastname = document.getElementById('last');
-  const txtEmail = document.getElementById('email');
-  const txtPassword1 = document.getElementById('password1');
-  const txtPassword2 = document.getElementById('password2');
-  const btnSignup = document.getElementById('signup');
+  var txtFirstname = document.getElementById('first');
+  var txtLastname = document.getElementById('last');
+  var txtEmail = document.getElementById('email');
+  var txtPassword1 = document.getElementById('password1');
+  var txtPassword2 = document.getElementById('password2');
+  var btnSignup = document.getElementById('signup');
 
   /*txtEmail.addEventListener('input', function()
   {
@@ -44,11 +44,11 @@
   btnSignup.addEventListener('click', e => {
 
     // Get Email & Password
-    const first = txtFirstname.value;
-    const last = txtLastname.value;
-    const email = txtEmail.value;
-    const pass1 = txtPassword1.value;
-    const pass2 = txtPassword2.value;
+    var first = txtFirstname.value;
+    var last = txtLastname.value;
+    var email = txtEmail.value;
+    var pass1 = txtPassword1.value;
+    var pass2 = txtPassword2.value;
 
     if (first == "") {
       resetBorders();
@@ -70,7 +70,7 @@
 
       if (pass1 == pass2) {
         // Sign up
-        const promise = auth.createUserWithEmailAndPassword(email, pass2)
+        var promise = auth.createUserWithEmailAndPassword(email, pass2)
           .then(function(response) {
             txtFirstname.style.border = "1px solid #7AC843"
             txtLastname.style.border = "1px solid #7AC843"
@@ -81,7 +81,7 @@
             ref.child("users").child(response.uid).child("info").set({firstname: first, lastname: last, email: email});
             auth.onAuthStateChanged(function(user) {
               user.sendEmailVerification().then(function() {
-                window.location = 'dashboard.html';
+                window.location = 'dashboard';
               }).catch(function(error) {
                 console.log(error);
               });
