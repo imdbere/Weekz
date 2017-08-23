@@ -13,3 +13,7 @@ addLoggedInHandler(function()
     a.href = "dashboard.html"
 
 });
+
+addNotLoggedInHandler(function(){
+  
+});
