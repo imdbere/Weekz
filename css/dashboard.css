@@ -355,6 +355,14 @@ div.day {
   overflow: hidden;
 }
 
+div.day.dragover
+{
+  border-color: #39BAFC;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
 div#tue::before, div#wed::before, div#fri::before, div#sat::before {
   content: "";
   position: relative;

@@ -152,3 +152,4 @@ function addRedirect() {
   window.location.href = 'detail.html' + '#' + project;
   console.log(project);
 }
+

@@ -40,6 +40,8 @@ function generateTask(taskName, taskDesc, checked, project, color, title) {
     li = document.createElement('li');
     li.className = "task";
     li.projectId = project;
+    li.draggable = true;
+    li.ondragstart= dragStarted;
 
     var check = document.createElement('input');
     check.type = "checkbox";

@@ -77,6 +77,17 @@ function changeWeek (offset)
 
 function addGlobalEventListeners() {
 
+    //JUST FOR TESTING PURPOSES
+    addWeekBtn.ondragover = function (ev)
+    {
+        ev.preventDefault();
+    };
+    addWeekBtn.ondragenter = function (ev)
+    {
+        clearLists();
+        changeWeek(weekOffset + 1);
+    };
+
     //Previous-Next Week buttons
     addWeekBtn.addEventListener('click', function () {
         clearLists();
@@ -92,6 +103,14 @@ function addGlobalEventListeners() {
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", addButtonClicked);
     }
+
+    var taskLists = document.querySelectorAll('.taskList');
+    taskLists.forEach(function (item)
+    {
+        item.ondragover = enterDrag;
+        item.ondragleave = leftDrag;
+        item.ondrop = elementDropped;
+    });
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
 
