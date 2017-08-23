@@ -766,6 +766,11 @@ button#moveLast div.triangle {
   transform: translate(35%,-50%);
 }
 
+.noPointer
+{
+  pointer-events: none;
+}
+
 button#moveNext {
   margin-right: 5px;
   float: right;

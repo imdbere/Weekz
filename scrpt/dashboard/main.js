@@ -98,6 +98,11 @@ function addGlobalEventListeners() {
     {
         clearLists();
         changeWeek(weekOffset + 1);
+        console.log("enter");
+    };
+    addWeekBtn.ondragleave = function (ev)
+    {
+        console.log("leave");
     };
 
     previousBtn.ondragover = function (ev)
