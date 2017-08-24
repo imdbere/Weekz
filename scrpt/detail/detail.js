@@ -10,6 +10,7 @@ var taskContainerDiv = document.getElementsByClassName('tasks')[0];
 console.log(progressBar);
 var taskList = document.getElementById('taskList');
 var taskDots = document.getElementsByClassName('dot');
+var recycleSVGDoc;
 
 var projectID;
 var dataRefProject;
@@ -21,7 +22,12 @@ addLoggedInHandler(function(){
     dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
     dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
 
+    recycleSVGDoc = recycleContainer.children[0].contentDocument;
     taskContainerDiv.ondragover = function(ev)
+    {
+      ev.preventDefault();
+    };
+    taskContainerDiv.ondrop = function(ev)
     {
       ev.preventDefault();
     };
@@ -124,15 +130,20 @@ function toggleTaskDone() {
 function dragStarted(ev)
 {
   this.style.opacity = "0.2";
-  recycleContainer.children[0].src = "res/removeRed.png";
-  recycleContainer.style.opacity = "1";
+ // recycleContainer.children[0].src = "res/removeRed.png";
+
+  recycleSVGDoc.styleSheets[0].deleteRule(0);
+  recycleSVGDoc.styleSheets[0].insertRule('.st0{fill: #FF5052;}', 0);
+
   ev.dataTransfer.setData("text", this.id);
 }
 
 function dragStopped(ev)
 {
-  recycleContainer.children[0].src = "res/remove.png";
-  recycleContainer.style.opacity = "0.1";
+  //recycleContainer.children[0].src = "res/remove.png";
+  recycleSVGDoc.styleSheets[0].deleteRule(0);
+  recycleSVGDoc.styleSheets[0].insertRule('.st0{fill: #EAEAEA;}', 0);
+
   this.style.opacity = "1";
 }
 function elementDropped(ev) 
