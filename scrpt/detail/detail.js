@@ -93,6 +93,15 @@ function generateProjectTask(name, desc, check, color, id) {
   taskList.appendChild(li);
 }
 
+function removeTask (taskId)
+{
+  var item = document.getElementById(taskId);
+  taskList.removeChild(item);
+
+  dataRefTasks.child(taskId).update({project: "noProject"});
+  dataRefProject.child(projectID).child("tasks").child(taskId).remove();
+}
+
 //Toggle checkbox
 function toggleTaskDone() {
     var task = this.parentNode;
@@ -128,7 +137,6 @@ function dragStopped(ev)
 }
 function elementDropped(ev) 
 {
-  var itemId = ev.dataTransfer.getData("text");
-  var item = document.getElementById(itemId);
-  taskList.removeChild(item);
+  var taskId = ev.dataTransfer.getData("text");
+  removeTask (taskId)
 }
