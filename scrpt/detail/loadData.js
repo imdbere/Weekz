@@ -1,4 +1,7 @@
 
+var taskCount = 0;
+var tasksCompleted = 0;
+
 function loadDetailData(id) {
 
   NProgress.start();
@@ -14,8 +17,8 @@ function loadDetailData(id) {
       console.log(tasks);
       if (tasks != null)
       {
-        var taskCount = 0;
-        var tasksCompleted = 0;
+        taskCount = 0;
+        tasksCompleted = 0;
         var promiseList = [];
 
         for (taskID in tasks)
@@ -37,13 +40,13 @@ function loadDetailData(id) {
         }
         Promise.all(promiseList).then(function (result)
         {
-          generateProjectDetails(title, summary, description, color, taskCount, tasksCompleted);
+          updateProjectDetails(title, summary, description, color, taskCount, tasksCompleted);
         });
 
       }
       else
       {
-        generateProjectDetails(title, summary, description, color, 0, 0);
+        updateProjectDetails(title, summary, description, color, 0, 0);
       }
 
   }).then(function() {
