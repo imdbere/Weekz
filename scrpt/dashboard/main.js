@@ -130,12 +130,18 @@ function addGlobalEventListeners() {
     }
 
     var taskLists = document.querySelectorAll('.taskList');
-    taskLists.forEach(function (item)
+    for (var i = 0; i < taskLists.length; i++) {
+        var item = taskLists[i];
+        item.ondragover = enterDrag;
+        item.ondragleave = leftDrag;
+        item.ondrop = elementDropped;
+    }
+    /*taskLists.forEach(function (item)
     {
         item.ondragover = enterDrag;
         item.ondragleave = leftDrag;
         item.ondrop = elementDropped;
-    });
+    });*/
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
 
