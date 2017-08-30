@@ -608,14 +608,14 @@ label[for="color10"] {background: #692B8D}
 
     div.addProject {
       display: none;
-      width: 100vw;
-      height: 100vh;
+      background: white;
+      overflow-y: scroll;
     }
 
     div.addProject div.container {
       width: 100%;
       height: 100%;
-      overflow: auto;
+      overflow: visible;
     }
 
     div.addProject div.container div.content {
@@ -669,7 +669,7 @@ label[for="color10"] {background: #692B8D}
       height: auto;
       float: left;
       margin-right: 0px;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
       text-align: center;
     }
 
