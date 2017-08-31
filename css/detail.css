@@ -246,7 +246,9 @@ div.tasks div.container {
   display: block;
   width: 80%;
   margin: auto;
+  height: 70%;
   top: 15%;
+  overflow-y: scroll;
 }
 
 ul.projectTasks {
