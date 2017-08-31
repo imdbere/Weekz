@@ -71,6 +71,51 @@ div.background {
   background-position: center;
 }
 
+/* ----- Contact -----*/
+
+div.contact {
+  position: fixed;
+  display: block;
+  bottom: 30px;
+  right: 30px;
+  z-index: 5000;
+  background: #F1F1F1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+div.contact div.icon {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 50px;
+  height: 50px;
+  background: #9013FE;
+  border-radius: 10px;
+}
+
+div.icon img {
+  width: 90%;
+  height: 90%;
+  margin: 5% 0px 0px 5%;
+}
+
+div.contact p {
+  position: relative;
+  display: none;
+  opacity: 0;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  margin: 12px 20px 0px 20px;
+  transition: 0.5s;
+}
+
+div.contact:hover p {
+  display: inline-block;
+  opacity: 1;
+}
+
 /* ----- Content -----*/
 
 div.content {

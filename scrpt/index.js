@@ -3,6 +3,7 @@
 var barSignIn = document.getElementById('barSignIn');
 var barSignUp = document.getElementById('barSignUp');
 var barDash = document.getElementById('barDash');
+var contactBtn = document.getElementById('contact');
 
 addLoggedInHandler(function()
 {
@@ -15,5 +16,9 @@ addLoggedInHandler(function()
 });
 
 addNotLoggedInHandler(function(){
-  
+
 });
+
+contactBtn.addEventListener('click', function() {
+  window.location = 'contact';
+})
