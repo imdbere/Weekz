@@ -9,6 +9,10 @@ addLoggedInHandler(function() {
   barSignUp.style.display = "none";
 });
 
+addNotLoggedInHandler(function(){
+
+});
+
 var sendBtn = document.getElementById('submit');
 
 sendBtn.addEventListener('click', function() {
