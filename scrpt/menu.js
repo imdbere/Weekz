@@ -81,6 +81,7 @@ function linkMenuEventListener() {
   // Sign User Out
   signOut.addEventListener('click', function () {
     firebase.auth().signOut();
+    window.location = "signin";
   });
 }
 

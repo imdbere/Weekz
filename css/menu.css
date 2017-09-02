@@ -88,6 +88,19 @@ div.menu div.content a {
   margin: 15px 0px 0px 40px;
 }
 
+div.menu div.content a img {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  vertical-align: top;
+  margin-top: -4px;
+  margin-right: 10px;
+}
+
+a#settingsLink {
+  margin-top: 30px;
+}
+
 div.menu div.content a:first-of-type {margin-top: 60px}
 
 div.menu button.menuBtn {

@@ -203,37 +203,32 @@ button#nameButton {background: #FF5052}
 button#passButton {background: #9013FE}
 button#mailButton {background: #3FA8F4}
 
-/* ----- Name -----*/
+/* ----- Navigation -----*/
 
-div.changeName {
-  position: relative;
-  display: inline-block;
-  width: 33%;
-  background: none;
-  height: 100%;
-}
-
-div.changeName h1 {
+div.nav {
   position: absolute;
   display: block;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 35px;
-  width: 70%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 70px;
+  float: left;
+  height: 100%;
+  width: 25%;
+  border-right: 1px dashed #CECECE;
+}
+
+div.nav h1 {
+  position: relative;
+  display: block;
+  margin: 60px 0px 0px 35px;
 }
 
 div.personal {
-  position: absolute;
+  position: relative;
   display: block;
   width: 70%;
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 125px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 div.personal h3 {
@@ -252,25 +247,78 @@ div.personal p {
   font-size: 16px;
 }
 
-/* ----- Password -----*/
+div.options {
+  position: relative;
+  display: block;
+  float: right;
+  height: 100%;
+  width: 75%;
+}
+
+div.nav button {
+  position: relative;
+  display: block;
+  width: calc(100% + 2px);
+  height: 80px;
+  border: none;
+  outline: none;
+  background: none;
+  border-right: 3px solid black;
+  margin-top: 2px;
+  left: 0;
+  right: -2px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  text-indent: 40px;
+  transition: 0.3s;
+}
+
+div.nav button span {
+  font-weight: 700;
+}
+
+div.nav button:hover {
+  background: #FAFAFA !important;
+}
+
+button#changeName {border-color: #FF5052; background: #FAFAFA}
+button#changePass {border-color: #9013FE}
+button#changeMail {border-color: #3FA8F4}
+
+/* ----- Name ----- */
+
+div.changeName {
+  position: relative;
+  display: block;
+  width: 45%;
+  background: none;
+  height: 100%;
+  margin: auto;
+}
+
+/* ----- Password ----- */
 
 div.changePass {
   position: relative;
-  display: inline-block;
-  width: 33%;
+  display: none;
+  width: 45%;
   background: none;
   height: 100%;
   vertical-align: top;
+  margin: auto;
 }
 
 /* ----- Email -----*/
 
 div.changeMail {
   position: relative;
-  display: inline-block;
-  width: 33%;
+  display: none;
+  width: 45%;
   background: none;
   height: 100%;
+  margin: auto;
   vertical-align: top;
 }
 
@@ -350,6 +398,53 @@ div.changeMail {
     height: auto;
     margin-top: 0px;
     margin-bottom: 0px;
+    overflow: auto;
+  }
+
+  div.nav {
+    position: relative;
+    display: block;
+    float: none;
+    width: 100%;
+    margin-bottom: 40px;
+    border: none;
+  }
+
+  div.nav h1 {
+    margin-top: 20px;
+  }
+
+  div.nav button {
+    height: 40px;
+    width: 100%;
+    border-right-width: 5px;
+  }
+
+  div.nav button:last-of-type::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: #CECECE;
+    margin: auto;
+    top: 25px;
+  }
+
+  div.personal {
+    display: block;
+    width: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  div.options {
+    display: block;
+    float: none;
+    width: 100%;
   }
 
   div.content {
@@ -431,60 +526,29 @@ div.changeMail {
   /* ----- Name -----*/
 
   div.changeName {
-    position: relative;
-    display: inline-block;
     width: 100%;
     background: none;
     height: 100%;
   }
 
-  div.changeName h1 {
-    position: absolute;
-    display: block;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-size: 26px;
-    width: 80%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 30px;
-  }
-
   div.changeName div.content {
-    margin-top: 150px;
-  }
-
-  div.personal {
-    position: absolute;
-    display: block;
-    width: 75%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 80px;
+    margin-top: 0px;
   }
 
   /* ----- Password -----*/
 
   div.changePass {
-    position: relative;
-    display: inline-block;
     width: 100%;
     background: none;
     height: 100%;
-    vertical-align: top;
   }
 
   /* ----- Email -----*/
 
   div.changeMail {
-    position: relative;
-    display: inline-block;
     width: 100%;
     background: none;
     height: 100%;
-    vertical-align: top;
   }
 
 }
