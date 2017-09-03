@@ -29,7 +29,7 @@ div.bubble div.hideScroll {
 
 div.feedback {
   position: fixed;
-  display: block;
+  display: none;
   bottom: 30px;
   right: 30px;
   width: 50px;
@@ -355,8 +355,7 @@ div.day {
   overflow: hidden;
 }
 
-div.day.dragover
-{
+div.day.dragover {
   border-color: #39BAFC;
   border-width: 4px;
   border-style: solid;
@@ -768,8 +767,7 @@ button#moveLast div.triangle {
   transform: translate(35%,-50%);
 }
 
-.noPointer
-{
+.noPointer {
   pointer-events: none;
 }
 
@@ -809,6 +807,68 @@ button#moveSat:hover {color: #662D90}
 
 .toggle {
   color: #9FAAB7;
+}
+
+/* ----- Sunday - Hustle Mode -----*/
+
+.sunday {
+  position: absolute;
+  display: none;
+  height: 55px;
+  width: 55px;
+  bottom: 0;
+  right: 0;
+  background: #F1F1F1;
+  transition: 0.5s;
+}
+
+div.sunday h1 {
+  margin: 8px 0px 0px 18px;
+  color: #444 !important;
+  cursor: pointer;
+}
+
+div.sunday h2 {
+  top: 25px;
+  display: none;
+}
+
+div.sunday button#sunAdd {
+  position: absolute;
+  display: none;
+  top: 18px;
+  background: #444;
+  transition: 0.5s ease-in-out;
+}
+
+div.sunday button#closeSunday {
+  position: absolute;
+  display: none;
+  width: 55px;
+  height: 55px;
+  bottom: 0;
+  right: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+div.sunday:hover button#sunAdd {
+  display: block;
+  opacity: 1;
+}
+
+button#closeSunday img {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 60%;
+  top: 15%;
+  left: 15%;
+}
+
+div.sunday#sunDiv:hover button#sunAdd {
+  display: none;
 }
 
 /* ----- Task Detail View -----*/

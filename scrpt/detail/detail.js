@@ -54,7 +54,7 @@ function updateProjectProgess(taskCount, tasksDone)
 {
   tasksCompletedText.innerText = tasksDone;
   tasksOutstandingText.innerText = taskCount - tasksDone;
-  
+
   var percentage;
   if (taskCount > 0)
     percentage = Math.floor(tasksDone * 100 / taskCount);
@@ -96,7 +96,11 @@ function generateProjectTask(name, desc, check, color, id) {
   li.appendChild(p);
   li.appendChild(input);
 
-  taskList.appendChild(li);
+  if (check == true) {
+    taskList.appendChild(li);
+  } else {
+    taskList.insertBefore(li, taskList.firstChild)
+  }
 }
 
 function removeTask (taskId)
@@ -117,7 +121,7 @@ function toggleTaskDone() {
 
     taskText.classList.toggle('toggle');
     var update = dataRefTasks.child(task.id).update({checked: newCheckState});
-    
+
     if (newCheckState)
       tasksCompleted++;
     else
@@ -146,7 +150,7 @@ function dragStopped(ev)
 
   this.style.opacity = "1";
 }
-function elementDropped(ev) 
+function elementDropped(ev)
 {
   var taskId = ev.dataTransfer.getData("text");
   removeTask (taskId)

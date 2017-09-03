@@ -11,28 +11,48 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.weekz.cloud/signup.html</loc>
+  <loc>https://www.weekz.cloud/signup</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.weekz.cloud/signin.html</loc>
+  <loc>https://www.weekz.cloud/signin</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.weekz.cloud/wall.html</loc>
+  <loc>https://www.weekz.cloud/dashboard</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.weekz.cloud/index.html</loc>
+  <loc>https://www.weekz.cloud/wall</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.weekz.cloud/forgot.html</loc>
+  <loc>https://www.weekz.cloud/contact</loc>
   <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/index</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/forgot</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/projects</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.weekz.cloud/detail</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
 </url>
 </urlset>

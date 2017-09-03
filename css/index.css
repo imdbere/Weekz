@@ -1,6 +1,7 @@
 body {
   margin: 0;
   min-width: 1250px;
+  overflow-x: hidden;
 }
 
 /* ----- Bar -----*/
@@ -63,11 +64,57 @@ div.background {
   display: block;
   width: 100vw;
   min-width: 1250px;
-  height: 40vh;
+  height: calc(100% - 530px);
   min-height: 350px;
   background: url(../res/image.jpeg);
   background-size: cover;
   background-position: center;
+}
+
+/* ----- Contact -----*/
+
+div.contact {
+  position: fixed;
+  display: block;
+  bottom: 30px;
+  right: 50px;
+  z-index: 5000;
+  background: #F1F1F1;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px #868686;
+}
+
+div.contact div.icon {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 55px;
+  height: 55px;
+  background: #9013FE;
+  border-radius: 10px;
+}
+
+div.icon img {
+  width: 80%;
+  height: 80%;
+  margin: 10% 0px 0px 10%;
+}
+
+div.contact p {
+  position: relative;
+  display: none;
+  opacity: 0;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 18px;
+  margin: 16px 20px 0px 20px;
+  transition: 0.5s;
+}
+
+div.contact:hover p {
+  display: inline-block;
+  opacity: 1;
 }
 
 /* ----- Content -----*/
@@ -149,7 +196,7 @@ div.text a:hover {background: #FF2727}
 div.box img.landingImg {
   position: absolute;
   display: inline-block;
-  height: 550px;
+  height: 95%;
   left: 45vw;
   vertical-align: top;
 }
@@ -172,6 +219,19 @@ div.text2 {
   float: left;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+div.text2 img.icon {
+  position: relative;
+  display: block;
+  width: 50px;
+  float: none;
+  right: auto;
+  left: auto;
+  box-shadow: none;
+  top: 0;
+  transform: translate(0,0);
+  margin: 0px 0px 10px -2px;
 }
 
 div.text2 h1 {
@@ -200,9 +260,12 @@ div.text2 p {
 div.feature img {
   position: relative;
   display: inline-block;
-  height: 500px;
+  height: 70%;
   float: right;
   right: 8vw;
+  top: 50%;
+  transform: translate(0, -50%);
+  box-shadow: 0px 0px 10px #CECECE;
 }
 
 /* ----- Feature 2 -----*/
@@ -212,24 +275,38 @@ div.feature2 {
   display: block;
   top: 475px;
   height: 600px;
-  background: #333333;
+  background: #F1F1F1;
   overflow: hidden;
 }
 
-div.feature2 h1 {color: white}
-div.feature2 p {color: white}
-
-div.feature2 h1 span:first-of-type {color: #FAAF3B}
+div.feature2 h1 span:first-of-type {color: #9013FE}
 div.feature2 h1 span:last-of-type {color: #D8DF21}
 
 div.feature2 img {
   position: absolute;
   display: inline-block;
-  width: 820px;
+  width: 850px;
   float: right;
   top: 50%;
   transform: translate(0, -50%);
   left: 55vw;
+  box-shadow: 0px 0px 10px #CECECE;
+}
+
+div.feature2 a {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  width: 160px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  padding: 12px 0px 12px 0px;
+  background: #9013FE;
+  border-radius: 15px;
 }
 
 /* ----- Beta -----*/
@@ -239,11 +316,11 @@ div.beta {
   display: block;
   top: 475px;
   height: 600px;
-  background: #F1F1F1;
+  background: #DDDDDD;
   overflow: hidden;
 }
 
-div.beta h1 span {color: #7AC843}
+div.beta h1 span {color: #FA9134}
 
 div.betaLink {
   position: relative;
@@ -264,7 +341,7 @@ div.container {
   transform: translate(0, -50%);
   margin: auto;
   background: white;
-  box-shadow: 0px 0px 8px #B4B4B4;
+  box-shadow: 0px 0px 8px #CECECE;
   overflow: hidden;
 }
 
@@ -299,22 +376,22 @@ div.container p {
 div.container a {
   position: relative;
   display: block;
-  width: 150px;
+  width: 140px;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 25px;
   text-align: center;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 20px;
-  background: #7AC843;
+  background: #FA9134;
   text-decoration: none;
   border-radius: 15px;
   color: white;
-  padding: 15px 0px 15px 0px;
+  padding: 10px 0px 10px 0px;
   transition: 0.3s;
 }
 
-div.container a:hover {background: #75AA4D}
+div.container a:hover {opacity: 0.8}
 
 /* ----- Wallpaper -----*/
 
@@ -334,9 +411,9 @@ div.wallpaper div.wrapper {
   display: block;
   width: 400px;
   height: auto;
-  margin: auto;
+  margin-left: 10vw;
   padding: 50px 0px 50px 0px;
-  background: white;
+  background: none;
   top: 50%;
   transform: translate(0,-50%);
 }
@@ -348,6 +425,7 @@ div.wrapper h1 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 25px;
+  color: white;
 }
 
 div.wrapper h1 span {font-weight: 700}
@@ -355,18 +433,17 @@ div.wrapper h1 span {font-weight: 700}
 div.wrapper a {
   position: relative;
   display: block;
-  width: 60%;
-  margin: auto;
-  margin-top: 40px;
-  text-align: center;
-  text-decoration: none;
-  padding: 12px 0px 12px 0px;
-  border: none;
-  background: #FF514C;
+  width: 150px;
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 20px;
+  text-decoration: none;
   color: white;
+  padding: 15px 0px 15px 0px;
+  background: #FF514C;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
   transition: 0.3s;
 }
 
@@ -430,17 +507,25 @@ div.right {
 div.right a {
   position: relative;
   display: block;
-  font-family: 'Montserrat';
+  font-family: 'Roboto';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   color: white;
-  margin-top: 10px;
+  margin-top: 8px;
+}
+
+div.right a:last-of-type {
+  background: #9013FE;
+  width: 120px;
+  text-align: center;padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin-top: 30px;
 }
 
 /* ----------------- MOBILE -----------------*/
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 736px) {
 
   body {
     min-width: 0px;
@@ -481,7 +566,27 @@ div.right a {
     min-width: 0px;
     min-height: 0px;
     width: 100vw;
-    height: 200px;
+    height: 250px;
+  }
+
+  /* ----- Contact -----*/
+
+  div.contact {
+    bottom: 30px;
+    right: 10px;
+    z-index: 5000;
+    background: #F1F1F1;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  div.contact div.icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  div.contact:hover p {
+    display: none;
   }
 
 /* ----- Content -----*/
@@ -490,7 +595,8 @@ div.right a {
     min-width: 0px;
     min-height: 0px;
     width: 100vw;
-    height: 400px;
+    height: 300px;
+    text-align: center;
   }
 
 /* ----- Landing -----*/
@@ -498,7 +604,7 @@ div.right a {
   div.box {
     min-width: 0px;
     min-height: 0px;
-    width: 85%;
+    width: 90%;
     height: 110%;
   }
 
@@ -512,16 +618,19 @@ div.right a {
 
   div.text img {
     width: 70px;
-    margin-left: 0px;
+    margin: auto;
   }
 
   div.text h1 {
     margin-left: 0px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 1.6em
   }
 
   div.text a {
     margin-left: 0px;
+    margin: auto;
   }
 
   div.box img.landingImg {
@@ -533,7 +642,7 @@ div.right a {
   div.feature {
     min-width: 0px;
     width: 100vw;
-    top: 400px;
+    top: 300px;
     height: auto;
   }
 
@@ -545,6 +654,11 @@ div.right a {
     margin-top: 40px;
   }
 
+  div.text2 img.icon {
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
   div.text2 h1 {
     width: 80%;
     font-size: 1.5em;
@@ -553,7 +667,7 @@ div.right a {
 
   div.text2 p {
     width: 85%;
-    font-size: 1em;
+    font-size: 1.1em;
     height: auto;
   }
 
@@ -562,7 +676,10 @@ div.right a {
     display: block;
     width: 80%;
     height: auto;
-    margin-top: -20px;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    top: 0;
+    transform: translate(0, 0)
   }
 
 /* ----- Feature 2 -----*/
@@ -570,7 +687,7 @@ div.right a {
   div.feature2 {
     min-width: 0px;
     width: 100vw;
-    top: 400px;
+    top: 300px;
     height: auto;
   }
 
@@ -590,12 +707,29 @@ div.right a {
     margin-bottom: 30px;
   }
 
+  div.feature2 a {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 150px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 0.85em;
+    text-decoration: none;
+    color: white;
+    padding: 12px 0px 12px 0px;
+    background: #9013FE;
+    border-radius: 15px;
+  }
+
 /* ----- Beta -----*/
 
   div.beta {
     min-width: 0px;
     width: 100vw;
-    top: 400px;
+    top: 300px;
     height: auto;
   }
 
@@ -622,7 +756,8 @@ div.right a {
     margin-left: 0;
     top: 0px;
     transform: translate(0, 0);
-    width: 60%;
+    width: 50%;
+    max-width: 200px;
     margin: auto;
     height: 80%;
     margin-top: 30px;
@@ -631,7 +766,15 @@ div.right a {
 
   div.container img {
     margin-top: 20px;
-    width: 70px;
+    width: 50px;
+  }
+
+  div.container h1 {
+    font-size: 1.5em;
+  }
+
+  div.container p {
+    font-size: 1.1em;
   }
 
   div.container a {
@@ -647,8 +790,8 @@ div.wallpaper {
   position: relative;
   display: block;
   width: 100%;
-  top: 400px;
-  height: 500px;
+  top: 300px;
+  height: 300px;
 }
 
 div.wallpaper div.wrapper {
@@ -660,7 +803,7 @@ div.wrapper h1 {
 }
 
 div.wrapper a {
-  font-size: 18px;
+  font-size: 1em;
 }
 
 /* ----- Footer -----*/
@@ -668,7 +811,7 @@ div.wrapper a {
   div.footer {
     min-width: 0px;
     width: 100vw;
-    top: 400px;
+    top: 300px;
     height: auto;
     overflow: hidden;
   }

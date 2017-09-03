@@ -127,3 +127,428 @@ div.dash {
   box-shadow: 0px 0px 8px #B4B4B4;
   margin-bottom: 35px;
 }
+
+div.content {
+  position: relative;
+  display: block;
+  width: 70%;
+  top: 50%;
+  margin: auto;
+  transform: translate(0, -50%);
+}
+
+div.content h2 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 22px;
+}
+
+div.content p {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+div.content h3 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+div.content input {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-indent: 20px;
+  border: none;
+  outline: none;
+  background: #F1F1F1;
+  margin-top: 5px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 18px;
+}
+
+div.content button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: #F1F1F1;
+  margin-top: 40px;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+div.content button:hover {
+  opacity: 0.8;
+}
+
+button#nameButton {background: #FF5052}
+button#passButton {background: #9013FE}
+button#mailButton {background: #3FA8F4}
+
+/* ----- Navigation -----*/
+
+div.nav {
+  position: absolute;
+  display: block;
+  float: left;
+  height: 100%;
+  width: 25%;
+  border-right: 1px dashed #CECECE;
+}
+
+div.nav h1 {
+  position: relative;
+  display: block;
+  margin: 60px 0px 0px 35px;
+}
+
+div.personal {
+  position: relative;
+  display: block;
+  width: 70%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+div.personal h3 {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+}
+
+div.personal p {
+  position: relative;
+  display: block;
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+}
+
+div.options {
+  position: relative;
+  display: block;
+  float: right;
+  height: 100%;
+  width: 75%;
+}
+
+div.nav button {
+  position: relative;
+  display: block;
+  width: calc(100% + 2px);
+  height: 80px;
+  border: none;
+  outline: none;
+  background: none;
+  border-right: 3px solid black;
+  margin-top: 2px;
+  left: 0;
+  right: -2px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  text-indent: 40px;
+  transition: 0.3s;
+}
+
+div.nav button span {
+  font-weight: 700;
+}
+
+div.nav button:hover {
+  background: #FAFAFA !important;
+}
+
+button#changeName {border-color: #FF5052; background: #FAFAFA}
+button#changePass {border-color: #9013FE}
+button#changeMail {border-color: #3FA8F4}
+
+/* ----- Name ----- */
+
+div.changeName {
+  position: relative;
+  display: block;
+  width: 45%;
+  background: none;
+  height: 100%;
+  margin: auto;
+}
+
+/* ----- Password ----- */
+
+div.changePass {
+  position: relative;
+  display: none;
+  width: 45%;
+  background: none;
+  height: 100%;
+  vertical-align: top;
+  margin: auto;
+}
+
+/* ----- Email -----*/
+
+div.changeMail {
+  position: relative;
+  display: none;
+  width: 45%;
+  background: none;
+  height: 100%;
+  margin: auto;
+  vertical-align: top;
+}
+
+/* ----------------- MOBILE -----------------*/
+
+@media screen and (max-width: 736px) {
+
+  body {
+    min-width: 0px;
+    min-height: 0px;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  ::-webkit-scrollbar { display: none }
+
+/* ----- Bar -----*/
+
+  div.bar {
+    min-width: 0px;
+    min-height: 0px;
+    width: 100vw;
+  }
+
+  div.bar img {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 30px;
+  }
+
+  div.bar button {
+    height: 15px;
+    width: 30px;
+  }
+
+/* ----- Heading -----*/
+
+  div.heading {
+    min-width: 0px;
+    width: 100vw;
+    height: 60px;
+    z-index: 100;
+  }
+
+  div.heading a {
+    width: 40px;
+    height: 40px;
+    border-radius: 65px;
+  }
+
+  div.heading a#back {
+    margin-left: 20px;
+  }
+
+  a#back div.triangle {
+    display: block;
+    top: 12px;
+    right: 16px;
+  }
+
+  div.heading a#dashboard {
+    display: none;
+  }
+
+  div.heading a p {display: none}
+
+  div.heading h1 {
+    font-size: 1.3em;
+  }
+
+  /* ----- Dash -----*/
+
+  div.dash {
+    min-width: 0px;
+    width: 95%;
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    overflow: auto;
+  }
+
+  div.nav {
+    position: relative;
+    display: block;
+    float: none;
+    width: 100%;
+    margin-bottom: 40px;
+    border: none;
+  }
+
+  div.nav h1 {
+    margin-top: 20px;
+  }
+
+  div.nav button {
+    height: 40px;
+    width: 100%;
+    border-right-width: 5px;
+  }
+
+  div.nav button:last-of-type::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: #CECECE;
+    margin: auto;
+    top: 25px;
+  }
+
+  div.personal {
+    display: block;
+    width: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  div.options {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+
+  div.content {
+    position: relative;
+    display: block;
+    width: 75%;
+    top: 0;
+    margin: auto;
+    transform: translate(0, 0);
+  }
+
+  div.content h2 {
+    position: relative;
+    display: block;
+    font-family: 'Roboto';
+    font-weight: 700px;
+    font-size: 20px;
+  }
+
+  div.content p {
+    position: relative;
+    display: block;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 5px;
+  }
+
+  div.content h3 {
+    position: relative;
+    display: block;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  div.content input {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 45px;
+    text-indent: 20px;
+    border: none;
+    outline: none;
+    background: #F1F1F1;
+    margin-top: 5px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  div.content button {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: #F1F1F1;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  div.content button:hover {
+    opacity: 0.8;
+  }
+
+  button#nameButton {background: #FF5052}
+  button#passButton {background: #9013FE}
+  button#mailButton {background: #3FA8F4}
+
+  /* ----- Name -----*/
+
+  div.changeName {
+    width: 100%;
+    background: none;
+    height: 100%;
+  }
+
+  div.changeName div.content {
+    margin-top: 0px;
+  }
+
+  /* ----- Password -----*/
+
+  div.changePass {
+    width: 100%;
+    background: none;
+    height: 100%;
+  }
+
+  /* ----- Email -----*/
+
+  div.changeMail {
+    width: 100%;
+    background: none;
+    height: 100%;
+  }
+
+}

@@ -29,7 +29,11 @@ function loadAndAddTasks(week) {
           {
              var li = generateTask(data.taskName, data.taskDesc, data.checked, 'noProject');
              li.id = task;
-             rightList.appendChild(li);
+             if (data.checked == true) {
+               rightList.appendChild(li);
+             } else {
+               rightList.insertBefore(li, rightList.firstChild)
+             }
           }
           else
           {
@@ -39,7 +43,11 @@ function loadAndAddTasks(week) {
               var title = projectInfo.val().projectTitle;
               var li = generateTask(data.taskName, data.taskDesc, data.checked, data.project, color, title);
               li.id = task;
-              rightList.appendChild(li);
+              if (data.checked == true) {
+                rightList.appendChild(li);
+              } else {
+                rightList.insertBefore(li, rightList.firstChild)
+              }
             });
           }
         });
@@ -53,7 +61,7 @@ function loadAndAddTasks(week) {
 function loadAndAppendSingleTask(taskID, rightList) {
   dataRefTasks.child(taskID).once('value').then(function (snap) {
     var data = snap.val();
-    
+
     if (data.project == 'noProject') {
       var li = generateTask(data.taskName, data.taskDesc, data.checked, 'noProject');
       li.id = taskID;
