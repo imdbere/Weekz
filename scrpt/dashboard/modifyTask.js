@@ -105,9 +105,10 @@ function toggleContext() {
 function toggleTaskDone() {
     var task = this.parentNode;
     var thisList = task.parentNode;
+    console.log(thisList);
     var id = task.id;
-    var taskText = task.getElementsByClassName('taskText')[0];
-    console.log(dataRefTasks);
+    var taskText = task.getElementsByTagName('p')[0];
+    console.log(taskText);
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;
     taskText.classList.toggle('toggle');
@@ -120,7 +121,6 @@ function removeTask() {
     var task = this.parentNode.parentNode;
     var id = task.id;
     var projectId = task.projectId;
-    console.log(projectId);
     var list = task.parentNode;
     var listId = list.id;
 
@@ -128,13 +128,15 @@ function removeTask() {
     {
         listId = "bubbleList";
         id = this.parentNode.id;
-        list = task;
         task = this.parentNode;
+        list = task.parentNode;
     }
 
     dataRefTasks.child(id).remove();
     dataRefSelectedWeek.child(listId).child(id).remove();
-    dataRefProject.child(projectId).child('tasks').child(id).remove();
+    if (projectId != undefined) {
+      dataRefProject.child(projectId).child('tasks').child(id).remove();
+    }
     list.removeChild(task);
 }
 
@@ -159,4 +161,3 @@ function addRedirect() {
   var project = this.parentNode.htmlFor;
   window.location.href = 'detail' + '#' + project;
 }
-

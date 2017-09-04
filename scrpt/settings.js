@@ -22,6 +22,9 @@ var emailPass = document.getElementById('currentPassMail');
 var newMail1 = document.getElementById('newMail1');
 var newMail2 = document.getElementById('newMail2');
 
+var userName = document.getElementById('navName');
+var userEmail = document.getElementById('navEmail');
+
 var dataRef;
 var user;
 
@@ -51,6 +54,8 @@ addLoggedInHandler(function()
     dataRef = firebase.database().ref().child('users').child(userId);
     user = firebase.auth().currentUser;
 
+    getUserInfo();
+
 });
 
 addNotLoggedInHandler(function() {
@@ -58,6 +63,10 @@ addNotLoggedInHandler(function() {
 });
 
 function getUserInfo() {
+
+    NProgress.start();
+    NProgress.configure({ minimum: 0.1 });
+
     // Getting User Info
     dataRef.child('info').once('value').then(function (snapshot) {
         var first = snapshot.val().firstname;
@@ -65,6 +74,10 @@ function getUserInfo() {
         var mail = snapshot.val().email;
         //Insert html-specific code
 
+        navName.innerText = first + ' ' + last;
+        navEmail.innerText = mail;
+    }).then(function() {
+      NProgress.done();
     });
 }
 
