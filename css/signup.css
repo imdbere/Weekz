@@ -1,36 +1,13 @@
 body {
-  margin: 0;
   min-width: 1000px;
   height: auto !important;
-  overflow-x: hidden;
 }
 
 /* ----- Bar -----*/
 
-div.bar {
-  position: fixed;
-  display: block;
-  overflow: hidden;
-  width: 100vw;
-  min-width: 1250px;
-  height: 60px;
-  box-shadow: 0px 0px 10px #B4B4B4;
-  z-index: 5000;
-  background: white;
-  top: 0;
-}
-
-div.bar img {
-  position: relative;
-  display: inline-block;
-  float: left;
-  width: 40px;
-  margin: 10px 0px 10px 30px;
-}
 
 div.bar a.link {
   position: relative;
-  display: inline-block;
   float: right;
   margin: 15px 60px 15px 0px;
   padding: 5px 20px 5px 20px;
@@ -97,7 +74,6 @@ div.signup {
 
 div.signup div.left {
   position: relative;
-  display: inline-block;
   width: 50%;
   float: left;
   margin-top: 30px;
@@ -106,7 +82,6 @@ div.signup div.left {
 
 div.signup div.right {
   position: relative;
-  display: inline-block;
   width: 50%;
   float: right;
   margin-top: 30px;

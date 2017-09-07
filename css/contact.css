@@ -1,31 +1,4 @@
-body {
-  margin: 0;
-  min-width: 1250px;
-  overflow-x: hidden;
-}
-
 /* ----- Bar -----*/
-
-div.bar {
-  position: fixed;
-  display: block;
-  overflow: hidden;
-  width: 100vw;
-  min-width: 1250px;
-  height: 60px;
-  box-shadow: 0px 0px 10px #B4B4B4;
-  z-index: 5000;
-  background: white;
-  top: 0;
-}
-
-div.bar img {
-  position: relative;
-  display: inline-block;
-  float: left;
-  width: 40px;
-  margin: 10px 0px 10px 30px;
-}
 
 div.bar a.link:nth-of-type(2) {
   margin: 15px 60px 15px 0px;
@@ -38,7 +11,6 @@ div.bar a.link:nth-of-type(2) {
 div.bar a.link {
   display: none;
   position: relative;
-  display: inline-block;
   float: right;
   margin: 20px 40px 20px 10px;
   font-family: 'Montserrat';
@@ -290,3 +262,4 @@ form button {
     top: 15%;
     transform: translate(0,0);
   }
+}

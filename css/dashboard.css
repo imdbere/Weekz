@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  min-width: 1250px;
-  background: #F1F1F1;
-  overflow-y: hidden;
-}
 
 div.hideScroll {
   position: absolute;
@@ -147,75 +141,7 @@ button#openFb {
   font-size: 12px;
 }
 
-/* ----- Bar -----*/
-
-div.bar {
-  position: fixed;
-  display: block;
-  overflow: hidden;
-  width: 100vw;
-  min-width: 1250px;
-  height: calc(40px + 1vh);
-  background: white;
-  box-shadow: 0px 0px 10px #B4B4B4;
-  z-index: 2000;
-  top: 0;
-}
-
-div.bar img {
-  position: relative;
-  display: inline-block;
-  float: left;
-  width: 35px;
-  margin-left: 30px;
-  top: 50%;
-  transform: translate(0,-50%);
-}
-
-div.bar button {
-  position: relative;
-  display: inline-block;
-  float: right;
-  height: 15px;
-  width: 30px;
-  background: url(../res/menuIcon.png);
-  background-size: cover;
-  border: none;
-  top: 50%;
-  transform: translate(0,-50%);
-  outline: none;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
 /* ----- Heading -----*/
-
-div.heading {
-  position: relative;
-  display: block;
-  width: 100vw;
-  margin-top: calc(40px + 1vh);
-  min-width: 1250px;
-  height: calc(50px + 2vh);
-  z-index: 100;
-}
-
-div.heading button {
-  position: relative;
-  display: inline-block;
-  width: 150px;
-  height: 30px;
-  border: none;
-  border-radius: 15px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 14px;
-  color: white;
-  top: 50%;
-  transform: translate(0,-50%);
-  outline: none;
-  cursor: pointer;
-}
 
 div.heading button p {
   position: relative;
@@ -319,7 +245,6 @@ div.mobileBubble {
 
 div.mobileBubble p {
   position: absolute;
-  display: inline-block;
   float: left;
   left: 20px;
   top: 50%;
@@ -334,7 +259,6 @@ div.mobileBubble p span {font-weight: 700}
 
 div.mobileBubble img {
   position: absolute;
-  display: inline-block;
   float: right;
   height: 25px;
   top: 12.5px;
@@ -342,20 +266,6 @@ div.mobileBubble img {
 }
 
 /* ----- Dash -----*/
-
-div.dash {
-  position: relative;
-  display: block;
-  width: 95vw;
-  min-width: 1200px;
-  max-width: 1500px;
-  height: 80vh;
-  min-height: 450px;
-  margin: auto;
-  background: white;
-  box-shadow: 0px 0px 8px #B4B4B4;
-  margin-bottom: 35px;
-}
 
 div.day {
   position: relative;
@@ -487,7 +397,6 @@ div.day ul {
 
 .task input {
   position: relative;
-  display: inline-block;
   vertical-align: text-top;
   width: 25px;
   height: 25px;
@@ -564,7 +473,6 @@ div.taskProject::before {
 
 .task button#context {
   position: relative;
-  display: inline-block;
   opacity: 0;
   float: right;
   width: 25px;
@@ -591,7 +499,6 @@ div.contextMenu {
 
 .toDoDelete {
   position: relative;
-  display: inline-block;
   opacity: 1;
   float: right;
   width: 25px;
@@ -627,7 +534,6 @@ div.contextMenu img {
 
 .task button#deleteNew {
   position: relative;
-  display: inline-block;
   opacity: 1;
   float: right;
   width: 33%;
@@ -642,7 +548,6 @@ div.contextMenu img {
 
 .task button#move {
   position: relative;
-  display: inline-block;
   opacity: 1;
   float: right;
   width: 33%;
@@ -657,7 +562,6 @@ div.contextMenu img {
 
 .task button#edit {
   position: relative;
-  display: inline-block;
   opacity: 1;
   float: right;
   width: 33%;
@@ -1046,15 +950,8 @@ div.bubbleBack {
 
 /* ----- Bar -----*/
 
-  div.bar {
-    min-width: 0px;
-    min-height: 0px;
-    width: 100vw;
-  }
-
   div.bar img {
     position: relative;
-    display: inline-block;
     float: left;
     width: 30px;
   }
@@ -1068,7 +965,6 @@ div.bubbleBack {
 
   div.heading {
     min-width: 0px;
-    width: 100vw;
     height: 60px;
     z-index: 100;
   }
@@ -1253,7 +1149,6 @@ div.bubbleBack {
 
   .task button#context {
     position: relative;
-    display: inline-block;
     opacity: 1;
     float: right;
     width: 20px;
@@ -1421,68 +1316,6 @@ div.bubbleBack {
     font-size: 0.8em;
     padding-left: 10px;
     padding-right: 0px;
-  }
-
-  /* ----- Menu -----*/
-
-  div.menu {
-    position: fixed;
-    display: block;
-    opacity: 0;
-    min-width: 0px;
-    width: 100vw;
-    height: 100%;
-    min-height: 0px;
-    z-index: -1000;
-  }
-
-  .width {
-    width: 100%;
-  }
-
-  div.menu div.content {
-    position: relative;
-    display: block;
-    float: right;
-    width: 100%;
-    height: 100%;
-  }
-
-  div.menu button#closeMenuBtn {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    margin: 30px 0px 0px 30px;
-    font-size: 20px;
-  }
-
-  div.menu div.content h1 {
-    font-size: 1.8em;
-    text-align: center;
-    margin-top: 80px;
-    margin-left: 0px;
-  }
-
-  div.menu div.content h2 {
-    font-size: 1.25em;
-    text-align: center;
-    margin-left: 0px;
-  }
-
-  div.menu div.content a {
-    font-size: 1.3em;
-    text-decoration: none;
-    color: black;
-    margin: 15px 0px 0px 50px;
-  }
-
-  div.menu div.content a:first-of-type {margin-top: 50px}
-
-  div.menu button.menuBtn {
-    width: 80%;
-    height: 50px;
-    border-radius: 0px;
-    font-size: 1.2em;
   }
 
   /* ----- Bubble -----*/
