@@ -54,6 +54,9 @@ var thuList = document.getElementById('thuList');
 var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
+Element.prototype.documentOffsetTop = function () {
+    return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+};
 
 addLoggedInHandler(function (user) {
 
@@ -69,7 +72,7 @@ addLoggedInHandler(function (user) {
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
     } 
-    
+    scrollToCurrentDay();
     changeWeek(initialWeekOffset);
 });
 
@@ -83,6 +86,8 @@ function changeWeek (offset)
     currentlySelectedWeek = currentWeek; //Experimental
     dataRefSelectedWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek.getWeekID());
     loadAndAddTasks(currentWeek);
+
+    //wedList.scrollIntoView();
 }
 
 function addGlobalEventListeners() {
@@ -202,3 +207,21 @@ function showDetail() {
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 };
+
+function scrollToCurrentDay()
+{
+    var date = new Date();
+    var day = date.getDay() - 1;
+    if (day == -1)
+        return;
+
+    var lists = [monList, tueList, wedList, thuList, friList, satList];
+    var dayList = lists[day];
+    scrollToElement(dayList);
+}
+
+function scrollToElement(elem)
+{
+    var top = elem.documentOffsetTop() - ( window.innerHeight / 2 );
+    window.scrollTo( 0, top );
+}
