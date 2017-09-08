@@ -21,8 +21,15 @@ addLoggedInHandler(function(){
     projectID = window.location.hash.substr(1);
     dataRefProject = firebase.database().ref().child('users').child(userId).child('projects');
     dataRefTasks = firebase.database().ref().child('users').child(userId).child('tasks');
-
-    recycleSVGDoc = recycleContainer.children[0].contentDocument;
+    try
+    {
+      recycleSVGDoc = recycleContainer.children[0].contentDocument;
+    }
+    catch (e)
+    {
+      console.log("cross-origin exception (are you running the page locally?)");
+    }
+    
     taskContainerDiv.ondragover = function(ev)
     {
       ev.preventDefault();
@@ -135,20 +142,20 @@ function dragStarted(ev)
 {
   this.style.opacity = "0.2";
  // recycleContainer.children[0].src = "res/removeRed.png";
+  ev.dataTransfer.setData("text", this.id);
 
   recycleSVGDoc.styleSheets[0].deleteRule(0);
   recycleSVGDoc.styleSheets[0].insertRule('.st0{fill: #FF5052;}', 0);
-
-  ev.dataTransfer.setData("text", this.id);
 }
 
 function dragStopped(ev)
 {
   //recycleContainer.children[0].src = "res/remove.png";
+  this.style.opacity = "1";
+  
   recycleSVGDoc.styleSheets[0].deleteRule(0);
   recycleSVGDoc.styleSheets[0].insertRule('.st0{fill: #EAEAEA;}', 0);
 
-  this.style.opacity = "1";
 }
 function elementDropped(ev)
 {

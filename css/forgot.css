@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   min-width: 800px;
 }
 
@@ -55,10 +54,11 @@ div.bar a:nth-of-type(2) {
 div.container {
   position: relative;
   display: block;
-  width: 100vw;
+  height: 100%;
+  /* width: 100vw;
   min-width: 1250px;
   height: calc(100% - 60px);
-  min-height: 350px;
+  min-height: 350px; */
   background: url(../res/forgotBack.jpeg);
   background-size: cover;
   background-position: center center;

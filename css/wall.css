@@ -1,49 +1,12 @@
 /* ----- Bar -----*/
 
-div.bar {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: 100vw;
-  min-width: 1250px;
-  height: 60px;
+div.bigbar {
   background: #4D4D4D;
   box-shadow: 0px 0px 30px #0A0A0A;
 }
-
-div.bar img {
-  position: relative;
-  float: left;
-  width: 40px;
-  margin: 10px 0px 10px 30px;
-}
-
-div.bar a {
-  background: none;
-}
-
-div.bar a:nth-of-type(2):hover {background: #FF2727}
-
-div.bar a.link {
-  position: relative;
-  float: right;
-  margin: 20px 40px 20px 10px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
+div.bigbar a.link {
   color: white;
-  transition: 0.3s;
 }
-
-div.bar a:nth-of-type(2) {
-  margin: 15px 60px 15px 0px;
-  background: #FF514C;
-  padding: 5px 20px 5px 20px;
-  border-radius: 15px;
-}
-
-
 /* ----- Content -----*/
 
 div.content {

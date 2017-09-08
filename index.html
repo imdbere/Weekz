@@ -10,8 +10,10 @@
     <link rel="icon" type="image/png" href="res/logoSmall.png">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    
     <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,10 +30,12 @@
   </head>
   <body>
     <div class="bigbar">
-      <img src="res/logoSmall.png" alt="Weekz Icon">
-      <a href="signup" id="barSignIn">SIGN UP</a>
-      <a href="signin" id="barSignUp">SIGN IN</a>
-      <a href="dashboard" id="barDash"><img src="res/dashboardWhite.png" alt=""><p>DASHBOARD</p></a>
+      <a href="index" class="home">
+        <img src="res/logoSmall.png" alt="Stay productive with Weekz">
+      </a>
+      <a class="link btn-border" href="signup" id="barSignUp">SIGN UP</a>
+      <a class="link" href="signin" id="barSignIn">SIGN IN</a>
+      <a href="dashboard" class="link" id="barDash"><img src="res/dashboardWhite.png" alt=""><p>DASHBOARD</p></a>
     </div>
 
     <div class="background"></div>
@@ -50,79 +54,79 @@
         </div>
         <img class="landingImg" src="res/landingImage.png" alt="Skyscraper City">
       </div>
-      <div class="feature">
-        <div class="text2">
-          <h1><img src="res/dashboard.png" alt="Organize your Tasks" class="icon">Plan your <span>Week</span>. Maximize your<br><span>Productivity</span>.</h1>
-          <br> <br>
-          <!-- <p>Planning a week before it starts is super efficient and helpful,
-            but most of all its comforting. You’ll have all your tasks
-            for the week in one place. No more need for messy
-            sticky notes or scribbling on a random piece of paper.
-            You don’t even have to think any more! You just log in
-            to Weekz and all your stuff is right there!</p> -->
-          <p>We all work to get things done. And there’s a lot of things
-             that make a productive day. One of those things is staying
-             organized and knowing what to do and when to do it.
-             Enter Weekz, your new tool to plan your week and keep
-             things organized. All your tasks in one, beautifully
-             designed place.</p>
-        </div>
-        <img src="res/feature1Img.png" alt="Easily create new tasks and distribute them among week days">
+    </div>
+    <div class="feature">
+      <div class="text2">
+        <h1><img src="res/dashboard.png" alt="Organize your Tasks" class="icon">Plan your <span>Week</span>. Maximize your<br><span>Productivity</span>.</h1>
+        <br> <br>
+        <!-- <p>Planning a week before it starts is super efficient and helpful,
+          but most of all its comforting. You’ll have all your tasks
+          for the week in one place. No more need for messy
+          sticky notes or scribbling on a random piece of paper.
+          You don’t even have to think any more! You just log in
+          to Weekz and all your stuff is right there!</p> -->
+        <p>We all work to get things done. And there’s a lot of things
+           that make a productive day. One of those things is staying
+           organized and knowing what to do and when to do it.
+           Enter Weekz, your new tool to plan your week and keep
+           things organized. All your tasks in one, beautifully
+           designed place.</p>
       </div>
-      <div class="feature2">
-        <div class="text2">
-          <h1><img src="res/projects.png" alt="Clean and simple interface" class="icon"><span>100%</span> clean interface. <br> <span>0%</span> distraction.</h1>
-          <br> <br>
-          <p>
-            The clean interface lets you focus 100% on what you want to do without any distraction, all while looking fantastic.
-            When it comes to organizing simplicity is key. After all, planning your activities should save you time not consume it, right?
-            Weekz was built on this philosophy and all it's features are aiming to make <span style="font-weight: 700">you</span> more productive.
-            <br>
-            <a href="#">LEARN MORE</a>
-          </p>
-        </div>
-        <img src="res/feature2Img.png" alt="Stay focused with the clean, easy to use and minimalistic interface">
+      <img src="res/feature1Img.png" alt="Easily create new tasks and distribute them among week days">
+    </div>
+    <div class="feature2">
+      <div class="text2">
+        <h1><img src="res/projects.png" alt="Clean and simple interface" class="icon"><span>100%</span> clean interface. <br> <span>0%</span> distraction.</h1>
+        <br> <br>
+        <p>
+          The clean interface lets you focus 100% on what you want to do without any distraction, all while looking fantastic.
+          When it comes to organizing simplicity is key. After all, planning your activities should save you time not consume it, right?
+          Weekz was built on this philosophy and all it's features are aiming to make <span style="font-weight: 700">you</span> more productive.
+          <br>
+          <a href="#">LEARN MORE</a>
+        </p>
       </div>
-      <div class="beta">
-        <div class="text2">
-          <h1><img src="res/identity.png" alt="Clean and simple interface" class="icon">Sign up for the <span>beta</span> now!</h1>
-          <br> <br>
-          <p>Be among the first ones to experience the simplicity
-            and efficiency of Weekz! Put the web app to the test,
-            try new features and report bugs or suggestions. Join us now and help develop and evolve Weekz into the productivity app we've all been looking for.
-            Sign up for the beta now
-            and start planning your week the right way!
-            Join the squad!</p>
-        </div>
-        <div class="betaLink">
-          <div class="container">
-            <img src="res/logoBig.png" alt="Join the beta and start hustling">
-            <h1>Beta</h1>
-            <p>Join Now!</p>
-            <a href="signup">SIGN UP</a>
-          </div>
-        </div>
+      <img src="res/feature2Img.png" alt="Stay focused with the clean, easy to use and minimalistic interface">
+    </div>
+    <div class="beta">
+      <div class="text2">
+        <h1><img src="res/identity.png" alt="Clean and simple interface" class="icon">Sign up for the <span>beta</span> now!</h1>
+        <br> <br>
+        <p>Be among the first ones to experience the simplicity
+          and efficiency of Weekz! Put the web app to the test,
+          try new features and report bugs or suggestions. Join us now and help develop and evolve Weekz into the productivity app we've all been looking for.
+          Sign up for the beta now
+          and start planning your week the right way!
+          Join the squad!</p>
       </div>
-      <div class="wallpaper">
-        <div class="wrapper">
-          <h1>Download our new <br><span>Productivity Wallpapers</span>!</h1>
-          <a href="wall ">TAKE A LOOK</a>
+      <div class="betaLink">
+        <div class="container">
+          <img src="res/logoBig.png" alt="Join the beta and start hustling">
+          <h1>Beta</h1>
+          <p>Join Now!</p>
+          <a href="signup">SIGN UP</a>
         </div>
       </div>
-      <div class="footer">
-        <div class="left">
-          <img src="res/logoBig.png" alt="Join now and get organized with Weekz">
-          <h1>Weekz</h1>
-          <p>Copyright © Weekz 2017 <br>
-            All rights reserved.</p>
-        </div>
-        <div class="right">
-          <a href="index">HOME</a>
-          <a href="signup">JOIN BETA</a>
-          <a href="signin">SIGN IN</a>
+    </div>
+    <div class="wallpaper">
+      <div class="wrapper">
+        <h1>Download our new <br><span>Productivity Wallpapers</span>!</h1>
+        <a href="wall ">TAKE A LOOK</a>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="left">
+        <img src="res/logoBig.png" alt="Join now and get organized with Weekz">
+        <h1>Weekz</h1>
+        <p>Copyright © Weekz 2017 <br>
+          All rights reserved.</p>
+      </div>
+      <div class="right">
+        <a href="index">HOME</a>
+        <a href="signup">JOIN BETA</a>
+        <a href="signin">SIGN IN</a>
 
-          <a href="signin">CONTACT</a>
-        </div>
+        <a href="contact">CONTACT</a>
       </div>
     </div>
 

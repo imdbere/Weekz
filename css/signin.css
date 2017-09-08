@@ -5,22 +5,10 @@ body {
 
 /* ----- Bar -----*/
 
-div.bar a.link {
-  position: relative;
-  float: right;
-  margin: 15px 60px 15px 0px;
-  padding: 5px 20px 5px 20px;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
+div.bigbar a.link.btn-border {
   color: white;
   background: #3FA8F4;
-  border-radius: 15px;
-  transition: 0.3s;
 }
-
-div.bar a:hover {background: #FF2727}
 
 /* ----- Background -----*/
 

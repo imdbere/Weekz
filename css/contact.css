@@ -1,6 +1,6 @@
 /* ----- Bar -----*/
 
-div.bar a.link:nth-of-type(2) {
+div.bigbar a.link:nth-of-type(2) {
   margin: 15px 60px 15px 0px;
   background: #9013FE;
   padding: 5px 20px 5px 20px;
@@ -8,7 +8,7 @@ div.bar a.link:nth-of-type(2) {
   color: white;
 }
 
-div.bar a.link {
+div.bigbar a.link {
   display: none;
   position: relative;
   float: right;
@@ -21,7 +21,7 @@ div.bar a.link {
   transition: 0.3s;
 }
 
-div.bar a#barDash {
+div.bigbar a#barDash {
   display: none;
   margin: 15px 60px 15px 0px;
   background: #9013FE;
@@ -30,14 +30,14 @@ div.bar a#barDash {
   color: white;
 }
 
-div.bar a#barDash p {
+div.bigbar a#barDash p {
   position: relative;
   display: inline-block;
   top: 3px;
   margin-left: 5px;
 }
 
-div.bar a#barDash img {
+div.bigbar a#barDash img {
   position: relative;
   display: inline-block;
   width: 25px;
