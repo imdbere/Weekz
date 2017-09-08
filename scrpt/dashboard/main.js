@@ -72,7 +72,9 @@ addLoggedInHandler(function (user) {
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
     } 
-    scrollToCurrentDay();
+    if (initialWeekOffset == 0)
+        markCurrentDay();
+    
     changeWeek(initialWeekOffset);
 });
 
@@ -208,16 +210,19 @@ function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-function scrollToCurrentDay()
+function markCurrentDay()
 {
     var date = new Date();
-    var day = date.getDay() - 1;
+    var day = date.getDay();
     if (day == -1)
         return;
 
     var lists = [monList, tueList, wedList, thuList, friList, satList];
-    var dayList = lists[day];
+    var dayList = lists[day - 1];
     scrollToElement(dayList);
+
+    var h2 = document.getElementById("date" + day);
+    h2.classList.add("h2-highlight");
 }
 
 function scrollToElement(elem)
