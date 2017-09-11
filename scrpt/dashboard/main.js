@@ -54,6 +54,9 @@ var thuList = document.getElementById('thuList');
 var friList = document.getElementById('friList');
 var satList = document.getElementById('satList');
 
+Element.prototype.documentOffsetTop = function () {
+    return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+};
 
 addLoggedInHandler(function (user) {
 
@@ -69,6 +72,8 @@ addLoggedInHandler(function (user) {
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
     } 
+    if (initialWeekOffset == 0)
+        markCurrentDay();
     
     changeWeek(initialWeekOffset);
 });
@@ -83,6 +88,8 @@ function changeWeek (offset)
     currentlySelectedWeek = currentWeek; //Experimental
     dataRefSelectedWeek = firebase.database().ref().child('users').child(userId).child('weeks').child(currentWeek.getWeekID());
     loadAndAddTasks(currentWeek);
+
+    //wedList.scrollIntoView();
 }
 
 function addGlobalEventListeners() {
@@ -130,12 +137,18 @@ function addGlobalEventListeners() {
     }
 
     var taskLists = document.querySelectorAll('.taskList');
-    taskLists.forEach(function (item)
+    for (var i = 0; i < taskLists.length; i++) {
+        var item = taskLists[i];
+        item.ondragover = enterDrag;
+        item.ondragleave = leftDrag;
+        item.ondrop = elementDropped;
+    }
+    /*taskLists.forEach(function (item)
     {
         item.ondragover = enterDrag;
         item.ondragleave = leftDrag;
         item.ondrop = elementDropped;
-    });
+    });*/
     // Close New Task Menu
     closeBtn.addEventListener('click', hideAddMenu);
 
@@ -196,3 +209,24 @@ function showDetail() {
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 };
+
+function markCurrentDay()
+{
+    var date = new Date();
+    var day = date.getDay();
+    if (day == -1)
+        return;
+
+    var lists = [monList, tueList, wedList, thuList, friList, satList];
+    var dayList = lists[day - 1];
+    scrollToElement(dayList);
+
+    var h2 = document.getElementById("date" + day);
+    h2.classList.add("h2-highlight");
+}
+
+function scrollToElement(elem)
+{
+    var top = elem.documentOffsetTop() - ( window.innerHeight / 2 );
+    window.scrollTo( 0, top );
+}
