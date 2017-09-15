@@ -219,7 +219,8 @@ function markCurrentDay()
 
     var lists = [monList, tueList, wedList, thuList, friList, satList];
     var dayList = lists[day - 1];
-    scrollToElement(dayList);
+    if (isMobile)
+        scrollToElement(dayList);
 
     var h2 = document.getElementById("date" + day);
     h2.classList.add("h2-highlight");
