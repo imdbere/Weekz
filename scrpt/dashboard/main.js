@@ -72,9 +72,7 @@ addLoggedInHandler(function (user) {
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
     } 
-    if (initialWeekOffset == 0)
-        markCurrentDay();
-    
+
     changeWeek(initialWeekOffset);
 });
 
@@ -82,6 +80,7 @@ function changeWeek (offset)
 {
     history.pushState(null, null, '#' + offset);
     
+    markCurrentDay(offset == 0);
     //location.replace("#" + offset); 
     weekOffset = offset;
     var currentWeek = new Week(offset);
@@ -210,7 +209,7 @@ function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-function markCurrentDay()
+function markCurrentDay(mark)
 {
     var date = new Date();
     var day = date.getDay();
@@ -219,10 +218,14 @@ function markCurrentDay()
 
     var lists = [monList, tueList, wedList, thuList, friList, satList];
     var dayList = lists[day - 1];
-    scrollToElement(dayList);
+    if (isMobile)
+        scrollToElement(dayList);
 
     var h2 = document.getElementById("date" + day);
-    h2.classList.add("h2-highlight");
+    if (mark)
+        h2.classList.add("h2-highlight");
+    else
+        h2.classList.remove("h2-highlight");
 }
 
 function scrollToElement(elem)

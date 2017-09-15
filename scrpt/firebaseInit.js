@@ -5,6 +5,8 @@ var userId;
 var notLoggedInHandler = [];
 var loggedInHandler = [];
 
+var isMobile = window.matchMedia("max-width: 780px").matches;
+
 function addNotLoggedInHandler(handler) {
     notLoggedInHandler.push(handler);
 }
