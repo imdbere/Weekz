@@ -264,6 +264,10 @@ div.text2 h1 {
   margin: auto;
 }
 
+div.feature2 div.text2 a {
+  display: none;
+}
+
 div.feature h1 span:first-of-type {color: #FF514C}
 div.feature h1 span:last-of-type {color: #3FA8F4}
 

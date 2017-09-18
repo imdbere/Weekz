@@ -103,14 +103,42 @@ function toggleContext() {
 
 //Toggle checkbox
 function toggleTaskDone() {
+    var counterDiv = document.getElementById('counterContainer');
+    var counterCheck = document.getElementById('check');
+
     var task = this.parentNode;
     var thisList = task.parentNode;
-    console.log(thisList);
+
     var id = task.id;
     var taskText = task.getElementsByTagName('p')[0];
-    console.log(taskText);
+
     var status = dataRefTasks.child(id).once('value').then(function(checked) {
     var value = checked.val().checked;
+    if (thisList.id == 'bubbleList') {
+      if (value == true) {
+        var counterValue = document.getElementById('counterValue');
+        var count = parseInt(counterValue.innerText);
+        if (count == 0) {
+          counterDiv.style.background = 'red';
+          counterValue.style.display = 'block';
+          counterCheck.style.display = 'none';
+        }
+        count++;
+        counterValue.innerText = count;
+      } else {
+        var counterValue = document.getElementById('counterValue');
+        var count = parseInt(counterValue.innerText);
+        if (count != 0) {
+          count--;
+        }
+        if (count == 0) {
+          counterDiv.style.background = '#39B44A';
+          counterValue.style.display = 'none';
+          counterCheck.style.display = 'block';
+        }
+        counterValue.innerText = count;
+      }
+    }
     taskText.classList.toggle('toggle');
     var update = dataRefTasks.child(id).update({checked: !value});
   });
@@ -118,6 +146,9 @@ function toggleTaskDone() {
 
 //Deletes Task
 function removeTask() {
+    var counterDiv = document.getElementById('counterContainer');
+    var counterCheck = document.getElementById('check');
+
     var task = this.parentNode.parentNode;
     var id = task.id;
     var projectId = task.projectId;
@@ -130,6 +161,20 @@ function removeTask() {
         id = this.parentNode.id;
         task = this.parentNode;
         list = task.parentNode;
+
+        var counterValue = document.getElementById('counterValue');
+        var count = parseInt(counterValue.innerText);
+        if (count != 0) {
+          console.log(count);
+          count--;
+        }
+        if (count == 0) {
+          console.log(count);
+          counterDiv.style.background = '#39B44A';
+          counterValue.style.display = 'none';
+          counterCheck.style.display = 'block';
+        }
+        counterValue.innerText = count;
     }
 
     dataRefTasks.child(id).remove();

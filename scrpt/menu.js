@@ -50,14 +50,15 @@ function linkMenuEventListener() {
   });
   // Open Menu
   open.addEventListener('click', function () {
-    back.style.zIndex = "2000";
-    back.style.opacity = "1"
+    back.style.zIndex = "5000";
 
-    nameLabel.style.transition = "0.8s";
-    mailLabel.style.transition = "1s";
-
-    menu.classList.add("width");
     sleep(150).then(() => {
+      back.style.opacity = "1"
+
+      nameLabel.style.transition = "0.8s";
+      mailLabel.style.transition = "1s";
+
+      menu.classList.add("width");
       nameLabel.style.opacity = "1";
       mailLabel.style.opacity = "1";
     });

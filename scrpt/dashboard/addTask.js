@@ -101,11 +101,25 @@ function createToDoItem() {
   } else {
     toDoValue.style.border = "none";
 
+    var counterDiv = document.getElementById('counterContainer');
+    var counterCheck = document.getElementById('check');
+
     var li = generateBubbleTask(toDoValue.value, false);
     var taskKey = dataRefTasks.push().key;
     li.id = taskKey;
 
-    var newTask = dataRefTasks.child(taskKey).update({taskName: toDoValue.value});
+    var newTask = dataRefTasks.child(taskKey).update({taskName: toDoValue.value, checked: false});
+
+    var counterValue = document.getElementById('counterValue');
+    counterDiv.style.display = 'block';
+    var count = parseInt(counterValue.innerText);
+    if (count == 0) {
+      counterDiv.style.background = 'red';
+      counterValue.style.display = 'block';
+      counterCheck.style.display = 'none';
+    }
+    count++;
+    counterValue.innerText = count;
 
     var newEntry = dataRefSelectedWeek.child('bubbleList').child(taskKey).set("");
 

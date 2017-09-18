@@ -56,10 +56,16 @@
     <div class="heading">
       <button type="button" id="previous"><div class="triangle noPointer"></div><p class="noPointer">PREVIOUS</p></button>
       <button type="button" id="newWeek"><p class="noPointer">NEXT</p><div class="triangle noPointer"></div></button>
-      <h1>Your <span>Week</span> <button type="button" id="showBubble">
-        <img src="res/toDoIconWhite.png" alt="">
-        <p>To Do</p>
-      </button></h1>
+      <h1>Your <span>Week</span>
+          <button type="button" id="showBubble">
+          <img src="res/toDoIconWhite.png">
+          <p>To Do</p>
+          <div class="counter" id="counterContainer">
+            <p id="counterValue">0</p>
+            <img id="check" src="res/check.png">
+          </div>
+        </button>
+      </h1>
       <div class="mobileBubble" id="showBubbleMobile">
         <p><span>To Do</span> List</p>
         <img src="res/toDoIcon.png" alt="toDo for the Week">
@@ -77,7 +83,7 @@
       </div>
       <div class="day" id="mon">
         <h1>M</h1>
-        <h2 id="date1">19.07.17</h2>
+        <h2 id="date1"></h2>
         <button type="button" class="addBtn" id="monAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="monList">
@@ -124,7 +130,7 @@
       </div><!--
   --><div class="day" id="tue">
         <h1>T</h1>
-        <h2 id="date2">19.07.17</h2>
+        <h2 id="date2"></h2>
         <button type="button" class="addBtn" id="tueAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="tueList"></ul>
@@ -132,7 +138,7 @@
       </div><!--
   --><div class="day" id="wed">
         <h1>W</h1>
-        <h2 id="date3">19.07.17</h2>
+        <h2 id="date3"></h2>
         <button type="button" class="addBtn" id="wedAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="wedList"></ul>
@@ -140,7 +146,7 @@
       </div><!--
   --><div class="day" id="thu">
         <h1>T</h1>
-        <h2 id="date4">19.07.17</h2>
+        <h2 id="date4"></h2>
         <button type="button" class="addBtn" id="thuAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="thuList"></ul>
@@ -156,7 +162,7 @@
       </div><!--
   --><div class="day" id="sat">
         <h1>S</h1>
-        <h2 id="date6">19.07.17</h2>
+        <h2 id="date6"></h2>
         <button type="button" class="addBtn" id="satAdd">+</button>
         <div class="hideScroll">
           <ul class="taskList" id="satList"></ul>
@@ -165,7 +171,7 @@
 
         <div class="sunday" id="sunDiv">
           <h1 id="openSunday">S</h1>
-          <h2 id="sunDate">03.09.17</h2>
+          <h2 id="sunDate"></h2>
           <button type="button" class="addBtn" id="sunAdd">+</button>
           <div class="hideScroll">
             <ul class="taskList" id="sunList"></ul>
