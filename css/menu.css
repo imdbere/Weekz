@@ -173,7 +173,7 @@ button#signOut:hover {background: #FF2727}
 /* ----- You -----*/
 
 div.you {
-  position: absolute;
+  position: fixed;
   top: 60px;
   right: 40px;
   width: 350px;
@@ -207,6 +207,7 @@ div.you img {
   width: 50px;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 div.you div {

@@ -122,9 +122,14 @@ function toggleTaskDone() {
           counterDiv.style.background = 'red';
           counterValue.style.display = 'block';
           counterCheck.style.display = 'none';
+
+          mobileCounterDiv.style.background = 'red';
+          mobileCounterValue.style.display = 'block';
+          mobileCounterCheck.style.display = 'none';
         }
         count++;
         counterValue.innerText = count;
+        mobileCounterValue.innerText = count;
       } else {
         var counterValue = document.getElementById('counterValue');
         var count = parseInt(counterValue.innerText);
@@ -135,8 +140,13 @@ function toggleTaskDone() {
           counterDiv.style.background = '#39B44A';
           counterValue.style.display = 'none';
           counterCheck.style.display = 'block';
+
+          mobileCounterDiv.style.background = '#39B44A';
+          mobileCounterValue.style.display = 'none';
+          mobileCounterCheck.style.display = 'block';
         }
         counterValue.innerText = count;
+        mobileCounterValue.innerText = count;
       }
     }
     taskText.classList.toggle('toggle');
@@ -165,16 +175,19 @@ function removeTask() {
         var counterValue = document.getElementById('counterValue');
         var count = parseInt(counterValue.innerText);
         if (count != 0) {
-          console.log(count);
           count--;
         }
         if (count == 0) {
-          console.log(count);
           counterDiv.style.background = '#39B44A';
           counterValue.style.display = 'none';
           counterCheck.style.display = 'block';
+
+          mobileCounterDiv.style.background = '#39B44A';
+          mobileCounterValue.style.display = 'none';
+          mobileCounterCheck.style.display = 'block';
         }
         counterValue.innerText = count;
+        mobileCounterValue.innerText = count;
     }
 
     dataRefTasks.child(id).remove();
@@ -187,7 +200,7 @@ function removeTask() {
 
 function toggleProject() {
   var task = this.parentNode;
-  console.log(task);
+  
   var projectMenu = task.getElementsByClassName('taskProject')[0];
 
   if (projectMenu.style.display == 'none') {

@@ -34,6 +34,7 @@
         <img src="res/logoSmall.png" alt="Welcome to the Weekz Dashboard">
       </a>
       <button type="button" id="openMenuBtn"></button>
+      <button type="button" id="openYouBtn"></button>
     </div>
 
     <div class="heading">
@@ -106,15 +107,25 @@
       </div>
     </div>
 
-
     <div class="menu" id="background">
       <div class="content" id="menu">
-        <button type="button" id="closeMenuBtn">X</button>
-        <h1 id="userName">Loading</h1>
-        <h2 id="userEmail">...</h2>
+        <div class="menuHead">
+          <button type="button" id="closeMenuBtn"><img src="res/close.png"></button>
+          <img src="res/nav.png" alt="Navigate Weekz">
+          <h1>Navigate</h1>
+        </div>
         <a href="projects.html"><img src="res/projects.png" alt="Access your Projects">PROJECTS</a>
         <a href="dashboard.html"><img src="res/dashboard.png" alt="See your Dashboard">DASHBOARD</a>
         <button type="button" class="menuBtn" id="verify">VERIFY EMAIL</button>
+        <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
+      </div>
+    </div>
+
+    <div class="you" id="youDiv" style="display: none">
+      <img src="res/profile.png" alt="This Is You">
+      <h2 id="userName">Loading</h2>
+      <p id="userEmail">...</p>
+      <div>
         <button type="button" class="menuBtn" id="signOut">SIGN OUT</button>
       </div>
     </div>

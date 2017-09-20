@@ -347,6 +347,46 @@ div.mobileBubble {
   margin: auto;
 }
 
+div.mobileBubble div.mobileCounter {
+  position: relative;
+  display: inline-block;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: none;
+  float: right;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin-right: 10px;
+}
+
+div.mobileBubble div.mobileCounter p {
+  position: relative;
+  display: block;
+  top: 50%;
+  left: 0;
+  min-width: 28px;
+  text-align: center;
+  margin: auto;
+  transform: translate(0, -50%);
+  font-size: 16px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+}
+
+div.mobileBubble div.mobileCounter img {
+  position: relative;
+  display: none;
+  width: 22px;
+  height: auto;
+  top: 50%;
+  right: auto;
+  float: none;
+  transform: translate(0, -50%);
+  margin: auto;
+}
+
 div.mobileBubble p {
   position: absolute;
   display: inline-block;

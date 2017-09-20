@@ -38,6 +38,16 @@ var toDoAddBtn = document.getElementById('bubbleAdd');
 var toDoList = document.getElementById('bubbleList');
 var showBubbleMobile = document.getElementById('showBubbleMobile');
 
+
+// ToDo Counter Elements
+var counter = document.getElementById('counterValue');
+var counterDiv = document.getElementById('counterContainer');
+var counterCheck = document.getElementById('check');
+
+var mobileCounter = document.getElementById('mobileCounterValue');
+var mobileCounterDiv = document.getElementById('mobileCounter');
+var mobileCounterCheck = document.getElementById('mobileCheck');
+
 // Define Colors
 var monColor = "#FF514C";
 var tueColor = "#E5E500";
@@ -161,6 +171,7 @@ function addGlobalEventListeners() {
       });
 
       showBubbleMobile.addEventListener('click', function() {
+        bubble.style.display = "block";
         if (bubble.style.height == "0px") {
           bubble.style.height = "335px";
           console.log('opened');

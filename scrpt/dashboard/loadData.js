@@ -16,9 +16,6 @@ function loadAndAddTasks(week) {
 
       var addDay = day.key;
       var rightList = document.getElementById(addDay);
-      var counter = document.getElementById('counterValue');
-      var counterDiv = document.getElementById('counterContainer');
-      var counterCheck = document.getElementById('check');
 
       day.forEach(function (taskid) {
         var task = taskid.key;
@@ -34,10 +31,19 @@ function loadAndAddTasks(week) {
               counterDiv.style.background = "red";
               counterCheck.style.display = "none";
               counterValue.style.display = "block";
+
+              mobileCounter.innerText = toDoCount;
+              mobileCounterDiv.style.background = "red";
+              mobileCounterCheck.style.display = "none";
+              mobileCounterValue.style.display = "block";
             } else if (toDoCount == 0) {
               counterDiv.style.background = "#39B44A";
               counterCheck.style.display = "block";
               counterValue.style.display = "none";
+
+              mobileCounterDiv.style.background = "#39B44A";
+              mobileCounterCheck.style.display = "block";
+              mobileCounterValue.style.display = "none";
             }
             var li = generateBubbleTask(data.taskName, data.checked);
             li.id = task;
