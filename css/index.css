@@ -665,6 +665,13 @@ div.right a:last-of-type {
     margin-left: 0px;
     margin-bottom: 20px;
     margin-top: 20px;
+    font-size: 1.15em
+  }
+
+  div.text h1 span {
+    margin-left: 0px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 1.4em
   }
 
