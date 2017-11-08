@@ -465,7 +465,7 @@ div.day h1 {
 }
 
 div#mon h1 {color: #FF514C}
-div#tue h1 {color: #E5E500}
+div#tue h1 {color: #FFE44F}
 div#wed h1 {color: #F6921E}
 div#thu h1 {color: #7AC843}
 div#fri h1 {color: #3FA8F4}
@@ -521,7 +521,7 @@ div.day button.addBtn {
 }
 
 div#mon button {background: #FF514C; /*box-shadow: 0px 0px 10px #FF514C;*/}
-div#tue button {background: #E5E500; /*box-shadow: 0px 0px 10px #E5E500;*/}
+div#tue button {background: #FFE44F; /*box-shadow: 0px 0px 10px #E5E500;*/}
 div#wed button {background: #F6921E; /*box-shadow: 0px 0px 10px #F6921E;*/}
 div#thu button {background: #7AC843; /*box-shadow: 0px 0px 10px #7AC843;*/}
 div#fri button {background: #3FA8F4; /*box-shadow: 0px 0px 10px #3FA8F4;*/}
@@ -913,13 +913,14 @@ button#moveSat:hover {color: #662D90}
 
 .sunday {
   position: absolute;
-  display: none;
+  display: block;
   height: 55px;
   width: 55px;
   bottom: 0;
   right: 0;
   background: #F1F1F1;
   transition: 0.5s;
+  z-index: 10000;
 }
 
 div.sunday h1 {

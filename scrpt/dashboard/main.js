@@ -50,7 +50,7 @@ var mobileCounterCheck = document.getElementById('mobileCheck');
 
 // Define Colors
 var monColor = "#FF514C";
-var tueColor = "#E5E500";
+var tueColor = "#FFE44F";
 var wedColor = "#F6921E";
 var thuColor = "#7AC843";
 var friColor = "#3FA8F4";
@@ -77,7 +77,7 @@ addLoggedInHandler(function (user) {
     initFeedback();
 
     var initialWeekOffset = 0;
-    var t =window.location.pathname;
+    var t = window.location.pathname;
     if (window.location.hash != "")
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
@@ -227,9 +227,10 @@ function markCurrentDay(mark)
     // if (day == -1)
     //     return;
     //
-    // var lists = [monList, tueList, wedList, thuList, friList, satList];
+    // var lists = [monList, tueList, wedList, thuList, friList, satList, sunList];
     // var dayList = lists[day - 1];
-    // if (isMobile)
+    //
+    // if (isMobile && dayList != sunList)
     //     scrollToElement(dayList);
     //
     // var h2 = document.getElementById("date" + day);
