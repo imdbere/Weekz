@@ -38,9 +38,19 @@ var toDoAddBtn = document.getElementById('bubbleAdd');
 var toDoList = document.getElementById('bubbleList');
 var showBubbleMobile = document.getElementById('showBubbleMobile');
 
+
+// ToDo Counter Elements
+var counter = document.getElementById('counterValue');
+var counterDiv = document.getElementById('counterContainer');
+var counterCheck = document.getElementById('check');
+
+var mobileCounter = document.getElementById('mobileCounterValue');
+var mobileCounterDiv = document.getElementById('mobileCounter');
+var mobileCounterCheck = document.getElementById('mobileCheck');
+
 // Define Colors
 var monColor = "#FF514C";
-var tueColor = "#E5E500";
+var tueColor = "#FFE44F";
 var wedColor = "#F6921E";
 var thuColor = "#7AC843";
 var friColor = "#3FA8F4";
@@ -67,11 +77,11 @@ addLoggedInHandler(function (user) {
     initFeedback();
 
     var initialWeekOffset = 0;
-    var t =window.location.pathname;
+    var t = window.location.pathname;
     if (window.location.hash != "")
     {
         initialWeekOffset = parseInt(window.location.hash.substr(1));
-    } 
+    }
 
     changeWeek(initialWeekOffset);
 });
@@ -79,9 +89,9 @@ addLoggedInHandler(function (user) {
 function changeWeek (offset)
 {
     history.pushState(null, null, '#' + offset);
-    
+
     markCurrentDay(offset == 0);
-    //location.replace("#" + offset); 
+    //location.replace("#" + offset);
     weekOffset = offset;
     var currentWeek = new Week(offset);
     currentlySelectedWeek = currentWeek; //Experimental
@@ -161,6 +171,7 @@ function addGlobalEventListeners() {
       });
 
       showBubbleMobile.addEventListener('click', function() {
+        bubble.style.display = "block";
         if (bubble.style.height == "0px") {
           bubble.style.height = "335px";
           console.log('opened');
@@ -211,21 +222,22 @@ function sleep (time) {
 
 function markCurrentDay(mark)
 {
-    var date = new Date();
-    var day = date.getDay();
-    if (day == -1)
-        return;
-
-    var lists = [monList, tueList, wedList, thuList, friList, satList];
-    var dayList = lists[day - 1];
-    if (isMobile)
-        scrollToElement(dayList);
-
-    var h2 = document.getElementById("date" + day);
-    if (mark)
-        h2.classList.add("h2-highlight");
-    else
-        h2.classList.remove("h2-highlight");
+    // var date = new Date();
+    // var day = date.getDay();
+    // if (day == -1)
+    //     return;
+    //
+    // var lists = [monList, tueList, wedList, thuList, friList, satList, sunList];
+    // var dayList = lists[day - 1];
+    //
+    // if (isMobile && dayList != sunList)
+    //     scrollToElement(dayList);
+    //
+    // var h2 = document.getElementById("date" + day);
+    // if (mark)
+    //     h2.classList.add("h2-highlight");
+    // else
+    //     h2.classList.remove("h2-highlight");
 }
 
 function scrollToElement(elem)

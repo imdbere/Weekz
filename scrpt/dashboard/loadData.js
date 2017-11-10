@@ -8,6 +8,8 @@ function loadAndAddTasks(week) {
   NProgress.start();
   NProgress.configure({ minimum: 0.1 });
 
+  var toDoCount = 0;
+
   // Retrieving Tasks and appending them to Lists
   dataRefSelectedWeek.once('value', function (week) {
     week.forEach(function (day) {
@@ -21,6 +23,28 @@ function loadAndAddTasks(week) {
         dataRefTasks.child(task).once('value').then( function(snap) {
           var data = snap.val();
           if (day.key == "bubbleList") {
+            counterDiv.style.display = "block";
+
+            if (data.checked == false) {
+              toDoCount++;
+              counter.innerText = toDoCount;
+              counterDiv.style.background = "red";
+              counterCheck.style.display = "none";
+              counterValue.style.display = "block";
+
+              mobileCounter.innerText = toDoCount;
+              mobileCounterDiv.style.background = "red";
+              mobileCounterCheck.style.display = "none";
+              mobileCounterValue.style.display = "block";
+            } else if (toDoCount == 0) {
+              counterDiv.style.background = "#39B44A";
+              counterCheck.style.display = "block";
+              counterValue.style.display = "none";
+
+              mobileCounterDiv.style.background = "#39B44A";
+              mobileCounterCheck.style.display = "block";
+              mobileCounterValue.style.display = "none";
+            }
             var li = generateBubbleTask(data.taskName, data.checked);
             li.id = task;
             rightList.appendChild(li);

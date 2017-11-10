@@ -42,7 +42,7 @@ div.bar button {
   top: 50%;
   transform: translate(0,-50%);
   outline: none;
-  margin-right: 20px;
+  margin-right: 30px;
   cursor: pointer;
 }
 
@@ -237,25 +237,33 @@ button.addProject {
   overflow: hidden;
   border: none;
   outline: none;
-  color: #A0A0A0;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button.addProject:hover
 {
-  color: #212121;
+  opacity: 0.8;
 }
 
 button.addProject p {
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 80px;
+  font-size: 50px;
+  background: #FF514C;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  color: white;
+  line-height: 60px;
+  margin: auto;
 }
 
 button.addProject h3 {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 22px;
+  margin-top: 20px;
 }
 
 button.mobileAdd {

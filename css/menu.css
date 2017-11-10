@@ -1,4 +1,21 @@
 
+/* ----- YouBtn -----*/
+
+div.bar button#openYouBtn {
+  position: relative;
+  display: inline-block;
+  float: right;
+  height: 28px;
+  width: 28px;
+  background: url(../res/profile.png);
+  background-size: cover;
+  border: none;
+  top: 50%;
+  transform: translate(0,-50%);
+  outline: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
 
 /* ----- Menu -----*/
 
@@ -13,6 +30,36 @@ div.menu {
   background: rgba(40, 40, 40, 0.8);
   transition: 0.5s;
   z-index: -1000;
+}
+
+div.menuHead {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: grey;
+  overflow: auto;
+  background: #FF514C;
+}
+
+div.menuHead img {
+  position: relative;
+  display: block;
+  width: 50px;
+  margin-top: 50px;
+  margin: auto;
+}
+
+div.menuHead h1 {
+  position: relative;
+  display: block;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 10px;
+  transition: 0.8s;
+  margin-bottom: 40px;
+  color: white;
+  text-align: center;
 }
 
 div.menu div.content {
@@ -37,11 +84,11 @@ div.menu button {
   cursor: pointer;
 }
 
-div.menu button#closeMenuBtn {
+button#closeMenuBtn {
   position: relative;
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: none;
   border-radius: 25px;
   outline: none;
@@ -49,33 +96,22 @@ div.menu button#closeMenuBtn {
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 16px;
-  color: white;
-  background: #FF514C;
+  color: #FF514C;
+  background: white;
   transition: 0.3s;
 }
 
-div.menu button#closeMenuBtn:hover {background: #FF2727}
-
-div.menu div.content h1 {
+button#closeMenuBtn img {
   position: relative;
   display: block;
-  text-align: center;
-  font-family: 'Roboto';
-  font-weight: 700;
-  font-size: 26px;
-  margin-top: 50px;
-  transition: 0.8s;
+  width: 12px;
+  height: 12px;
+
 }
 
-div.menu div.content h2 {
-  position: relative;
-  display: block;
-  text-align: center;
-  font-family: 'Roboto';
-  font-weight: 300;
-  font-size: 18px;
-  transition: 1s;
-}
+button#closeMenuBtn:hover {background: #F1F1F1}
+
+
 
 div.menu div.content a {
   position: relative;
@@ -101,9 +137,9 @@ a#settingsLink {
   margin-top: 30px;
 }
 
-div.menu div.content a:first-of-type {margin-top: 60px}
+div.menu div.content a:first-of-type {margin-top: 30px}
 
-div.menu button.menuBtn {
+button.menuBtn {
   position: absolute;
   display: block;
   bottom: 0;
@@ -123,7 +159,7 @@ div.menu button.menuBtn {
   transition: 0.3s;
 }
 
-div.menu button#signOut {
+button#signOut {
   margin-bottom: 40px;
 }
 
@@ -131,4 +167,84 @@ div.menu button#verify {
   margin-bottom: 100px;
 }
 
-div.menu button#signOut:hover {background: #FF2727}
+button#signOut:hover {background: #FF2727}
+
+
+/* ----- You -----*/
+
+div.you {
+  position: fixed;
+  top: 60px;
+  right: 40px;
+  width: 350px;
+  background: white;
+  box-shadow: 0px 0px 10px #B4B4B4;
+  z-index: 2000;
+  text-align: center;
+}
+
+div.you::before {
+  content: "";
+  top: -15px;
+  right: 54px;
+  position: absolute;
+  border: 12px solid;
+  border-color: transparent white white transparent;
+}
+
+div.you::after {
+  content: "";
+  top: -15px;
+  right: 30px;
+  position: absolute;
+  border: 12px solid;
+  border-color: transparent transparent white white;
+}
+
+div.you img {
+  position: relative;
+  display: block;
+  width: 50px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+div.you div {
+  position: relative;
+  display: block;
+  background: #F1F1F1;
+  width: 100%;
+  height: auto;
+  padding: 20px 0px 20px 0px;
+  margin-top: 25px;
+}
+
+div.you button#signOut {
+  position: relative;
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-device-width: 780px) {
+
+  div.you {
+    right: 0;
+    left: 0;
+    top: 65px;
+    margin: auto;
+    width: 90%;
+  }
+
+  div.you::before {
+    right: 74px;
+  }
+
+  div.you::after {
+    right: 50px;
+  }
+
+  div.you img {
+    margin-bottom: 10px;
+  }
+}

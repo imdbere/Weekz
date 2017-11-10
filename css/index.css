@@ -99,7 +99,7 @@ div.contact {
   right: 50px;
   z-index: 5000;
   background: #F1F1F1;
-  border-radius: 10px;
+  border-radius: 35px;
   cursor: pointer;
   /*box-shadow: 0px 0px 10px #868686;*/
 }
@@ -108,10 +108,10 @@ div.contact div.icon {
   position: relative;
   display: inline-block;
   float: right;
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   background: #3FA8F4;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 div.icon img {
@@ -127,7 +127,7 @@ div.contact p {
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 18px;
-  margin: 16px 20px 0px 20px;
+  margin: 18px 20px 0px 25px;
   transition: 0.5s;
 }
 
@@ -262,6 +262,10 @@ div.text2 h1 {
   font-weight: 500;
   font-size: 28px;
   margin: auto;
+}
+
+div.feature2 div.text2 a {
+  display: none;
 }
 
 div.feature h1 span:first-of-type {color: #FF514C}
@@ -612,7 +616,7 @@ div.right a:last-of-type {
     right: 10px;
     z-index: 5000;
     background: #F1F1F1;
-    border-radius: 10px;
+    border-radius: 35px;
     cursor: pointer;
   }
 
@@ -658,6 +662,13 @@ div.right a:last-of-type {
   }
 
   div.text h1 {
+    margin-left: 0px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 1.15em
+  }
+
+  div.text h1 span {
     margin-left: 0px;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -740,7 +751,7 @@ div.right a:last-of-type {
     top: 0px;
     transform: translate(0, 0);
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   div.feature2 a {
